@@ -1,0 +1,521 @@
+{
+  "reality_checks": [
+    {
+      "gap_title": "End-to-End Domain Data Pipeline (Raw Docs to Training Data)",
+      "original_score": 58.43,
+      "competitors_found": [
+        {
+          "name": "NVIDIA NeMo Curator",
+          "type": "first-party",
+          "maturity": "GA",
+          "key_metric": "Processes trillion-token datasets; 7% downstream model improvement; integrated Nemotron-CC pipeline",
+          "backed_by": "NVIDIA",
+          "launch_date": "2024 (GA), major 2025 updates"
+        },
+        {
+          "name": "Data-Juicer 2.0 (Alibaba)",
+          "type": "oss",
+          "maturity": "GA",
+          "key_metric": "200+ operators; processes 70B samples in 2 hours on 50 Ray nodes; multi-modal support",
+          "backed_by": "Alibaba Cloud PAI, Anyscale, NVIDIA",
+          "launch_date": "2023 (v1), Jan 2025 (v2.0)"
+        },
+        {
+          "name": "Unstructured.io",
+          "type": "startup",
+          "maturity": "GA",
+          "key_metric": "65+ file types, 30+ connectors, 1250+ pipelines; enterprise-grade platform",
+          "backed_by": "VC-funded (Series B)",
+          "launch_date": "2022 (OSS), enterprise platform GA"
+        },
+        {
+          "name": "Prem Studio",
+          "type": "startup",
+          "maturity": "GA",
+          "key_metric": "End-to-end SLM pipeline: upload docs -> synthetic data -> fine-tune -> deploy; 30+ base models; AWS Marketplace",
+          "backed_by": "VC-funded",
+          "launch_date": "2024-2025"
+        },
+        {
+          "name": "Red Hat SDG Hub",
+          "type": "enterprise",
+          "maturity": "GA",
+          "key_metric": "YAML-based orchestration for synthetic data workflows; open source toolkit",
+          "backed_by": "Red Hat/IBM",
+          "launch_date": "2025"
+        },
+        {
+          "name": "OpenDCAI DataFlow",
+          "type": "oss",
+          "maturity": "beta",
+          "key_metric": "Text pipeline for QA pair mining from plain text; Knowledge Base Cleaning Pipeline for PDFs/tables/Word docs",
+          "backed_by": "Open source community",
+          "launch_date": "2024"
+        },
+        {
+          "name": "Hugging Face DataTrove",
+          "type": "oss",
+          "maturity": "GA",
+          "key_metric": "Data filtering and deduplication library; collaborating with NVIDIA on NeMo Curator integration",
+          "backed_by": "Hugging Face",
+          "launch_date": "2024"
+        }
+      ],
+      "first_party_fix_status": "GA",
+      "first_party_details": "NVIDIA NeMo Curator is a fully GA, GPU-accelerated, open-source data curation framework covering text cleaning, filtering (30+ heuristic filters), deduplication, PII redaction, classification, and synthetic data generation. Alibaba's Data-Juicer 2.0 is another major first-party OSS offering with 200+ operators. Red Hat/IBM released SDG Hub. These collectively cover the entire raw-docs-to-training-data pipeline.",
+      "velocity": "rapid",
+      "solutions_shipped_6mo": "5/7",
+      "top_n_list_exists": true,
+      "top_n_source": "Multiple 'top LLM training data tools 2026' lists from Label Your Data, Kanerika, Deepchecks, etc.",
+      "github_repos_6mo": 15,
+      "oss_saturation": "crowded",
+      "reality_check_score": 58.43,
+      "first_party_modifier": -15,
+      "velocity_penalty": -10,
+      "saturation_penalty": -8,
+      "top_n_penalty": -3,
+      "adjusted_score": 22.43,
+      "verdict": "ABANDON",
+      "differentiation_angle": "The gap as stated is essentially solved. NeMo Curator + Data-Juicer cover raw-to-training at scale. Prem Studio specifically targets SLM end-to-end workflows including document upload to deployment. The only remaining niche might be a dead-simple no-code SLM-specific tool for non-ML teams, but Prem Studio already occupies that niche.",
+      "evidence_urls": [
+        "https://github.com/NVIDIA-NeMo/Curator",
+        "https://github.com/datajuicer/data-juicer",
+        "https://unstructured.io/",
+        "https://blog.premai.io/how-to-train-a-small-language-model-the-complete-guide/",
+        "https://developers.redhat.com/articles/2025/11/25/building-domain-specific-llms-synthetic-data-and-sdg-hub",
+        "https://github.com/OpenDCAI/DataFlow",
+        "https://developer.nvidia.com/blog/curating-custom-datasets-for-llm-training-with-nvidia-nemo-curator/"
+      ]
+    },
+    {
+      "gap_title": "MCP Context Window Optimization Middleware",
+      "original_score": 57.0,
+      "competitors_found": [
+        {
+          "name": "Speakeasy Dynamic Toolsets / Gram",
+          "type": "startup",
+          "maturity": "GA",
+          "key_metric": "96-160x token reduction; progressive + semantic search discovery; 100% task success rate maintained",
+          "backed_by": "Speakeasy (VC-funded)",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Atlassian MCP Compressor",
+          "type": "enterprise",
+          "maturity": "GA",
+          "key_metric": "70-97% token reduction; replaces N tools with 2 wrapper tools; multiple compression levels",
+          "backed_by": "Atlassian Labs",
+          "launch_date": "2025"
+        },
+        {
+          "name": "mcp2cli",
+          "type": "oss",
+          "maturity": "beta",
+          "key_metric": "96-99% token reduction; converts MCP servers to CLI for on-demand discovery",
+          "backed_by": "Open source (Show HN)",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Context Mode",
+          "type": "oss",
+          "maturity": "beta",
+          "key_metric": "98% context window reduction; SQLite-backed session tracking; privacy-first",
+          "backed_by": "Open source",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Context Gateway",
+          "type": "oss",
+          "maturity": "pre-launch",
+          "key_metric": "Compresses agent context before LLM; Show HN from March 2026",
+          "backed_by": "Open source (Show HN)",
+          "launch_date": "March 2026"
+        },
+        {
+          "name": "Token Optimizer MCP Server",
+          "type": "oss",
+          "maturity": "beta",
+          "key_metric": "MCP server dedicated to token optimization strategies",
+          "backed_by": "Open source",
+          "launch_date": "2025"
+        },
+        {
+          "name": "MCP Safe Fetch",
+          "type": "oss",
+          "maturity": "beta",
+          "key_metric": "93% token cost reduction; injection vector stripping; Show HN",
+          "backed_by": "Open source (Show HN)",
+          "launch_date": "2026"
+        }
+      ],
+      "first_party_fix_status": "acknowledged",
+      "first_party_details": "Anthropic has acknowledged the problem via their 'Code Execution with MCP' blog post showing on-demand tool loading. The MCP spec (Nov 2025) added async operations and extensions. SEP-1576 is an open proposal to mitigate token bloat via schema deduplication. The Agentic AI Foundation (Linux Foundation) now governs MCP and may standardize solutions. Anthropic's Tool Search API enables programmatic tool discovery. However, no single first-party universal middleware solution has shipped.",
+      "velocity": "rapid",
+      "solutions_shipped_6mo": "7/7",
+      "top_n_list_exists": true,
+      "top_n_source": "The New Stack '10 strategies to reduce MCP token bloat'; multiple comparison articles",
+      "github_repos_6mo": 10,
+      "oss_saturation": "crowded",
+      "reality_check_score": 57.0,
+      "first_party_modifier": -8,
+      "velocity_penalty": -12,
+      "saturation_penalty": -10,
+      "top_n_penalty": -3,
+      "adjusted_score": 24.0,
+      "verdict": "ABANDON",
+      "differentiation_angle": "This space is exploding with solutions. Speakeasy's Dynamic Toolsets (GA, 160x reduction), Atlassian's MCP Compressor (enterprise-backed), and multiple OSS tools all solve this problem with 90-99% token reductions. The MCP spec itself is evolving to address this (SEP-1576). Any new entrant would face an already-crowded field of proven solutions from well-funded companies. The original thesis that 'no universal solution exists' is now false.",
+      "evidence_urls": [
+        "https://www.speakeasy.com/blog/how-we-reduced-token-usage-by-100x-dynamic-toolsets-v2",
+        "https://github.com/atlassian-labs/mcp-compressor/",
+        "https://github.com/mksglu/context-mode",
+        "https://jangwook.net/en/blog/en/mcp2cli-token-cost-optimization/",
+        "https://thenewstack.io/how-to-reduce-mcp-token-bloat/",
+        "https://github.com/modelcontextprotocol/modelcontextprotocol/issues/1576",
+        "https://www.anthropic.com/engineering/code-execution-with-mcp",
+        "https://news.ycombinator.com/item?id=47367526"
+      ]
+    },
+    {
+      "gap_title": "Unified Developer-First Security SDK for AI Agents",
+      "original_score": 56.1,
+      "competitors_found": [
+        {
+          "name": "Microsoft Foundry / Agent 365 Security",
+          "type": "first-party",
+          "maturity": "GA",
+          "key_metric": "Unified identity (Entra Agent ID) + guardrails + observability + compliance in one control plane",
+          "backed_by": "Microsoft",
+          "launch_date": "2025 (preview), expanding 2026"
+        },
+        {
+          "name": "Cisco Agentic Security (Duo + Secure Access)",
+          "type": "enterprise",
+          "maturity": "GA",
+          "key_metric": "Zero Trust for AI agents; MCP policy enforcement; intent-aware monitoring; identity governance",
+          "backed_by": "Cisco",
+          "launch_date": "March 2026"
+        },
+        {
+          "name": "Zenity",
+          "type": "startup",
+          "maturity": "GA",
+          "key_metric": "Unified agent visibility: discovery, ownership, access control, behavior monitoring across ecosystems",
+          "backed_by": "VC-funded",
+          "launch_date": "2023, expanded 2025-2026"
+        },
+        {
+          "name": "Noma Security",
+          "type": "startup",
+          "maturity": "GA",
+          "key_metric": "AI security platform: models + data pipelines + agents; runtime protection; prompt injection defense",
+          "backed_by": "VC-funded",
+          "launch_date": "2024-2025"
+        },
+        {
+          "name": "Aim Security",
+          "type": "startup",
+          "maturity": "GA",
+          "key_metric": "Unified AI security: AI-Firewall + AI-SPM + threat detection; runtime protection",
+          "backed_by": "VC-funded",
+          "launch_date": "2024-2025"
+        },
+        {
+          "name": "Alter (YC)",
+          "type": "startup",
+          "maturity": "beta",
+          "key_metric": "Parameter-level auth, granular policies, ephemeral credentials, CISO dashboard for agent workflows",
+          "backed_by": "Y Combinator",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Runtime (YC)",
+          "type": "startup",
+          "maturity": "beta",
+          "key_metric": "Sandboxed environments + session observability + configurable guardrails for coding agents",
+          "backed_by": "Y Combinator",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Strata Identity (Maverics)",
+          "type": "enterprise",
+          "maturity": "GA",
+          "key_metric": "Zero-trust identity governance for AI agents; every agent as first-class identity; real-time policy enforcement",
+          "backed_by": "VC-funded",
+          "launch_date": "July 2025"
+        },
+        {
+          "name": "NVIDIA NeMo Guardrails",
+          "type": "oss",
+          "maturity": "GA",
+          "key_metric": "Open-source programmable guardrails; 6 rail types; Colang DSL; proxy microservice architecture",
+          "backed_by": "NVIDIA",
+          "launch_date": "2023 (v1), major updates through 2025"
+        },
+        {
+          "name": "Guardrails AI",
+          "type": "oss",
+          "maturity": "GA",
+          "key_metric": "Open-source validation framework; integrates with NeMo Guardrails",
+          "backed_by": "VC-funded + OSS community",
+          "launch_date": "2023"
+        },
+        {
+          "name": "Superagent",
+          "type": "oss",
+          "maturity": "beta",
+          "key_metric": "Open-source framework for building agents with safety built into execution workflow",
+          "backed_by": "Open source",
+          "launch_date": "Dec 2025"
+        },
+        {
+          "name": "Protect AI (Palo Alto Networks)",
+          "type": "enterprise",
+          "maturity": "GA",
+          "key_metric": "AI pipeline security across development lifecycle; now part of Palo Alto Networks",
+          "backed_by": "Palo Alto Networks (acquired)",
+          "launch_date": "2022, acquired 2025"
+        }
+      ],
+      "first_party_fix_status": "GA",
+      "first_party_details": "Microsoft has shipped the most comprehensive first-party solution: Foundry Control Plane integrates Entra Agent ID (identity), guardrails, observability, and compliance governance in a unified platform. AWS Bedrock Guardrails provides native policy enforcement. Cisco launched full agentic security with Zero Trust + MCP policy enforcement in March 2026. The hyperscalers have moved aggressively into this space.",
+      "velocity": "rapid",
+      "solutions_shipped_6mo": "8/12",
+      "top_n_list_exists": true,
+      "top_n_source": "'8 Best AI Agent Security Tools for CISOs 2026' (Reco.ai), '8 Best AI Agent Guardrails Solutions 2026' (Galileo), 'Top 10 AI Security Tools for Enterprises 2026' (Reco.ai)",
+      "github_repos_6mo": 12,
+      "oss_saturation": "crowded",
+      "reality_check_score": 56.1,
+      "first_party_modifier": -15,
+      "velocity_penalty": -12,
+      "saturation_penalty": -8,
+      "top_n_penalty": -5,
+      "adjusted_score": 16.1,
+      "verdict": "ABANDON",
+      "differentiation_angle": "This gap is aggressively filled. Microsoft Foundry/Agent 365 already combines guardrails + identity + observability + compliance in one platform. Cisco launched full agentic security in March 2026. Multiple YC-backed startups (Alter, Runtime) plus established players (Zenity, Noma, Aim Security) offer unified solutions. The thesis that 'no single SDK combines these' is definitively false. Even a developer-first SDK angle faces NeMo Guardrails (OSS, programmable) and Guardrails AI.",
+      "evidence_urls": [
+        "https://www.reco.ai/compare/best-ai-agent-security-tools-for-cisos",
+        "https://galileo.ai/blog/best-ai-agent-guardrails-solutions",
+        "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m03/cisco-reimagines-security-for-the-agentic-workforce.html",
+        "https://www.helpnetsecurity.com/2025/07/18/strata-identity-orchestration-for-ai-agents/",
+        "https://zenity.io/",
+        "https://github.com/NVIDIA-NeMo/Guardrails",
+        "https://www.microsoft.com/en-us/security/blog/2026/03/20/secure-agentic-ai-end-to-end/"
+      ]
+    },
+    {
+      "gap_title": "AI-Native Cost Intelligence & Token Economics",
+      "original_score": 53.82,
+      "competitors_found": [
+        {
+          "name": "Portkey AI",
+          "type": "startup",
+          "maturity": "GA",
+          "key_metric": "AI Gateway + observability + cost attribution per user/team/workflow; 200+ LLM providers; guardrails included",
+          "backed_by": "VC-funded",
+          "launch_date": "2023, major updates 2025"
+        },
+        {
+          "name": "LiteLLM",
+          "type": "oss",
+          "maturity": "GA",
+          "key_metric": "Open-source LLM gateway; 100+ providers; real-time spend tracking per key/user/team/project; hard budget caps",
+          "backed_by": "OSS community + YC-backed (BerriAI)",
+          "launch_date": "2023"
+        },
+        {
+          "name": "Langfuse",
+          "type": "oss",
+          "maturity": "GA",
+          "key_metric": "Full-stack LLM observability with automatic cost calculation; tracing; prompt management",
+          "backed_by": "VC-funded",
+          "launch_date": "2023"
+        },
+        {
+          "name": "Binadox",
+          "type": "startup",
+          "maturity": "GA",
+          "key_metric": "Real-time token tracking across ChatGPT/Azure/Vertex/Bedrock; budget forecasting; automated optimization",
+          "backed_by": "VC-funded",
+          "launch_date": "2024-2025"
+        },
+        {
+          "name": "AgentCost",
+          "type": "oss",
+          "maturity": "beta",
+          "key_metric": "One-line wrapper tracks model, tokens, cost, latency per LLM call across providers",
+          "backed_by": "Open source",
+          "launch_date": "2025"
+        },
+        {
+          "name": "AgentBudget",
+          "type": "oss",
+          "maturity": "beta",
+          "key_metric": "Real-time cost enforcement for AI agents; budget caps and monitoring",
+          "backed_by": "Open source",
+          "launch_date": "2025"
+        },
+        {
+          "name": "CalcAI",
+          "type": "startup",
+          "maturity": "GA",
+          "key_metric": "AI cost & token calculator with 2026 ROI benchmarks",
+          "backed_by": "Independent",
+          "launch_date": "2025"
+        },
+        {
+          "name": "TrueFoundry",
+          "type": "startup",
+          "maturity": "GA",
+          "key_metric": "LLM cost tracking: observability, governance, optimization in one solution",
+          "backed_by": "VC-funded",
+          "launch_date": "2023"
+        },
+        {
+          "name": "CloudKeeper LensGPT",
+          "type": "enterprise",
+          "maturity": "GA",
+          "key_metric": "Agentic AI FinOps; natural-language queries on cloud financial data; actionable recommendations",
+          "backed_by": "CloudKeeper",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Kosmoy (LLM Cost Management)",
+          "type": "startup",
+          "maturity": "GA",
+          "key_metric": "Smart routing to reduce token spend; cost management platform",
+          "backed_by": "VC-funded",
+          "launch_date": "2025"
+        }
+      ],
+      "first_party_fix_status": "beta",
+      "first_party_details": "AWS, Azure, and GCP all provide native cost dashboards for their AI services. Azure AI Foundry includes cost tracking. AWS Bedrock has usage metrics. However, none provide workflow-level cost-to-business-ROI mapping specifically for agentic AI. The gap between infrastructure cost tracking and business ROI attribution remains partially open, but third-party tools like Portkey and LiteLLM have filled it substantially.",
+      "velocity": "rapid",
+      "solutions_shipped_6mo": "6/10",
+      "top_n_list_exists": true,
+      "top_n_source": "'Top 10 AI Agent Tools for FinOps 2026' (Amnic); 'LLM Cost Monitoring 2026' (AISuperior); Deloitte AI tokens report",
+      "github_repos_6mo": 8,
+      "oss_saturation": "crowded",
+      "reality_check_score": 53.82,
+      "first_party_modifier": -5,
+      "velocity_penalty": -10,
+      "saturation_penalty": -8,
+      "top_n_penalty": -5,
+      "adjusted_score": 25.82,
+      "verdict": "PIVOT",
+      "differentiation_angle": "Token-level cost tracking is saturated (Portkey, LiteLLM, Langfuse, etc. all do this well). However, the specific thesis of tying WORKFLOW-level costs to BUSINESS ROI for agentic AI is partially unmet. No tool yet answers 'this agent workflow costs $X/run and generates $Y in business value.' The pivot opportunity is a narrow ROI-attribution layer that sits on top of existing observability tools (Langfuse/Portkey) and connects to business metrics systems. But the window is closing fast as FinOps vendors expand into AI-specific ROI.",
+      "evidence_urls": [
+        "https://portkey.ai/for/manage-and-attribute-costs",
+        "https://github.com/Portkey-AI/gateway",
+        "https://github.com/agentcostin/agentcost",
+        "https://agentbudget.dev",
+        "https://www.binadox.com/solutions/master-llm-costs-effortlessly-across-every-provider/",
+        "https://www.truefoundry.com/blog/llm-cost-tracking-solution",
+        "https://calcai.io/",
+        "https://amnic.com/blogs/top-ai-agent-tools-for-finops",
+        "https://www.deloitte.com/us/en/insights/topics/emerging-technologies/ai-tokens-how-to-navigate-spend-dynamics.html"
+      ]
+    },
+    {
+      "gap_title": "Unified Cross-Platform Agent Governance",
+      "original_score": 52.49,
+      "competitors_found": [
+        {
+          "name": "Microsoft Agent 365",
+          "type": "first-party",
+          "maturity": "beta",
+          "key_metric": "Tenant-wide agent registry + control plane across M365, Power Platform, Copilot Studio, Azure AI Foundry; Entra Agent ID",
+          "backed_by": "Microsoft",
+          "launch_date": "2025 (public preview)"
+        },
+        {
+          "name": "AWS Bedrock AgentCore",
+          "type": "first-party",
+          "maturity": "GA",
+          "key_metric": "Policy engine (natural-language rules), evaluations (13+ evaluators), memory, identity; runtime for any framework",
+          "backed_by": "AWS",
+          "launch_date": "2025 (GA)"
+        },
+        {
+          "name": "Google Cloud API Registry + Vertex AI Agent Builder",
+          "type": "first-party",
+          "maturity": "GA",
+          "key_metric": "Centralized catalog for Google Cloud and MCP servers; tool governance for agents",
+          "backed_by": "Google",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Credo AI",
+          "type": "startup",
+          "maturity": "GA",
+          "key_metric": "AI governance platform; policy management; compliance; risk assessment across AI systems",
+          "backed_by": "VC-funded (Series B)",
+          "launch_date": "2020, expanded to agents 2025"
+        },
+        {
+          "name": "Dataiku (Govern AI Everywhere)",
+          "type": "enterprise",
+          "maturity": "GA",
+          "key_metric": "Platform for AI governance across enterprise; model registry + policy + compliance",
+          "backed_by": "Dataiku (public company)",
+          "launch_date": "2024-2025"
+        },
+        {
+          "name": "WitnessAI",
+          "type": "startup",
+          "maturity": "GA",
+          "key_metric": "Agentic AI governance framework for secure enterprise AI",
+          "backed_by": "VC-funded",
+          "launch_date": "2024-2025"
+        },
+        {
+          "name": "Agentic AI Foundation (AAIF)",
+          "type": "first-party",
+          "maturity": "beta",
+          "key_metric": "Linux Foundation directed fund; neutral governance for agent interoperability standards; backed by Anthropic, OpenAI, Google, Microsoft, AWS",
+          "backed_by": "Linux Foundation + all major AI companies",
+          "launch_date": "2025"
+        },
+        {
+          "name": "CData Connect AI",
+          "type": "enterprise",
+          "maturity": "GA",
+          "key_metric": "Agent-specific tooling and governance; expanded March 2026",
+          "backed_by": "CData",
+          "launch_date": "March 2026"
+        }
+      ],
+      "first_party_fix_status": "beta",
+      "first_party_details": "All three major cloud providers have shipped agent registries/governance: Microsoft Agent 365 (preview, most comprehensive), AWS AgentCore (GA, policy engine), Google Cloud API Registry (GA). However, these are siloed within their own ecosystems. The Agentic AI Foundation (Linux Foundation) was created specifically to address cross-platform interoperability but is still early. No single CROSS-PLATFORM solution spans AWS + Azure + GCP + independent frameworks today.",
+      "velocity": "accelerating",
+      "solutions_shipped_6mo": "5/8",
+      "top_n_list_exists": true,
+      "top_n_source": "'10 Best AI Governance Platforms in 2026' (CloudEagle.ai); Agent Registries comparison articles (HireNinja)",
+      "github_repos_6mo": 5,
+      "oss_saturation": "early",
+      "reality_check_score": 52.49,
+      "first_party_modifier": -8,
+      "velocity_penalty": -8,
+      "saturation_penalty": -3,
+      "top_n_penalty": -3,
+      "adjusted_score": 30.49,
+      "verdict": "DIFFERENTIATE",
+      "differentiation_angle": "Each hyperscaler has built governance FOR THEIR OWN ecosystem, creating vendor lock-in. The genuine gap is a framework-agnostic, multi-cloud agent registry and policy engine that works across AWS AgentCore + Azure Agent 365 + GCP Agent Builder + open frameworks (LangChain, CrewAI, Mastra). The Agentic AI Foundation acknowledges this need but has not shipped tooling. An open-source implementation using Open Policy Agent + OTEL + A2A/Agent Protocol standards could fill this cross-platform gap. However, the window is narrowing as AAIF matures and hyperscalers may eventually federate. The risk is high that this becomes a standards body output rather than a product opportunity.",
+      "evidence_urls": [
+        "https://blog.hireninja.com/2025/12/07/agent-registries-are-here-how-to-build-an-ai-agent-control-plane-for-2026-agent-365-vs-aws-agentcore/",
+        "https://cloud.google.com/blog/products/ai-machine-learning/new-enhanced-tool-governance-in-vertex-ai-agent-builder",
+        "https://petri.com/microsoft-agent-365-enterprise-ai-agents/",
+        "https://entro.security/blog/microsoft-agent-365-pushes-ai-identity-forward-but-enterprise-agents-still-need-cross-environment-governance/",
+        "https://www.credo.ai/",
+        "https://openai.com/index/agentic-ai-foundation/",
+        "https://www.cloudeagle.ai/blogs/10-best-ai-governance-platforms-in-2026",
+        "https://sixpeas.substack.com/p/building-a-unified-agent-registry"
+      ]
+    }
+  ],
+  "metadata": {
+    "analysis_date": "2026-03-25",
+    "analyst_stance": "skeptical",
+    "search_depth": "25+ targeted web searches across direct competitors, OSS, first-party fixes, top-N lists, and YC startups",
+    "summary": "3 of 5 gaps scored ABANDON (heavily solved by existing solutions), 1 scored PIVOT (narrow ROI-attribution niche remains), 1 scored DIFFERENTIATE (cross-cloud gap is real but narrowing). The original gap analyses significantly underestimated the speed of competition in all 5 areas."
+  }
+}

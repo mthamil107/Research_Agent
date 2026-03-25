@@ -1,0 +1,566 @@
+{
+  "meta": {
+    "analysis_date": "2026-03-25",
+    "analyst_stance": "skeptical_disproval",
+    "gaps_analyzed": 5,
+    "methodology": "5-query systematic search per gap: direct competitors, OSS solutions, first-party fixes, top-N lists, funded startups"
+  },
+  "reality_checks": [
+    {
+      "gap_title": "MCP Server Quality Assurance & Trust Platform",
+      "gap_number": 6,
+      "domain": "MCP Server Ecosystem",
+      "original_score": 49.73,
+      "thesis": "66% of servers have security findings, no comprehensive vetting platform",
+      "thesis_rebuttal": "The thesis is OUTDATED. Multiple well-funded startups and first-party solutions now provide MCP server vetting, trust verification, and quality assurance. The MCP Registry itself (backed by Anthropic, GitHub, Microsoft) has namespace authentication. Backslash Security, Runlayer, Stacklok ToolHive, Zenity, and Snyk Agent Scan all provide vetting. GitHub enterprise allows registry allow-lists for admin-controlled vetting.",
+      "competitors_found": [
+        {
+          "name": "Backslash Security MCP Security",
+          "type": "commercial_platform",
+          "maturity": "GA",
+          "key_metric": "Full MCP vetting: vuln scanning, malware, permissions, proxy, audit. Free MCP Security Hub available.",
+          "backed_by": "VC-backed (undisclosed)",
+          "launch_date": "2025-12"
+        },
+        {
+          "name": "Runlayer",
+          "type": "commercial_platform",
+          "maturity": "late_beta_approaching_GA",
+          "key_metric": "Dozens of customers including 8 unicorns (Gusto, dbt Labs, Instacart, Opendoor). Auto-scans for vulns, data leaks, permission drift.",
+          "backed_by": "Khosla Ventures, Felicis - $11M seed",
+          "launch_date": "2025-11"
+        },
+        {
+          "name": "Stacklok ToolHive",
+          "type": "open_source_platform",
+          "maturity": "GA",
+          "key_metric": "Sigstore-based cryptographic verification of MCP server provenance. Containerized sandbox isolation. Verified registry.",
+          "backed_by": "VC-backed (Stacklok)",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Zenity (MCP coverage)",
+          "type": "commercial_platform",
+          "maturity": "GA",
+          "key_metric": "Fortune 500 customers. Inventory, scan, govern MCP servers. Gartner Cool Vendor 2025.",
+          "backed_by": "$59.5M total funding (Series B Oct 2024)",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Snyk Agent Scan",
+          "type": "open_source_tool",
+          "maturity": "GA",
+          "key_metric": "Security scanner for AI agents, MCP servers, and agent skills. Prompt injection and malware detection.",
+          "backed_by": "Snyk (public company)",
+          "launch_date": "2025"
+        },
+        {
+          "name": "GitHub MCP Registry + Enterprise Allow-lists",
+          "type": "first_party_platform",
+          "maturity": "GA",
+          "key_metric": "Namespace-authenticated registry backed by Anthropic, GitHub, Microsoft. Admin allow-lists for enterprise governance.",
+          "backed_by": "GitHub/Microsoft",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Enkrypt AI MCP Scan",
+          "type": "commercial_tool",
+          "maturity": "GA",
+          "key_metric": "AI-powered MCP security assessment",
+          "backed_by": "Enkrypt AI",
+          "launch_date": "2025"
+        },
+        {
+          "name": "mcpscan.ai",
+          "type": "commercial_tool",
+          "maturity": "GA",
+          "key_metric": "Dedicated MCP security scanner",
+          "backed_by": "Unknown",
+          "launch_date": "2025"
+        }
+      ],
+      "first_party_fix_status": "GA",
+      "first_party_details": "Anthropic donated MCP to Linux Foundation (AAIF) in Dec 2025. Official MCP Registry has namespace authentication. GitHub provides enterprise allow-lists. MCP spec v2025-06-18 added OAuth 2.1, resource binding. MCP spec v2025-11-25 added server identity. SlowMist published official MCP Security Checklist on GitHub.",
+      "velocity": "rapid",
+      "solutions_shipped_6mo": "8/8",
+      "top_n_list_exists": false,
+      "top_n_source": "No dedicated 'top MCP QA tools' list, but MCP gateway lists (which include security features) are abundant",
+      "github_repos_6mo": 12,
+      "oss_saturation": "crowded",
+      "reality_check_score": 49.73,
+      "first_party_modifier": -12,
+      "velocity_penalty": -10,
+      "saturation_penalty": -8,
+      "top_n_penalty": 0,
+      "adjusted_score": 19.73,
+      "verdict": "ABANDON",
+      "differentiation_angle": "None viable. The combination of first-party registry fixes (namespace auth, allow-lists), well-funded startups (Runlayer $11M, Zenity $59.5M), and enterprise security vendors (Backslash, Snyk, Enkrypt) has thoroughly saturated this space. There is no meaningful gap remaining.",
+      "evidence_urls": [
+        "https://www.backslash.security/press-releases/backslash-security-introduces-comprehensive-mcp-security-solution-for-vibe-coding-and-ai-native-software-development",
+        "https://techcrunch.com/2025/11/17/mcp-ai-agent-security-startup-runlayer-launches-with-8-unicorns-11m-from-khoslas-keith-rabois-and-felicis/",
+        "https://github.com/stacklok/toolhive",
+        "https://zenity.io/blog/security/securing-the-model-context-protocol-mcp",
+        "https://github.com/snyk/agent-scan",
+        "https://github.blog/ai-and-ml/github-copilot/meet-the-github-mcp-registry-the-fastest-way-to-discover-mcp-servers/",
+        "https://github.com/modelcontextprotocol/registry",
+        "https://github.com/slowmist/MCP-Security-Checklist",
+        "https://mcpscan.ai/",
+        "https://www.enkryptai.com/mcp-scan"
+      ]
+    },
+    {
+      "gap_title": "Domain-Specific Evaluation Framework (Healthcare/Legal/Finance)",
+      "gap_number": 7,
+      "domain": "SLM Training Platforms",
+      "original_score": 49.14,
+      "thesis": "Zero platforms offer pre-built evaluation for domain fine-tuned SLMs",
+      "thesis_rebuttal": "The thesis is PARTIALLY WRONG. While no single platform offers a turnkey 'click-to-evaluate-your-healthcare-SLM' product, the building blocks are mature and abundant. Multiple domain-specific benchmarks exist (MedMCQA, LegalBench, CUAD, FinQA, PIXIU, TAT-QA). General evaluation frameworks (DeepEval, OpenAI Evals, Opik) support custom domain metrics. Patronus AI's Lynx excels at hallucination detection in medical/financial contexts. The gap is narrower than claimed - it's about INTEGRATION and pre-built templates, not the absence of evaluation capability.",
+      "competitors_found": [
+        {
+          "name": "DeepEval",
+          "type": "open_source_framework",
+          "maturity": "GA",
+          "key_metric": "LLM evaluation framework with custom metrics including hallucination, factual correctness, toxicity. Extensible to any domain.",
+          "backed_by": "Confident AI (VC-backed)",
+          "launch_date": "2024"
+        },
+        {
+          "name": "Patronus AI Lynx",
+          "type": "commercial_platform",
+          "maturity": "GA",
+          "key_metric": "Superior hallucination detection across medical and financial domains. Outperforms GPT-4 on factual accuracy assessment.",
+          "backed_by": "VC-backed",
+          "launch_date": "2024"
+        },
+        {
+          "name": "Galileo",
+          "type": "commercial_platform",
+          "maturity": "GA",
+          "key_metric": "Modular evaluation with built-in guardrails, real-time safety monitoring, custom metrics. Supports RAG and agentic workflows.",
+          "backed_by": "VC-backed",
+          "launch_date": "2023"
+        },
+        {
+          "name": "Opik (Comet)",
+          "type": "open_source_platform",
+          "maturity": "GA",
+          "key_metric": "End-to-end LLM evaluation and monitoring. Custom metrics support. 14x faster than competitors.",
+          "backed_by": "Comet ML (VC-backed)",
+          "launch_date": "2024"
+        },
+        {
+          "name": "MedMCQA / LegalBench / FinQA / PIXIU benchmarks",
+          "type": "open_source_benchmarks",
+          "maturity": "GA",
+          "key_metric": "Domain-specific evaluation datasets covering healthcare (2400 topics, 21 subjects), legal (contract review, reasoning), finance (QA over financial reports).",
+          "backed_by": "Academic institutions",
+          "launch_date": "2022-2025"
+        },
+        {
+          "name": "Appen LLM Evaluation",
+          "type": "commercial_service",
+          "maturity": "GA",
+          "key_metric": "LLM evaluation in complex domains including healthcare, legal, finance. Human-in-the-loop evaluation.",
+          "backed_by": "Appen (public company)",
+          "launch_date": "2024"
+        }
+      ],
+      "first_party_fix_status": "none",
+      "first_party_details": "No major SLM training platform vendor has released a dedicated domain-specific evaluation suite. However, the evaluation tooling ecosystem is mature enough that integration is straightforward.",
+      "velocity": "accelerating",
+      "solutions_shipped_6mo": "3/6",
+      "top_n_list_exists": true,
+      "top_n_source": "Multiple 'Top LLM Evaluation Tools 2025/2026' lists exist from Galileo, KDnuggets, FutureAGI, Comet. Domain benchmarks are cataloged in awesome-lists.",
+      "github_repos_6mo": 8,
+      "oss_saturation": "early",
+      "reality_check_score": 49.14,
+      "first_party_modifier": 0,
+      "velocity_penalty": -5,
+      "saturation_penalty": -3,
+      "top_n_penalty": -3,
+      "adjusted_score": 38.14,
+      "verdict": "DIFFERENTIATE",
+      "differentiation_angle": "The gap is real but narrow. A viable product would need to be an INTEGRATED platform that bundles domain benchmarks (MedMCQA, LegalBench, FinQA) with SLM-specific evaluation (latency, model size, edge deployment metrics) and regulatory compliance scoring (HIPAA, SOX, GDPR) into a single workflow. The key differentiator would be pre-built evaluation templates that non-ML engineers (e.g., compliance officers) can run against fine-tuned SLMs.",
+      "evidence_urls": [
+        "https://github.com/confident-ai/deepeval",
+        "https://latitude.so/blog/best-tools-for-domain-specific-llm-benchmarking",
+        "https://galileo.ai/blog/mastering-llm-evaluation-metrics-frameworks-and-techniques",
+        "https://github.com/openai/evals",
+        "https://github.com/VyetGokyra/awaresome_LLM_eval_benchmark",
+        "https://www.appen.com/case-studies/llm-evaluation-complex-domains",
+        "https://futureagi.com/blogs/top-5-llm-evaluation-tools-2025"
+      ]
+    },
+    {
+      "gap_title": "MCP Protocol Security Gateway",
+      "gap_number": 8,
+      "domain": "AI Agent Security",
+      "original_score": 48.30,
+      "thesis": "No open-source MCP proxy enforcing auth, authorization, audit",
+      "thesis_rebuttal": "This thesis is COMPLETELY FALSE as of 2026. The MCP gateway space has EXPLODED. There are 41 projects listed in the awesome-mcp-gateways repo alone (19 open-source, 22 commercial). Microsoft, IBM, Red Hat, Docker all ship open-source MCP gateways. Multiple OSS projects specifically enforce OAuth 2.1 auth, RBAC authorization, and audit logging. The MCP spec itself now mandates OAuth 2.1. This gap is not just filled - it is SATURATED.",
+      "competitors_found": [
+        {
+          "name": "Microsoft MCP Gateway",
+          "type": "open_source",
+          "maturity": "GA",
+          "key_metric": "Reverse proxy with session-aware stateful routing and lifecycle management in Kubernetes. From Microsoft.",
+          "backed_by": "Microsoft",
+          "launch_date": "2025"
+        },
+        {
+          "name": "IBM ContextForge",
+          "type": "open_source",
+          "maturity": "GA",
+          "key_metric": "Registry and proxy that federates MCP servers. Centralized governance, discovery, observability. REST/gRPC bridging.",
+          "backed_by": "IBM",
+          "launch_date": "2025"
+        },
+        {
+          "name": "MCP Gateway & Registry (agentic-community)",
+          "type": "open_source",
+          "maturity": "GA",
+          "key_metric": "Enterprise-ready with OAuth auth, dynamic tool discovery, Keycloak/Entra integration, audit logs.",
+          "backed_by": "Community",
+          "launch_date": "2025"
+        },
+        {
+          "name": "mcp-auth-proxy (sigbit)",
+          "type": "open_source",
+          "maturity": "GA",
+          "key_metric": "Dedicated OAuth 2.1 authentication proxy for MCP servers.",
+          "backed_by": "Community",
+          "launch_date": "2025"
+        },
+        {
+          "name": "hyprmcp/mcp-gateway",
+          "type": "open_source",
+          "maturity": "GA",
+          "key_metric": "OAuth proxy with DCR, prompt analytics, and MCP firewall.",
+          "backed_by": "Community",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Docker MCP Gateway",
+          "type": "open_source",
+          "maturity": "GA",
+          "key_metric": "Self-hosted MCP gateway from Docker.",
+          "backed_by": "Docker Inc.",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Obot",
+          "type": "open_source",
+          "maturity": "GA",
+          "key_metric": "Complete open-source MCP platform: gateway, catalog, chat client, agent orchestration.",
+          "backed_by": "Substantial VC funding",
+          "launch_date": "2025"
+        },
+        {
+          "name": "MintMCP",
+          "type": "commercial",
+          "maturity": "GA",
+          "key_metric": "First SOC 2 Type II certified MCP platform. HIPAA/GDPR-compliant audit logs.",
+          "backed_by": "VC-backed",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Runlayer",
+          "type": "commercial",
+          "maturity": "late_beta",
+          "key_metric": "MCP security gateway with threat detection, PII masking, audit. 8 unicorn customers.",
+          "backed_by": "Khosla Ventures, Felicis - $11M",
+          "launch_date": "2025-11"
+        },
+        {
+          "name": "Composio",
+          "type": "commercial",
+          "maturity": "GA",
+          "key_metric": "500+ managed integrations, unified OAuth, production-grade RBAC/PII controls.",
+          "backed_by": "VC-backed",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Armour (Go-based stdio proxy)",
+          "type": "open_source",
+          "maturity": "early",
+          "key_metric": "Secure-by-default stdio MCP proxy. Show HN Jan 2026.",
+          "backed_by": "Community/indie",
+          "launch_date": "2026-01"
+        },
+        {
+          "name": "Golf (YC)",
+          "type": "commercial",
+          "maturity": "early",
+          "key_metric": "Shadow AI visibility, MCP policy enforcement, audit trails.",
+          "backed_by": "Y Combinator",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Metorial (YC)",
+          "type": "commercial",
+          "maturity": "GA",
+          "key_metric": "Deploy, connect, secure MCP servers. Works with Fortune 500.",
+          "backed_by": "Y Combinator",
+          "launch_date": "2025"
+        }
+      ],
+      "first_party_fix_status": "GA",
+      "first_party_details": "The MCP spec itself (v2025-06-18) now mandates OAuth 2.1 for auth, with servers classified as OAuth 2.0 Resource Servers. The spec requires resource parameter binding (RFC 8707), PKCE, and redirect URI validation. Anthropic donated MCP to Linux Foundation (AAIF) in Dec 2025 for vendor-neutral governance. Auth0 published official implementation guides. Stytch published MCP auth implementation guides.",
+      "velocity": "solved",
+      "solutions_shipped_6mo": "13/13",
+      "top_n_list_exists": true,
+      "top_n_source": "Multiple top-10 lists: Composio '10 Best MCP Gateways 2026', TrueFoundry '5 Best MCP Gateways 2026', Integrate.io 'Best MCP Gateways and AI Agent Security Tools 2026', MintMCP '7 top MCP gateways', Slashdot 'Top MCP Gateways 2026', AITechTrend 'Top 5 MCP Gateways'",
+      "github_repos_6mo": 41,
+      "oss_saturation": "saturated",
+      "reality_check_score": 48.30,
+      "first_party_modifier": -15,
+      "velocity_penalty": -15,
+      "saturation_penalty": -12,
+      "top_n_penalty": -5,
+      "adjusted_score": 1.30,
+      "verdict": "ABANDON",
+      "differentiation_angle": "None. This is the most thoroughly killed gap in the entire analysis. 41 projects (19 OSS), 6+ top-N comparison articles, spec-level OAuth mandate, and backing from Microsoft, IBM, Docker, and multiple YC startups. Building here would be entering the most crowded subcategory in the entire MCP ecosystem.",
+      "evidence_urls": [
+        "https://github.com/e2b-dev/awesome-mcp-gateways",
+        "https://github.com/microsoft/mcp-gateway",
+        "https://ibm.github.io/mcp-context-forge/",
+        "https://github.com/agentic-community/mcp-gateway-registry",
+        "https://github.com/sigbit/mcp-auth-proxy",
+        "https://github.com/hyprmcp/mcp-gateway",
+        "https://composio.dev/content/best-mcp-gateway-for-developers",
+        "https://www.truefoundry.com/blog/best-mcp-gateways",
+        "https://www.integrate.io/blog/best-mcp-gateways-and-ai-agent-security-tools/",
+        "https://www.mintmcp.com/blog/enterprise-mcp-gateways",
+        "https://auth0.com/blog/mcp-specs-update-all-about-auth/",
+        "https://stytch.com/blog/MCP-authentication-and-authorization-guide/",
+        "https://news.ycombinator.com/item?id=46696348",
+        "https://news.ycombinator.com/item?id=45223102",
+        "https://developers.redhat.com/articles/2025/12/12/advanced-authentication-authorization-mcp-gateway"
+      ]
+    },
+    {
+      "gap_title": "Continuous Learning / Production Feedback Loop (Data Flywheel)",
+      "gap_number": 9,
+      "domain": "SLM Training Platforms",
+      "original_score": 47.60,
+      "thesis": "No turnkey data flywheel (capture failures -> retrain -> deploy -> monitor)",
+      "thesis_rebuttal": "The thesis is PARTIALLY TRUE but MISLEADING. While no single 'click-to-flywheel' SLM-specific product exists, the MLOps ecosystem provides all the components: Databricks/MLflow handles automated retraining pipelines, Snorkel AI ($100M Series D, $1.3B valuation) provides continuous model feedback with production data, W&B tracks fine-tuning experiments, and academic frameworks like AITL and LANCE demonstrate production data flywheels. The gap is in SLM-SPECIFIC integration, not in the flywheel concept itself.",
+      "competitors_found": [
+        {
+          "name": "Snorkel AI (Snorkel Flow + Evaluate)",
+          "type": "commercial_platform",
+          "maturity": "GA",
+          "key_metric": "Continuous model feedback for rapid data quality improvement. $1.3B valuation, $100M Series D. Flywheel of improving data to improve model performance.",
+          "backed_by": "Addition-led $100M Series D",
+          "launch_date": "2024 (Evaluate: 2025-05)"
+        },
+        {
+          "name": "Databricks MLflow + Lakehouse Monitoring",
+          "type": "commercial_platform",
+          "maturity": "GA",
+          "key_metric": "Automated retraining pipelines triggered by data drift. Scheduled or event-triggered. Gartner Leader 4 years running.",
+          "backed_by": "Databricks ($43B valuation)",
+          "launch_date": "2018 (continuous updates)"
+        },
+        {
+          "name": "Weights & Biases",
+          "type": "commercial_platform",
+          "maturity": "GA",
+          "key_metric": "LLM fine-tuning tracking, hyperparameter sweeps, model registry. Production monitoring signals for retraining.",
+          "backed_by": "VC-backed ($200M+ raised)",
+          "launch_date": "2018 (continuous updates)"
+        },
+        {
+          "name": "LANCE (Self-Evolving Data Flywheel)",
+          "type": "research_framework",
+          "maturity": "research",
+          "key_metric": "Model self-reviews, filters, generates training examples. Alternates SFT and DPO in each flywheel turn.",
+          "backed_by": "Academic",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Library Data Flywheel (LDF)",
+          "type": "research_framework",
+          "maturity": "research",
+          "key_metric": "Closed-loop paradigm for continual targeted adaptation without manual annotation.",
+          "backed_by": "Academic",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Kubeflow Pipelines",
+          "type": "open_source",
+          "maturity": "GA",
+          "key_metric": "ML pipelines designed for production. Supports automated retraining workflows.",
+          "backed_by": "Google/CNCF",
+          "launch_date": "2019 (continuous updates)"
+        },
+        {
+          "name": "ZenML",
+          "type": "open_source",
+          "maturity": "GA",
+          "key_metric": "MLOps framework with data flywheel patterns. 287+ production case studies documented.",
+          "backed_by": "VC-backed",
+          "launch_date": "2022"
+        }
+      ],
+      "first_party_fix_status": "none",
+      "first_party_details": "No SLM training platform vendor offers a turnkey data flywheel specific to SLMs. However, MLOps platforms (Databricks, W&B, Snorkel) provide generic continuous retraining that works for any model size. The 'SLM-specific' angle is thin since SLM retraining workflows are essentially identical to LLM fine-tuning workflows.",
+      "velocity": "accelerating",
+      "solutions_shipped_6mo": "4/7",
+      "top_n_list_exists": true,
+      "top_n_source": "Multiple MLOps/LLMOps tool comparison lists: '26 MLOps Tools 2026' (LakeFS), 'Top 10 MLOps Platforms 2026' (Inventiva), 'AI Tech Stack 2026' (Kellton)",
+      "github_repos_6mo": 5,
+      "oss_saturation": "early",
+      "reality_check_score": 47.60,
+      "first_party_modifier": 0,
+      "velocity_penalty": -5,
+      "saturation_penalty": -3,
+      "top_n_penalty": -3,
+      "adjusted_score": 36.60,
+      "verdict": "DIFFERENTIATE",
+      "differentiation_angle": "The only viable angle is a tightly integrated SLM-specific flywheel that combines: (1) production inference logging with automatic failure capture, (2) one-click synthetic data generation from failures, (3) LoRA/QLoRA fine-tuning triggered by drift detection, (4) A/B deployment on edge devices, and (5) compliance-aware data handling for regulated industries. Must be radically simpler than stitching together Databricks + Snorkel + W&B. Target audience: teams with <3 ML engineers deploying SLMs to production.",
+      "evidence_urls": [
+        "https://snorkel.ai/introducing-continuous-model-feedback-to-drive-rapid-data-quality-improvement/",
+        "https://www.businesswire.com/news/home/20250529083998/en/Snorkel-AI-Announces-100-Million-Series-D",
+        "https://arxiv.org/abs/2510.06674",
+        "https://lakefs.io/mlops/mlops-tools/",
+        "https://www.inventiva.co.in/trends/top-10-mlops-platforms-in-2026/",
+        "https://www.zenml.io/blog/llmops-in-production-287-more-case-studies-of-what-actually-works",
+        "https://wandb.ai/site/solutions/llm-fine-tuning/",
+        "https://docs.databricks.com/aws/en/machine-learning/mlops/mlops-workflow"
+      ]
+    },
+    {
+      "gap_title": "Synthetic Domain Data Generation Platform",
+      "gap_number": 10,
+      "domain": "SLM Training Platforms",
+      "original_score": 44.20,
+      "thesis": "No domain-aware synthetic data platform with ontology-guided generation",
+      "thesis_rebuttal": "The thesis is MOSTLY FALSE. The synthetic data generation market is MATURE and well-funded. NVIDIA acquired Gretel (Mar 2025) and ships NeMo Curator with hierarchical domain-aware synthetic data pipelines. Red Hat's SDG Hub is open-source and explicitly designed for domain-specific LLM training. Mostly AI, Tonic AI, K2view, YData, and Hazy all provide enterprise synthetic data platforms. Research on ontology-guided generation (Onto-CGAN, LLMs4OL) is active. Gartner predicts 75% of businesses will use GenAI for synthetic data by 2026.",
+      "competitors_found": [
+        {
+          "name": "NVIDIA NeMo Curator / NeMo Data Designer",
+          "type": "open_source_platform",
+          "maturity": "GA",
+          "key_metric": "GPU-accelerated synthetic data generation with hierarchical domain topic generation. Acquired Gretel (Mar 2025). OpenAI API-compatible.",
+          "backed_by": "NVIDIA ($3T+ market cap)",
+          "launch_date": "2024 (Gretel acquisition: 2025-03)"
+        },
+        {
+          "name": "Red Hat SDG Hub (InstructLab)",
+          "type": "open_source_platform",
+          "maturity": "GA",
+          "key_metric": "Open-source toolkit for domain-specific synthetic data. Pre-built pipelines for knowledge tuning. Runs on Red Hat OpenShift AI.",
+          "backed_by": "Red Hat/IBM",
+          "launch_date": "2025-10"
+        },
+        {
+          "name": "Gretel (now NVIDIA)",
+          "type": "commercial_platform",
+          "maturity": "GA",
+          "key_metric": "Developer-friendly synthetic text, tabular, time-series. Domain fine-tuning. Acquired by NVIDIA.",
+          "backed_by": "NVIDIA (acquired Mar 2025)",
+          "launch_date": "2020"
+        },
+        {
+          "name": "Mostly AI",
+          "type": "commercial_platform",
+          "maturity": "GA",
+          "key_metric": "Privacy-first synthetic data. Fidelity metrics comparing synthetic vs real data. Enterprise-grade.",
+          "backed_by": "VC-backed",
+          "launch_date": "2017"
+        },
+        {
+          "name": "Tonic AI",
+          "type": "commercial_platform",
+          "maturity": "GA",
+          "key_metric": "Dual-engine: Fabricate (synthetic generation) + Structural (data masking) + Textual (unstructured text synthesis).",
+          "backed_by": "VC-backed",
+          "launch_date": "2019"
+        },
+        {
+          "name": "K2view",
+          "type": "commercial_platform",
+          "maturity": "GA",
+          "key_metric": "Patented referential integrity preservation. Schema blueprint for domain relationships.",
+          "backed_by": "VC-backed",
+          "launch_date": "2020"
+        },
+        {
+          "name": "YData Fabric",
+          "type": "commercial_platform",
+          "maturity": "GA",
+          "key_metric": "Data-centric platform combining profiling + synthetic generation. Tabular, relational, time-series support.",
+          "backed_by": "VC-backed",
+          "launch_date": "2022"
+        },
+        {
+          "name": "Applied Intuition Synthetic Datasets",
+          "type": "commercial_platform",
+          "maturity": "GA",
+          "key_metric": "Ontology-aligned procedural synthetic data generation. Custom taxonomy and labeling.",
+          "backed_by": "VC-backed ($6B+ valuation)",
+          "launch_date": "2021"
+        },
+        {
+          "name": "Anyverse",
+          "type": "commercial_platform",
+          "maturity": "GA",
+          "key_metric": "Procedural synthetic datasets aligned with project taxonomy and ontology.",
+          "backed_by": "VC-backed",
+          "launch_date": "2020"
+        },
+        {
+          "name": "Synthetic Data Vault (SDV)",
+          "type": "open_source",
+          "maturity": "GA",
+          "key_metric": "One of the first OSS synthetic data solutions. Tabular, relational, time-series.",
+          "backed_by": "DataCebo/MIT",
+          "launch_date": "2020"
+        }
+      ],
+      "first_party_fix_status": "GA",
+      "first_party_details": "NVIDIA acquired Gretel and integrated capabilities into NeMo ecosystem. NeMo Curator provides hierarchical domain-aware synthetic data generation. Red Hat/IBM ship SDG Hub as open-source with domain-specific LLM training pipelines. Both are available today.",
+      "velocity": "rapid",
+      "solutions_shipped_6mo": "5/10",
+      "top_n_list_exists": true,
+      "top_n_source": "Multiple comparison lists: K2view 'Best synthetic data generation tools 2026', Averroes 'Top 6 Synthetic Data Tools 2026', Intellspot 'Top Synthetic Data Platforms 2026', CPO Magazine 'Top 6 Synthetic Data Startups 2026', G2 'Best Synthetic Data Tools Jan 2026'",
+      "github_repos_6mo": 10,
+      "oss_saturation": "crowded",
+      "reality_check_score": 44.20,
+      "first_party_modifier": -12,
+      "velocity_penalty": -8,
+      "saturation_penalty": -8,
+      "top_n_penalty": -5,
+      "adjusted_score": 11.20,
+      "verdict": "ABANDON",
+      "differentiation_angle": "Extremely difficult. NVIDIA (with Gretel acquisition + NeMo Curator) and Red Hat (with SDG Hub) have the open-source angle locked. Commercial platforms (Mostly AI, Tonic, K2view) have enterprise locked. The only theoretical angle would be a very narrow vertical (e.g., synthetic clinical trial data with FDA-compliant provenance), but that's a consulting business, not a platform business.",
+      "evidence_urls": [
+        "https://docs.nvidia.com/nemo-framework/user-guide/24.12/datacuration/syntheticdata.html",
+        "https://developers.redhat.com/articles/2025/11/25/building-domain-specific-llms-synthetic-data-and-sdg-hub",
+        "https://github.com/instructlab/instructlab",
+        "https://www.gretel.ai/",
+        "https://www.k2view.com/blog/best-synthetic-data-generation-tools/",
+        "https://averroes.ai/blog/synthetic-data-generation-tools",
+        "https://www.intellspot.com/top-synthetic-data-platforms/",
+        "https://www.cpomagazine.com/digital/top-6-synthetic-data-startups-making-waves-in-2026/",
+        "https://github.com/statice/awesome-synthetic-data",
+        "https://pitchbook.com/profiles/company/432562-51"
+      ]
+    }
+  ],
+  "summary": {
+    "total_gaps_analyzed": 5,
+    "verdicts": {
+      "PROCEED": 0,
+      "DIFFERENTIATE": 2,
+      "PIVOT": 0,
+      "ABANDON": 3
+    },
+    "most_saturated": "Gap 8: MCP Protocol Security Gateway (41 projects, 6+ top-N lists, spec-level OAuth mandate - adjusted score 1.30)",
+    "best_remaining_opportunity": "Gap 7: Domain-Specific Evaluation Framework (adjusted score 38.14) - narrow but real gap in SLM-specific integrated evaluation with compliance templates",
+    "key_insight": "The MCP ecosystem gaps (6, 8) are thoroughly killed by the combination of first-party spec fixes and massive VC investment (Runlayer $11M, Zenity $59.5M, Manufact $6.3M). The SLM training gaps (7, 9) survive only as integration/simplification plays against mature component ecosystems. Gap 10 was killed by NVIDIA's Gretel acquisition and Red Hat's SDG Hub.",
+    "total_competitors_found": 44,
+    "total_funding_identified": "$270M+"
+  }
+}

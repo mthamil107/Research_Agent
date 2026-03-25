@@ -1,0 +1,583 @@
+{
+  "meta": {
+    "analysis_date": "2026-03-25",
+    "analyst_stance": "skeptical_disproval",
+    "methodology": "5-query competition search per gap (direct competitors, OSS, first-party, top-N lists, funded startups)",
+    "scoring_notes": "reality_check_score = original_score + first_party_modifier + velocity_penalty + saturation_penalty + top_n_penalty. Negative modifiers reduce score."
+  },
+  "reality_checks": [
+    {
+      "gap_title": "AI Agent Incident Response / Kill Switch",
+      "gap_id": 11,
+      "domain": "AI Agent Security",
+      "original_score": 43.9,
+      "competitors_found": [
+        {
+          "name": "Runtime Fence / $KILLSWITCH",
+          "type": "OSS tool (MIT)",
+          "maturity": "early-production",
+          "key_metric": "Works with LangChain, AutoGPT, Copilot/Cursor/Aider; 100% offline",
+          "backed_by": "Independent / open source",
+          "launch_date": "2025-Q4"
+        },
+        {
+          "name": "AgentGateway (Linux Foundation)",
+          "type": "OSS infrastructure (Apache 2.0)",
+          "maturity": "production",
+          "key_metric": "Contributors from AWS, Cisco, Huawei, IBM, Microsoft, Red Hat, Shell",
+          "backed_by": "Linux Foundation / Solo.io",
+          "launch_date": "2025-09"
+        },
+        {
+          "name": "Zenity",
+          "type": "Commercial platform",
+          "maturity": "growth-stage",
+          "key_metric": "$59.5M raised; Gartner Cool Vendor 2025; 65 employees",
+          "backed_by": "Third Point Ventures, DTCP, Intel Capital",
+          "launch_date": "2021"
+        },
+        {
+          "name": "ClawSight",
+          "type": "OSS monitoring + kill switch",
+          "maturity": "early",
+          "key_metric": "Live log streaming, cost/token tracking, remote kill switch",
+          "backed_by": "Independent / Show HN",
+          "launch_date": "2026-Q1"
+        },
+        {
+          "name": "AgentGuard",
+          "type": "OSS budget kill switch",
+          "maturity": "early",
+          "key_metric": "Auto-kills agent process on budget limit",
+          "backed_by": "Independent / Show HN",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Aegis",
+          "type": "OSS runtime policy enforcement",
+          "maturity": "early",
+          "key_metric": "Cryptographic audit trail, human-in-the-loop, kill switch, zero code changes",
+          "backed_by": "Independent / GitHub",
+          "launch_date": "2026"
+        },
+        {
+          "name": "AutoGuard (ICLR 2026 paper)",
+          "type": "Research / academic",
+          "maturity": "research",
+          "key_metric": "DOM-embedded defensive prompts to trigger LLM safety mechanisms",
+          "backed_by": "Academic research",
+          "launch_date": "2025-11"
+        },
+        {
+          "name": "CrowdStrike Falcon (agentic security)",
+          "type": "Commercial enterprise platform",
+          "maturity": "GA",
+          "key_metric": "AI-native tools protecting entire AI ecosystem",
+          "backed_by": "CrowdStrike (public company)",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Palo Alto Networks (AI Kill Switch podcast/capability)",
+          "type": "Commercial enterprise platform",
+          "maturity": "GA",
+          "key_metric": "Integrated into Protect AI acquisition",
+          "backed_by": "Palo Alto Networks (public company)",
+          "launch_date": "2025"
+        }
+      ],
+      "first_party_fix_status": "beta",
+      "first_party_details": "Microsoft added agent identities in Entra ID + guardrail controls in Microsoft Foundry (RSAC 2026 preview). Google ADK has multi-layered safety with Gemini-as-guardrail callbacks. Both are building graduated agent control primitives but not standalone kill-switch products.",
+      "velocity": "rapid",
+      "solutions_shipped_6mo": "8+",
+      "top_n_list_exists": true,
+      "top_n_source": "reco.ai '8 Best AI Agent Security Tools for CISOs 2026'; fast.io 'Best AI Agent Security Tools 2026'",
+      "github_repos_6mo": 8,
+      "oss_saturation": "crowded",
+      "reality_check_score": 43.9,
+      "first_party_modifier": -5,
+      "velocity_penalty": -8,
+      "saturation_penalty": -6,
+      "top_n_penalty": -3,
+      "adjusted_score": 21.9,
+      "verdict": "PIVOT",
+      "differentiation_angle": "The generic kill-switch space is crowded. Only viable angle: enterprise-grade incident response ORCHESTRATION (not just a kill button) combining graduated response playbooks, cross-agent coordination, forensic replay, and compliance-grade audit trails. Pure kill switches are now commodity OSS.",
+      "evidence_urls": [
+        "https://github.com/RunTimeAdmin/ai-agent-killswitch",
+        "https://agentgateway.dev/blog/2026-02-21-kill-switch/",
+        "https://zenity.io/",
+        "https://news.ycombinator.com/item?id=47210012",
+        "https://news.ycombinator.com/item?id=46928612",
+        "https://www.reco.ai/compare/best-ai-agent-security-tools-for-cisos",
+        "https://fast.io/resources/best-ai-agent-security-tools/",
+        "https://google.github.io/adk-docs/safety/",
+        "https://www.darkreading.com/identity-access-management-security/microsoft-proposes-better-identity-guardrails-ai-agents",
+        "https://github.com/Justin0504/Aegis"
+      ]
+    },
+    {
+      "gap_title": "Cost-Optimized Training Advisor",
+      "gap_id": 12,
+      "domain": "SLM Training Platforms",
+      "original_score": 43.35,
+      "competitors_found": [
+        {
+          "name": "Prem Studio",
+          "type": "Commercial platform",
+          "maturity": "production",
+          "key_metric": "Autonomous fine-tuning system; 30+ base models; intelligent model/method recommendation; free tier available",
+          "backed_by": "Prem Labs (venture-backed)",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Hugging Face AutoTrain / Skills Training",
+          "type": "Commercial + OSS",
+          "maturity": "GA",
+          "key_metric": "Automatic hardware matching, auto-selects LoRA for >3B models, cost optimization built-in",
+          "backed_by": "Hugging Face ($235M Series D)",
+          "launch_date": "2025"
+        },
+        {
+          "name": "SiliconFlow",
+          "type": "Commercial platform",
+          "maturity": "production",
+          "key_metric": "Cheapest fine-tuning provider 2026; 2.3x faster inference, 32% lower latency vs competitors",
+          "backed_by": "Venture-backed",
+          "launch_date": "2024"
+        },
+        {
+          "name": "Together AI Fine-Tuning",
+          "type": "Commercial platform",
+          "maturity": "GA",
+          "key_metric": "UPipe cuts peak memory 82.5%; FFT optimizers reduce memory 25%",
+          "backed_by": "Together AI ($228M Series A)",
+          "launch_date": "2024"
+        },
+        {
+          "name": "Unsloth",
+          "type": "OSS + commercial",
+          "maturity": "production",
+          "key_metric": "2x faster fine-tuning on single GPU; free on Colab/Kaggle",
+          "backed_by": "YC-backed",
+          "launch_date": "2024"
+        },
+        {
+          "name": "LlamaFactory",
+          "type": "OSS (Apache 2.0)",
+          "maturity": "production",
+          "key_metric": "100+ LLMs/VLMs supported; ACL 2024 paper; 16-bit/LoRA/QLoRA",
+          "backed_by": "Open source community",
+          "launch_date": "2023"
+        },
+        {
+          "name": "Oumi",
+          "type": "OSS",
+          "maturity": "production",
+          "key_metric": "10M to 405B parameters; SFT/LoRA/QLoRA/GRPO",
+          "backed_by": "Open source community",
+          "launch_date": "2025"
+        },
+        {
+          "name": "FinetuneDB",
+          "type": "Commercial platform",
+          "maturity": "early-production",
+          "key_metric": "Dedicated AI fine-tuning platform",
+          "backed_by": "Independent",
+          "launch_date": "2025"
+        }
+      ],
+      "first_party_fix_status": "GA",
+      "first_party_details": "Azure OpenAI has built-in fine-tuning cost management with per-job billing caps ($5K), model selection guidance, and batch mode (50% off). OpenAI platform has similar. Google Vertex AI offers AutoML with cost-optimized training. All hyperscalers provide cost advisors within their fine-tuning services.",
+      "velocity": "rapid",
+      "solutions_shipped_6mo": "5+",
+      "top_n_list_exists": true,
+      "top_n_source": "siliconflow.com 'Ultimate Guide - The Top and The Best Cheapest Model Fine-Tuning Providers of 2026'; labelyourdata.com 'LLM Fine-Tuning Tools: Best Picks 2026'",
+      "github_repos_6mo": 5,
+      "oss_saturation": "crowded",
+      "reality_check_score": 43.35,
+      "first_party_modifier": -7,
+      "velocity_penalty": -6,
+      "saturation_penalty": -5,
+      "top_n_penalty": -3,
+      "adjusted_score": 22.35,
+      "verdict": "PIVOT",
+      "differentiation_angle": "Prem Studio already does intelligent model/method recommendation. The only uncovered niche: a STANDALONE cost-optimization advisor that works ACROSS platforms (not locked to one vendor) and provides TCO projections including inference costs, not just training. Must be vendor-agnostic to differentiate from platform-native advisors.",
+      "evidence_urls": [
+        "https://blog.premai.io/prem-studio-build-ai-thats-yours/",
+        "https://huggingface.co/blog/hf-skills-training",
+        "https://www.siliconflow.com/articles/en/the-cheapest-model-fine-tuning-provider",
+        "https://unsloth.ai/",
+        "https://github.com/hiyouga/LlamaFactory",
+        "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/fine-tuning-cost-management",
+        "https://finetunedb.com/",
+        "https://github.com/oumi-ai/oumi"
+      ]
+    },
+    {
+      "gap_title": "Edge/On-Device SLM Fine-Tuning and Deployment Platform",
+      "gap_id": 13,
+      "domain": "SLM Training Platforms",
+      "original_score": 42.64,
+      "competitors_found": [
+        {
+          "name": "QVAC Fabric LLM (Tether Data)",
+          "type": "OSS framework (Apache 2.0)",
+          "maturity": "early-production",
+          "key_metric": "FIRST production-ready framework for fine-tuning on mobile GPUs (Qualcomm Adreno, ARM Mali); cross-platform (iOS/Android/desktop/server)",
+          "backed_by": "Tether (stablecoin company)",
+          "launch_date": "2025-12"
+        },
+        {
+          "name": "ExecuTorch (Meta)",
+          "type": "OSS framework",
+          "maturity": "production",
+          "key_metric": "12+ hardware backends (Apple, Qualcomm, Arm, MediaTek, Vulkan); used for Gemma-3-4B on Android",
+          "backed_by": "Meta",
+          "launch_date": "2024"
+        },
+        {
+          "name": "Google LiteRT-LM / MediaPipe LLM Inference",
+          "type": "First-party SDK",
+          "maturity": "GA",
+          "key_metric": "LoRA fine-tuning support on attention layers; runs Gemma/Llama/Phi-4/Qwen on-device",
+          "backed_by": "Google",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Unsloth (mobile deployment)",
+          "type": "OSS + commercial",
+          "maturity": "production",
+          "key_metric": "Deploy fine-tuned LLMs to iOS/Android phones",
+          "backed_by": "YC-backed",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Ollama",
+          "type": "OSS",
+          "maturity": "production",
+          "key_metric": "Democratized local AI deployment; production-ready for desktop/edge",
+          "backed_by": "Community + venture capital",
+          "launch_date": "2023"
+        },
+        {
+          "name": "Edge Impulse",
+          "type": "Commercial platform",
+          "maturity": "GA",
+          "key_metric": "tinyML, sensor intelligence, embedded AI; full edge ML lifecycle",
+          "backed_by": "Venture-backed",
+          "launch_date": "2020"
+        },
+        {
+          "name": "Liquid AI (LFM2.5)",
+          "type": "Commercial + research",
+          "maturity": "production",
+          "key_metric": "Next-gen on-device AI models optimized for edge",
+          "backed_by": "Liquid AI (venture-backed)",
+          "launch_date": "2025"
+        },
+        {
+          "name": "RunAnywhere",
+          "type": "Commercial platform",
+          "maturity": "production",
+          "key_metric": "On-device inference + enterprise control plane + analytics",
+          "backed_by": "Venture-backed",
+          "launch_date": "2025"
+        },
+        {
+          "name": "MobiLLM (research)",
+          "type": "Research paper",
+          "maturity": "research",
+          "key_metric": "Enabling LLM fine-tuning on mobile devices",
+          "backed_by": "Academic",
+          "launch_date": "2025-02"
+        }
+      ],
+      "first_party_fix_status": "GA",
+      "first_party_details": "Google has LiteRT-LM with LoRA on-device fine-tuning + MediaPipe LLM Inference (iOS/Android). Apple Neural Engine supports on-device inference via CoreML. Qualcomm AI Engine (Hexagon/Adreno) provides INT8 inference + AIMET/ONNX. Meta ExecuTorch covers 12+ backends. All major chip vendors are building this capability natively.",
+      "velocity": "rapid",
+      "solutions_shipped_6mo": "6+",
+      "top_n_list_exists": true,
+      "top_n_source": "runanywhere.ai 'Top Edge AI Solutions 2026'; siliconflow.com 'Best Small LLMs For Edge Devices 2026'",
+      "github_repos_6mo": 6,
+      "oss_saturation": "crowded",
+      "reality_check_score": 42.64,
+      "first_party_modifier": -8,
+      "velocity_penalty": -7,
+      "saturation_penalty": -5,
+      "top_n_penalty": -3,
+      "adjusted_score": 19.64,
+      "verdict": "ABANDON",
+      "differentiation_angle": "QVAC Fabric already delivers exactly this thesis (fine-tune -> quantize -> deploy on mobile GPUs). Google, Meta, Qualcomm all have production SDKs. The full lifecycle platform is no longer a gap - it is an active battleground among the largest tech companies. Any startup entering now faces first-party SDK competition from every chip vendor.",
+      "evidence_urls": [
+        "https://tether.io/news/tether-data-introduces-qvac-fabric-llm-the-edge-first-llm-inference-runtime-and-generalized-llm-lora-fine-tuning-framework-for-modern-ai-models-on-heterogeneous-gpus-smartphones-laptops-and-server/",
+        "https://github.com/tetherto/qvac-fabric-llm.cpp",
+        "https://ai.google.dev/edge/litert-lm/overview",
+        "https://unsloth.ai/docs/blog/deploy-llms-phone",
+        "https://www.edge-ai-vision.com/2026/01/on-device-llms-in-2026-what-changed-what-matters-whats-next/",
+        "https://www.runanywhere.ai/blog/top-edge-ai-solutions-2026",
+        "https://www.arxiv.org/pdf/2502.20421",
+        "https://news.ycombinator.com/item?id=46628213"
+      ]
+    },
+    {
+      "gap_title": "MCP Supply Chain Security Scanner",
+      "gap_id": 14,
+      "domain": "MCP Server Ecosystem",
+      "original_score": 41.14,
+      "competitors_found": [
+        {
+          "name": "Cisco MCP Scanner",
+          "type": "OSS (backed by Cisco AI Defense)",
+          "maturity": "production",
+          "key_metric": "830 GitHub stars; 3 scanning engines (YARA, LLM-as-judge, Cisco AI Defense); CLI + REST API",
+          "backed_by": "Cisco",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Snyk Agent Scan",
+          "type": "OSS + commercial (Snyk Labs)",
+          "maturity": "production",
+          "key_metric": "Detects 15+ security risks; auto-discovers Claude/Cursor/Gemini/Windsurf configs; free self-service scanner",
+          "backed_by": "Snyk ($900M+ total funding)",
+          "launch_date": "2025"
+        },
+        {
+          "name": "MCP-Shield",
+          "type": "OSS",
+          "maturity": "early-production",
+          "key_metric": "Scans config files; works offline; zero dependencies; detects tool poisoning/exfiltration/cross-origin escalation",
+          "backed_by": "Independent / Show HN",
+          "launch_date": "2026-02"
+        },
+        {
+          "name": "Proximity",
+          "type": "OSS",
+          "maturity": "early-production",
+          "key_metric": "Scans MCP prompts/tools/resources for security risks",
+          "backed_by": "Independent",
+          "launch_date": "2025-10"
+        },
+        {
+          "name": "Enkrypt AI MCP Scan",
+          "type": "Commercial",
+          "maturity": "production",
+          "key_metric": "Automated agentic static analysis for command/path/prompt/code injection",
+          "backed_by": "Enkrypt AI",
+          "launch_date": "2025"
+        },
+        {
+          "name": "MCP Guard",
+          "type": "OSS",
+          "maturity": "early",
+          "key_metric": "Static analysis + dynamic testing + intelligent fuzzing",
+          "backed_by": "Independent / GitHub",
+          "launch_date": "2026"
+        },
+        {
+          "name": "Sentinel",
+          "type": "OSS",
+          "maturity": "early",
+          "key_metric": "Config + probe + container scanning for MCP",
+          "backed_by": "Independent / Show HN",
+          "launch_date": "2026-03"
+        },
+        {
+          "name": "Golf Scanner",
+          "type": "OSS",
+          "maturity": "early",
+          "key_metric": "Scans IDE/AI tool configs; 15 security checks; finds every MCP server",
+          "backed_by": "Independent / Show HN",
+          "launch_date": "2026-03"
+        },
+        {
+          "name": "Aguara",
+          "type": "OSS",
+          "maturity": "early",
+          "key_metric": "Go binary; static analysis on agent skill files and MCP servers",
+          "backed_by": "Independent / Show HN",
+          "launch_date": "2026-02"
+        },
+        {
+          "name": "Sigil Security",
+          "type": "Commercial startup",
+          "maturity": "early-production",
+          "key_metric": "AI Agent Supply Chain Security Scanner (dedicated product)",
+          "backed_by": "Startup (likely funded)",
+          "launch_date": "2026"
+        },
+        {
+          "name": "MintMCP Gateway",
+          "type": "Commercial platform",
+          "maturity": "production",
+          "key_metric": "First SOC 2 Type II certified MCP platform; registry for approved servers",
+          "backed_by": "Venture-backed",
+          "launch_date": "2025"
+        },
+        {
+          "name": "Qualys TotalAI (MCP coverage)",
+          "type": "Commercial enterprise platform",
+          "maturity": "GA",
+          "key_metric": "MCP servers treated as shadow IT; enterprise-grade scanning",
+          "backed_by": "Qualys (public company)",
+          "launch_date": "2026-03"
+        }
+      ],
+      "first_party_fix_status": "acknowledged",
+      "first_party_details": "Anthropic has not shipped a first-party MCP security scanner, but their own MCP servers (Git, filesystem) have had critical CVEs found and patched. The MCP specification itself does not include built-in security scanning. Cisco and Snyk have filled the gap with corporate backing.",
+      "velocity": "rapid",
+      "solutions_shipped_6mo": "12+",
+      "top_n_list_exists": true,
+      "top_n_source": "akto.io 'Top 10 MCP Security Tools 2025'; cm-alliance.com 'Top MCP Security Tools 2025'; adversa.ai 'Top MCP Security Resources March 2026'",
+      "github_repos_6mo": 12,
+      "oss_saturation": "saturated",
+      "reality_check_score": 41.14,
+      "first_party_modifier": -2,
+      "velocity_penalty": -10,
+      "saturation_penalty": -10,
+      "top_n_penalty": -5,
+      "adjusted_score": 14.14,
+      "verdict": "ABANDON",
+      "differentiation_angle": "This gap no longer exists. Cisco (corporate-backed OSS), Snyk ($900M+ funded), plus 10+ OSS scanners launched in the last 6 months. There are already 30+ CVEs cataloged, multiple top-N comparison articles, and Qualys/Palo Alto covering this in enterprise platforms. The window has closed. The only remaining micro-niche might be continuous registry monitoring (like a Snyk for MCP registries specifically), but Snyk itself is already building this.",
+      "evidence_urls": [
+        "https://github.com/cisco-ai-defense/mcp-scanner",
+        "https://github.com/snyk/agent-scan",
+        "https://github.com/riseandignite/mcp-shield",
+        "https://www.helpnetsecurity.com/2025/10/29/proximity-open-source-mcp-security-scanner/",
+        "https://www.enkryptai.com/mcp-scan",
+        "https://www.akto.io/blog/mcp-security-tools",
+        "https://adversa.ai/blog/top-mcp-security-resources-march-2026/",
+        "https://news.ycombinator.com/item?id=47066315",
+        "https://news.ycombinator.com/item?id=47305700",
+        "https://news.ycombinator.com/item?id=47296417",
+        "https://www.sigilsec.ai/",
+        "https://blog.qualys.com/product-tech/2026/03/19/mcp-servers-shadow-it-ai-qualys-totalai-2026"
+      ]
+    },
+    {
+      "gap_title": "Compliance-Aware Training Pipeline for Regulated Industries",
+      "gap_id": 15,
+      "domain": "SLM Training Platforms",
+      "original_score": 40.56,
+      "competitors_found": [
+        {
+          "name": "Collibra AI Governance",
+          "type": "Commercial enterprise platform",
+          "maturity": "GA",
+          "key_metric": "Audit trails for regulated AI; EU AI Act/NIST templates; data lineage from source through training to deployment; integrates with Azure AI Foundry + MLflow",
+          "backed_by": "Collibra ($250M+ raised, $5.25B valuation)",
+          "launch_date": "2024"
+        },
+        {
+          "name": "IBM watsonx.governance",
+          "type": "Commercial enterprise platform",
+          "maturity": "GA",
+          "key_metric": "Enterprise AI governance across full lifecycle; risk management and compliance",
+          "backed_by": "IBM (public company)",
+          "launch_date": "2023"
+        },
+        {
+          "name": "DataRobot AI Governance",
+          "type": "Commercial platform",
+          "maturity": "GA",
+          "key_metric": "Real-time AI governance; compliance policies/rules/alerts; asset discovery",
+          "backed_by": "DataRobot ($750M+ raised)",
+          "launch_date": "2024"
+        },
+        {
+          "name": "ModelOp",
+          "type": "Commercial platform",
+          "maturity": "GA",
+          "key_metric": "Centralized AI inventory as auditable system of record; risk tiering and compliance",
+          "backed_by": "Venture-backed",
+          "launch_date": "2018"
+        },
+        {
+          "name": "OneTrust AI Governance",
+          "type": "Commercial platform",
+          "maturity": "GA",
+          "key_metric": "Data governance frameworks; regulatory compliance; inventory/classify/control data usage",
+          "backed_by": "OneTrust ($920M raised, $4.5B valuation)",
+          "launch_date": "2024"
+        },
+        {
+          "name": "FairNow",
+          "type": "Commercial platform",
+          "maturity": "production",
+          "key_metric": "AI governance and GRC platform; integrates with MLOps and workflow tools",
+          "backed_by": "Venture-backed",
+          "launch_date": "2023"
+        },
+        {
+          "name": "Weights & Biases (experiment tracking + audit)",
+          "type": "Commercial + OSS",
+          "maturity": "GA",
+          "key_metric": "Version control for data/models; experiment tracking tied to audit trails",
+          "backed_by": "W&B ($250M Series D)",
+          "launch_date": "2018"
+        },
+        {
+          "name": "OpenLineage + Marquez",
+          "type": "OSS",
+          "maturity": "production",
+          "key_metric": "Open standard for lineage metadata; integrates with Airflow/Spark/dbt",
+          "backed_by": "Linux Foundation (Datakin/original creators)",
+          "launch_date": "2021"
+        },
+        {
+          "name": "AWS AI Governance (SageMaker + Bedrock Guardrails)",
+          "type": "First-party cloud",
+          "maturity": "GA",
+          "key_metric": "140+ compliance certifications; HIPAA/FedRAMP/GDPR; model monitoring; GRC guide for financial services",
+          "backed_by": "AWS (Amazon)",
+          "launch_date": "2024"
+        },
+        {
+          "name": "Azure AI Foundry Governance",
+          "type": "First-party cloud",
+          "maturity": "GA",
+          "key_metric": "Model cards, content safety, evaluation metrics; exportable PDF/SPDX for GRC audits",
+          "backed_by": "Microsoft",
+          "launch_date": "2024"
+        }
+      ],
+      "first_party_fix_status": "GA",
+      "first_party_details": "AWS SageMaker has compliance-integrated training pipelines with 140+ certifications. Azure AI Foundry exports model cards as PDF/SPDX for audit workflows. Both hyperscalers have published specific GRC guides for regulated industries (financial services, healthcare). These are not bolt-on features - they are core platform capabilities.",
+      "velocity": "accelerating",
+      "solutions_shipped_6mo": "5+",
+      "top_n_list_exists": true,
+      "top_n_source": "aimultiple.com 'Benchmark Best 30 AI Governance Tools 2026'; atlan.com '7 Top AI Governance Tools for 2026'; centraleyes.com 'Top 13 AI Compliance Tools 2026'",
+      "github_repos_6mo": 3,
+      "oss_saturation": "early",
+      "reality_check_score": 40.56,
+      "first_party_modifier": -8,
+      "velocity_penalty": -5,
+      "saturation_penalty": -3,
+      "top_n_penalty": -4,
+      "adjusted_score": 20.56,
+      "verdict": "DIFFERENTIATE",
+      "differentiation_angle": "The governance layer is well-served by Collibra, IBM, DataRobot, and cloud-native tools. BUT there is a narrow gap: none of these are SLM-SPECIFIC fine-tuning pipelines. They are governance overlays for general ML/AI. A platform that combines compliance-first SLM fine-tuning (data provenance verification BEFORE training, automated regulatory classification of training data, built-in PII/PHI scrubbing with audit proof, and sector-specific templates for HIPAA/SOX/EU AI Act) as a single integrated workflow - rather than bolting governance onto generic MLOps - could differentiate. Must be purpose-built for <10B parameter models in regulated verticals.",
+      "evidence_urls": [
+        "https://www.collibra.com/products/ai-governance",
+        "https://www.collibra.com/blog/integrating-collibra-with-azure-ai-foundry-and-mlflow-new-integrations-expand-scope-of-model-governance",
+        "https://aimultiple.com/ai-governance-tools",
+        "https://atlan.com/ai-governance-tools/",
+        "https://aws.amazon.com/blogs/security/introducing-the-aws-user-guide-to-governance-risk-and-compliance-for-responsible-ai-adoption-within-financial-services-industries/",
+        "https://learn.microsoft.com/en-us/security/security-for-ai/govern",
+        "https://github.com/OpenLineage/OpenLineage",
+        "https://lakefs.io/blog/ai-compliance-tools/",
+        "https://www.centraleyes.com/top-ai-compliance-tools/"
+      ]
+    }
+  ],
+  "summary": {
+    "total_gaps_analyzed": 5,
+    "verdicts": {
+      "PROCEED": 0,
+      "DIFFERENTIATE": 1,
+      "PIVOT": 2,
+      "ABANDON": 2
+    },
+    "most_contested_gap": "MCP Supply Chain Security Scanner (Gap 14) - 12+ competitors found including Cisco and Snyk with corporate backing; 30+ CVEs already cataloged; multiple top-N lists exist; market is saturated",
+    "least_contested_gap": "Compliance-Aware Training Pipeline (Gap 15) - while AI governance is crowded, SLM-specific compliance-first fine-tuning remains underserved as a standalone integrated workflow",
+    "key_finding": "All 5 gaps have significant competition that was not reflected in original scores. The AI agent security and MCP security spaces have exploded with solutions in the last 6 months. The SLM training space has multiple well-funded platforms. No gap scored above 22.35 after reality adjustment, and none warrant a clean PROCEED verdict."
+  }
+}
