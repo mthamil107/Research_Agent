@@ -1,13 +1,15 @@
 # GapFinder — Automated Software Tool Gap Discovery
 
-**Find market gaps in any software domain. Then kill the ones that aren't real.**
+**Discover market opportunities in any software domain. Autonomously.**
 
-GapFinder is a research methodology + pipeline that:
-1. **Scans** a domain for every existing tool
-2. **Identifies** what's missing (feature gaps, segment gaps, pricing gaps)
-3. **Validates** demand via Reddit, HN, Twitter, GitHub signals
-4. **Scores** gaps by opportunity (demand x competition x feasibility)
-5. **Reality-checks** each gap against actual competition (v2)
+GapFinder is a research pipeline that:
+1. **Discovers** domains worth scanning (from a broad area like "fintech")
+2. **Scans** each domain for every existing tool
+3. **Identifies** what's missing (feature, segment, workflow, pricing gaps)
+4. **Validates** demand via Reddit, HN, Twitter, GitHub signals
+5. **Scores** gaps by opportunity (demand x competition x feasibility)
+6. **Reality-checks** each gap against actual competition
+7. **Deep-dives** survivors into actionable opportunity briefs
 
 Of our top 20 gaps across 10 AI domains, **12 were already dead** after reality checking. Zero received a clean "PROCEED."
 
@@ -17,172 +19,167 @@ Of our top 20 gaps across 10 AI domains, **12 were already dead** after reality 
 
 ## How to Use This
 
-There are two ways to run GapFinder. **Pick the one that fits you.**
-
 ### Option A: Claude Code (Recommended)
 
-This is how we built the results in this repo. No API key needed — just a Claude Code subscription.
+No API key needed — just a Claude Code subscription.
 
 ```bash
-# 1. Clone this repo
 git clone https://github.com/YOUR_USERNAME/GapFinder.git
 cd GapFinder
-
-# 2. Open with Claude Code
 claude
-
-# 3. Tell it to scan your domain
 ```
 
-Then just say:
+Then tell Claude what you want:
 
+**"I know my domain"** — Scan it directly:
 ```
-Scan the domain "your domain here" using the GapFinder methodology in GAPFINDER-SPEC.md.
-Run all 6 stages: landscape scan, feature matrix, gap identification,
-demand validation, scoring, and report generation.
-Save output to output/<your-domain>/. Use web search for every stage.
-```
-
-For the v2 reality check, follow up with:
-
-```
-Now run a Competition Reality Check on the top 5 gaps using the methodology
-in GAPFINDER-V2-SPEC.md. Be skeptical — try to DISPROVE each gap exists.
-Search for direct competitors, first-party fixes, GitHub repos, and "top N" articles.
+Scan "AI-powered contract analysis for legal teams" using the GapFinder pipeline.
+Run all stages through reality check and exploration.
 ```
 
-**Why this works well:**
-- Claude Code has built-in web search — no API key setup
-- Can run multiple domain scans in parallel via agents
-- Results go straight into the repo with git commits
-- You can ask follow-up questions about specific gaps
+**"I have a broad area"** — Let it discover sub-domains:
+```
+Explore "fintech" — discover the most promising sub-domains,
+then scan, reality-check, and explore survivors.
+```
+
+**"I have no idea where to look"** — Start from a trend:
+```
+What are the hottest underserved areas in developer tools right now?
+Discover domains, scan them, and give me the surviving opportunities.
+```
+
+Claude reads CLAUDE.md and knows the full methodology.
 
 ### Option B: Python Script (Automated / Scheduled)
 
-For repeatable, scheduled scans. Requires an Anthropic API key with web search access.
+Requires an Anthropic API key with web search access.
 
 ```bash
-# 1. Clone and install
 git clone https://github.com/YOUR_USERNAME/GapFinder.git
 cd GapFinder
 pip install -r requirements.txt
-
-# 2. Set your API key
-cp .env.example .env
-# Edit .env with your key, then:
 export ANTHROPIC_API_KEY=sk-ant-...
 
-# 3. Scan a single domain
+# Full autonomous pipeline: discover → scan → reality-check → explore
+python gapfinder.py --discover "fintech" --v2 --explore
+
+# Scan specific domain with full pipeline
+python gapfinder.py --v2 --explore "AI-powered contract analysis"
+
+# Just scan (find gaps only)
 python gapfinder.py "your domain here"
 
-# 4. Scan with reality check (v2)
-python gapfinder.py --v2 "your domain here"
+# Reality-check existing results
+python gapfinder.py --reality-check
 
-# 5. Scan all default domains
-python gapfinder.py --v2
+# Explore surviving gaps from existing results
+python gapfinder.py --explore
 ```
 
 **Estimated API costs:**
-- Single domain (v1, 6 stages): ~$2-5
-- Single domain (v2, 8 stages): ~$5-10
-- All 10 default domains (v2): ~$50-100
+| Mode | Cost |
+|------|------|
+| Domain discovery | ~$1-2 |
+| Single domain scan (v1) | ~$2-5 |
+| Reality check per gap | ~$1-2 |
+| Deep exploration per gap | ~$2-3 |
+| Full pipeline, 10 domains | ~$80-150 |
 
 ### Option C: Manual (No Code)
 
-You don't need any tool. For any gap you're considering:
+For any gap you're considering, run this checklist:
 
 - [ ] Search `"[problem] tool 2026"` — found < 3 direct competitors?
 - [ ] Search `"[problem] open source GitHub"` — found < 5 repos in 6 months?
 - [ ] Check Anthropic, OpenAI, Cloudflare, AWS changelogs — no first-party fix?
 - [ ] Search `"top [N] [category] 2026"` — no comparison articles?
 - [ ] Check HN/Reddit — no "Show HN" posts solving this?
-- [ ] Check YCombinator portfolio — no funded startup here?
 
 **If any check fails, do not proceed without explicit justification.**
-
----
-
-## Scanning Your Own Domain
-
-### Step 1: Pick a specific domain
-
-Good: `"AI-powered contract analysis for legal teams"`
-Bad: `"AI tools"` (too broad)
-
-The more specific the domain, the better the results. GapFinder works best on domains narrow enough to have 10-30 existing tools.
-
-### Step 2: Run v1 (find gaps)
-
-Using Claude Code:
-```
-Scan the domain "AI-powered contract analysis for legal teams"
-using the GapFinder methodology. Run all 6 stages with web search.
-Save to output/ai-contract-analysis/.
-```
-
-Or using the script:
-```bash
-python gapfinder.py "AI-powered contract analysis for legal teams"
-```
-
-### Step 3: Run v2 (kill gaps)
-
-This is the critical step. Don't skip it.
-
-Using Claude Code:
-```
-Run a Competition Reality Check on the top 5 gaps from
-output/ai-contract-analysis/ranked_gaps.json.
-For each gap, search for direct competitors, first-party fixes,
-GitHub saturation, and "top N" comparison articles.
-Save results to output/ai-contract-analysis/reality_check.json.
-```
-
-Or using the script:
-```bash
-python gapfinder.py --v2 "AI-powered contract analysis for legal teams"
-```
-
-### Step 4: Read the verdicts
-
-Check `output/<your-domain>/gap_report.md` for v1 results and `output/master_gap_report_v2.md` for reality-checked results.
-
-| Verdict | What to do |
-|---------|-----------|
-| PROCEED | Rare. Build it. |
-| DIFFERENTIATE | Gap exists but needs a sharp unique angle |
-| PIVOT | Core thesis dead. Look at adjacent gaps |
-| ABANDON | Market solved. Move on. |
 
 ---
 
 ## The Pipeline
 
 ```
-Phase 1: Find Gaps (Stages 1-6)
+Phase 0: DISCOVER — Find domains worth scanning
+  Input:  "fintech" or "AI infrastructure" (broad area)
+  Output: 8-15 specific scannable sub-domains
+
+Phase 1: SCAN — Find and score gaps (Stages 1-6)
   Stage 1: Landscape Scan — Find all tools via web search
   Stage 2: Feature Matrix — Build tool x feature comparison
-  Stage 3: Gap Identification — Find missing features, segments, workflows
-  Stage 4: Demand Validation — Search Reddit/HN/Twitter/GitHub for signals
-  Stage 5: Scoring & Ranking — Score: demand x competition x feasibility / 100
-  Stage 6: Report Generation — Markdown report with top gaps
+  Stage 3: Gap Identification — Find what's missing
+  Stage 4: Demand Validation — Search Reddit/HN/Twitter/GitHub
+  Stage 5: Scoring — demand x competition x feasibility / 100
+  Stage 6: Report — Markdown with top gaps per domain
 
-Phase 2: Kill Gaps (Stages 7-8)
+Phase 2: KILL — Reality-check gaps (Stages 7-8)
   Stage 7: Competition Reality Check — Try to DISPROVE each gap
-  Stage 8: Final Report — Adjusted scores with verdicts
+  Stage 8: Verdict Report — Adjusted scores: PROCEED/DIFFERENTIATE/PIVOT/ABANDON
+
+Phase 3: EXPLORE — Deep-dive survivors (Stage 9)
+  Stage 9: Opportunity Brief — For each surviving gap:
+    - Target users (real pain quotes from forums)
+    - Market sizing (TAM/SAM/SOM)
+    - Competitive positioning (competitor weaknesses, unique angle)
+    - Distribution channels
+    - Business model & pricing
+    - 2-week MVP scope
+    - Risks & comparable successes
 ```
 
-### Stage 7: The Competition Reality Check
+### How the phases connect
 
-The Reality Check agent runs 5 checks per gap:
+```
+"fintech"
+    → Phase 0 discovers: ["neobank infrastructure", "embedded lending",
+       "AI fraud detection", "crypto tax tools", ...]
+    → Phase 1 scans each, finds 80+ gaps across all domains
+    → Phase 2 kills 60+ gaps (already solved/saturated)
+    → Phase 3 deep-dives the 5-10 survivors into build-ready briefs
+```
+
+---
+
+## Stage 7: The Competition Reality Check
+
+5 checks per gap:
 
 | Check | What it does | Penalty |
 |-------|-------------|---------|
 | Direct Competitor Search | 5+ queries for existing solutions | Proportional |
-| First-Party Fix Detection | Are Anthropic/OpenAI/Google solving it? | -10 to -75 |
+| First-Party Fix Detection | Are Anthropic/OpenAI/Google/AWS solving it? | -10 to -75 |
 | Velocity Analysis | % of solutions shipped in last 6 months | Up to -30 |
 | "Top N List" Test | Do comparison articles exist? | -20 |
 | Open-Source Saturation | GitHub repos in last 6 months | Up to -30 |
+
+### Verdicts
+
+| Verdict | Reality Score | Meaning |
+|---------|--------------|---------|
+| PROCEED | > 60 | Few competitors, no first-party fixes |
+| DIFFERENTIATE | 30-60 | Gap exists, needs unique angle |
+| PIVOT | 10-30 | Core thesis dead, adjacent angle might work |
+| ABANDON | < 10 | Market solved or saturated |
+
+---
+
+## Stage 9: Deep Exploration
+
+For each surviving gap, produces an actionable opportunity brief:
+
+| Section | What it answers |
+|---------|----------------|
+| Target Users | Who exactly needs this? Real pain quotes from forums |
+| Market Sizing | TAM/SAM/SOM, pricing benchmarks |
+| Competitive Positioning | Competitor weaknesses, your unique angle |
+| Distribution | Where do these users discover tools? |
+| Business Model | How to monetize, pricing strategy |
+| MVP Scope | What to ship in 2 weeks to validate |
+| Risks | What could kill this, and mitigations |
+| Comparable Successes | Companies that used a similar playbook |
 
 ---
 
@@ -198,22 +195,25 @@ The Reality Check agent runs 5 checks per gap:
 
 ```
 output/
-  master_gap_report.md          # v1 cross-domain report
-  master_gap_report_v2.md       # v2 reality-checked report
-  all_gaps_ranked.json          # All gaps sorted by score
-  reality_checks.json           # Raw reality check data
+  discovered_domains.json       # Phase 0: Discovered sub-domains
+  master_gap_report.md          # Phase 1: Cross-domain gap report
+  all_gaps_ranked.json          # Phase 1: All gaps sorted by score
+  reality_checks.json           # Phase 2: Raw reality check data
+  master_gap_report_v2.md       # Phase 2: Reality-checked verdicts
+  explorations.json             # Phase 3: Raw exploration data
+  exploration_report.md         # Phase 3: Actionable opportunity briefs
   <domain-slug>/
-    landscape.json              # Stage 1: All tools found
-    feature_matrix.json         # Stage 2: Tool x feature grid
-    raw_gaps.json               # Stage 3: Identified gaps
-    validated_gaps.json         # Stage 4: Demand signals
-    ranked_gaps.json            # Stage 5: Scored gaps
-    gap_report.md               # Stage 6: Human-readable report
+    landscape.json              # All tools found
+    feature_matrix.json         # Tool x feature grid
+    raw_gaps.json               # Identified gaps
+    validated_gaps.json         # Demand signals
+    ranked_gaps.json            # Scored gaps
+    gap_report.md               # Human-readable report
 ```
 
 ## Sample Results (March 2026)
 
-We scanned 10 AI/software domains. Results after reality checking:
+Scanned 10 AI/software domains. After reality checking:
 
 | # | Gap | v1 Score | v2 Score | Verdict |
 |---|-----|----------|----------|---------|
@@ -223,37 +223,20 @@ We scanned 10 AI/software domains. Results after reality checking:
 | 7 | Domain-Specific Eval | 49.14 | 38.14 | DIFFERENTIATE |
 | 8 | MCP Security Gateway | 48.30 | 1.30 | ABANDON |
 
-The MCP Security Gateway dropped from 48.3 to **1.3** — 41 competing projects found.
-
 Full results in `output/`.
-
-## Default Domains
-
-Edit `DOMAINS_TO_SCAN` in `gapfinder.py` or pass your own:
-
-1. AI agent testing and evaluation
-2. AI agent prompt optimization
-3. LLM cost monitoring and optimization
-4. AI workflow orchestration for enterprises
-5. AI agent security and guardrails
-6. MCP server ecosystem tools
-7. AI agent observability
-8. Domain-specific SLM training platforms
-9. AI-powered document processing for insurance
-10. Multi-agent collaboration frameworks
 
 ## Methodology Docs
 
-- [`GAPFINDER-SPEC.md`](GAPFINDER-SPEC.md) — v1 architecture and design
+- [`GAPFINDER-SPEC.md`](GAPFINDER-SPEC.md) — v1 architecture
 - [`GAPFINDER-V2-SPEC.md`](GAPFINDER-V2-SPEC.md) — v2 Competition Reality Check methodology
 
 ## Limitations
 
 - **Scoring is subjective.** Different weights produce different rankings
 - **Search is incomplete.** Misses stealth startups, internal tools, non-English ecosystems
-- **Results expire fast.** AI infrastructure has ~6-month gap-to-saturation cycles. Re-run monthly
+- **Results expire fast.** Re-run monthly. AI infra has ~6-month gap-to-saturation cycles
 - **No outcome validation yet.** We don't know if DIFFERENTIATE gaps produce successful products
-- **API costs.** Full 10-domain v2 scan uses significant API credits via the Python script
+- **API costs.** Full pipeline with discovery + 10 domains can cost $80-150
 
 ## License
 

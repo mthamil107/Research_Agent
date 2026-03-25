@@ -1,15 +1,20 @@
 # GapFinder — Automated Software Tool Gap Discovery
 
 ## What This Is
-A research pipeline that discovers unserved gaps in software domains, then reality-checks them.
-Users will ask you to scan their domain — follow the methodology below.
+A research pipeline that autonomously discovers opportunities in software markets.
+Users will ask you to scan domains or discover new ones — follow the methodology below.
 
-## When a User Asks to Scan a Domain
+## The Full Pipeline
 
-Run the full pipeline using web search. Save all outputs as JSON + markdown.
+### Phase 0: Discover Domains (when user gives a broad area, not a specific domain)
+If user says "explore fintech" or "find opportunities in AI" — don't scan that directly.
+First discover 8-15 specific sub-domains worth scanning:
+- Search for sub-categories, trends, funding rounds, emerging areas
+- Search HN/Reddit for pain points and "I wish there was..." signals
+- Mix obvious and non-obvious/adjacent domains
+- Save `output/discovered_domains.json`
 
 ### Phase 1: Find Gaps (Stages 1-6)
-
 For each domain, create `output/<domain-slug>/` and run:
 
 1. **Landscape Scan** — Search 5+ queries to find ALL tools. Save `landscape.json`
@@ -22,7 +27,6 @@ For each domain, create `output/<domain-slug>/` and run:
 Commit after each stage.
 
 ### Phase 2: Kill Gaps (Stages 7-8)
-
 For top N gaps, run Competition Reality Check. Be SKEPTICAL — try to DISPROVE each gap:
 
 7. **Reality Check** — For each gap, search for:
@@ -36,6 +40,21 @@ For top N gaps, run Competition Reality Check. Be SKEPTICAL — try to DISPROVE 
    - `> 60`: PROCEED | `30-60`: DIFFERENTIATE | `10-30`: PIVOT | `< 10`: ABANDON
 
 8. **Final Report** — Adjusted scores with verdicts. Save `master_gap_report_v2.md`
+
+### Phase 3: Deep Exploration (Stage 9)
+For surviving gaps (PROCEED/DIFFERENTIATE), research deeply:
+
+9. **Explore** — For each survivor, search web for:
+   - Target users (real pain quotes from forums, job titles, company types)
+   - Market sizing (TAM/SAM/SOM, pricing benchmarks, adjacent funding)
+   - Competitive positioning (competitor weaknesses, unique angles)
+   - Distribution channels (where target users discover tools)
+   - Business model (how similar tools monetize)
+   - MVP scope (what to ship in 2 weeks to validate)
+   - Risks & blockers
+   - Comparable successes (companies that used similar playbook)
+
+   Save `output/explorations.json` and `output/exploration_report.md`
 
 ## Running Multiple Domains in Parallel
 Use agents — one per domain — to parallelize. Each agent handles all 6 stages for its domain.
