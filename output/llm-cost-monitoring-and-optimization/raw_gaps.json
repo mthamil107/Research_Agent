@@ -1,0 +1,118 @@
+{
+  "domain": "LLM Cost Monitoring and Optimization",
+  "generated_date": "2026-03-25",
+  "gap_categories": {
+    "feature_gaps": [
+      {
+        "id": "FG1",
+        "gap": "Predictive Cost Forecasting & Budget Planning",
+        "description": "No tool offers ML-driven cost forecasting that predicts future LLM spend based on historical usage patterns, seasonal variations, and growth projections. Current tools are reactive (showing past spend) rather than proactive (predicting future spend).",
+        "current_state": "Teams rely on manual spreadsheet-based forecasting or basic trend lines. No tool provides automated budget scenario modeling."
+      },
+      {
+        "id": "FG2",
+        "gap": "Intelligent Cost-Quality-Aware Model Routing",
+        "description": "While RouteLLM and research papers show 85% cost reduction with routing, no production-ready commercial tool deeply integrates cost-quality routing with observability. Existing gateways do basic fallback routing but not intelligent per-query cost-quality optimization.",
+        "current_state": "RouteLLM is research-grade. Portkey/LiteLLM do fallback routing. No tool combines real-time cost-quality scoring with automatic model selection and continuous optimization."
+      },
+      {
+        "id": "FG3",
+        "gap": "AI Agent / Multi-Agent Workflow Cost Attribution",
+        "description": "As agentic AI grows, tracking cost per agent step, per tool call, and per reasoning loop in multi-agent systems is poorly served. Most tools trace but don't attribute costs granularly to individual agent decisions.",
+        "current_state": "Langfuse and Braintrust offer basic agent tracing. No tool provides per-agent budget limits, cost-per-decision tracking, or automatic agent cost optimization."
+      },
+      {
+        "id": "FG4",
+        "gap": "Enterprise Chargeback / Showback Reporting",
+        "description": "No tool provides out-of-the-box internal chargeback/showback reports for departments, cost centers, or business units. Finance teams need invoice-ready reports attributing AI costs to internal consumers.",
+        "current_state": "LiteLLM and Portkey offer per-team tracking, but generating actual chargeback invoices, approval workflows, and finance-system integrations requires custom development."
+      },
+      {
+        "id": "FG5",
+        "gap": "Automated Prompt Cost Optimization",
+        "description": "No tool automatically identifies expensive prompts and suggests or applies optimizations (compression, restructuring, model downgrades) to reduce costs while maintaining quality thresholds.",
+        "current_state": "Braintrust's Loop generates better prompts for quality. No tool specifically optimizes prompts for cost reduction with quality guardrails."
+      },
+      {
+        "id": "FG6",
+        "gap": "Cross-Provider Cost Normalization & Real Billing Reconciliation",
+        "description": "Tools track estimated costs based on public pricing, but rarely reconcile with actual invoices from providers. Negotiated rates, volume discounts, and committed use discounts create gaps between estimated and actual costs.",
+        "current_state": "Cloudflare AI Gateway allows custom cost overrides. Most tools use public pricing only. No tool integrates with provider billing APIs for actual spend reconciliation."
+      }
+    ],
+    "segment_gaps": [
+      {
+        "id": "SG1",
+        "gap": "SMB / Solo Developer Cost Dashboard",
+        "description": "Most tools are designed for teams and enterprises. Solo developers and very small teams lack a simple, free, lightweight dashboard that aggregates personal LLM spend across providers without complex gateway setup.",
+        "current_state": "Free tiers exist but require integration effort. No dead-simple personal LLM spend tracker exists."
+      },
+      {
+        "id": "SG2",
+        "gap": "Finance / CFO-Oriented AI Cost Governance",
+        "description": "Existing tools are developer-focused. Finance teams, CFOs, and FinOps practitioners need business-language dashboards showing ROI, unit economics, cost-per-outcome, and budget compliance without technical jargon.",
+        "current_state": "CloudZero addresses cloud FinOps but not LLM-specific. No tool bridges the gap between technical LLM metrics and financial reporting."
+      },
+      {
+        "id": "SG3",
+        "gap": "Non-Technical Team LLM Cost Visibility",
+        "description": "Product managers, business analysts, and domain experts who use AI-powered features have no visibility into the cost implications of their usage patterns or prompt designs.",
+        "current_state": "All current tools require developer setup and technical understanding. No tool provides cost awareness to non-technical AI consumers."
+      }
+    ],
+    "workflow_gaps": [
+      {
+        "id": "WG1",
+        "gap": "Development-to-Production Cost Simulation",
+        "description": "Developers cannot simulate what their LLM usage will cost at production scale before deploying. No tool provides a 'cost staging environment' that projects dev-time patterns to production volumes.",
+        "current_state": "Teams discover production cost surprises after deployment. Manual estimation via calculators exists but doesn't account for real usage patterns."
+      },
+      {
+        "id": "WG2",
+        "gap": "CI/CD Cost Regression Testing",
+        "description": "No tool integrates cost testing into CI/CD pipelines to catch cost regressions before deployment. A prompt change that doubles token usage should fail a pipeline check.",
+        "current_state": "Braintrust has CI/CD quality checks. No tool has CI/CD cost checks that block deployments exceeding cost budgets."
+      },
+      {
+        "id": "WG3",
+        "gap": "End-to-End Cost-of-Quality Workflow",
+        "description": "No tool connects cost monitoring with quality evaluation to answer 'what is the minimum cost to achieve X quality level?' Teams optimize cost and quality separately.",
+        "current_state": "Weave tracks cost-per-correct but doesn't automate finding the cost-optimal configuration. Manual experimentation is needed."
+      }
+    ],
+    "integration_gaps": [
+      {
+        "id": "IG1",
+        "gap": "ERP / Financial System Integration",
+        "description": "No LLM cost tool integrates with enterprise financial systems (SAP, Oracle, NetSuite) for automated cost allocation, purchase order tracking, or budget management.",
+        "current_state": "All cost data stays in developer tools. Manual export and reconciliation with finance systems is required."
+      },
+      {
+        "id": "IG2",
+        "gap": "FinOps Platform Integration",
+        "description": "Limited integration between LLM cost tools and FinOps platforms (CloudZero, Kubecost, Apptio). AI spend remains siloed from overall cloud/infrastructure cost management.",
+        "current_state": "Datadog partially bridges this. No dedicated LLM-to-FinOps integration layer exists."
+      },
+      {
+        "id": "IG3",
+        "gap": "Self-Hosted / On-Premise Model Cost Tracking",
+        "description": "Most tools focus on API-based LLM costs. Self-hosted models (vLLM, TGI, Ollama) lack equivalent cost attribution covering GPU compute, electricity, and amortized hardware costs.",
+        "current_state": "TrueFoundry partially addresses this. No tool comprehensively tracks total cost of ownership for self-hosted LLMs including infrastructure."
+      }
+    ],
+    "pricing_gaps": [
+      {
+        "id": "PG1",
+        "gap": "Truly Free Comprehensive Solution",
+        "description": "Open-source tools require significant setup effort. No fully free, hosted solution provides comprehensive cost monitoring without volume limits that matter for real workloads.",
+        "current_state": "Free tiers are limited (5K-50K events/month). Self-hosting requires DevOps expertise. Gap between free/simple and paid/comprehensive."
+      },
+      {
+        "id": "PG2",
+        "gap": "Pay-Per-Savings Pricing Model",
+        "description": "No tool offers pricing tied to actual cost savings delivered. A model where the tool charges a percentage of savings it helps achieve would align incentives with customers.",
+        "current_state": "All tools charge per logs, per traces, or flat subscriptions. No outcome-based pricing exists."
+      }
+    ]
+  }
+}

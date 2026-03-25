@@ -1,0 +1,153 @@
+{
+  "domain": "AI Agent Security and Guardrails",
+  "generated_date": "2026-03-25",
+  "methodology": "Gaps identified by cross-referencing feature matrix coverage percentages, demand signals from developer communities, enterprise survey data, and market acquisition patterns.",
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Execution Sandboxing for AI Agents",
+      "description": "No tool in the landscape provides execution sandboxing for AI agents. Agents can execute arbitrary code, call APIs, and interact with production systems without containment boundaries. This is the only feature with 0% coverage across all 20 tools analyzed.",
+      "feature_coverage_pct": 0,
+      "evidence": [
+        "0/20 tools offer execution sandboxing",
+        "Missing controls include execution sandboxing, granular audit logging, and output validation before action (Clawhatch 2026 audit)",
+        "Agents can invoke any tool without permission models, no tool allowlist, parameter validation, or granular authorization (OpenClaw analysis)",
+        "Most organizations can monitor what their AI agents are doing but cannot stop them when something goes wrong (Kiteworks survey)"
+      ],
+      "affected_personas": ["DevOps engineers", "Platform engineering teams", "Security architects"],
+      "severity": "critical"
+    },
+    {
+      "id": "GAP-002",
+      "title": "MCP Protocol Security Gateway",
+      "description": "Only 1 tool (Cisco AI Defense) has any MCP security capability, and it is limited to catalog/discovery. MCP was designed for capability first with authentication, authorization, and sandboxing left to implementers - most of whom skipped all three. 41% of MCP servers remain unauthenticated.",
+      "feature_coverage_pct": 5,
+      "evidence": [
+        "Only 1/20 tools address MCP security (Cisco AI Defense MCP Catalog)",
+        "41% of MCP servers deployed without authentication (Aembit 2026 report)",
+        "mcp-remote npm package (558K+ downloads) had critical CVE (CVE-2025-6514)",
+        "OWASP published MCP Top 10 vulnerabilities list",
+        "Thales planning MCP security gateway but not yet available",
+        "AuthN/Z in MCP deployments remains challenging and error-prone (Doyensec)"
+      ],
+      "affected_personas": ["AI agent developers", "Platform engineers", "Security teams"],
+      "severity": "critical"
+    },
+    {
+      "id": "GAP-003",
+      "title": "AI Model Supply Chain Security",
+      "description": "Only 2 tools (Cisco AI Defense, HiddenLayer) address model supply chain security. With 36% of ClawHub skills containing detectable prompt injection and models being deployed from untrusted sources, this represents a massive blind spot.",
+      "feature_coverage_pct": 10,
+      "evidence": [
+        "Only 2/20 tools address model supply chain security",
+        "36% of ClawHub skills contain detectable prompt injection (Snyk audit)",
+        "13% of ClawHub skills contain critical security issues",
+        "Protect AI Guardian (now Palo Alto) was one of few focused tools, but acquisition limits independent access",
+        "AI BOM (Bill of Materials) is emerging but only Cisco and Cranium offer it"
+      ],
+      "affected_personas": ["ML engineers", "Supply chain security teams", "CISO offices"],
+      "severity": "high"
+    },
+    {
+      "id": "GAP-004",
+      "title": "Agent Identity Management for SMBs/Startups",
+      "description": "Only 4 tools offer agent identity management, all enterprise-priced (Microsoft, Okta, BeyondTrust, AccuKnox). No affordable or open-source solution exists for treating AI agents as first-class identities with scoped credentials, audit trails, and lifecycle management.",
+      "feature_coverage_pct": 20,
+      "evidence": [
+        "Only 4/20 tools offer agent identity management, all enterprise tier",
+        "45.6% of teams rely on shared API keys for agent authentication (Gravitee survey)",
+        "Only 21.9% of teams treat agents as independent identity-bearing entities",
+        "Non-human identities outnumber humans 10:1 in most enterprises (CSA)",
+        "68% of organizations can't distinguish human from AI agent activity (CSA survey)"
+      ],
+      "affected_personas": ["Startups building AI agents", "SMB engineering teams", "Open-source developers"],
+      "severity": "high"
+    },
+    {
+      "id": "GAP-005",
+      "title": "Multi-Agent Security Orchestration",
+      "description": "Only 40% of tools address multi-agent security. As enterprises average 37 deployed agents (growing quarterly), there is no unified solution for securing inter-agent communication, preventing cross-agent attacks, and managing agent-to-agent trust boundaries.",
+      "feature_coverage_pct": 40,
+      "evidence": [
+        "Only 8/20 tools address multi-agent security",
+        "Only 24.4% of organizations have full visibility into agent-to-agent communication (Gravitee)",
+        "Average organization manages 37 deployed agents, growing quarterly",
+        "Cross-agent prompt injection (via shared context) is a known attack vector",
+        "No tool provides comprehensive agent-to-agent trust boundary management"
+      ],
+      "affected_personas": ["Enterprise architects", "Security operations teams", "Platform engineering"],
+      "severity": "high"
+    },
+    {
+      "id": "GAP-006",
+      "title": "Shadow AI Discovery and Governance for Midmarket",
+      "description": "Only 35% of tools detect shadow AI, and all are enterprise-priced. The average enterprise has 1,200 unofficial AI apps. Mid-market companies lack any affordable shadow AI detection capability.",
+      "feature_coverage_pct": 35,
+      "evidence": [
+        "Only 7/20 tools detect shadow AI",
+        "Average enterprise has 1,200 unofficial AI apps",
+        "86% of organizations report no visibility into AI data flows",
+        "Only 14.4% have full IT/security approval for agent fleets",
+        "Shadow AI deployed by teams bypassing security vetting"
+      ],
+      "affected_personas": ["Mid-market IT teams", "CISOs", "Compliance officers"],
+      "severity": "medium"
+    },
+    {
+      "id": "GAP-007",
+      "title": "Unified Developer-First Security SDK",
+      "description": "The market is split between developer-focused open-source tools (limited to guardrails/testing) and enterprise security platforms (expensive, complex). No tool provides a unified, developer-friendly SDK that combines runtime guardrails, identity management, observability, and compliance in a single package accessible to startups and individual developers.",
+      "feature_coverage_pct": null,
+      "evidence": [
+        "Open source tools cover 3-4 features max; enterprise tools cover 8-12 but at high cost",
+        "HN projects show developers building DIY guardrails (TSZ, Guardrail Layer, custom firewalls)",
+        "Arcjet is closest to developer-friendly but only covers prompt injection",
+        "No tool bridges the gap between 'npm install' simplicity and enterprise security depth"
+      ],
+      "affected_personas": ["Individual developers", "Startup CTOs", "Open-source AI builders"],
+      "severity": "high"
+    },
+    {
+      "id": "GAP-008",
+      "title": "AI Agent Incident Response and Kill Switch",
+      "description": "Organizations can monitor but cannot stop agents when things go wrong. No standardized incident response framework or kill-switch mechanism exists for AI agents across different frameworks and platforms.",
+      "feature_coverage_pct": null,
+      "evidence": [
+        "Most organizations can monitor but cannot stop agents when something goes wrong (Kiteworks)",
+        "One HN project specifically mentions building a 'kill switch for production incidents'",
+        "88% of organizations reported confirmed or suspected AI agent security incidents",
+        "No standardized agent incident response playbook exists"
+      ],
+      "affected_personas": ["Security operations centers", "Incident response teams", "DevOps engineers"],
+      "severity": "high"
+    },
+    {
+      "id": "GAP-009",
+      "title": "Cost Transparency and Predictable Pricing",
+      "description": "Nearly all enterprise AI security tools require custom quotes with opaque pricing. Developers and smaller teams have no way to predict costs, creating a barrier to adoption that leaves most AI agents completely unprotected.",
+      "feature_coverage_pct": null,
+      "evidence": [
+        "15+ tools require 'contact sales' for pricing",
+        "Reddit discussions cite C-suite deploying expensive tools while rejecting headcount",
+        "Only Cisco offers a free Explorer tier; most have no self-serve option",
+        "Cost opacity identified as one of three structural problems nobody is solving (Dev.to analysis)"
+      ],
+      "affected_personas": ["Startup founders", "Individual developers", "Mid-market engineering leads"],
+      "severity": "medium"
+    },
+    {
+      "id": "GAP-010",
+      "title": "Pre-Deployment Security Validation Pipeline",
+      "description": "Red teaming tools (Promptfoo, Garak) test models and apps but are disconnected from CI/CD pipelines and deployment gates. No integrated solution provides automated security validation as a deployment gate that blocks insecure agents from reaching production.",
+      "feature_coverage_pct": null,
+      "evidence": [
+        "Red teaming tools operate separately from deployment pipelines",
+        "Promptfoo offers CI/CD integration but only for testing, not blocking",
+        "AI coding agents skip security components by default (Snyk research)",
+        "No 'shift-left' security gate specifically for AI agent deployment"
+      ],
+      "affected_personas": ["DevSecOps engineers", "CI/CD platform teams", "Release managers"],
+      "severity": "medium"
+    }
+  ]
+}

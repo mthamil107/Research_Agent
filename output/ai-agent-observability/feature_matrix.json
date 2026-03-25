@@ -1,0 +1,661 @@
+{
+  "domain": "AI Agent Observability",
+  "generated_date": "2026-03-25",
+  "feature_categories": {
+    "core_observability": {
+      "description": "Fundamental tracing and monitoring capabilities",
+      "features": [
+        "LLM call tracing",
+        "Agent workflow tracing",
+        "Multi-agent tracing",
+        "OpenTelemetry support",
+        "Token usage tracking",
+        "Cost tracking",
+        "Latency monitoring",
+        "Error tracking",
+        "Session/conversation tracking"
+      ]
+    },
+    "evaluation": {
+      "description": "Quality evaluation and testing capabilities",
+      "features": [
+        "LLM-as-a-judge",
+        "Built-in eval metrics",
+        "Custom evaluators",
+        "Regression testing / CI-CD evals",
+        "Dataset management",
+        "Experiment tracking",
+        "A/B testing"
+      ]
+    },
+    "agent_specific": {
+      "description": "Features specifically designed for AI agents",
+      "features": [
+        "Tool call tracking",
+        "Reasoning chain visualization",
+        "Decision tree rendering",
+        "Agent simulation/testing",
+        "Multi-agent interaction graphs",
+        "Time-travel debugging",
+        "Checkpoint/replay"
+      ]
+    },
+    "safety_and_guardrails": {
+      "description": "Safety, security, and compliance features",
+      "features": [
+        "Real-time guardrails",
+        "Prompt injection detection",
+        "Hallucination detection",
+        "PII/sensitive data scanning",
+        "Content policy enforcement",
+        "Audit trails"
+      ]
+    },
+    "collaboration_and_ux": {
+      "description": "Team collaboration and user experience",
+      "features": [
+        "Non-technical dashboards",
+        "Annotation queues / human review",
+        "Role-based access",
+        "Prompt management",
+        "Playground/sandbox",
+        "Natural language queries",
+        "Alerting and notifications"
+      ]
+    },
+    "deployment_and_integration": {
+      "description": "Deployment flexibility and integration breadth",
+      "features": [
+        "Self-hosted option",
+        "Multi-cloud support",
+        "Framework agnostic",
+        "Provider agnostic (LLM)",
+        "API gateway / proxy mode",
+        "SDK languages (Python/JS/TS/etc.)"
+      ]
+    }
+  },
+  "matrix": {
+    "Langfuse": {
+      "core_observability": {
+        "LLM call tracing": true,
+        "Agent workflow tracing": true,
+        "Multi-agent tracing": true,
+        "OpenTelemetry support": true,
+        "Token usage tracking": true,
+        "Cost tracking": true,
+        "Latency monitoring": true,
+        "Error tracking": true,
+        "Session/conversation tracking": true
+      },
+      "evaluation": {
+        "LLM-as-a-judge": true,
+        "Built-in eval metrics": true,
+        "Custom evaluators": true,
+        "Regression testing / CI-CD evals": "partial",
+        "Dataset management": true,
+        "Experiment tracking": true,
+        "A/B testing": false
+      },
+      "agent_specific": {
+        "Tool call tracking": true,
+        "Reasoning chain visualization": true,
+        "Decision tree rendering": "partial",
+        "Agent simulation/testing": false,
+        "Multi-agent interaction graphs": "partial",
+        "Time-travel debugging": false,
+        "Checkpoint/replay": false
+      },
+      "safety_and_guardrails": {
+        "Real-time guardrails": false,
+        "Prompt injection detection": false,
+        "Hallucination detection": "via evals only",
+        "PII/sensitive data scanning": false,
+        "Content policy enforcement": false,
+        "Audit trails": true
+      },
+      "collaboration_and_ux": {
+        "Non-technical dashboards": "partial",
+        "Annotation queues / human review": true,
+        "Role-based access": true,
+        "Prompt management": true,
+        "Playground/sandbox": true,
+        "Natural language queries": false,
+        "Alerting and notifications": "partial"
+      },
+      "deployment_and_integration": {
+        "Self-hosted option": true,
+        "Multi-cloud support": true,
+        "Framework agnostic": true,
+        "Provider agnostic (LLM)": true,
+        "API gateway / proxy mode": false,
+        "SDK languages": "Python, JS/TS"
+      }
+    },
+    "LangSmith": {
+      "core_observability": {
+        "LLM call tracing": true,
+        "Agent workflow tracing": true,
+        "Multi-agent tracing": true,
+        "OpenTelemetry support": "partial",
+        "Token usage tracking": true,
+        "Cost tracking": true,
+        "Latency monitoring": true,
+        "Error tracking": true,
+        "Session/conversation tracking": true
+      },
+      "evaluation": {
+        "LLM-as-a-judge": true,
+        "Built-in eval metrics": true,
+        "Custom evaluators": true,
+        "Regression testing / CI-CD evals": true,
+        "Dataset management": true,
+        "Experiment tracking": true,
+        "A/B testing": "partial"
+      },
+      "agent_specific": {
+        "Tool call tracking": true,
+        "Reasoning chain visualization": true,
+        "Decision tree rendering": true,
+        "Agent simulation/testing": "partial",
+        "Multi-agent interaction graphs": true,
+        "Time-travel debugging": false,
+        "Checkpoint/replay": false
+      },
+      "safety_and_guardrails": {
+        "Real-time guardrails": false,
+        "Prompt injection detection": false,
+        "Hallucination detection": "via evals only",
+        "PII/sensitive data scanning": false,
+        "Content policy enforcement": false,
+        "Audit trails": true
+      },
+      "collaboration_and_ux": {
+        "Non-technical dashboards": true,
+        "Annotation queues / human review": true,
+        "Role-based access": true,
+        "Prompt management": true,
+        "Playground/sandbox": true,
+        "Natural language queries": false,
+        "Alerting and notifications": true
+      },
+      "deployment_and_integration": {
+        "Self-hosted option": "enterprise only",
+        "Multi-cloud support": "partial",
+        "Framework agnostic": true,
+        "Provider agnostic (LLM)": true,
+        "API gateway / proxy mode": false,
+        "SDK languages": "Python, JS/TS"
+      }
+    },
+    "Braintrust": {
+      "core_observability": {
+        "LLM call tracing": true,
+        "Agent workflow tracing": true,
+        "Multi-agent tracing": true,
+        "OpenTelemetry support": "partial",
+        "Token usage tracking": true,
+        "Cost tracking": true,
+        "Latency monitoring": true,
+        "Error tracking": true,
+        "Session/conversation tracking": true
+      },
+      "evaluation": {
+        "LLM-as-a-judge": true,
+        "Built-in eval metrics": true,
+        "Custom evaluators": true,
+        "Regression testing / CI-CD evals": true,
+        "Dataset management": true,
+        "Experiment tracking": true,
+        "A/B testing": true
+      },
+      "agent_specific": {
+        "Tool call tracking": true,
+        "Reasoning chain visualization": true,
+        "Decision tree rendering": true,
+        "Agent simulation/testing": "partial",
+        "Multi-agent interaction graphs": "partial",
+        "Time-travel debugging": false,
+        "Checkpoint/replay": false
+      },
+      "safety_and_guardrails": {
+        "Real-time guardrails": false,
+        "Prompt injection detection": false,
+        "Hallucination detection": "via scorers",
+        "PII/sensitive data scanning": false,
+        "Content policy enforcement": false,
+        "Audit trails": true
+      },
+      "collaboration_and_ux": {
+        "Non-technical dashboards": true,
+        "Annotation queues / human review": true,
+        "Role-based access": true,
+        "Prompt management": true,
+        "Playground/sandbox": true,
+        "Natural language queries": "partial (Loop AI)",
+        "Alerting and notifications": true
+      },
+      "deployment_and_integration": {
+        "Self-hosted option": false,
+        "Multi-cloud support": true,
+        "Framework agnostic": true,
+        "Provider agnostic (LLM)": true,
+        "API gateway / proxy mode": false,
+        "SDK languages": "Python, JS/TS"
+      }
+    },
+    "Arize Phoenix": {
+      "core_observability": {
+        "LLM call tracing": true,
+        "Agent workflow tracing": true,
+        "Multi-agent tracing": "partial",
+        "OpenTelemetry support": true,
+        "Token usage tracking": true,
+        "Cost tracking": true,
+        "Latency monitoring": true,
+        "Error tracking": true,
+        "Session/conversation tracking": true
+      },
+      "evaluation": {
+        "LLM-as-a-judge": true,
+        "Built-in eval metrics": true,
+        "Custom evaluators": true,
+        "Regression testing / CI-CD evals": "partial",
+        "Dataset management": true,
+        "Experiment tracking": true,
+        "A/B testing": false
+      },
+      "agent_specific": {
+        "Tool call tracking": true,
+        "Reasoning chain visualization": true,
+        "Decision tree rendering": "partial",
+        "Agent simulation/testing": false,
+        "Multi-agent interaction graphs": "partial",
+        "Time-travel debugging": false,
+        "Checkpoint/replay": false
+      },
+      "safety_and_guardrails": {
+        "Real-time guardrails": false,
+        "Prompt injection detection": false,
+        "Hallucination detection": "via evals",
+        "PII/sensitive data scanning": false,
+        "Content policy enforcement": false,
+        "Audit trails": true
+      },
+      "collaboration_and_ux": {
+        "Non-technical dashboards": "partial",
+        "Annotation queues / human review": "partial",
+        "Role-based access": "partial",
+        "Prompt management": true,
+        "Playground/sandbox": true,
+        "Natural language queries": false,
+        "Alerting and notifications": "partial"
+      },
+      "deployment_and_integration": {
+        "Self-hosted option": true,
+        "Multi-cloud support": true,
+        "Framework agnostic": true,
+        "Provider agnostic (LLM)": true,
+        "API gateway / proxy mode": false,
+        "SDK languages": "Python"
+      }
+    },
+    "AgentOps": {
+      "core_observability": {
+        "LLM call tracing": true,
+        "Agent workflow tracing": true,
+        "Multi-agent tracing": true,
+        "OpenTelemetry support": false,
+        "Token usage tracking": true,
+        "Cost tracking": true,
+        "Latency monitoring": true,
+        "Error tracking": true,
+        "Session/conversation tracking": true
+      },
+      "evaluation": {
+        "LLM-as-a-judge": false,
+        "Built-in eval metrics": "partial",
+        "Custom evaluators": false,
+        "Regression testing / CI-CD evals": false,
+        "Dataset management": false,
+        "Experiment tracking": false,
+        "A/B testing": false
+      },
+      "agent_specific": {
+        "Tool call tracking": true,
+        "Reasoning chain visualization": true,
+        "Decision tree rendering": true,
+        "Agent simulation/testing": false,
+        "Multi-agent interaction graphs": true,
+        "Time-travel debugging": true,
+        "Checkpoint/replay": true
+      },
+      "safety_and_guardrails": {
+        "Real-time guardrails": false,
+        "Prompt injection detection": true,
+        "Hallucination detection": false,
+        "PII/sensitive data scanning": false,
+        "Content policy enforcement": false,
+        "Audit trails": true
+      },
+      "collaboration_and_ux": {
+        "Non-technical dashboards": "partial",
+        "Annotation queues / human review": false,
+        "Role-based access": "partial",
+        "Prompt management": false,
+        "Playground/sandbox": false,
+        "Natural language queries": false,
+        "Alerting and notifications": true
+      },
+      "deployment_and_integration": {
+        "Self-hosted option": false,
+        "Multi-cloud support": true,
+        "Framework agnostic": true,
+        "Provider agnostic (LLM)": true,
+        "API gateway / proxy mode": false,
+        "SDK languages": "Python"
+      }
+    },
+    "Datadog LLM Observability": {
+      "core_observability": {
+        "LLM call tracing": true,
+        "Agent workflow tracing": true,
+        "Multi-agent tracing": true,
+        "OpenTelemetry support": true,
+        "Token usage tracking": true,
+        "Cost tracking": true,
+        "Latency monitoring": true,
+        "Error tracking": true,
+        "Session/conversation tracking": true
+      },
+      "evaluation": {
+        "LLM-as-a-judge": "partial",
+        "Built-in eval metrics": true,
+        "Custom evaluators": true,
+        "Regression testing / CI-CD evals": true,
+        "Dataset management": true,
+        "Experiment tracking": true,
+        "A/B testing": false
+      },
+      "agent_specific": {
+        "Tool call tracking": true,
+        "Reasoning chain visualization": true,
+        "Decision tree rendering": "partial",
+        "Agent simulation/testing": false,
+        "Multi-agent interaction graphs": "partial",
+        "Time-travel debugging": false,
+        "Checkpoint/replay": false
+      },
+      "safety_and_guardrails": {
+        "Real-time guardrails": false,
+        "Prompt injection detection": "partial",
+        "Hallucination detection": "via evals",
+        "PII/sensitive data scanning": true,
+        "Content policy enforcement": false,
+        "Audit trails": true
+      },
+      "collaboration_and_ux": {
+        "Non-technical dashboards": true,
+        "Annotation queues / human review": "partial",
+        "Role-based access": true,
+        "Prompt management": false,
+        "Playground/sandbox": false,
+        "Natural language queries": false,
+        "Alerting and notifications": true
+      },
+      "deployment_and_integration": {
+        "Self-hosted option": false,
+        "Multi-cloud support": true,
+        "Framework agnostic": true,
+        "Provider agnostic (LLM)": true,
+        "API gateway / proxy mode": false,
+        "SDK languages": "Python, JS/TS, Ruby, Java"
+      }
+    },
+    "Helicone": {
+      "core_observability": {
+        "LLM call tracing": true,
+        "Agent workflow tracing": true,
+        "Multi-agent tracing": "partial",
+        "OpenTelemetry support": false,
+        "Token usage tracking": true,
+        "Cost tracking": true,
+        "Latency monitoring": true,
+        "Error tracking": true,
+        "Session/conversation tracking": true
+      },
+      "evaluation": {
+        "LLM-as-a-judge": false,
+        "Built-in eval metrics": false,
+        "Custom evaluators": false,
+        "Regression testing / CI-CD evals": false,
+        "Dataset management": false,
+        "Experiment tracking": false,
+        "A/B testing": false
+      },
+      "agent_specific": {
+        "Tool call tracking": true,
+        "Reasoning chain visualization": "partial",
+        "Decision tree rendering": false,
+        "Agent simulation/testing": false,
+        "Multi-agent interaction graphs": false,
+        "Time-travel debugging": false,
+        "Checkpoint/replay": false
+      },
+      "safety_and_guardrails": {
+        "Real-time guardrails": false,
+        "Prompt injection detection": false,
+        "Hallucination detection": false,
+        "PII/sensitive data scanning": false,
+        "Content policy enforcement": false,
+        "Audit trails": true
+      },
+      "collaboration_and_ux": {
+        "Non-technical dashboards": "partial",
+        "Annotation queues / human review": false,
+        "Role-based access": true,
+        "Prompt management": true,
+        "Playground/sandbox": false,
+        "Natural language queries": false,
+        "Alerting and notifications": true
+      },
+      "deployment_and_integration": {
+        "Self-hosted option": true,
+        "Multi-cloud support": true,
+        "Framework agnostic": true,
+        "Provider agnostic (LLM)": true,
+        "API gateway / proxy mode": true,
+        "SDK languages": "Python, JS/TS, cURL (proxy)"
+      }
+    },
+    "Galileo AI": {
+      "core_observability": {
+        "LLM call tracing": true,
+        "Agent workflow tracing": true,
+        "Multi-agent tracing": "partial",
+        "OpenTelemetry support": false,
+        "Token usage tracking": true,
+        "Cost tracking": true,
+        "Latency monitoring": true,
+        "Error tracking": true,
+        "Session/conversation tracking": true
+      },
+      "evaluation": {
+        "LLM-as-a-judge": true,
+        "Built-in eval metrics": true,
+        "Custom evaluators": true,
+        "Regression testing / CI-CD evals": true,
+        "Dataset management": true,
+        "Experiment tracking": true,
+        "A/B testing": false
+      },
+      "agent_specific": {
+        "Tool call tracking": true,
+        "Reasoning chain visualization": true,
+        "Decision tree rendering": "partial",
+        "Agent simulation/testing": false,
+        "Multi-agent interaction graphs": false,
+        "Time-travel debugging": false,
+        "Checkpoint/replay": false
+      },
+      "safety_and_guardrails": {
+        "Real-time guardrails": true,
+        "Prompt injection detection": true,
+        "Hallucination detection": true,
+        "PII/sensitive data scanning": true,
+        "Content policy enforcement": true,
+        "Audit trails": true
+      },
+      "collaboration_and_ux": {
+        "Non-technical dashboards": true,
+        "Annotation queues / human review": true,
+        "Role-based access": true,
+        "Prompt management": false,
+        "Playground/sandbox": true,
+        "Natural language queries": false,
+        "Alerting and notifications": true
+      },
+      "deployment_and_integration": {
+        "Self-hosted option": false,
+        "Multi-cloud support": true,
+        "Framework agnostic": true,
+        "Provider agnostic (LLM)": true,
+        "API gateway / proxy mode": false,
+        "SDK languages": "Python"
+      }
+    },
+    "W&B Weave": {
+      "core_observability": {
+        "LLM call tracing": true,
+        "Agent workflow tracing": true,
+        "Multi-agent tracing": "partial",
+        "OpenTelemetry support": false,
+        "Token usage tracking": true,
+        "Cost tracking": true,
+        "Latency monitoring": true,
+        "Error tracking": true,
+        "Session/conversation tracking": true
+      },
+      "evaluation": {
+        "LLM-as-a-judge": true,
+        "Built-in eval metrics": true,
+        "Custom evaluators": true,
+        "Regression testing / CI-CD evals": "partial",
+        "Dataset management": true,
+        "Experiment tracking": true,
+        "A/B testing": false
+      },
+      "agent_specific": {
+        "Tool call tracking": true,
+        "Reasoning chain visualization": true,
+        "Decision tree rendering": true,
+        "Agent simulation/testing": false,
+        "Multi-agent interaction graphs": false,
+        "Time-travel debugging": false,
+        "Checkpoint/replay": false
+      },
+      "safety_and_guardrails": {
+        "Real-time guardrails": false,
+        "Prompt injection detection": false,
+        "Hallucination detection": "via evals",
+        "PII/sensitive data scanning": false,
+        "Content policy enforcement": false,
+        "Audit trails": true
+      },
+      "collaboration_and_ux": {
+        "Non-technical dashboards": "partial",
+        "Annotation queues / human review": "partial",
+        "Role-based access": true,
+        "Prompt management": false,
+        "Playground/sandbox": false,
+        "Natural language queries": false,
+        "Alerting and notifications": "partial"
+      },
+      "deployment_and_integration": {
+        "Self-hosted option": "enterprise only",
+        "Multi-cloud support": true,
+        "Framework agnostic": true,
+        "Provider agnostic (LLM)": true,
+        "API gateway / proxy mode": false,
+        "SDK languages": "Python, TypeScript"
+      }
+    },
+    "Opik (Comet)": {
+      "core_observability": {
+        "LLM call tracing": true,
+        "Agent workflow tracing": true,
+        "Multi-agent tracing": "partial",
+        "OpenTelemetry support": "partial",
+        "Token usage tracking": true,
+        "Cost tracking": true,
+        "Latency monitoring": true,
+        "Error tracking": true,
+        "Session/conversation tracking": true
+      },
+      "evaluation": {
+        "LLM-as-a-judge": true,
+        "Built-in eval metrics": true,
+        "Custom evaluators": true,
+        "Regression testing / CI-CD evals": "partial",
+        "Dataset management": true,
+        "Experiment tracking": true,
+        "A/B testing": false
+      },
+      "agent_specific": {
+        "Tool call tracking": true,
+        "Reasoning chain visualization": true,
+        "Decision tree rendering": "partial",
+        "Agent simulation/testing": false,
+        "Multi-agent interaction graphs": false,
+        "Time-travel debugging": false,
+        "Checkpoint/replay": false
+      },
+      "safety_and_guardrails": {
+        "Real-time guardrails": true,
+        "Prompt injection detection": false,
+        "Hallucination detection": "via evals",
+        "PII/sensitive data scanning": false,
+        "Content policy enforcement": false,
+        "Audit trails": true
+      },
+      "collaboration_and_ux": {
+        "Non-technical dashboards": "partial",
+        "Annotation queues / human review": true,
+        "Role-based access": true,
+        "Prompt management": false,
+        "Playground/sandbox": false,
+        "Natural language queries": false,
+        "Alerting and notifications": "partial"
+      },
+      "deployment_and_integration": {
+        "Self-hosted option": true,
+        "Multi-cloud support": true,
+        "Framework agnostic": true,
+        "Provider agnostic (LLM)": true,
+        "API gateway / proxy mode": false,
+        "SDK languages": "Python"
+      }
+    }
+  },
+  "gap_summary": {
+    "universally_weak_features": [
+      "Time-travel debugging / checkpoint replay (only AgentOps)",
+      "Agent simulation and synthetic testing (only Maxim, LangWatch)",
+      "Real-time guardrails integrated with observability (only Galileo, partially Opik)",
+      "Natural language querying of observability data (almost none)",
+      "Non-technical stakeholder dashboards (mostly partial)",
+      "API gateway / proxy mode with observability (only Helicone)",
+      "Multi-agent interaction graph visualization (mostly partial)",
+      "A/B testing for prompts/models in production (only Braintrust)",
+      "PII/sensitive data scanning (only Datadog, Galileo)",
+      "User behavior / product analytics for AI features (none dedicated)"
+    ],
+    "strongest_feature_areas": [
+      "Basic LLM call tracing (all tools)",
+      "Token and cost tracking (all tools)",
+      "Latency monitoring (all tools)",
+      "Dataset management (most tools)",
+      "Python SDK support (all tools)"
+    ]
+  }
+}

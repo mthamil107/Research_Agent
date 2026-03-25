@@ -1,0 +1,222 @@
+{
+  "domain": "AI Agent Prompt Optimization",
+  "generated_date": "2026-03-25",
+  "scoring_methodology": {
+    "demand": "0-10 based on volume/intensity of user requests, complaints, and workarounds found across communities",
+    "competition": "0-10 where 10 means nobody addresses this gap and 0 means fully solved by existing tools",
+    "feasibility": "0-10 based on technical complexity, required resources, and time to market",
+    "formula": "opportunity_score = demand * competition * feasibility / 100"
+  },
+  "ranked_gaps": [
+    {
+      "rank": 1,
+      "id": "FG-06",
+      "name": "Cross-Model Prompt Translation & Portability",
+      "description": "Automated tool that translates and optimizes prompts when switching between LLM providers (GPT, Claude, Gemini, Llama). Each model has different logic stacks and carefully tuned prompts break on model switches.",
+      "demand": 9,
+      "competition": 9,
+      "feasibility": 8,
+      "opportunity_score": 6.48,
+      "rationale": {
+        "demand": "Mass-market pain validated by TechCrunch, Tom's Guide, HN. Users actively switching between models and losing prompt quality. Every team using LLMs faces this.",
+        "competition": "Zero dedicated tools exist. Anthropic's memory import is partial workaround for chat history, not prompt optimization. No tool auto-translates prompts across models.",
+        "feasibility": "Technically achievable using LLMs themselves to translate prompts + evaluation frameworks to validate quality preservation. Could be built as SaaS or library."
+      }
+    },
+    {
+      "rank": 2,
+      "id": "FG-01",
+      "name": "Multi-Agent Prompt Optimization Platform",
+      "description": "End-to-end platform for optimizing prompts across multi-agent systems including inter-agent communication, topology-aware optimization, and handoff prompt tuning.",
+      "demand": 9,
+      "competition": 8,
+      "feasibility": 7,
+      "opportunity_score": 5.04,
+      "rationale": {
+        "demand": "Active GitHub issues on kagent and strands-agents. Microsoft built Agent Lightning. MASS framework in research. Agent frameworks proliferating rapidly.",
+        "competition": "Microsoft Agent Lightning exists but is research-grade. No productized SaaS solution. DSPy handles single-agent; Opik has basic agent support. Gap is wide.",
+        "feasibility": "Complex but achievable. Requires deep integration with agent frameworks (CrewAI, AutoGen, LangGraph). Build on top of existing optimizers like DSPy/GEPA."
+      }
+    },
+    {
+      "rank": 3,
+      "id": "FG-03",
+      "name": "Prompt Security Optimization & Hardening Platform",
+      "description": "Dedicated platform that combines prompt optimization with security hardening: automatically identifies vulnerabilities, suggests prompt rewrites that resist jailbreaks/injection, and provides continuous security monitoring.",
+      "demand": 9,
+      "competition": 7,
+      "feasibility": 8,
+      "opportunity_score": 5.04,
+      "rationale": {
+        "demand": "HN Show HN for agent firewall. Research showing 100% evasion of guardrails. F5 launched enterprise product. Enterprise security is non-negotiable requirement.",
+        "competition": "Promptfoo has red teaming but focuses on testing not optimization. F5 launched guardrails but not prompt optimization. No tool that optimizes prompts FOR security.",
+        "feasibility": "Very feasible. Combine red-teaming (Promptfoo-style) with automated prompt rewriting. Security patterns are well-documented. Clear product path."
+      }
+    },
+    {
+      "rank": 4,
+      "id": "WG-01",
+      "name": "Unified Prompt Lifecycle Platform",
+      "description": "Single platform covering full lifecycle: ideation -> authoring -> optimization -> testing -> deployment -> monitoring -> iteration, eliminating the need to stitch together 3-5 tools.",
+      "demand": 8,
+      "competition": 7,
+      "feasibility": 6,
+      "opportunity_score": 3.36,
+      "rationale": {
+        "demand": "Community identifies 19+ tools needed for full lifecycle. Feedback happens in Slack not tools. Teams frustrated stitching together fragmented ecosystem.",
+        "competition": "Braintrust and LangSmith come closest but still miss automated optimization. No single tool does it all. Gap is narrowing but still significant.",
+        "feasibility": "Ambitious but achievable incrementally. Key challenge is doing everything well rather than being mediocre at all stages. Better to start with 2-3 stages."
+      }
+    },
+    {
+      "rank": 5,
+      "id": "FG-04",
+      "name": "Cost-Aware Prompt Optimization Engine",
+      "description": "Tool that automatically compresses/rewrites prompts to minimize token costs while maintaining quality. Includes cost estimation, cheaper model recommendation, and prompt efficiency scoring.",
+      "demand": 8,
+      "competition": 7,
+      "feasibility": 8,
+      "opportunity_score": 4.48,
+      "rationale": {
+        "demand": "Databricks reports 90x cost reduction possible. HN PromptOptimizer project. AdaptiQ saves 30% tokens. Cost is top concern for production LLM apps.",
+        "competition": "Helicone caches responses. Some tools track costs. But no tool optimizes prompts specifically to reduce cost while maintaining quality.",
+        "feasibility": "Highly feasible. Use smaller models to evaluate, compress prompts via LLMs, benchmark quality vs cost trade-offs. Clear metrics."
+      }
+    },
+    {
+      "rank": 6,
+      "id": "SG-01",
+      "name": "Domain-Specific Prompt Optimization (Healthcare/Legal/Finance)",
+      "description": "Prompt optimization platform with built-in domain knowledge, compliance guardrails, and industry-specific evaluation metrics for regulated industries.",
+      "demand": 8,
+      "competition": 8,
+      "feasibility": 5,
+      "opportunity_score": 3.20,
+      "rationale": {
+        "demand": "Domain-specific LLMs proliferating (Med-PaLM, ChatLAW). Healthcare achieving 80-100% compliance accuracy with optimized prompts. Massive regulated industry spend.",
+        "competition": "Zero domain-specific prompt optimization tools. Generic tools exist but lack domain knowledge and compliance awareness.",
+        "feasibility": "Requires deep domain expertise, regulatory knowledge, and industry partnerships. High barrier to entry but also high moat. Start with one vertical."
+      }
+    },
+    {
+      "rank": 7,
+      "id": "FG-05",
+      "name": "Continuous Prompt Regression Detection",
+      "description": "Automated system that continuously monitors prompt performance, detects regressions when models update or prompts change, and alerts teams before production impact.",
+      "demand": 8,
+      "competition": 6,
+      "feasibility": 8,
+      "opportunity_score": 3.84,
+      "rationale": {
+        "demand": "HN users report 'whack-a-mole' prompt editing. Prompts break on model updates. Critical production reliability concern.",
+        "competition": "Promptfoo, Braintrust have some regression testing but manual/semi-automated. No continuous automated monitoring solution.",
+        "feasibility": "Very feasible. Scheduled evaluation runs, drift detection algorithms, alerting integration. Can build on existing eval frameworks."
+      }
+    },
+    {
+      "rank": 8,
+      "id": "IG-02",
+      "name": "Framework-Agnostic Agent Prompt Optimizer",
+      "description": "Prompt optimization tool that works seamlessly across all major agent frameworks (CrewAI, AutoGen, LangGraph, Smolagents, custom) via OpenTelemetry or universal hooks.",
+      "demand": 7,
+      "competition": 7,
+      "feasibility": 7,
+      "opportunity_score": 3.43,
+      "rationale": {
+        "demand": "50+ agent frameworks exist. LangSmith locked to LangChain. Teams using multiple frameworks need universal optimization.",
+        "competition": "Langfuse and Helicone are more agnostic via OpenTelemetry but lack optimization. future-agi/agent-opt attempts this but is early.",
+        "feasibility": "Moderate complexity. OpenTelemetry standard helps. Need adapters for each framework. Community contributions can help."
+      }
+    },
+    {
+      "rank": 9,
+      "id": "FG-02",
+      "name": "Multimodal Prompt Optimization",
+      "description": "Tool that optimizes prompts for multimodal LLMs including image, video, and audio inputs. Joint optimization of text and non-text prompt components.",
+      "demand": 7,
+      "competition": 9,
+      "feasibility": 5,
+      "opportunity_score": 3.15,
+      "rationale": {
+        "demand": "Research papers (MPO, UniAPO) demonstrate need. Multimodal models growing fast. But production use cases still emerging.",
+        "competition": "No productized tool. Only research frameworks (MPO, UniAPO). PromptPerfect supports Midjourney but doesn't optimize multimodal inputs.",
+        "feasibility": "Technically challenging. Visual token inflation, lack of process-level supervision. Requires significant R&D investment."
+      }
+    },
+    {
+      "rank": 10,
+      "id": "PG-03",
+      "name": "Open Source Platform + Premium Auto-Optimization",
+      "description": "Open-source prompt management platform with optional premium automated optimization layer. Combines Langfuse-level platform features with DSPy-level optimization.",
+      "demand": 7,
+      "competition": 8,
+      "feasibility": 6,
+      "opportunity_score": 3.36,
+      "rationale": {
+        "demand": "Open source tools lack optimization. Optimization tools lack platform features. Teams want both. GEPA integration into MLflow shows direction.",
+        "competition": "No tool combines open-source platform with automated optimization. Langfuse is closest platform, DSPy closest optimizer, but they don't integrate.",
+        "feasibility": "Moderate. Could extend Langfuse or build new. Need both platform engineering and ML optimization expertise."
+      }
+    },
+    {
+      "rank": 11,
+      "id": "IG-01",
+      "name": "IDE-Native Prompt Engineering Extension",
+      "description": "Deep VS Code / JetBrains extension that brings prompt editing, testing, optimization, and deployment directly into the IDE workflow.",
+      "demand": 6,
+      "competition": 7,
+      "feasibility": 8,
+      "opportunity_score": 3.36,
+      "rationale": {
+        "demand": "Multiple indie VS Code extensions exist (Prompt Runner, Prompty, PromptIDE) but none from major platforms. Developers want IDE-native workflow.",
+        "competition": "Indie extensions exist but fragmented and limited. No major prompt platform offers IDE integration. Microsoft Prompty is closest.",
+        "feasibility": "Highly feasible. VS Code extension API well-documented. Can integrate with existing platform APIs."
+      }
+    },
+    {
+      "rank": 12,
+      "id": "WG-02",
+      "name": "Prompt-as-Code GitOps Workflow",
+      "description": "Native Git-based prompt management with branch/merge/PR review workflows, where prompts are first-class code artifacts with full CI/CD integration.",
+      "demand": 6,
+      "competition": 6,
+      "feasibility": 8,
+      "opportunity_score": 2.88,
+      "rationale": {
+        "demand": "VLDB paper on prompts as first-class citizens. Microsoft Prompty format. DevOps teams expect GitOps for all artifacts.",
+        "competition": "PromptLayer has Git-like versioning. Promptfoo has YAML configs in Git. But no true GitOps workflow with PR reviews for prompts.",
+        "feasibility": "Highly feasible. Git integration well-understood. Can build GitHub/GitLab apps. Clear product path."
+      }
+    },
+    {
+      "rank": 13,
+      "id": "SG-02",
+      "name": "Affordable Mid-Tier Pricing ($10-30/mo)",
+      "description": "Prompt optimization platform with meaningful features at $10-30/mo for small teams and indie developers, bridging the gap between limited free tiers and $39-250/mo plans.",
+      "demand": 6,
+      "competition": 6,
+      "feasibility": 7,
+      "opportunity_score": 2.52,
+      "rationale": {
+        "demand": "98% of small businesses use AI tools. Most prompt tools price them out. Langfuse Core at $29/mo is closest but limited.",
+        "competition": "Some tools have free tiers. Langfuse Core is $29/mo. But meaningful mid-tier is rare. Most jump to $39-50/user/mo.",
+        "feasibility": "Business model challenge more than technical. Need efficient infrastructure to serve at low price points."
+      }
+    },
+    {
+      "rank": 14,
+      "id": "FG-07",
+      "name": "Prompt Distillation for Edge/Mobile",
+      "description": "Tool that compresses complex prompts into token-efficient versions optimized for edge devices and smaller models while preserving intent and quality.",
+      "demand": 5,
+      "competition": 9,
+      "feasibility": 5,
+      "opportunity_score": 2.25,
+      "rationale": {
+        "demand": "Edge AI growing but prompt distillation is niche. Most edge deployments use fine-tuned models rather than prompted ones.",
+        "competition": "Zero productized tools. Only academic research. Wide open space.",
+        "feasibility": "Technically challenging. Requires understanding of smaller model capabilities and prompt compression techniques."
+      }
+    }
+  ]
+}

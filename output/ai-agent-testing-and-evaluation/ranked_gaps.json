@@ -1,0 +1,180 @@
+{
+  "domain": "AI Agent Testing and Evaluation",
+  "generated_date": "2026-03-25",
+  "scoring_methodology": {
+    "demand": "0-10 scale. Based on volume and intensity of community requests, enterprise need signals, VC investment signals, and academic research activity.",
+    "competition": "0-10 scale. 10 = nobody does this well, 0 = fully solved by many tools. Based on feature matrix coverage and quality of existing solutions.",
+    "feasibility": "0-10 scale. Based on technical complexity, availability of building blocks, and time-to-market estimate.",
+    "formula": "opportunity_score = (demand * competition * feasibility) / 100"
+  },
+  "ranked_gaps": [
+    {
+      "rank": 1,
+      "id": "VG-01",
+      "gap": "Multi-agent system end-to-end testing and coordination validation",
+      "demand": 9,
+      "competition": 9,
+      "feasibility": 6,
+      "opportunity_score": 4.86,
+      "rationale": {
+        "demand": "Multi-agent adoption is exploding (CrewAI, AutoGen, LangGraph). GitHub Blog, PWC, and academic papers all validate urgent need. 80%+ AI projects fail partly due to orchestration issues.",
+        "competition": "Only MAESTRO (academic) and Virtue AI (just launched) address this. No mature commercial tool exists. AgentOps and Maxim offer basic multi-agent tracing but not coordination testing.",
+        "feasibility": "Technically complex - requires modeling inter-agent protocols, shared state, and emergent behaviors. Building blocks exist (trace infrastructure, LLM-as-judge) but orchestration testing is novel."
+      }
+    },
+    {
+      "rank": 2,
+      "id": "VG-04",
+      "gap": "Automated production-failure-to-test-case pipeline",
+      "demand": 9,
+      "competition": 8,
+      "feasibility": 7,
+      "opportunity_score": 5.04,
+      "rationale": {
+        "demand": "Anthropic, LangChain, and multiple YC-backed startups (Lucidic) identify this as the core unsolved problem. 'Reactive loops' of fixing and breaking are universal pain.",
+        "competition": "LangSmith offers manual production-to-test flow. Giskard auto-generates tests from issues. No tool fully automates the production failure -> root cause -> test case -> regression suite pipeline.",
+        "feasibility": "Very feasible - requires log parsing, failure clustering, LLM-based test generation. All building blocks exist. Main challenge is reducing false positives."
+      }
+    },
+    {
+      "rank": 3,
+      "id": "VG-05",
+      "gap": "Domain-specific evaluation for regulated industries (healthcare, finance, legal)",
+      "demand": 8,
+      "competition": 9,
+      "feasibility": 6,
+      "opportunity_score": 4.32,
+      "rationale": {
+        "demand": "Healthcare AI spending growing rapidly, finance under SOX/Basel, EU AI Act creating compliance urgency. Academic papers on clinical benchmarks validate strong demand.",
+        "competition": "Zero tools offer domain-specific evaluation with built-in compliance frameworks. All current tools are domain-agnostic. Huge whitespace.",
+        "feasibility": "Moderate - requires deep domain expertise for each vertical. Healthcare (HIPAA), finance (SOX), legal (each jurisdiction). Could start with one vertical."
+      }
+    },
+    {
+      "rank": 4,
+      "id": "VG-03",
+      "gap": "Voice and multimodal AI agent evaluation",
+      "demand": 8,
+      "competition": 8,
+      "feasibility": 7,
+      "opportunity_score": 4.48,
+      "rationale": {
+        "demand": "Voice AI exploding (Eleven Labs, Vapi, Retell, Bland). Cekura YC backing validates demand. Only 8 voice testing tools exist vs 30+ text tools.",
+        "competition": "Cekura is the main player. Maxim AI added voice eval recently. The space has <5 serious competitors vs 30+ in text LLM eval.",
+        "feasibility": "Feasible - STT/TTS APIs available, latency measurement well-understood. Multimodal (vision + voice + text) more complex but tractable."
+      }
+    },
+    {
+      "rank": 5,
+      "id": "VG-02",
+      "gap": "No-code/low-code evaluation platform for non-technical stakeholders",
+      "demand": 7,
+      "competition": 8,
+      "feasibility": 8,
+      "opportunity_score": 4.48,
+      "rationale": {
+        "demand": "Cross-functional collaboration is repeatedly cited as critical success factor. PMs and domain experts are locked out of current tools. Growing AI adoption in non-technical departments increases demand.",
+        "competition": "Only Maxim AI claims low-code. Humanloop has some UI-friendly features. No tool is truly built for non-technical users from the ground up.",
+        "feasibility": "Highly feasible - UI/UX challenge, not a deep technical one. Template-based eval creation, drag-and-drop, natural language metric definition are all tractable."
+      }
+    },
+    {
+      "rank": 6,
+      "id": "VG-09",
+      "gap": "CI/CD-native agent evaluation with quality gates and auto-rollback",
+      "demand": 8,
+      "competition": 7,
+      "feasibility": 7,
+      "opportunity_score": 3.92,
+      "rationale": {
+        "demand": "2026 arXiv paper on 'Automated Self-Testing as a Quality Gate' validates this. DevOps teams integrating AI need this. Braintrust dedicated an entire article to CI/CD evals.",
+        "competition": "Promptfoo and DeepEval have basic CI/CD. No tool offers quality gates with automatic rollback, parallel eval across model versions, or tight GitHub Actions/GitLab CI integration.",
+        "feasibility": "Feasible - CI/CD integration patterns are well-established. Main challenge is defining meaningful quality gates for non-deterministic systems."
+      }
+    },
+    {
+      "rank": 7,
+      "id": "VG-06",
+      "gap": "User persona simulation and adversarial behavioral testing",
+      "demand": 7,
+      "competition": 8,
+      "feasibility": 7,
+      "opportunity_score": 3.92,
+      "rationale": {
+        "demand": "Impossible to predict every user scenario. Agents fail in production because they weren't tested with diverse user behaviors. Enterprise deployments need stress testing with edge-case personas.",
+        "competition": "Only Maxim AI offers this. Virtue AI has red-teaming agents but not persona simulation. Huge whitespace for a comprehensive persona simulation engine.",
+        "feasibility": "Feasible - LLMs can generate synthetic user personas. Requires good scenario generation and persona modeling. Building blocks readily available."
+      }
+    },
+    {
+      "rank": 8,
+      "id": "VG-10",
+      "gap": "Real-time guardrails with customizable safety policies",
+      "demand": 8,
+      "competition": 6,
+      "feasibility": 7,
+      "opportunity_score": 3.36,
+      "rationale": {
+        "demand": "Security vulnerabilities and hallucinations carry real operational consequences. EU AI Act and enterprise risk departments demanding real-time safety measures.",
+        "competition": "Patronus AI, Portkey, Galileo offer guardrails. Giskard has security scanning. Space has some competitors but customizable policy engines are rare.",
+        "feasibility": "Feasible - requires low-latency classification models, policy DSL, and proxy architecture. Portkey's gateway pattern is a proven approach."
+      }
+    },
+    {
+      "rank": 9,
+      "id": "VG-12",
+      "gap": "End-to-end agent lifecycle platform (dev -> test -> deploy -> monitor -> iterate)",
+      "demand": 8,
+      "competition": 5,
+      "feasibility": 5,
+      "opportunity_score": 2.00,
+      "rationale": {
+        "demand": "IBM, AWS, and LangChain all acknowledge lifecycle tooling immaturity as adoption barrier. Teams stitch together 3-4 tools today.",
+        "competition": "LangSmith, Langfuse, and Maxim AI cover most stages but none completely close the loop. Multiple partial solutions exist.",
+        "feasibility": "Hard - requires building or integrating across eval, observability, deployment, and CI/CD. Massive engineering scope. Better as a platform play."
+      }
+    },
+    {
+      "rank": 10,
+      "id": "VG-07",
+      "gap": "Framework-agnostic, universal agent evaluation layer",
+      "demand": 7,
+      "competition": 6,
+      "feasibility": 6,
+      "opportunity_score": 2.52,
+      "rationale": {
+        "demand": "Agent framework fragmentation is real. Teams switching from LangChain to CrewAI or custom lose eval investment. OpenTelemetry adoption shows desire for standards.",
+        "competition": "Promptfoo, DeepEval, and Evidently are relatively framework-agnostic. MAESTRO aims for this. But no tool has achieved true universality.",
+        "feasibility": "Moderate - requires adapters for each framework, standardized trace format, and maintaining compatibility as frameworks evolve rapidly."
+      }
+    },
+    {
+      "rank": 11,
+      "id": "VG-08",
+      "gap": "Session replay and interactive time-travel debugging for agent workflows",
+      "demand": 6,
+      "competition": 9,
+      "feasibility": 7,
+      "opportunity_score": 3.78,
+      "rationale": {
+        "demand": "Developers need to reproduce and debug agent failures interactively. AgentOps' 6k GitHub stars show appetite. But demand is less urgent than production testing gaps.",
+        "competition": "Only AgentOps offers this. Massive whitespace. Even developer tools like Sentry have session replay - agents need the same.",
+        "feasibility": "Feasible - requires capturing agent state at each step, building a replay UI, and handling non-determinism in replays."
+      }
+    },
+    {
+      "rank": 12,
+      "id": "VG-11",
+      "gap": "Cost-effective evaluation for SMBs and startups",
+      "demand": 6,
+      "competition": 5,
+      "feasibility": 8,
+      "opportunity_score": 2.40,
+      "rationale": {
+        "demand": "Startups skip testing because tools are too expensive or complex. 80-90% project failure rate partly driven by this. But startups are a harder market to monetize.",
+        "competition": "Braintrust, DeepEval, and Langfuse free tiers address this partially. Open-source tools are free but require engineering investment.",
+        "feasibility": "Highly feasible - package existing open-source tools into a managed, affordable SaaS with sensible defaults."
+      }
+    }
+  ]
+}

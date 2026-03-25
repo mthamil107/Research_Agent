@@ -1,0 +1,132 @@
+{
+  "domain": "AI-powered document processing for insurance",
+  "generated_date": "2026-03-25",
+  "scoring_formula": "opportunity_score = (demand * competition_gap * feasibility) / 100",
+  "scoring_notes": {
+    "demand": "1-10 scale based on validated demand signals, market size, urgency",
+    "competition_gap": "1-10 scale where 10 = no competition addressing this gap, 1 = fully addressed",
+    "feasibility": "1-10 scale based on technical complexity, time to market, capital required"
+  },
+  "ranked_gaps": [
+    {
+      "rank": 1,
+      "gap_id": "GAP-002",
+      "title": "Comprehensive Regulatory Compliance and Explainable AI for Insurance IDP",
+      "demand": 9,
+      "competition_gap": 8,
+      "feasibility": 7,
+      "opportunity_score": 5.04,
+      "rationale": "Regulatory pressure is imminent and intensifying: 23+ states adopted NAIC bulletin, 17 states introduced AI bills in 2025, model law anticipated in 2026. No current IDP vendor offers comprehensive compliance tooling with decision lineage, bias detection, and multi-state tracking. High willingness to pay driven by regulatory risk avoidance. Technically feasible to build as a layer on top of existing IDP.",
+      "recommended_approach": "Build a compliance and explainability middleware layer that integrates with existing IDP platforms (ABBYY, Hyperscience, UiPath) to provide audit trails, decision lineage, bias testing, and multi-state regulatory compliance dashboards. Can be SaaS or on-prem.",
+      "estimated_tam": "$500M-$1B (insurance RegTech AI segment)"
+    },
+    {
+      "rank": 2,
+      "gap_id": "GAP-001",
+      "title": "Affordable IDP for Small MGAs and Wholesalers",
+      "demand": 8,
+      "competition_gap": 7,
+      "feasibility": 8,
+      "opportunity_score": 4.48,
+      "rationale": "Massive underserved market of 40,000+ US insurance agencies. 88% of SMBs want automation but are priced out by $50K+ minimums. Workforce retirement crisis accelerates urgency. Only Docsumo and Surefyre partially address this. Usage-based or per-document pricing model would unlock this market.",
+      "recommended_approach": "Build a vertical SaaS IDP platform for small MGAs priced at $500-$2000/month with pay-per-document model. Focus on ACORD forms, loss runs, and submission intake. Offer no-code configuration and pre-built insurance workflows.",
+      "estimated_tam": "$2B-$5B (US small agency automation market)"
+    },
+    {
+      "rank": 3,
+      "gap_id": "GAP-010",
+      "title": "Lightweight Legacy System Integration Layer for Insurance IDP",
+      "demand": 8,
+      "competition_gap": 7,
+      "feasibility": 7,
+      "opportunity_score": 3.92,
+      "rationale": "74% of insurers on legacy tech, spending $133B+ annually on modernization. Most IDP tools assume greenfield deployments. Huge demand for API-wrapping solutions that connect modern AI document processing to legacy Majesco, Duck Creek, Sapiens, and custom systems without full migration.",
+      "recommended_approach": "Build an integration middleware with pre-built connectors for top 10 legacy insurance platforms (Guidewire, Duck Creek, Majesco, Sapiens, etc.) that wraps legacy APIs and enables modern IDP outputs to flow into existing workflows. Partner with IDP vendors.",
+      "estimated_tam": "$1B-$3B (insurance integration middleware)"
+    },
+    {
+      "rank": 4,
+      "gap_id": "GAP-006",
+      "title": "Intelligent Exception Handling and Ambiguity Resolution",
+      "demand": 7,
+      "competition_gap": 8,
+      "feasibility": 6,
+      "opportunity_score": 3.36,
+      "rationale": "Current systems reject documents with missing fields, causing costly bounce-back loops adding days/weeks. Multi-agent AI is emerging (Five Sigma Clive) but no one offers intelligent disambiguation that proactively resolves document issues. High value-add per resolved exception.",
+      "recommended_approach": "Build an AI agent layer that sits between document intake and processing systems, using LLMs to identify ambiguities, cross-reference available data sources, and either auto-resolve or create targeted human review requests with context.",
+      "estimated_tam": "$300M-$800M"
+    },
+    {
+      "rank": 5,
+      "gap_id": "GAP-003",
+      "title": "Multilingual Insurance Document Processing",
+      "demand": 7,
+      "competition_gap": 6,
+      "feasibility": 6,
+      "opportunity_score": 2.52,
+      "rationale": "Global insurers process 40+ languages with 7-10 day delays for non-English. EU compliance requires multi-language support. However, some large vendors (ABBYY, UiPath) partially address this, reducing competition gap score. Technical complexity of insurance-specific multilingual NLP is significant.",
+      "recommended_approach": "Build a specialized multilingual NLP layer for insurance documents that combines LLM translation with insurance terminology databases and regulatory glossaries. Offer as API service or plugin to existing IDP platforms.",
+      "estimated_tam": "$500M-$1.5B (global insurance multilingual processing)"
+    },
+    {
+      "rank": 6,
+      "gap_id": "GAP-004",
+      "title": "End-to-End Unified Claims + Underwriting Document Platform",
+      "demand": 6,
+      "competition_gap": 7,
+      "feasibility": 5,
+      "opportunity_score": 2.10,
+      "rationale": "Clear market bifurcation exists, but building a truly unified platform is capital-intensive and technically complex. Mid-market carriers would value this but enterprise accounts already have multi-vendor stacks they're comfortable with.",
+      "recommended_approach": "Build a unified document intelligence layer that connects claims and underwriting document flows, sharing extracted data and insights across the insurance lifecycle. Start with one line of business (e.g., commercial property) and expand.",
+      "estimated_tam": "$1B-$2B"
+    },
+    {
+      "rank": 7,
+      "gap_id": "GAP-007",
+      "title": "Cross-Document Intelligence and Contradiction Detection",
+      "demand": 6,
+      "competition_gap": 8,
+      "feasibility": 5,
+      "opportunity_score": 2.40,
+      "rationale": "No tool comprehensively cross-references all documents in a case. High value for complex commercial lines and specialty insurance. LLMs make this technically more feasible now. However, requires deep insurance domain knowledge to build effectively.",
+      "recommended_approach": "Build a document intelligence layer using RAG and LLMs that ingests all documents per case, creates a unified knowledge graph, and flags contradictions, inconsistencies, and missing information across the full document set.",
+      "estimated_tam": "$200M-$500M"
+    },
+    {
+      "rank": 8,
+      "gap_id": "GAP-009",
+      "title": "Real-Time Fraud Detection Integrated with Document Processing",
+      "demand": 6,
+      "competition_gap": 6,
+      "feasibility": 5,
+      "opportunity_score": 1.80,
+      "rationale": "Only 2 of 14 tools combine IDP with fraud detection. Document-level forgery detection (altered PDFs, manipulated images) is largely unaddressed. However, fraud detection is a mature adjacent market with established vendors (Shift Technology, FRISS) that could extend into IDP.",
+      "recommended_approach": "Build document authenticity and fraud detection capabilities that integrate with IDP pipelines, focusing on document forgery detection, cross-document inconsistency flagging, and pattern matching against known fraud indicators.",
+      "estimated_tam": "$300M-$700M"
+    },
+    {
+      "rank": 9,
+      "gap_id": "GAP-005",
+      "title": "Handwritten and Degraded Document Processing",
+      "demand": 6,
+      "competition_gap": 5,
+      "feasibility": 5,
+      "opportunity_score": 1.50,
+      "rationale": "Real pain point (57% cite data quality as top challenge), but OCR technology is improving rapidly and major vendors are investing heavily. The gap is narrowing. Could be a feature enhancement rather than standalone product opportunity.",
+      "recommended_approach": "Develop specialized OCR/AI models trained on insurance-specific handwritten forms and degraded documents. Offer as API enhancement to existing IDP platforms rather than standalone product.",
+      "estimated_tam": "$100M-$300M"
+    },
+    {
+      "rank": 10,
+      "gap_id": "GAP-008",
+      "title": "Open Source / Self-Hosted Insurance IDP",
+      "demand": 4,
+      "competition_gap": 9,
+      "feasibility": 4,
+      "opportunity_score": 1.44,
+      "rationale": "Zero competition (no open-source insurance IDP exists), but demand is niche. Data sovereignty concerns are real but most insurers prefer enterprise-supported vendors. Sustainability of open-source model in specialized insurance vertical is challenging.",
+      "recommended_approach": "Create an open-core insurance IDP with community edition for basic document classification and extraction, and commercial enterprise edition for advanced features, compliance, and support.",
+      "estimated_tam": "$50M-$150M"
+    }
+  ]
+}

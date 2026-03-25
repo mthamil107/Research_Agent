@@ -1,0 +1,328 @@
+{
+  "domain": "AI-powered document processing for insurance",
+  "scan_date": "2026-03-25",
+  "market_size": {
+    "2025_estimate": "$10.3 billion (AI in insurance overall)",
+    "2029_projection": "$35.8 billion",
+    "cagr": "36%",
+    "adoption_rate": "91% of insurers expected to adopt AI by 2026"
+  },
+  "tools": [
+    {
+      "name": "Hyperscience",
+      "url": "https://www.hyperscience.ai",
+      "description": "AI-powered IDP platform that automates extraction, classification, and validation of data from complex insurance forms including policy jackets, medical records, and claims submissions.",
+      "key_features": [
+        "99.5% accuracy rate",
+        "98% automation rate",
+        "Structured, semi-structured, and unstructured document processing",
+        "Claims processing automation",
+        "Policy administration",
+        "Underwriting support",
+        "Human-in-the-loop validation"
+      ],
+      "pricing": "Essentials from $50K/year; Advanced and Premium custom-priced based on volume",
+      "target_audience": "Large insurers, Fortune 500 carriers, enterprise",
+      "maturity": "Mature - Gartner Magic Quadrant Leader"
+    },
+    {
+      "name": "ABBYY Vantage",
+      "url": "https://www.abbyy.com/vantage/",
+      "description": "Cloud-native IDP platform with pre-trained AI skills for insurance document types. Veteran in OCR and document capture with versatile AI-powered extraction.",
+      "key_features": [
+        "Pre-trained AI skills for insurance claims",
+        "OCR and NLP processing",
+        "Confidence threshold scoring",
+        "Straight-through processing (STP)",
+        "140+ connectors to business applications",
+        "ABBYY Marketplace for pre-built skills"
+      ],
+      "pricing": "$0.02-$0.08 per page depending on volume (100K-1M+ pages/year); custom quotes",
+      "target_audience": "Mid-market to enterprise insurers",
+      "maturity": "Mature - Gartner Magic Quadrant Leader"
+    },
+    {
+      "name": "UiPath Document Understanding",
+      "url": "https://www.uipath.com/platform/agentic-automation/idp",
+      "description": "IDP integrated with UiPath's RPA ecosystem, offering AI/ML + OCR for all document types with seamless automation framework integration.",
+      "key_features": [
+        "Claims triage automation",
+        "Billing and payments processing",
+        "RPA integration",
+        "Cloud, on-premises, and hybrid deployment",
+        "AI/ML + OCR for structured and unstructured docs",
+        "End-to-end workflow automation"
+      ],
+      "pricing": "Custom enterprise pricing; part of UiPath platform licensing",
+      "target_audience": "Enterprise insurers with existing RPA investments",
+      "maturity": "Mature - Gartner Magic Quadrant Leader"
+    },
+    {
+      "name": "Tungsten Automation (formerly Kofax)",
+      "url": "https://www.tungstenautomation.com/",
+      "description": "Comprehensive intelligent automation platform with document classification, multichannel capture, and compliance reporting for insurance.",
+      "key_features": [
+        "ML-powered document classification",
+        "140+ connectors to LOB applications",
+        "OCR and machine learning extraction",
+        "Compliance reporting",
+        "Multichannel capture",
+        "Legacy system integration"
+      ],
+      "pricing": "Custom enterprise pricing",
+      "target_audience": "Large insurers, document-intensive environments",
+      "maturity": "Mature - Gartner Magic Quadrant Leader"
+    },
+    {
+      "name": "Indico Data",
+      "url": "https://indicodata.ai/",
+      "description": "Intake and orchestration platform built for complex insurance operations. Handles loss runs, SOVs, ACORDs, emails, and attachments without templates.",
+      "key_features": [
+        "Template-free processing",
+        "Insurance-specific models (ACORDs, loss runs, SOVs)",
+        "Broker email processing with attachments",
+        "Document classification and risk extraction",
+        "Data completeness validation",
+        "Underwriting system routing",
+        "85% faster speed to quote"
+      ],
+      "pricing": "Custom pricing via private offer only",
+      "target_audience": "P&C insurance carriers, commercial lines",
+      "maturity": "Growth-stage, insurance-specialized"
+    },
+    {
+      "name": "Sprout.ai",
+      "url": "https://sprout.ai/",
+      "description": "AI claims platform that automates triage, coverage checks, and fraud detection for faster and more accurate claim decisions.",
+      "key_features": [
+        "Automated claims triage",
+        "Coverage verification",
+        "Fraud detection",
+        "NLP and OCR integration",
+        "60%+ real-time claim settlement",
+        "96% accuracy in claims analysis",
+        "Loss document AI review"
+      ],
+      "pricing": "Custom quote based on document intake workflows",
+      "target_audience": "Insurance carriers, claims departments",
+      "maturity": "Growth-stage"
+    },
+    {
+      "name": "Tractable",
+      "url": "https://tractable.ai/",
+      "description": "Computer vision AI for auto and property damage assessment from photos. Trained on millions of insurance claims.",
+      "key_features": [
+        "Photo-based damage assessment",
+        "Total loss / repairable / cash settlement classification",
+        "FNOL triage",
+        "Estimatics integration",
+        "Desktop and API deployment",
+        "Auto and property claims"
+      ],
+      "pricing": "Custom pricing via sales team",
+      "target_audience": "Auto and property insurers",
+      "maturity": "Mature, well-funded"
+    },
+    {
+      "name": "Five Sigma (Clive AI)",
+      "url": "https://fivesigmalabs.com/",
+      "description": "AI-native claims management platform with multi-agent AI system (Clive) that handles end-to-end claims stages.",
+      "key_features": [
+        "Multi-agent AI claims handling",
+        "Intake and triage automation",
+        "Liability assessment",
+        "Coverage analysis",
+        "Fraud detection",
+        "Compliance checking",
+        "Settlement automation",
+        "Communications management"
+      ],
+      "pricing": "Custom pricing",
+      "target_audience": "P&C insurers, MGAs, TPAs, self-insurers",
+      "maturity": "Growth-stage"
+    },
+    {
+      "name": "Roots AI",
+      "url": "https://www.roots.ai/",
+      "description": "AI agent platform for insurance with Guidewire integration. Processes emails, PDFs, and ACORD forms with 98%+ accuracy.",
+      "key_features": [
+        "70+ document type classification",
+        "98%+ accuracy",
+        "Guidewire ClaimCenter integration",
+        "80%+ straight-through processing",
+        "Email and PDF processing",
+        "ACORD form handling",
+        "24/7 automated processing",
+        "Exception routing to SMEs"
+      ],
+      "pricing": "Custom pricing; available via Guidewire Marketplace",
+      "target_audience": "Guidewire ecosystem insurers",
+      "maturity": "Growth-stage, Guidewire-validated"
+    },
+    {
+      "name": "Infrrd Doc Studio",
+      "url": "https://www.infrrd.ai/solutions/insurance-document-processing",
+      "description": "ML-based document processing platform that creates new models in seconds with no training or templates required.",
+      "key_features": [
+        "No-template ML model creation",
+        "70% reduction in manual effort",
+        "Insurance-specific document handling",
+        "Quick model deployment",
+        "Semi-structured and unstructured document support"
+      ],
+      "pricing": "Custom pricing",
+      "target_audience": "Mid-market to enterprise insurers",
+      "maturity": "Growth-stage"
+    },
+    {
+      "name": "Docsumo",
+      "url": "https://www.docsumo.com/",
+      "description": "Document AI platform for lenders and insurers. Specializes in ACORD form processing with 95%+ touchless processing.",
+      "key_features": [
+        "ACORD form capture (99% accuracy)",
+        "AI + ML + computer vision",
+        "Human-in-the-loop processing",
+        "95%+ touchless processing",
+        "Policy and claims document extraction",
+        "Quote and submission processing"
+      ],
+      "pricing": "Tiered plans; SMB-friendly pricing available",
+      "target_audience": "SMB insurers, lenders, proptech",
+      "maturity": "Growth-stage"
+    },
+    {
+      "name": "Pibit AI (CURE platform)",
+      "url": "https://pibit.ai/",
+      "description": "AI-powered underwriting platform that extracts, validates, enriches, and reports on loss run data for commercial insurance.",
+      "key_features": [
+        "Loss run data extraction with 99.9% accuracy",
+        "Underwriting cycle 85% faster",
+        "32% increase in GWP per underwriter",
+        "700 bps loss ratio improvement",
+        "Document collection and processing",
+        "Risk assessment automation"
+      ],
+      "pricing": "Custom pricing (raised $7M Series A in 2025)",
+      "target_audience": "Commercial P&C underwriters",
+      "maturity": "Early growth / Series A"
+    },
+    {
+      "name": "Convr AI",
+      "url": "https://convr.com/",
+      "description": "AI-powered underwriting workbench for commercial P&C insurance with document automation, data enrichment, and risk scoring.",
+      "key_features": [
+        "Modularized underwriting workbench",
+        "Data enrichment",
+        "Risk scoring",
+        "Document processing",
+        "Agentic AI capabilities",
+        "Commercial P&C focus"
+      ],
+      "pricing": "Custom pricing",
+      "target_audience": "Commercial P&C underwriters",
+      "maturity": "Growth-stage"
+    },
+    {
+      "name": "Federato",
+      "url": "https://www.federato.ai/",
+      "description": "AI-native insurance platform focused on underwriting intelligence with portfolio optimization and risk selection.",
+      "key_features": [
+        "Underwriting intelligence",
+        "Portfolio optimization",
+        "Risk selection AI",
+        "Rate adequacy analysis",
+        "Workflow automation"
+      ],
+      "pricing": "Custom pricing (raised $100M+)",
+      "target_audience": "Insurance carriers, underwriting teams",
+      "maturity": "Growth-stage, well-funded"
+    },
+    {
+      "name": "Surefyre",
+      "url": "https://surefyre.co/",
+      "description": "AI-enabled low-code/no-code submission and underwriting workbench designed specifically for MGAs and wholesalers.",
+      "key_features": [
+        "Low-code/no-code platform",
+        "Submission intake automation",
+        "Underwriting workbench",
+        "MGA-specific workflows",
+        "Document processing"
+      ],
+      "pricing": "Custom pricing; designed for MGA budgets",
+      "target_audience": "MGAs, wholesalers",
+      "maturity": "Growth-stage"
+    },
+    {
+      "name": "Aptarro (RevCycle Engine)",
+      "url": "https://www.aptarro.com/",
+      "description": "AI-driven health insurance claims processing platform integrating AI with deep domain expertise.",
+      "key_features": [
+        "Health insurance claims processing",
+        "Revenue cycle management",
+        "Error reduction",
+        "Operational efficiency",
+        "Domain-specific AI"
+      ],
+      "pricing": "Custom pricing",
+      "target_audience": "Health insurers, healthcare payers",
+      "maturity": "Growth-stage"
+    },
+    {
+      "name": "CLARA Analytics",
+      "url": "https://claraanalytics.com/",
+      "description": "AI-driven claims management solution focusing on complex claims analytics and litigation prediction.",
+      "key_features": [
+        "Claims severity prediction",
+        "Litigation risk scoring",
+        "Medical bill review",
+        "Claims triage",
+        "Analytics dashboards"
+      ],
+      "pricing": "Custom pricing",
+      "target_audience": "Workers' comp and liability insurers",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Docstar (TCG DocProStar)",
+      "url": "https://www.docstar.com/",
+      "description": "Document management platform combining AI, legacy integration, and no-code process design for insurance workflows.",
+      "key_features": [
+        "No-code process design",
+        "Legacy system integration",
+        "Data extraction and email triage",
+        "Document management",
+        "ROI payback under 12 months"
+      ],
+      "pricing": "Custom pricing",
+      "target_audience": "Mid-market insurers",
+      "maturity": "Mature"
+    }
+  ],
+  "open_source_alternatives": [
+    {
+      "name": "Paperless-ngx",
+      "url": "https://github.com/paperless-ngx/paperless-ngx",
+      "description": "Community-supported document management system for scanning, indexing, and archiving documents. Not insurance-specific."
+    },
+    {
+      "name": "openIMIS",
+      "url": "https://github.com/openimis",
+      "description": "Open source software for health financing and social protection scheme administration."
+    },
+    {
+      "name": "Open Insurance Platform",
+      "url": "https://github.com/aposin/openinsuranceplatform",
+      "description": "Comprehensive core insurance platform for all lines of business."
+    },
+    {
+      "name": "AWS AI IDP Insurance Sample",
+      "url": "https://github.com/aws-samples/aws-ai-intelligent-document-processing",
+      "description": "AWS sample notebooks for insurance document extraction using AI services."
+    },
+    {
+      "name": "LlamaIndex Auto Insurance Claims Demo",
+      "url": "https://github.com/run-llama/llamacloud-demo",
+      "description": "Demo workflow for auto insurance claims document processing using LlamaIndex."
+    }
+  ]
+}

@@ -1,0 +1,329 @@
+{
+  "metadata": {
+    "domain": "Domain-specific SLM training platforms",
+    "scan_date": "2026-03-25",
+    "total_tools_identified": 20
+  },
+  "tools": [
+    {
+      "name": "Unsloth Studio",
+      "url": "https://unsloth.ai/",
+      "description": "Open-source, no-code local visual interface for fine-tuning LLMs with 2x training speed and 70% memory reduction via custom Triton backpropagation kernels.",
+      "key_features": [
+        "2x faster training, 70% less VRAM",
+        "No-code Web UI (Unsloth Studio)",
+        "Data Recipes: visual node-based workflow for converting raw files (PDF, CSV, JSONL) into training datasets",
+        "Built-in GRPO reinforcement learning support",
+        "Export to GGUF, vLLM, Ollama formats",
+        "QLoRA fine-tuning on consumer GPUs (12GB)"
+      ],
+      "pricing": "Free / Open Source. Pro plans available.",
+      "target_audience": "Individual developers, researchers, small teams wanting local fine-tuning",
+      "maturity": "High - widely adopted, active GitHub community (40k+ stars)"
+    },
+    {
+      "name": "LLaMA-Factory",
+      "url": "https://github.com/hiyouga/LlamaFactory",
+      "description": "Unified framework for efficient fine-tuning of 100+ language models with built-in web UI (LlamaBoard), supporting SFT, RLHF, DPO, and multiple quantization levels.",
+      "key_features": [
+        "Supports 100+ models (LLaMA, Mistral, Qwen, Gemma, Phi, etc.)",
+        "Web UI (LlamaBoard) for no-code fine-tuning",
+        "Full-precision and QLoRA (2-8 bit) training",
+        "FlashAttention-2, DeepSpeed integration",
+        "SFT, RLHF, DPO, and pre-training support",
+        "Single-GPU and multi-GPU setups",
+        "OpenAI-compatible API after training"
+      ],
+      "pricing": "Free / Open Source",
+      "target_audience": "ML engineers, researchers needing flexible open-source fine-tuning",
+      "maturity": "High - published paper, 100k+ GitHub stars"
+    },
+    {
+      "name": "Axolotl",
+      "url": "https://axolotl.ai/",
+      "description": "Open-source fine-tuning tool emphasizing flexibility, performance optimizations, and YAML-based configuration for the full fine-tuning pipeline.",
+      "key_features": [
+        "YAML-based configuration for entire pipeline",
+        "LoRA, QLoRA, full fine-tuning, GRPO, reward modeling",
+        "Multipacking, Flash Attention 2/3/4, Liger Kernel",
+        "Multi-GPU (FSDP1/2, DeepSpeed) and multi-node (Ray) training",
+        "Multimodal model fine-tuning support",
+        "Load datasets from local, HuggingFace, S3, Azure, GCP"
+      ],
+      "pricing": "Free / Open Source",
+      "target_audience": "Advanced ML engineers wanting maximum control and flexibility",
+      "maturity": "High - battle-tested, community favorite for power users"
+    },
+    {
+      "name": "Hugging Face AutoTrain",
+      "url": "https://huggingface.co/autotrain",
+      "description": "No-code tool integrated with the Hugging Face ecosystem for automatic training and fine-tuning across LLMs, text classification, VLMs, and more.",
+      "key_features": [
+        "No-code fine-tuning interface",
+        "Supports LLM finetuning, text classification, NER, QA, translation, VLM finetuning",
+        "Integrated with HuggingFace Hub ecosystem",
+        "Can run locally or on HF Spaces",
+        "Open-source library (autotrain-advanced)",
+        "Private data handling with encryption"
+      ],
+      "pricing": "Free tool; pay for HF Spaces compute per-minute based on GPU type",
+      "target_audience": "Data scientists, developers wanting easy fine-tuning within HF ecosystem",
+      "maturity": "High - backed by Hugging Face, large ecosystem"
+    },
+    {
+      "name": "Together AI",
+      "url": "https://www.together.ai/fine-tuning",
+      "description": "AI cloud platform offering managed fine-tuning of 100B+ models with no-code web UI, flexible LoRA and full training options, and enterprise-grade deployment.",
+      "key_features": [
+        "Fine-tune 100B+ models (DeepSeek-V3, Qwen3-235B)",
+        "No-code browser-based fine-tuning UI",
+        "LoRA and full fine-tuning",
+        "2-4x longer context training at no extra cost",
+        "Advanced DPO variants",
+        "Any open-source model from HuggingFace Hub",
+        "Enterprise plans with 99.9% SLA"
+      ],
+      "pricing": "Pay-per-token: LoRA $0.48/1M tokens (<16B), $1.50 (16-69B), $2.90 (70-100B). No minimum spend.",
+      "target_audience": "Startups to enterprises wanting managed fine-tuning with flexibility",
+      "maturity": "High - well-funded, production-grade platform"
+    },
+    {
+      "name": "Predibase",
+      "url": "https://predibase.com/",
+      "description": "Low-code platform for AI engineers to customize open-source models with LoRAX serving framework that serves 1000s of fine-tuned models on a single GPU.",
+      "key_features": [
+        "LoRAX: serve 1000s of fine-tuned adapters on single GPU",
+        "Dynamic Adapter Loading from HuggingFace or filesystem",
+        "Heterogeneous Continuous Batching",
+        "Turbo LoRA (2-3x throughput via speculative decoding)",
+        "FP8 Quantization (50% memory reduction)",
+        "Fine-tuning Index for benchmarking"
+      ],
+      "pricing": "Free tier: 1M tokens/day, 10M tokens/month. Pay-per-token for fine-tuning, per-second GPU billing for inference.",
+      "target_audience": "AI engineers needing efficient multi-adapter serving and fine-tuning",
+      "maturity": "High - LoRAX is open-source and widely adopted"
+    },
+    {
+      "name": "Lamini",
+      "url": "https://www.lamini.ai/",
+      "description": "Enterprise LLM platform for fine-tuning with 95% hallucination reduction, supporting on-demand, reserved, and self-managed (air-gapped) deployments.",
+      "key_features": [
+        "95% hallucination reduction on proprietary data",
+        "On-Demand, Reserved, and Self-Managed deployment",
+        "Air-gapped and on-premise deployment support",
+        "Support for Llama 3.1, Mistral, Phi models",
+        "AI expert consultation included",
+        "PEFT optimizations (claimed 1B times faster)"
+      ],
+      "pricing": "$0.50/1M inference tokens, $0.50/tuning step. $300 free credit for new users.",
+      "target_audience": "Enterprises needing secure, private fine-tuning with expert guidance",
+      "maturity": "Medium-High - Series A ($25M), growing enterprise adoption"
+    },
+    {
+      "name": "Fireworks AI",
+      "url": "https://fireworks.ai/",
+      "description": "Inference-first platform with fine-tuning support via SFT, RFT, LoRA adapters, optimized with proprietary FireAttention engine. HIPAA and SOC2 compliant.",
+      "key_features": [
+        "FireAttention optimized inference engine",
+        "SFT, RFT (reinforcement fine-tuning), LoRA adapters",
+        "HIPAA and SOC2 compliance",
+        "Text, image, and audio model support",
+        "Production-grade deployment",
+        "Fast inference speeds"
+      ],
+      "pricing": "Pay-per-token inference; fine-tuning pricing varies by model",
+      "target_audience": "Teams needing fast inference with fine-tuning in regulated industries",
+      "maturity": "High - well-funded, production-grade"
+    },
+    {
+      "name": "SiliconFlow",
+      "url": "https://www.siliconflow.com/",
+      "description": "All-in-one AI cloud platform providing 3-step fine-tuning pipeline with fully managed infrastructure and 2.3x faster inference speeds.",
+      "key_features": [
+        "Simple 3-step pipeline: upload data, configure, deploy",
+        "Fully managed infrastructure",
+        "2.3x faster inference, 32% lower latency vs competitors",
+        "Supports major open-source models",
+        "High-performance inference engine"
+      ],
+      "pricing": "Cloud-based, pay-per-use pricing",
+      "target_audience": "Teams wanting simplest managed fine-tuning workflow",
+      "maturity": "Medium - growing, recognized as top platform in 2026 rankings"
+    },
+    {
+      "name": "OpenPipe",
+      "url": "https://openpipe.ai/",
+      "description": "Platform to turn expensive LLM prompts into cheap fine-tuned models, with log collection, dataset creation, and one-line model switching.",
+      "key_features": [
+        "Capture production LLM logs for training data",
+        "Fine-tune GPT-3.5, Mistral, Llama models",
+        "One-line code switch between OpenAI and fine-tuned models",
+        "Side-by-side model comparison",
+        "Managed endpoints for millions of requests",
+        "Download model weights (no vendor lock-in)"
+      ],
+      "pricing": "Usage-based pricing; claims 50x cost reduction vs GPT-4",
+      "target_audience": "Teams wanting to replace expensive API calls with custom fine-tuned models",
+      "maturity": "Medium - $6.7M funding, growing adoption"
+    },
+    {
+      "name": "FinetuneDB",
+      "url": "https://finetunedb.com/",
+      "description": "All-in-one platform for LLM fine-tuning with dataset management, production log tracking, and deployment from one secure interface.",
+      "key_features": [
+        "Dataset management and creation from production logs",
+        "Fine-tune Llama 3, Mixtral, GPT-3.5, GPT-4o mini",
+        "Python and JS/TS SDKs",
+        "OpenAI SDK and Langchain integration",
+        "Pay-as-you-go model hosting",
+        "Data encrypted in transit and at rest"
+      ],
+      "pricing": "Basic: Free (1 user, 1 project, 1K logs/mo). Pro: $50/mo (unlimited projects, logs). Custom: contact sales.",
+      "target_audience": "Development teams wanting integrated fine-tuning and deployment workflow",
+      "maturity": "Medium - newer entrant, growing feature set"
+    },
+    {
+      "name": "MonsterAPI",
+      "url": "https://monsterapi.ai/llm-finetuning",
+      "description": "No-code and code-based fine-tuning APIs with automated GPU configuration, memory optimization, and built-in evaluation engine.",
+      "key_features": [
+        "No-code and API-based fine-tuning",
+        "60+ open-source model support",
+        "Automated GPU environment configuration",
+        "Memory usage optimization (auto batch size)",
+        "Built-in evaluation engine",
+        "Benchmark testing integration"
+      ],
+      "pricing": "Pay-per-use GPU pricing",
+      "target_audience": "Developers and teams wanting simplified no-code fine-tuning",
+      "maturity": "Medium - established platform with growing user base"
+    },
+    {
+      "name": "Databricks Mosaic AI Training",
+      "url": "https://www.databricks.com/product/machine-learning/mosaic-ai-training",
+      "description": "Enterprise fine-tuning and pre-training platform natively integrated with Databricks, offering secure data governance, H100 GPU access, and MLflow evaluation.",
+      "key_features": [
+        "Native Databricks integration (no data movement)",
+        "Fine-tune Llama 3, Mistral, DBRX, and more",
+        "NVIDIA H100 GPUs with InfiniBand networking",
+        "Governance, auditability, traceability built-in",
+        "MLflow evaluation and LLM-as-a-Judge",
+        "Up to 10x lower cost vs proprietary LLMs"
+      ],
+      "pricing": "Enterprise pricing, based on Databricks compute units",
+      "target_audience": "Large enterprises already on Databricks wanting secure LLM customization",
+      "maturity": "High - backed by Databricks, Mosaic ML acquisition"
+    },
+    {
+      "name": "Anyscale (Ray)",
+      "url": "https://www.anyscale.com/",
+      "description": "Kubernetes-grade platform built on Ray for distributed LLM fine-tuning, serving, and batch inference with FSDP, DeepSpeed, and Megatron support.",
+      "key_features": [
+        "Distributed training with Ray (FSDP, DeepSpeed, Megatron)",
+        "LoRA, QLoRA, freeze-tuning support",
+        "Gradient checkpointing, mixed precision training",
+        "End-to-end pipeline: data prep to inference",
+        "Built-in governance and cost controls",
+        "RAG and agentic application support"
+      ],
+      "pricing": "Pay-as-you-go compute; $100 starting credit. Volume discounts available.",
+      "target_audience": "ML teams needing distributed training at scale",
+      "maturity": "High - Ray is industry standard for distributed ML"
+    },
+    {
+      "name": "TrueFoundry",
+      "url": "https://www.truefoundry.com/",
+      "description": "Kubernetes-native AI platform for LLM fine-tuning, inference, and MLOps with no-code and full-code options, AI Gateway, and enterprise observability.",
+      "key_features": [
+        "No-code and full-code fine-tuning",
+        "Kubernetes-native deployment",
+        "AI Gateway for model access governance",
+        "MCP server provisioning for agent traffic",
+        "OpenTelemetry-compliant observability",
+        "10x faster deployments, 70% cost savings"
+      ],
+      "pricing": "User/seat-based enterprise pricing",
+      "target_audience": "Enterprise MLOps teams wanting full-stack AI platform",
+      "maturity": "Medium-High - Gartner reviewed, growing enterprise adoption"
+    },
+    {
+      "name": "Amazon SageMaker",
+      "url": "https://aws.amazon.com/sagemaker/",
+      "description": "AWS's comprehensive ML platform with fine-tuning support, JumpStart model hub, and deep AWS ecosystem integration for building and deploying models.",
+      "key_features": [
+        "JumpStart: pre-trained model hub with one-click fine-tuning",
+        "Deep AWS ecosystem integration (S3, IAM, CloudWatch)",
+        "AutoML and hyperparameter tuning",
+        "Instance-based billing (per-second)",
+        "SageMaker Studio IDE",
+        "Distributed training support"
+      ],
+      "pricing": "Instance-based, per-second billing. Multiple instance types available.",
+      "target_audience": "AWS-native enterprises and ML teams",
+      "maturity": "Very High - market leader in cloud ML platforms"
+    },
+    {
+      "name": "Google Vertex AI",
+      "url": "https://cloud.google.com/vertex-ai",
+      "description": "Google Cloud's unified AI platform with Model Garden, Gemini integration, AutoML, and aggressive auto-scaling for fine-tuning and deployment.",
+      "key_features": [
+        "Model Garden: access Gemini, Gemma, Llama, and open-source models",
+        "AutoML for automated model training",
+        "Vertex AI Studio for prompt tuning and fine-tuning",
+        "Aggressive auto-scaling",
+        "Integration with BigQuery and GCP services",
+        "Gemini model family integration"
+      ],
+      "pricing": "Node-hour based pricing with auto-scaling",
+      "target_audience": "GCP-native enterprises and data teams",
+      "maturity": "Very High - backed by Google Cloud"
+    },
+    {
+      "name": "Azure Machine Learning",
+      "url": "https://azure.microsoft.com/en-us/products/machine-learning/",
+      "description": "Microsoft's cloud ML platform with fine-tuning support, Azure OpenAI integration, and enterprise-grade security for model customization.",
+      "key_features": [
+        "Azure OpenAI Service integration",
+        "Fine-tuning of open-source and proprietary models",
+        "AutoML and hyperparameter tuning",
+        "Enterprise security (Azure AD, VNet, Private Endpoints)",
+        "MLflow integration",
+        "Responsible AI dashboard"
+      ],
+      "pricing": "Compute-based pricing; enterprise agreements available",
+      "target_audience": "Microsoft/Azure enterprises",
+      "maturity": "Very High - backed by Microsoft"
+    },
+    {
+      "name": "NVIDIA NeMo",
+      "url": "https://www.nvidia.com/en-us/ai-data-science/products/nemo/",
+      "description": "Scalable generative AI framework for training, fine-tuning, and deploying LLMs and multimodal models, with GPU-optimized performance on NVIDIA hardware.",
+      "key_features": [
+        "GPU-optimized training on NVIDIA hardware",
+        "Support for LLMs, speech, and multimodal models",
+        "NeMo Microservices for fine-tuning",
+        "Model parallelism and distributed training",
+        "Guardrails for safe AI deployment",
+        "Integration with NVIDIA AI Enterprise"
+      ],
+      "pricing": "Open-source framework; NVIDIA AI Enterprise licensing for production",
+      "target_audience": "Organizations with NVIDIA GPU infrastructure",
+      "maturity": "High - NVIDIA-backed, enterprise-grade"
+    },
+    {
+      "name": "Cerebras Model Studio",
+      "url": "https://www.cerebras.ai/",
+      "description": "Cloud-based fine-tuning service on Cerebras wafer-scale hardware, emphasizing that smaller fine-tuned models outperform larger foundation models.",
+      "key_features": [
+        "Wafer-scale engine for ultra-fast training",
+        "Cloud-based fine-tuning service",
+        "Research-backed: fine-tuned SLMs outperform larger models",
+        "Cerebras AI Model Studio Launchpad",
+        "Optimized for fast iteration"
+      ],
+      "pricing": "Cloud-based pricing; contact for enterprise",
+      "target_audience": "Research teams and enterprises wanting fastest possible training",
+      "maturity": "Medium - newer fine-tuning service, cutting-edge hardware"
+    }
+  ]
+}

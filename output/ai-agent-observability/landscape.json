@@ -1,0 +1,510 @@
+{
+  "domain": "AI Agent Observability",
+  "scan_date": "2026-03-25",
+  "total_tools_identified": 20,
+  "tools": [
+    {
+      "name": "Langfuse",
+      "url": "https://langfuse.com",
+      "description": "Open-source LLM engineering platform providing observability, tracing, metrics, evals, prompt management, playground, and datasets. Acquired by ClickHouse in Jan 2026.",
+      "key_features": [
+        "OpenTelemetry-native tracing",
+        "LLM-as-a-judge evaluations",
+        "Prompt management and versioning",
+        "Cost and token tracking",
+        "Annotation queues",
+        "Datasets and experiments",
+        "Playground for prompt testing",
+        "Self-hostable (MIT license)"
+      ],
+      "pricing": {
+        "model": "usage-based + tiers",
+        "free_tier": "50,000 units/month, 2 users, 30-day retention",
+        "core": "$29/month - 100K units, 90-day retention, unlimited users",
+        "pro": "$199/month - 3-year retention, SOC 2/HIPAA",
+        "enterprise": "$2,499/month - custom limits, dedicated SLA",
+        "overage": "$8 per 100K additional units",
+        "self_hosted": "Free (MIT license), infrastructure costs ~$3-4K/month at scale"
+      },
+      "target_audience": "Developers, ML engineers, teams building LLM applications",
+      "maturity": "High - 19K+ GitHub stars, YC W23, acquired by ClickHouse Jan 2026",
+      "github_stars": 19000,
+      "open_source": true,
+      "license": "MIT"
+    },
+    {
+      "name": "LangSmith",
+      "url": "https://www.langchain.com/langsmith",
+      "description": "Unified agent engineering platform from LangChain providing observability, evaluations, and prompt engineering. Framework-agnostic but optimized for LangChain/LangGraph.",
+      "key_features": [
+        "High-fidelity execution tree traces",
+        "AI-powered debugging",
+        "Custom dashboards",
+        "Evaluations and scoring",
+        "Prompt engineering tools",
+        "Agent Builder",
+        "Deep LangChain/LangGraph integration",
+        "Extended trace retention (400 days)"
+      ],
+      "pricing": {
+        "model": "per-seat + usage-based",
+        "developer_free": "5K traces/month, 1 seat, 14-day retention",
+        "plus": "$39/seat/month - 10K traces, 14-day retention base",
+        "enterprise": "Custom pricing, $100K+ minimum",
+        "trace_overage": "$2.50/1K traces (base), $5.00/1K traces (extended 400-day)",
+        "notes": "Per-seat pricing can be expensive for larger teams"
+      },
+      "target_audience": "LangChain ecosystem developers, enterprise AI teams",
+      "maturity": "High - backed by LangChain, widely adopted",
+      "open_source": false,
+      "license": "Proprietary"
+    },
+    {
+      "name": "Braintrust",
+      "url": "https://www.braintrust.dev",
+      "description": "AI observability platform for building quality AI products. Raised $80M Series B at $800M valuation in Feb 2026. Used by Notion, Zapier, Stripe, Vercel.",
+      "key_features": [
+        "Comprehensive agent traces",
+        "25+ built-in evaluation scorers",
+        "Real-time monitoring",
+        "Cost analytics (per request, per model)",
+        "AI assistant 'Loop' for custom scorer generation",
+        "13+ framework integrations",
+        "Automated evaluation pipelines",
+        "Flexible integration options"
+      ],
+      "pricing": {
+        "model": "tier-based",
+        "free": "1M spans, 10K scores, unlimited users",
+        "pro": "$249/month - unlimited spans and scores",
+        "enterprise": "Custom pricing"
+      },
+      "target_audience": "Production AI teams, enterprises building AI products",
+      "maturity": "High - $800M valuation, major enterprise customers",
+      "open_source": false,
+      "license": "Proprietary"
+    },
+    {
+      "name": "Arize AI / Phoenix",
+      "url": "https://arize.com / https://phoenix.arize.com",
+      "description": "Phoenix is Arize's open-source AI observability platform for experimentation, evaluation, and troubleshooting. Built on OpenTelemetry, vendor/framework/language agnostic.",
+      "key_features": [
+        "OpenTelemetry-based tracing (OTLP protocol)",
+        "LLM evaluation with response and retrieval evals",
+        "Versioned datasets for experimentation",
+        "Prompt management with version control",
+        "Model playground",
+        "Experiment tracking",
+        "Enterprise ML monitoring (Arize platform)",
+        "Self-hostable with no feature gates"
+      ],
+      "pricing": {
+        "model": "open-source + cloud hosted",
+        "phoenix_oss": "Free, self-hosted, no restrictions",
+        "phoenix_cloud": "Free tier available, paid tiers for scale",
+        "arize_enterprise": "Custom pricing for enterprise ML platform"
+      },
+      "target_audience": "ML engineers, data scientists, AI teams needing vendor-neutral observability",
+      "maturity": "High - 7,800+ GitHub stars, established enterprise platform",
+      "github_stars": 7800,
+      "open_source": true,
+      "license": "Open Source (Phoenix)"
+    },
+    {
+      "name": "AgentOps",
+      "url": "https://www.agentops.ai",
+      "description": "Agent observability platform specifically designed for AI agents. Supports OpenAI, CrewAI, Autogen, and 400+ LLMs and frameworks.",
+      "key_features": [
+        "Session replays for agent runs",
+        "Time travel debugging (restart from checkpoints)",
+        "Multi-agent interaction tracking",
+        "Cost control and visualization",
+        "Compliance and security audit logs",
+        "Prompt injection detection",
+        "Failure detection across agents",
+        "400+ LLM support"
+      ],
+      "pricing": {
+        "model": "tier-based",
+        "free": "Basic observability features",
+        "pro": "$40/month - unlimited events, unlimited retention, dedicated support",
+        "enterprise": "Custom - SLA, SSO, on-premise, SOC-2/HIPAA/NIST AI RMF"
+      },
+      "target_audience": "Teams building multi-agent systems, agent developers",
+      "maturity": "Medium - growing adoption, agent-first focus",
+      "open_source": true,
+      "license": "Open Source SDK"
+    },
+    {
+      "name": "Datadog LLM Observability",
+      "url": "https://www.datadoghq.com/product/ai/llm-observability/",
+      "description": "Enterprise APM platform extended with dedicated LLM observability. End-to-end tracing across AI agents with integration into existing Datadog monitoring.",
+      "key_features": [
+        "End-to-end agent tracing",
+        "Prompt and response clustering",
+        "Sensitive data scanning (built-in)",
+        "Experiments from production traces",
+        "Integration with Datadog APM",
+        "Quality and security evaluations",
+        "Custom dashboards",
+        "Enterprise-grade infrastructure monitoring"
+      ],
+      "pricing": {
+        "model": "usage-based (LLM span count)",
+        "notes": "Auto-activates $120/day premium when detecting LLM spans. No opt-out reported. Can be used standalone without other Datadog products.",
+        "approximate_monthly": "$3,600+/month minimum"
+      },
+      "target_audience": "Enterprises already using Datadog, large-scale AI deployments",
+      "maturity": "High - major enterprise monitoring vendor",
+      "open_source": false,
+      "license": "Proprietary"
+    },
+    {
+      "name": "Weights & Biases Weave",
+      "url": "https://wandb.ai/site/traces/",
+      "description": "Observability and evaluation platform from W&B for tracking, evaluating, and improving LLM applications. Part of the broader W&B AI developer platform.",
+      "key_features": [
+        "Automatic logging of inputs/outputs/code/metadata",
+        "Hierarchical trace tree visualization",
+        "Automatic latency and cost aggregation",
+        "Evaluation pipeline with scorers",
+        "RAG evaluation with LLM judges",
+        "Python and TypeScript SDKs",
+        "Integration with W&B experiment tracking",
+        "Trusted by 30+ foundation model builders"
+      ],
+      "pricing": {
+        "model": "per-seat",
+        "free": "$0 - basic features",
+        "teams": "$50/seat/month",
+        "enterprise": "Custom pricing"
+      },
+      "target_audience": "AI researchers, ML engineers, foundation model teams",
+      "maturity": "High - established AI developer platform, trusted by OpenAI/Cohere/MidJourney",
+      "open_source": true,
+      "license": "Open Source (Weave)"
+    },
+    {
+      "name": "Helicone",
+      "url": "https://www.helicone.ai",
+      "description": "Open-source LLM observability platform with AI Gateway capabilities. One-line proxy integration for monitoring, caching, and cost optimization.",
+      "key_features": [
+        "AI Gateway with 100+ provider support",
+        "Intelligent routing and automatic fallbacks",
+        "Request caching for cost reduction",
+        "Rate limiting per user/key",
+        "Cost tracking across models and users",
+        "Prompt management and version control",
+        "Custom properties for metadata tagging",
+        "Session and trace debugging"
+      ],
+      "pricing": {
+        "model": "per-seat + usage",
+        "free": "10,000 requests/month",
+        "pro": "$20/seat/month",
+        "team": "Custom pricing",
+        "enterprise": "Custom pricing"
+      },
+      "target_audience": "Developers needing proxy-based LLM monitoring, cost-conscious teams",
+      "maturity": "Medium-High - YC W23, Apache 2.0 license",
+      "open_source": true,
+      "license": "Apache 2.0"
+    },
+    {
+      "name": "Opik (by Comet)",
+      "url": "https://www.comet.com/site/products/opik/",
+      "description": "Open-source LLM observability and optimization platform for debugging, evaluating, and monitoring LLM applications, RAG systems, and agentic workflows.",
+      "key_features": [
+        "Comprehensive tracing with conversation logging",
+        "LLM-as-a-judge evaluation metrics",
+        "Agent Optimizer SDK",
+        "Guardrails features",
+        "Production monitoring dashboards",
+        "Online evaluation rules",
+        "Experiment management",
+        "Docker-based self-hosting"
+      ],
+      "pricing": {
+        "model": "usage-based tiers",
+        "free_hosted": "25K spans/month, unlimited team members, 60-day retention",
+        "pro": "$19/month - 100K spans, $5 per additional 100K",
+        "self_hosted": "Free with all core features"
+      },
+      "target_audience": "LLM developers, teams needing evaluation + observability",
+      "maturity": "Medium - backed by Comet ML, growing open-source community",
+      "open_source": true,
+      "license": "Open Source"
+    },
+    {
+      "name": "Galileo AI",
+      "url": "https://galileo.ai",
+      "description": "AI observability and eval engineering platform with proprietary Luna-2 foundation models for real-time guardrails and evaluation at sub-200ms latency.",
+      "key_features": [
+        "Luna-2 models for real-time evaluation (sub-200ms)",
+        "Protect system for hallucination/toxicity blocking",
+        "20+ out-of-box evaluations",
+        "RAG, agents, safety, and security evals",
+        "Custom evaluator building",
+        "97% cost reduction vs full LLM-as-judge",
+        "Real-time production guardrails",
+        "Agent Reliability Platform"
+      ],
+      "pricing": {
+        "model": "freemium + enterprise",
+        "free": "Agent Reliability Platform available free",
+        "enterprise": "Paid plans for additional features"
+      },
+      "target_audience": "Teams needing real-time guardrails and evaluation at scale",
+      "maturity": "Medium-High - differentiated by Luna-2 models",
+      "open_source": false,
+      "license": "Proprietary"
+    },
+    {
+      "name": "OpenLIT",
+      "url": "https://openlit.io",
+      "description": "Open-source OpenTelemetry-native platform for AI Engineering covering LLM observability, GPU monitoring, guardrails, evaluations, prompt management, and more.",
+      "key_features": [
+        "One-line OpenTelemetry instrumentation",
+        "44+ auto-instrumented LLM providers",
+        "GPU monitoring",
+        "Custom SQL dashboards",
+        "Prompt management with version control",
+        "API key vault with remote rotation",
+        "OpenGround model comparison",
+        "Guardrails and evaluations"
+      ],
+      "pricing": {
+        "model": "open-source",
+        "self_hosted": "Free (Apache 2.0)",
+        "cloud": "Details not publicly available"
+      },
+      "target_audience": "AI engineers needing comprehensive OTEL-native observability",
+      "maturity": "Medium - growing open-source project",
+      "open_source": true,
+      "license": "Apache 2.0"
+    },
+    {
+      "name": "OpenLLMetry (Traceloop)",
+      "url": "https://www.traceloop.com/openllmetry",
+      "description": "Open-source observability SDK built on OpenTelemetry for GenAI/LLM applications. Provides instrumentation that connects to 25+ observability backends.",
+      "key_features": [
+        "OpenTelemetry-based instrumentation",
+        "20+ provider support",
+        "25+ backend destinations",
+        "Prompt version control",
+        "A/B testing and gradual rollout",
+        "Built-in quality metrics (faithfulness, relevance, safety)",
+        "Framework support (LangChain, LlamaIndex, CrewAI)",
+        "Language support: Python, JS/TS"
+      ],
+      "pricing": {
+        "model": "open-source + hosted",
+        "openllmetry": "Free (Apache 2.0)",
+        "traceloop_hosted": "Free tier with 10K monthly traces, paid tiers available"
+      },
+      "target_audience": "Developers wanting vendor-neutral OTEL-based instrumentation",
+      "maturity": "Medium - established open-source project",
+      "open_source": true,
+      "license": "Apache 2.0"
+    },
+    {
+      "name": "LangWatch",
+      "url": "https://langwatch.ai",
+      "description": "AI agent testing and LLM evaluation platform with simulation, auto-evaluation, and monitoring for pre-release and production workflows.",
+      "key_features": [
+        "Agent simulations with synthetic conversations",
+        "Auto-evals for test suites",
+        "Token and cost monitoring across 800+ models",
+        "OpenTelemetry-compatible tracing",
+        "Custom dashboards",
+        "LLM evaluation platform",
+        "Pre-release and production monitoring",
+        "Framework-agnostic integration"
+      ],
+      "pricing": {
+        "model": "Not publicly detailed",
+        "notes": "Free tier likely available, contact for enterprise"
+      },
+      "target_audience": "Teams needing combined testing, evaluation, and monitoring",
+      "maturity": "Medium - growing platform",
+      "open_source": true,
+      "license": "Open Source"
+    },
+    {
+      "name": "Confident AI / DeepEval",
+      "url": "https://www.confident-ai.com / https://deepeval.com",
+      "description": "AI quality platform with DeepEval (open-source evaluation framework) and Confident AI (cloud platform for collaboration, tracing, and monitoring).",
+      "key_features": [
+        "50+ research-backed evaluation metrics",
+        "Unit testing for LLMs (Pytest-like)",
+        "Full trace capture with context",
+        "Dataset management",
+        "Production monitoring dashboards",
+        "Faithfulness, hallucination, bias, toxicity metrics",
+        "Tool correctness evaluation",
+        "CI/CD integration"
+      ],
+      "pricing": {
+        "model": "seat-based + data ingestion",
+        "free": "2 seats, 1 project, 1 GB-month",
+        "paid": "$19.99/seat/month + $1/GB-month data",
+        "notes": "Unlimited traces on all plans"
+      },
+      "target_audience": "QA teams, ML engineers needing structured evaluation",
+      "maturity": "Medium-High - strong open-source community (DeepEval)",
+      "open_source": true,
+      "license": "Open Source (DeepEval)"
+    },
+    {
+      "name": "Maxim AI",
+      "url": "https://www.getmaxim.ai",
+      "description": "End-to-end platform unifying simulation, evaluation, and observability across the AI agent lifecycle. Enables 5x faster shipping through integrated workflows.",
+      "key_features": [
+        "Agent simulation and testing",
+        "Pre-release to production monitoring",
+        "Cross-functional collaboration tools",
+        "Multi-agent debugging",
+        "Evaluation workflows",
+        "CI/CD pipeline integration",
+        "Custom dashboard builder",
+        "End-to-end lifecycle management"
+      ],
+      "pricing": {
+        "model": "Not publicly detailed",
+        "notes": "Contact for pricing, enterprise focus"
+      },
+      "target_audience": "Enterprise teams needing full lifecycle AI observability",
+      "maturity": "Medium-High - launched 2025, rapid growth",
+      "open_source": false,
+      "license": "Proprietary"
+    },
+    {
+      "name": "Evidently AI",
+      "url": "https://www.evidentlyai.com",
+      "description": "Open-source tool to evaluate, test, and monitor AI-powered systems from tabular data to NLP and LLMs.",
+      "key_features": [
+        "Data and model monitoring",
+        "LLM evaluation metrics",
+        "Drift detection",
+        "CI/CD integration with GitHub Actions",
+        "Test suites for regression",
+        "Visual reports and dashboards",
+        "Tabular, NLP, and LLM support",
+        "Self-hostable"
+      ],
+      "pricing": {
+        "model": "open-source + cloud",
+        "oss": "Free (Apache 2.0)",
+        "cloud": "Paid tiers available"
+      },
+      "target_audience": "Data scientists, ML teams monitoring model quality",
+      "maturity": "High - established open-source ML monitoring tool",
+      "open_source": true,
+      "license": "Apache 2.0"
+    },
+    {
+      "name": "MLflow",
+      "url": "https://mlflow.org",
+      "description": "Open-source AI platform with automatic tracing for agent workflows, capturing full DAG execution including parallel tool calls and conditional branches.",
+      "key_features": [
+        "Automatic one-line tracing",
+        "Full DAG capture (parallel calls, branches, loops)",
+        "Agent workflow visualization",
+        "Experiment tracking",
+        "Model registry",
+        "Integration with major ML frameworks",
+        "Local and server-based tracking",
+        "Production deployment tools"
+      ],
+      "pricing": {
+        "model": "open-source",
+        "oss": "Free (Apache 2.0)",
+        "managed": "Available via Databricks"
+      },
+      "target_audience": "ML engineers, data scientists, MLOps teams",
+      "maturity": "Very High - industry standard ML platform",
+      "open_source": true,
+      "license": "Apache 2.0"
+    },
+    {
+      "name": "Splunk (AI Agent Monitoring)",
+      "url": "https://www.splunk.com/en_us/blog/observability/splunk-observability-ai-agent-monitoring-innovations.html",
+      "description": "Enterprise observability platform with Q1 2026 update adding deeper insights for AI agents and digital experiences.",
+      "key_features": [
+        "Enterprise-grade infrastructure monitoring",
+        "AI agent monitoring extensions",
+        "Integration with existing Splunk stack",
+        "Custom alerting and dashboards",
+        "Log analytics",
+        "APM integration"
+      ],
+      "pricing": {
+        "model": "enterprise licensing",
+        "notes": "Contact Splunk for pricing, typically $15K+/year"
+      },
+      "target_audience": "Large enterprises with existing Splunk deployments",
+      "maturity": "Very High - established enterprise monitoring vendor",
+      "open_source": false,
+      "license": "Proprietary"
+    },
+    {
+      "name": "Fiddler AI",
+      "url": "https://www.fiddler.ai",
+      "description": "AI Control Plane for enterprise agents providing observability and security. Positions itself as the unified control layer for AI safety and monitoring.",
+      "key_features": [
+        "LLMOps and observability",
+        "AI safety and security monitoring",
+        "Enterprise agent control plane",
+        "Drift detection",
+        "Explainability",
+        "Model performance monitoring"
+      ],
+      "pricing": {
+        "model": "enterprise",
+        "notes": "Contact for pricing"
+      },
+      "target_audience": "Enterprises needing AI governance and safety monitoring",
+      "maturity": "Medium-High - established in ML monitoring",
+      "open_source": false,
+      "license": "Proprietary"
+    },
+    {
+      "name": "Guardrails AI",
+      "url": "https://guardrailsai.com",
+      "description": "Open-source framework for adding safety guardrails to LLM applications, enforcing quality and compliance policies on agent inputs/outputs in real-time.",
+      "key_features": [
+        "Programmable guardrails for LLM outputs",
+        "Prompt injection detection",
+        "Data leakage prevention",
+        "Hallucination detection",
+        "Domain-specific content policies",
+        "Real-time output validation",
+        "Integration with major LLM providers"
+      ],
+      "pricing": {
+        "model": "open-source + enterprise",
+        "oss": "Free",
+        "enterprise": "Contact for pricing"
+      },
+      "target_audience": "Teams needing safety and compliance for LLM outputs",
+      "maturity": "Medium - focused on guardrails niche",
+      "open_source": true,
+      "license": "Open Source"
+    }
+  ],
+  "market_context": {
+    "market_trends": [
+      "Convergence on OpenTelemetry as the standard for agent telemetry",
+      "Shift from simple logging to evaluation-driven observability",
+      "Real-time guardrails becoming table stakes",
+      "Multi-agent system observability emerging as key differentiator",
+      "Open-source tools gaining dominance (Langfuse, Phoenix, OpenLIT)",
+      "Enterprise APM vendors (Datadog, Splunk) adding LLM-specific features",
+      "Evaluation-observability convergence (test in CI/CD, monitor in production)",
+      "Cost optimization and token analytics becoming critical"
+    ],
+    "key_statistic": "51% of organizations using AI experienced at least one negative consequence from AI inaccuracy (McKinsey 2025)",
+    "notable_funding": "Braintrust raised $80M Series B at $800M valuation (Feb 2026)",
+    "notable_acquisition": "Langfuse acquired by ClickHouse (Jan 2026)"
+  }
+}

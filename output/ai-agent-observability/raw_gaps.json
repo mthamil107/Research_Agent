@@ -1,0 +1,185 @@
+{
+  "domain": "AI Agent Observability",
+  "generated_date": "2026-03-25",
+  "methodology": "Gaps identified by cross-referencing feature matrix coverage, community pain points (Reddit, HN, GitHub issues), industry articles, and unmet user needs.",
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Multi-Agent Interaction Observability",
+      "category": "agent_specific",
+      "description": "No tool provides deep, purpose-built visualization and debugging for multi-agent systems where agents communicate, delegate, and coordinate. Current tools trace individual agents but fail to capture emergent behaviors, cascading errors, and inter-agent communication patterns.",
+      "evidence": [
+        "Multi-agent systems create emergent behaviors through agent interactions that no current tool fully captures",
+        "Debugging multi-agent systems is fundamentally different from debugging simpler AI workflows",
+        "Cascading errors and emergent behaviors in multi-turn agent interactions remain largely invisible",
+        "Only AgentOps has partial multi-agent interaction graphs; most tools are single-agent focused"
+      ],
+      "affected_users": "Teams building CrewAI, AutoGen, LangGraph multi-agent systems",
+      "current_workarounds": "Manual log correlation, custom tracing code, limited AgentOps session replays",
+      "competition_level": "low"
+    },
+    {
+      "id": "GAP-002",
+      "title": "User Behavior & Product Analytics for AI Features",
+      "category": "collaboration_and_ux",
+      "description": "Current observability tools focus on LLM performance metrics (latency, cost, tokens) but completely miss user-level behavior analytics: session drop-offs, feature adoption, user satisfaction patterns, and engagement metrics for AI-powered features.",
+      "evidence": [
+        "Most teams building AI agents are flying blind on user behavior patterns and drop-off analytics",
+        "Existing tools provide LLM observability for latency, token cost, and evals but not user-facing product analytics",
+        "No current tool bridges the gap between LLM observability and product analytics (like PostHog/Amplitude for AI)"
+      ],
+      "affected_users": "Product managers, growth teams, UX teams building AI products",
+      "current_workarounds": "Separate product analytics tools (PostHog, Amplitude) with no connection to LLM traces",
+      "competition_level": "very_low"
+    },
+    {
+      "id": "GAP-003",
+      "title": "Integrated Real-Time Guardrails + Observability",
+      "category": "safety_and_guardrails",
+      "description": "Guardrails and observability exist as separate tools/vendors, forcing teams to stitch together multiple solutions. Only Galileo combines real-time blocking with evaluation, but at the cost of vendor lock-in. No open-source solution unifies real-time guardrails with comprehensive observability.",
+      "evidence": [
+        "Most solutions lack integrated evaluation and observability, forcing teams to stitch together multiple vendors",
+        "Most organizations deploying agentic AI have neither governance nor observability visibility",
+        "Identity, credentials, and access represent a growing threat surface with autonomous agents",
+        "Guardrails AI is separate from observability; Langfuse has no guardrails; only Galileo combines both"
+      ],
+      "affected_users": "Security teams, compliance officers, teams deploying agents with external access",
+      "current_workarounds": "Separate Guardrails AI + Langfuse/LangSmith, custom middleware, manual review",
+      "competition_level": "low"
+    },
+    {
+      "id": "GAP-004",
+      "title": "Non-Technical Stakeholder Accessibility",
+      "category": "collaboration_and_ux",
+      "description": "Current LLM observability tools are built for engineers. Non-technical stakeholders (product managers, executives, domain experts, QA) cannot effectively use these tools to understand AI system behavior, creating bottlenecks where every question becomes a request to the engineering team.",
+      "evidence": [
+        "Current XAI research predominantly targets technical staff and overlooks usability for non-expert users",
+        "Existing data tools create a divide that underscores a fundamental problem: bridging the gap between technical and non-technical users",
+        "Research identified a critical gap in LLM observability: user-centric challenges faced by developers at various expertise levels",
+        "Every new question turns into a request that lands on data teams"
+      ],
+      "affected_users": "Product managers, executives, QA teams, domain experts, customer success teams",
+      "current_workarounds": "Engineers create custom reports/exports, scheduled stakeholder review meetings",
+      "competition_level": "low"
+    },
+    {
+      "id": "GAP-005",
+      "title": "Time-Travel Debugging & Deterministic Replay",
+      "category": "agent_specific",
+      "description": "When agents fail, engineers cannot reproduce the exact conditions. Only AgentOps offers checkpoint-based replay. The ability to 'rewind' an agent execution to any point, inspect state, and replay with different parameters is largely missing from the market.",
+      "evidence": [
+        "Agents don't follow deterministic paths, making reproduction of failures extremely difficult",
+        "Only AgentOps has time-travel debugging; no other major tool offers this",
+        "Without an observability trail, teams cannot replicate conditions to verify fixes",
+        "Teams cannot diagnose why a task went wrong nor replicate conditions to verify fixes"
+      ],
+      "affected_users": "Agent developers debugging production failures",
+      "current_workarounds": "Manual trace inspection, attempt to recreate conditions, logging-based forensics",
+      "competition_level": "very_low"
+    },
+    {
+      "id": "GAP-006",
+      "title": "Granular Cost Attribution & Budget Governance",
+      "category": "core_observability",
+      "description": "While all tools track token costs, none provide deep cost attribution by business context (per-feature, per-customer, per-department) with budget alerts, spending caps, and chargeback reporting. Token budgets explode when multi-agent systems hit production scale.",
+      "evidence": [
+        "Token budgets explode when multi-agent systems hit production scale, 10x higher than projected",
+        "Individual operations look reasonable but monthly bills are 10x higher than projected",
+        "Generic cloud monitoring tells you total costs but doesn't help identify the real culprits",
+        "Need to connect every cost to specific agent actions with agent ID, task type, conversation thread, and business context"
+      ],
+      "affected_users": "Engineering managers, finance teams, teams scaling AI to production",
+      "current_workarounds": "Custom tagging and post-hoc analysis, spreadsheet-based cost allocation",
+      "competition_level": "low"
+    },
+    {
+      "id": "GAP-007",
+      "title": "Agent-Native CI/CD Evaluation Pipelines",
+      "category": "evaluation",
+      "description": "While some tools offer CI/CD integration for evals, none provide agent-native testing that evaluates task completion (not just output matching). Traditional software testing assumptions break down for agents that take different valid paths to the same goal.",
+      "evidence": [
+        "Teams build elaborate CI/CD pipelines before knowing what to measure",
+        "Test automation frameworks based on traditional software assumptions don't catch actual agent failures",
+        "Testing for agents requires evaluating whether they accomplished tasks rather than checking exact outputs",
+        "Bias and safety testing introduce judgment calls that can't be fully automated"
+      ],
+      "affected_users": "DevOps/MLOps teams, CI/CD pipeline owners, QA engineers",
+      "current_workarounds": "Custom eval scripts, manual pre-deployment testing, partial DeepEval/Braintrust integration",
+      "competition_level": "medium"
+    },
+    {
+      "id": "GAP-008",
+      "title": "Quality-Driven Alerting (Not Just Infrastructure)",
+      "category": "core_observability",
+      "description": "Current alerting focuses on infrastructure metrics (latency, errors, uptime). Missing: alerts on quality degradation, faithfulness drops, safety regressions, reasoning quality decline, and subtle drift that doesn't manifest as errors.",
+      "evidence": [
+        "Existing APM catches latency spikes and 500 errors, but LLM observability should alert on quality degradation",
+        "Agents don't throw 500s when they fail - they give plausible but wrong answers",
+        "When an agent takes 45s vs 3 minutes, variance might be normal or might mean the agent is stuck in a reasoning loop",
+        "P99 latency doesn't capture agent quality issues"
+      ],
+      "affected_users": "On-call engineers, SREs, AI operations teams",
+      "current_workarounds": "Manual spot-checking, periodic human review, batch evaluation runs",
+      "competition_level": "low"
+    },
+    {
+      "id": "GAP-009",
+      "title": "Agent Simulation & Synthetic Load Testing",
+      "category": "agent_specific",
+      "description": "Very few tools allow teams to simulate agent behavior at scale before deployment. Running thousands of synthetic conversations across scenarios, languages, and edge cases is only partially addressed by Maxim and LangWatch.",
+      "evidence": [
+        "LangWatch and Maxim are only tools with significant agent simulation capabilities",
+        "No tool combines simulation with production observability in a unified feedback loop",
+        "Teams need to test multi-agent systems across edge cases before deploying to production",
+        "Simulation results rarely feed back into production monitoring rules"
+      ],
+      "affected_users": "AI safety teams, QA teams, teams with high-stakes AI deployments",
+      "current_workarounds": "Custom test scripts, manual scenario testing, limited LangWatch/Maxim simulation",
+      "competition_level": "low"
+    },
+    {
+      "id": "GAP-010",
+      "title": "Cross-Framework Unified Observability",
+      "category": "deployment_and_integration",
+      "description": "Teams using multiple agent frameworks (e.g., LangGraph for orchestration + CrewAI for multi-agent + custom code) lack a unified view. Each framework generates different telemetry formats, and no tool seamlessly normalizes and correlates traces across frameworks.",
+      "evidence": [
+        "OpenTelemetry is converging as a standard but adoption is inconsistent across frameworks",
+        "AutoGen does not reliably provide per-call LLM spans during tool loops",
+        "Bifrost creates 8 spans per LLM call versus LiteLLM's 2, adding noise",
+        "Key attributes like model name lack provider prefix across frameworks"
+      ],
+      "affected_users": "Teams using heterogeneous tech stacks with multiple agent frameworks",
+      "current_workarounds": "Manual trace correlation, custom instrumentation adapters, framework-specific tools",
+      "competition_level": "medium"
+    },
+    {
+      "id": "GAP-011",
+      "title": "Prompt-to-Production Lineage & Root Cause Analysis",
+      "category": "core_observability",
+      "description": "When a production issue occurs, teams cannot easily trace it back to the specific prompt version, model change, or data shift that caused it. End-to-end lineage from prompt engineering to production impact is fragmented.",
+      "evidence": [
+        "ZenML's advantage is end-to-end lineage linking production errors to specific code and data",
+        "Most tools separate prompt management from production monitoring without linking them",
+        "Failures manifest as incorrect reasoning, incomplete tasks, or misaligned tool selections rather than clear errors"
+      ],
+      "affected_users": "ML engineers debugging production regressions, prompt engineers",
+      "current_workarounds": "Manual version tracking, git-based prompt management, separate tools for each stage",
+      "competition_level": "medium"
+    },
+    {
+      "id": "GAP-012",
+      "title": "Natural Language Querying of Observability Data",
+      "category": "collaboration_and_ux",
+      "description": "Engineers and non-technical users alike should be able to ask questions about their AI system in natural language ('Show me all agent failures this week where cost exceeded $5') instead of writing SQL or navigating complex UIs.",
+      "evidence": [
+        "Almost no tool supports natural language queries on observability data",
+        "Braintrust's Loop AI is the closest but limited to scorer generation",
+        "OpenLIT supports custom SQL but requires SQL knowledge",
+        "Stakeholders must rely on others to dig deeper, turning every question into a request"
+      ],
+      "affected_users": "All users - engineers and non-technical stakeholders",
+      "current_workarounds": "SQL queries, custom dashboard creation, asking engineers to pull data",
+      "competition_level": "very_low"
+    }
+  ]
+}

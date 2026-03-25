@@ -1,0 +1,302 @@
+{
+  "domain": "AI Agent Security and Guardrails",
+  "scan_date": "2026-03-25",
+  "total_tools_identified": 28,
+  "tools": [
+    {
+      "name": "NVIDIA NeMo Guardrails",
+      "url": "https://github.com/NVIDIA-NeMo/Guardrails",
+      "description": "Open-source toolkit for adding programmable guardrails to LLM-based conversational systems. Extensible and customizable, integrating with LangChain, LangGraph, and LlamaIndex.",
+      "key_features": ["programmable guardrails via Colang", "multi-agent deployment support", "GPU-accelerated low-latency", "topical rails", "input/output moderation", "fact-checking rails"],
+      "pricing": "Free / Open Source (Apache 2.0)",
+      "target_audience": "AI/ML engineers building conversational AI",
+      "maturity": "Mature",
+      "category": "Guardrails Framework"
+    },
+    {
+      "name": "Guardrails AI",
+      "url": "https://guardrailsai.com/",
+      "description": "Python framework for building reliable AI applications with input/output guard detection and mitigation. Features a Hub of pre-built validators.",
+      "key_features": ["Guardrails Hub with pre-built validators", "input/output guards", "structured output enforcement", "Guardrails Index benchmark", "validator chaining"],
+      "pricing": "Free / Open Source (MIT) + Commercial tier",
+      "target_audience": "Developers building LLM applications",
+      "maturity": "Mature",
+      "category": "Guardrails Framework"
+    },
+    {
+      "name": "LlamaFirewall (Meta)",
+      "url": "https://ai.meta.com/research/publications/llamafirewall-an-open-source-guardrail-system-for-building-secure-ai-agents/",
+      "description": "Open-source security-focused guardrail framework as a final layer of defense against AI agent security risks. Includes PromptGuard 2, Agent Alignment Checks, and CodeShield.",
+      "key_features": ["PromptGuard 2 for prompt injection", "Agent Alignment Checks", "CodeShield for unsafe code", "multi-layer defense", "agent-specific security"],
+      "pricing": "Free / Open Source",
+      "target_audience": "AI agent developers needing security layers",
+      "maturity": "Growing",
+      "category": "Guardrails Framework"
+    },
+    {
+      "name": "LLM Guard (Protect AI)",
+      "url": "https://github.com/protectai/llm-guard",
+      "description": "Open-source library providing security guardrails for LLM applications with input scanners and output scanners.",
+      "key_features": ["prompt injection detection", "PII anonymization", "toxicity detection", "topic banning", "content moderation", "bias detection", "malicious URL detection"],
+      "pricing": "Free / Open Source",
+      "target_audience": "Developers needing LLM input/output security",
+      "maturity": "Mature",
+      "category": "Guardrails Framework"
+    },
+    {
+      "name": "Lakera Guard (Check Point)",
+      "url": "https://www.lakera.ai/",
+      "description": "Runtime security platform protecting generative AI and LLM applications from prompt injection, data leakage, and harmful outputs. Acquired by Check Point in 2025.",
+      "key_features": ["real-time prompt injection detection", "data leakage prevention", "harmful output filtering", "API-based integration", "enterprise-grade latency"],
+      "pricing": "Enterprise (custom pricing via Check Point)",
+      "target_audience": "Enterprise AI teams",
+      "maturity": "Mature (Acquired)",
+      "category": "AI Security Platform"
+    },
+    {
+      "name": "Cisco AI Defense (Robust Intelligence)",
+      "url": "https://www.cisco.com/site/us/en/products/security/ai-defense/index.html",
+      "description": "Comprehensive AI security platform built on Robust Intelligence acquisition ($400M). Discover AI assets, detect vulnerabilities, and protect runtime applications.",
+      "key_features": ["AI Cloud Visibility", "algorithmic red teaming", "AI BOM (Bill of Materials)", "MCP Catalog", "runtime guardrails", "multi-language testing", "Explorer free tier"],
+      "pricing": "Subscription based on AI applications protected (Advantage / Validation Essentials / Runtime Essentials tiers). Free Explorer Edition available.",
+      "target_audience": "Large enterprises with Cisco infrastructure",
+      "maturity": "Mature",
+      "category": "AI Security Platform"
+    },
+    {
+      "name": "Zenity",
+      "url": "https://zenity.io/",
+      "description": "Continuously monitors AI agent activity at runtime, breaking interactions into granular steps and flagging suspicious behavior.",
+      "key_features": ["runtime agent monitoring", "prompt injection detection", "data leak detection", "over-permission flagging", "granular step analysis"],
+      "pricing": "Enterprise (custom pricing)",
+      "target_audience": "Security teams overseeing AI agents",
+      "maturity": "Growing",
+      "category": "AI Agent Runtime Security"
+    },
+    {
+      "name": "CalypsoAI (F5 acquisition pending)",
+      "url": "https://calypsoai.com/",
+      "description": "AI security platform protecting generative AI applications and LLMs at inference time using agentic red-teaming, real-time defense, and continuous observability.",
+      "key_features": ["Red-Team capability", "real-time Defend", "Observe traceability", "model-agnostic", "SIEM/SOAR integration", "prompt injection blocking", "jailbreak prevention"],
+      "pricing": "Enterprise (custom pricing)",
+      "target_audience": "Enterprise security and compliance teams",
+      "maturity": "Mature (Acquisition by F5 pending)",
+      "category": "AI Security Platform"
+    },
+    {
+      "name": "Promptfoo (OpenAI)",
+      "url": "https://www.promptfoo.dev/",
+      "description": "Open-source tool for testing prompts, agents, and RAGs. Red teaming and vulnerability scanning for AI. Joined OpenAI in March 2026.",
+      "key_features": ["50+ vulnerability types", "full application testing (RAG, agents, APIs)", "OWASP/NIST/MITRE mapping", "CI/CD integration", "dynamic attack generation"],
+      "pricing": "Free / Open Source (MIT) + Commercial tier with SOC2/ISO 27001",
+      "target_audience": "AI developers and security teams",
+      "maturity": "Mature (Acquired by OpenAI)",
+      "category": "Red Teaming / Testing"
+    },
+    {
+      "name": "Garak (NVIDIA)",
+      "url": "https://github.com/leondz/garak",
+      "description": "LLM vulnerability scanner from NVIDIA's AI Red Team with 120+ probe modules. Focused on creative payload generation and behavioral attack simulation.",
+      "key_features": ["120+ probe modules", "hallucination testing", "data leakage testing", "prompt injection testing", "toxicity testing", "jailbreak probing"],
+      "pricing": "Free / Open Source (Apache 2.0)",
+      "target_audience": "Security researchers and AI red teamers",
+      "maturity": "Mature",
+      "category": "Red Teaming / Testing"
+    },
+    {
+      "name": "Pillar Security",
+      "url": "https://www.pillar.security/",
+      "description": "Comprehensive AI security platform covering the entire AI software lifecycle. Named Representative Vendor in Gartner's 2026 Market Guide for Guardian Agents.",
+      "key_features": ["AI Discovery & Posture", "red teaming", "adaptive runtime guardrails", "governance & compliance", "PII/PHI protection", "AI fingerprinting", "asset inventory"],
+      "pricing": "Enterprise (custom pricing). Raised $9M seed.",
+      "target_audience": "Enterprise security and compliance teams",
+      "maturity": "Growing",
+      "category": "AI Security Platform"
+    },
+    {
+      "name": "HiddenLayer",
+      "url": "https://www.hiddenlayer.com/",
+      "description": "Security platform for real-time detection and prevention of adversarial attacks against AI models. Recently added agentic runtime security capabilities.",
+      "key_features": ["real-time model monitoring", "adversarial attack detection", "model theft prevention", "data poisoning detection", "agentic runtime security", "MLOps integration"],
+      "pricing": "Enterprise (custom pricing)",
+      "target_audience": "ML/AI operations and security teams",
+      "maturity": "Mature",
+      "category": "AI Security Platform"
+    },
+    {
+      "name": "Prompt Security",
+      "url": "https://prompt.security/",
+      "description": "AI security company helping manage GenAI risks and secure LLM-based applications against prompt injection and data leakage.",
+      "key_features": ["prompt injection protection", "data leakage prevention", "LLM vulnerability scanning", "real-time monitoring", "compliance support"],
+      "pricing": "Enterprise (custom pricing)",
+      "target_audience": "Enterprise security teams",
+      "maturity": "Growing",
+      "category": "AI Security Platform"
+    },
+    {
+      "name": "Lasso Security",
+      "url": "https://www.lasso.security",
+      "description": "Enterprise AI security platform providing visibility, control, and protection across AI models, agents, and apps.",
+      "key_features": ["Intent Deputy (99.83% threat detection)", "behavioral fingerprinting", "PII/PCI masking", "shadow AI detection", "secured LLM gateway", "sub-50ms classification"],
+      "pricing": "Enterprise (custom quote)",
+      "target_audience": "Enterprise security and compliance teams",
+      "maturity": "Growing",
+      "category": "AI Security Platform"
+    },
+    {
+      "name": "WitnessAI",
+      "url": "https://witness.ai/",
+      "description": "Unified AI security and governance platform. Detects unregistered AI agents and observes command flows between LLMs and agents.",
+      "key_features": ["unregistered agent detection", "LLM-to-agent command flow analysis", "intention analysis", "AI governance", "visibility and control"],
+      "pricing": "Enterprise (custom pricing). Raised $58M.",
+      "target_audience": "Enterprise governance and security teams",
+      "maturity": "Growing",
+      "category": "AI Governance & Security"
+    },
+    {
+      "name": "Cranium AI",
+      "url": "https://cranium.ai/",
+      "description": "AI governance and security platform for inventorying, testing, and protecting AI/ML ecosystems. Creates AI Bill of Materials.",
+      "key_features": ["AI/ML discovery", "AI Bill of Materials", "automated evaluations", "compliance workflows", "third-party risk oversight"],
+      "pricing": "Enterprise (custom pricing)",
+      "target_audience": "Enterprise governance and compliance teams",
+      "maturity": "Growing",
+      "category": "AI Governance & Security"
+    },
+    {
+      "name": "AccuKnox AI-Security 2.0",
+      "url": "https://accuknox.com/",
+      "description": "Identity-powered Zero Trust platform to secure AI models, agents, and data. Launched AI-Security 2.0 at RSAC 2026.",
+      "key_features": ["AI-SPM inventory", "AI-DR threat detection", "Prompt Firewall", "AI Red Teaming", "multi-cloud support", "zero trust enforcement"],
+      "pricing": "Enterprise (available on AWS/Azure/Oracle Cloud marketplaces)",
+      "target_audience": "Cloud-native enterprise security teams",
+      "maturity": "Growing",
+      "category": "AI Security Platform"
+    },
+    {
+      "name": "Microsoft Agent 365 / Defender / Entra / Purview",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/03/20/secure-agentic-ai-end-to-end/",
+      "description": "Microsoft's comprehensive agentic AI security stack. Agent 365 GA May 1, 2026 - control plane for agent visibility, security, and governance.",
+      "key_features": ["agent control plane", "Defender for AI agents", "Entra identity for agents", "Purview data governance", "zero trust for AI"],
+      "pricing": "Part of Microsoft 365 / Azure security licensing",
+      "target_audience": "Microsoft enterprise customers",
+      "maturity": "Launching (GA May 2026)",
+      "category": "Cloud Platform Security"
+    },
+    {
+      "name": "Okta for AI Agents",
+      "url": "https://www.okta.com/blog/ai/okta-ai-agents-early-access-announcement/",
+      "description": "First-class non-human identity management for AI agents. Expands Universal Directory to treat AI agents as independent identities.",
+      "key_features": ["agent identity management", "scoped credentials", "Universal Directory for agents", "audit logging", "enterprise SSO integration"],
+      "pricing": "Part of Okta platform (custom pricing)",
+      "target_audience": "Enterprise identity and security teams",
+      "maturity": "Launching (GA April 2026)",
+      "category": "Identity & Access Management"
+    },
+    {
+      "name": "BeyondTrust AI Security",
+      "url": "https://www.beyondtrust.com/solutions/ai-security",
+      "description": "Unified identity security platform extending to AI agents. Discovers, assesses, and controls risks across AI agent workloads.",
+      "key_features": ["unified human/machine/AI identity", "zero standing privilege", "just-in-time access", "shadow AI detection", "least privilege enforcement"],
+      "pricing": "Enterprise (custom pricing)",
+      "target_audience": "Enterprise privileged access management teams",
+      "maturity": "Growing",
+      "category": "Identity & Access Management"
+    },
+    {
+      "name": "Aembit",
+      "url": "https://aembit.io/",
+      "description": "Workload identity and access management platform extending to agentic AI. Focused on non-human identity security.",
+      "key_features": ["workload IAM", "agentic AI identity", "MCP security guidance", "credential management", "zero trust for workloads"],
+      "pricing": "Enterprise (custom pricing)",
+      "target_audience": "DevSecOps and platform engineering teams",
+      "maturity": "Growing",
+      "category": "Identity & Access Management"
+    },
+    {
+      "name": "Arcjet",
+      "url": "https://arcjet.com/",
+      "description": "Inline defense against prompt injection at the application boundary. Detects hostile prompts before they reach AI models.",
+      "key_features": ["application-level prompt injection blocking", "JavaScript/Python SDK", "Vercel AI SDK integration", "LangChain integration", "sub-millisecond latency"],
+      "pricing": "Developer-friendly (freemium model)",
+      "target_audience": "Developers building AI-powered web apps",
+      "maturity": "Growing",
+      "category": "Application Security"
+    },
+    {
+      "name": "Thales AI Security Fabric",
+      "url": "https://www.thalesgroup.com/",
+      "description": "Monitors LLM-powered applications in real time for prompt injection, jailbreaking, and data leakage across cloud and on-premises.",
+      "key_features": ["real-time LLM monitoring", "prompt injection detection", "jailbreak detection", "data leakage prevention", "MCP security gateway (planned)", "runtime access control (planned)"],
+      "pricing": "Enterprise (custom pricing)",
+      "target_audience": "Large enterprise security teams",
+      "maturity": "Growing",
+      "category": "AI Security Platform"
+    },
+    {
+      "name": "CrowdStrike Falcon AI (AIDR)",
+      "url": "https://www.crowdstrike.com/",
+      "description": "AI Detection and Response (AIDR) stops direct and indirect prompt injection attacks with 99% efficacy at sub-30ms latency.",
+      "key_features": ["AI detection and response", "99% prompt injection efficacy", "sub-30ms latency", "Charlotte AI integration", "endpoint-to-cloud coverage"],
+      "pricing": "Enterprise (part of Falcon platform)",
+      "target_audience": "Enterprise security operations",
+      "maturity": "Mature",
+      "category": "Endpoint / Cloud Security"
+    },
+    {
+      "name": "Trend Micro TrendAI",
+      "url": "https://www.trendmicro.com/",
+      "description": "Works with NVIDIA OpenShell to bring governance, risk visibility, and runtime enforcement to the AI agent lifecycle.",
+      "key_features": ["NVIDIA OpenShell integration", "runtime enforcement", "risk visibility", "governance for agents", "autonomous agent security"],
+      "pricing": "Enterprise (part of Trend Micro platform)",
+      "target_audience": "Enterprise security operations",
+      "maturity": "Growing",
+      "category": "AI Agent Runtime Security"
+    },
+    {
+      "name": "Protect AI Guardian (Palo Alto Networks)",
+      "url": "https://www.paloaltonetworks.com/",
+      "description": "ML security gateway scanning models for malicious payloads before production. Acquired by Palo Alto Networks in July 2025.",
+      "key_features": ["model scanning", "malicious payload detection", "supply chain security", "MLOps integration"],
+      "pricing": "Enterprise (part of Palo Alto platform)",
+      "target_audience": "ML operations and security teams",
+      "maturity": "Mature (Acquired)",
+      "category": "AI Supply Chain Security"
+    },
+    {
+      "name": "Langfuse (Security & Guardrails)",
+      "url": "https://langfuse.com/docs/security-and-guardrails",
+      "description": "Open-source LLM engineering platform with security and guardrails integration capabilities for observability-driven security.",
+      "key_features": ["LLM observability", "guardrails integration layer", "trace monitoring", "evaluation framework", "open source"],
+      "pricing": "Free / Open Source + Cloud (paid)",
+      "target_audience": "LLM application developers",
+      "maturity": "Mature",
+      "category": "Observability & Guardrails"
+    },
+    {
+      "name": "Gravitee AI Gateway",
+      "url": "https://www.gravitee.io/",
+      "description": "API management platform extending to AI agent security with gateway-level controls and State of AI Agent Security reporting.",
+      "key_features": ["API-level AI agent security", "gateway controls", "traffic analysis", "policy enforcement", "state of AI agent security research"],
+      "pricing": "Open Source + Enterprise",
+      "target_audience": "API and platform engineering teams",
+      "maturity": "Growing",
+      "category": "API Gateway Security"
+    }
+  ],
+  "market_context": {
+    "llm_firewall_market_size_2026": "$60M (estimated, 100% growth from $30M)",
+    "agents_in_average_enterprise": 37,
+    "organizations_with_ai_security_incidents": "88%",
+    "agents_running_without_oversight": "50%+",
+    "shadow_ai_apps_per_enterprise": 1200,
+    "organizations_lacking_ai_visibility": "86%",
+    "key_acquisitions_2024_2025": [
+      "Cisco acquired Robust Intelligence for $400M (2024)",
+      "Check Point acquired Lakera (2025)",
+      "Palo Alto Networks acquired Protect AI (2025)",
+      "F5 acquisition of CalypsoAI (pending 2026)",
+      "OpenAI acquired Promptfoo (March 2026)"
+    ]
+  }
+}

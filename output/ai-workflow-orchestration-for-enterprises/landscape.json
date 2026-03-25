@@ -1,0 +1,374 @@
+{
+  "domain": "AI workflow orchestration for enterprises",
+  "scan_date": "2026-03-25",
+  "market_size": {
+    "ai_infrastructure_2025": "$1.5 billion",
+    "autonomous_agent_market_2026": "$8.5 billion estimated",
+    "autonomous_agent_market_2030": "$45 billion projected",
+    "enterprise_ai_cagr": "40.72% through 2030",
+    "copilots_market_share_2025": "$7.2 billion (86% of horizontal AI platforms)"
+  },
+  "tools": [
+    {
+      "name": "LangChain / LangGraph",
+      "url": "https://www.langchain.com/langgraph",
+      "description": "Open-source framework for building stateful, multi-agent LLM applications using graph-based orchestration. LangGraph models agents as nodes in a graph with explicit state management and control flow.",
+      "key_features": [
+        "Graph-based agent orchestration",
+        "Stateful multi-agent workflows",
+        "LangSmith observability integration",
+        "Human-in-the-loop support",
+        "Streaming and persistence",
+        "Python and JavaScript SDKs",
+        "Self-hosted or cloud deployment"
+      ],
+      "pricing": "Open-source core; LangGraph Platform: Developer (free), Plus ($25/seat/month), Enterprise (custom annual)",
+      "target_audience": "AI/ML developers, engineering teams building LLM-powered applications",
+      "maturity": "High - widely adopted, large ecosystem, GA"
+    },
+    {
+      "name": "CrewAI",
+      "url": "https://crewai.com/",
+      "description": "Multi-agent platform for building and operating coordinated teams of AI agents that execute complex workflows autonomously, with both visual development (Studio) and Python API.",
+      "key_features": [
+        "Multi-agent role-based collaboration",
+        "Visual Studio editor (no-code)",
+        "Python API for developers",
+        "CrewAI AMP for enterprise scaling",
+        "50+ integrated tools (Gmail, Slack, Salesforce, etc.)",
+        "Serverless auto-scaling",
+        "On-premises deployment option"
+      ],
+      "pricing": "Free (50 executions/mo), Professional ($25/mo, 100 executions), Enterprise (custom, up to 30k executions, SOC2, SSO, RBAC)",
+      "target_audience": "Developers and business teams building multi-agent AI workflows",
+      "maturity": "Medium-High - fast-growing, production-ready"
+    },
+    {
+      "name": "Microsoft Agent Framework",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "description": "Open-source SDK merging AutoGen's agent abstractions with Semantic Kernel's enterprise features for building, deploying, and managing multi-agent systems with Azure integration.",
+      "key_features": [
+        "Graph-based multi-agent orchestration",
+        "Session-based state management",
+        "Type safety and middleware",
+        "Native Azure Monitor telemetry",
+        "Azure AI Foundry connectors",
+        "Process Framework for deterministic workflows",
+        "Open standards and interoperability"
+      ],
+      "pricing": "Open-source; Azure infrastructure costs apply",
+      "target_audience": "Enterprise developers in Microsoft/Azure ecosystem",
+      "maturity": "Medium - GA 1.0 targeted Q1 2026, Process Framework Q2 2026"
+    },
+    {
+      "name": "Google Vertex AI Agent Builder",
+      "url": "https://cloud.google.com/products/agent-builder",
+      "description": "Google Cloud's managed platform for building, deploying, and governing AI agents with deep GCP integration, including Agent Development Kit (ADK), Sessions, Memory Bank, and 100+ enterprise connectors.",
+      "key_features": [
+        "Agent Development Kit (ADK) with Gemini support",
+        "Agent Engine with managed sessions and memory",
+        "Tool governance via Cloud API Registry",
+        "100+ enterprise connectors (ERP, HR, procurement)",
+        "Agent-level tracing and observability",
+        "MCP server support",
+        "LLM-based regression testing"
+      ],
+      "pricing": "Pay-per-use on GCP; Sessions, Memory Bank, Code Execution charged separately",
+      "target_audience": "Enterprises on Google Cloud building production AI agents",
+      "maturity": "High - GA, actively expanding features"
+    },
+    {
+      "name": "n8n",
+      "url": "https://n8n.io/",
+      "description": "Open-source, low-code AI workflow automation platform with visual builder, supporting JavaScript/Python code and 400+ integrations for building AI-powered workflows.",
+      "key_features": [
+        "Visual workflow builder with code option",
+        "400+ app integrations",
+        "Human-in-the-loop at any step",
+        "Git-based version control",
+        "Self-hosted or cloud deployment",
+        "Unlimited users/workflows on all plans",
+        "AI agent nodes with LLM integration"
+      ],
+      "pricing": "Community (free self-hosted), Starter ($20/mo), Pro ($50/mo), Business (~$667/mo), Enterprise (custom)",
+      "target_audience": "Technical teams and developers automating AI workflows",
+      "maturity": "High - open-source with large community"
+    },
+    {
+      "name": "Dify",
+      "url": "https://dify.ai/",
+      "description": "Open-source LLM application development platform for building agentic AI workflows, chatbots, and RAG applications with visual editor and access to 100+ LLMs.",
+      "key_features": [
+        "Visual workflow and agent builder",
+        "100+ LLM integrations (OpenAI, Anthropic, open-source)",
+        "RAG pipeline builder",
+        "Knowledge base management",
+        "Multi-tenant enterprise architecture",
+        "SSO (SAML, OIDC, OAuth2)",
+        "Kubernetes/Helm deployment"
+      ],
+      "pricing": "Free sandbox, Professional ($59/mo), Team ($159/mo), Enterprise (custom, SOC2)",
+      "target_audience": "Developers and business teams building LLM applications",
+      "maturity": "Medium-High - raised $30M Pre-A in 2026, fast growth"
+    },
+    {
+      "name": "Apache Airflow",
+      "url": "https://airflow.apache.org/",
+      "description": "Mature open-source workflow orchestration platform for programmatic authoring, scheduling, and monitoring of data and ML pipelines using Python-native DAGs.",
+      "key_features": [
+        "Python-native DAG definitions",
+        "Modular architecture with extensible plugins",
+        "Hybrid execution (SQL to ML tasks)",
+        "Data lineage tracking",
+        "Production monitoring and alerting",
+        "Auto-retries and complex branching",
+        "Managed versions on AWS, GCP, Astronomer"
+      ],
+      "pricing": "Open-source; managed services (AWS MWAA, Astronomer) have separate pricing",
+      "target_audience": "Data engineers, ML engineers building data/ML pipelines",
+      "maturity": "Very High - CNCF-adjacent, 200M+ tasks/month across users"
+    },
+    {
+      "name": "Prefect",
+      "url": "https://www.prefect.io/",
+      "description": "Python-native workflow orchestration framework for building resilient data and AI pipelines with durable execution, wrapping Pydantic AI agents with retries, caching, and observability.",
+      "key_features": [
+        "Python decorators for workflow definition",
+        "Durable execution with auto-retries",
+        "Result caching and task-level observability",
+        "Native Python control flow (no DAG constraints)",
+        "Pydantic AI agent integration",
+        "Autoscaling workers",
+        "Enterprise auth and SSO"
+      ],
+      "pricing": "Open-source core; Prefect Cloud: Free, Pro, Enterprise (custom)",
+      "target_audience": "Data/ML teams, Python developers building AI pipelines",
+      "maturity": "High - Fortune 50 customers, 200M+ tasks automated monthly"
+    },
+    {
+      "name": "Temporal",
+      "url": "https://temporal.io/",
+      "description": "Durable execution platform for building reliable distributed systems and AI workflows with built-in fault tolerance, supporting multi-language SDKs.",
+      "key_features": [
+        "Durable execution and fault tolerance",
+        "Multi-language SDKs (Go, Java, Python, TypeScript)",
+        "OpenAI Agents SDK integration",
+        "Long-running workflow support",
+        "Built-in retry and timeout handling",
+        "Scalable to billions of workflows",
+        "Cloud and self-hosted options"
+      ],
+      "pricing": "Open-source core; Temporal Cloud with usage-based pricing; Enterprise (custom)",
+      "target_audience": "Backend engineers building mission-critical reliable workflows",
+      "maturity": "High - Agentic AI Foundation Gold Member"
+    },
+    {
+      "name": "UiPath",
+      "url": "https://www.uipath.com/",
+      "description": "Enterprise agentic automation platform combining RPA with AI orchestration, featuring Maestro for coordinating agents, robots, and humans across business processes.",
+      "key_features": [
+        "Maestro orchestration for agents/robots/humans",
+        "AI Agent Builder with visual canvas",
+        "Self-healing automation (40% failure reduction)",
+        "Cross-ecosystem agent management (MS, Google, OpenAI)",
+        "Policy-as-code governance",
+        "Agentic document processing (IXP)",
+        "700+ enterprise system connectors"
+      ],
+      "pricing": "Enterprise licensing (custom); per-robot and per-user models",
+      "target_audience": "Large enterprises automating business processes at scale",
+      "maturity": "Very High - market leader in RPA, G2 2026 Best Software Awards"
+    },
+    {
+      "name": "IBM watsonx Orchestrate",
+      "url": "https://www.ibm.com/products/watsonx-orchestrate",
+      "description": "Enterprise AI agent orchestration platform for automating HR, sales, procurement, and customer care workflows with 700+ enterprise system integrations and multi-cloud deployment.",
+      "key_features": [
+        "Pre-built HR, Procurement, Sales agents",
+        "700+ enterprise system integrations",
+        "Multi-agent orchestration",
+        "No-code and pro-code tools",
+        "SaaS (IBM Cloud, AWS) or on-premises",
+        "Document processing capabilities",
+        "Enterprise-grade security and governance"
+      ],
+      "pricing": "Essentials ($500/mo), Standard (custom pricing, 30% promo through April 2026)",
+      "target_audience": "Large enterprises in HR, finance, sales, procurement",
+      "maturity": "High - IBM ecosystem, Gartner-reviewed"
+    },
+    {
+      "name": "Orkes Conductor",
+      "url": "https://orkes.io/",
+      "description": "Enterprise-grade workflow orchestration platform (based on Netflix Conductor) for building reliable AI agent workflows with durable execution, AI tasks, and vector DB integration.",
+      "key_features": [
+        "Durable execution for distributed systems",
+        "Built-in AI tasks (text gen, embeddings, vector search)",
+        "AI Prompt Studio for prompt management",
+        "Human-in-the-loop steps",
+        "SSO, RBAC, secrets management",
+        "Granular access controls for sharing",
+        "Long-running workflow support"
+      ],
+      "pricing": "Open-source Conductor core; Orkes Cloud and Enterprise (custom)",
+      "target_audience": "Engineering teams building reliable microservices and AI workflows",
+      "maturity": "High - based on battle-tested Netflix Conductor"
+    },
+    {
+      "name": "Zapier",
+      "url": "https://zapier.com/",
+      "description": "No-code automation platform connecting 8,000+ apps with AI-powered workflow creation, tables, and interfaces for enterprise workflow automation.",
+      "key_features": [
+        "8,000+ app integrations",
+        "Natural language workflow creation",
+        "Built-in Tables for data storage",
+        "AI Guardrails for data protection",
+        "Zapier MCP for AI actions",
+        "SOC 2 & SOC 3 compliance",
+        "Enterprise admin permissions and audit trails"
+      ],
+      "pricing": "Free, Professional ($29.99/mo), Team ($103.50/mo), Enterprise (custom)",
+      "target_audience": "Business users and non-technical teams automating workflows",
+      "maturity": "Very High - market leader in no-code automation"
+    },
+    {
+      "name": "Flowise",
+      "url": "https://flowiseai.com/",
+      "description": "Open-source no-code platform for visually building AI agents and LLM workflows with drag-and-drop components, supporting chatflows, agentflows, and 100+ integrations.",
+      "key_features": [
+        "Drag-and-drop visual builder",
+        "Three builder modes (Assistant, Chatflow, Agentflow)",
+        "100+ data source and vector DB integrations",
+        "Multi-agent orchestration",
+        "RBAC, SSO, encrypted credentials",
+        "Rate limiting and domain restrictions",
+        "Self-hosted (Node.js)"
+      ],
+      "pricing": "Open-source (free self-hosted); Flowise Cloud pricing varies",
+      "target_audience": "Developers and power users building AI chatbots and agents",
+      "maturity": "Medium - growing open-source community"
+    },
+    {
+      "name": "Langflow",
+      "url": "https://www.langflow.org/",
+      "description": "Open-source Python-based visual builder for creating LLM-powered workflows and AI agents with source-code-level component access and DataStax integration.",
+      "key_features": [
+        "Visual drag-and-drop workflow builder",
+        "Python-based with source code access",
+        "DataStax Astra DB integration",
+        "Component marketplace",
+        "API deployment",
+        "Multi-model support",
+        "Self-hosted or managed cloud"
+      ],
+      "pricing": "Open-source; DataStax Langflow managed service available",
+      "target_audience": "Developers building LLM applications visually",
+      "maturity": "Medium - backed by DataStax"
+    },
+    {
+      "name": "Argo Workflows / Kubeflow",
+      "url": "https://argoproj.github.io/argo-workflows/",
+      "description": "Kubernetes-native workflow engine (CNCF graduated) for orchestrating parallel ML/AI jobs. Kubeflow Pipelines uses Argo under the hood for end-to-end MLOps.",
+      "key_features": [
+        "Kubernetes-native execution",
+        "Complex DAG support",
+        "Parallel job orchestration",
+        "RBAC and multi-tenancy",
+        "Cluster-level workflow templates",
+        "Container-native design",
+        "CNCF graduated project"
+      ],
+      "pricing": "Open-source; infrastructure costs only",
+      "target_audience": "ML engineers and platform teams on Kubernetes",
+      "maturity": "Very High - CNCF graduated, used by major enterprises"
+    },
+    {
+      "name": "Inngest",
+      "url": "https://www.inngest.com/",
+      "description": "Workflow orchestration platform for AI and backend workflows with durable execution, event-driven architecture, and auto-scaling at any scale.",
+      "key_features": [
+        "Durable execution engine",
+        "Event-driven workflow triggers",
+        "Auto-scaling infrastructure",
+        "Step-level retries and timeouts",
+        "TypeScript and Python SDKs",
+        "Built-in queueing",
+        "Serverless deployment"
+      ],
+      "pricing": "Free tier; Pro and Enterprise plans available",
+      "target_audience": "Full-stack developers building AI and backend workflows",
+      "maturity": "Medium - growing adoption"
+    },
+    {
+      "name": "Portkey AI",
+      "url": "https://portkey.ai/",
+      "description": "Enterprise-grade AI gateway and orchestration platform for intelligent LLM routing, failover, cost optimization, and production-ready deployment.",
+      "key_features": [
+        "Intelligent LLM routing and load balancing",
+        "Automatic failover between models",
+        "Cost optimization and tracking",
+        "Guardrails and safety filters",
+        "Caching and rate limiting",
+        "Observability and logging",
+        "Multi-provider support"
+      ],
+      "pricing": "Free tier; Growth and Enterprise plans",
+      "target_audience": "Engineering teams managing multiple LLM providers in production",
+      "maturity": "Medium - focused AI gateway niche"
+    },
+    {
+      "name": "Abacus.AI",
+      "url": "https://abacus.ai/",
+      "description": "Enterprise AI platform for building bespoke AI solutions automating critical, data-intensive workflows with custom model training and deployment.",
+      "key_features": [
+        "Custom AI model training",
+        "Automated feature engineering",
+        "Real-time prediction serving",
+        "Data pipeline automation",
+        "MLOps lifecycle management",
+        "Multi-model ensemble support",
+        "Enterprise security and compliance"
+      ],
+      "pricing": "Enterprise (custom pricing)",
+      "target_audience": "Data science teams and enterprises needing custom AI solutions",
+      "maturity": "Medium-High"
+    },
+    {
+      "name": "Kestra",
+      "url": "https://kestra.io/",
+      "description": "Open-source orchestration platform for scheduling and orchestrating complex workflows with a declarative YAML-based approach and UI-driven development.",
+      "key_features": [
+        "Declarative YAML workflow definitions",
+        "Visual workflow editor",
+        "Event-driven and scheduled execution",
+        "Plugin ecosystem",
+        "Multi-language script support",
+        "Namespace-based organization",
+        "Enterprise edition with RBAC and SSO"
+      ],
+      "pricing": "Open-source core; Enterprise edition (custom)",
+      "target_audience": "Data and platform engineers orchestrating complex workflows",
+      "maturity": "Medium-High - growing rapidly"
+    }
+  ],
+  "total_tools_identified": 20,
+  "sources": [
+    "https://www.domo.com/learn/article/best-ai-orchestration-platforms",
+    "https://www.knolli.ai/post/ai-orchestration-tools-for-enterprise",
+    "https://akka.io/blog/ai-orchestration-tools",
+    "https://zapier.com/blog/ai-orchestration-tools/",
+    "https://blog.n8n.io/best-ai-workflow-automation-tools/",
+    "https://aimultiple.com/llm-orchestration",
+    "https://www.kubiya.ai/blog/ai-orchestration-tools",
+    "https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/",
+    "https://www.deloitte.com/us/en/insights/industry/technology/technology-media-and-telecom-predictions/2026/ai-agent-orchestration.html",
+    "https://crewai.com/",
+    "https://www.langchain.com/pricing-langgraph-platform",
+    "https://orkes.io/platform",
+    "https://www.prefect.io/",
+    "https://temporal.io/",
+    "https://dify.ai/enterprise",
+    "https://www.uipath.com/platform/agentic-automation",
+    "https://www.ibm.com/products/watsonx-orchestrate",
+    "https://cloud.google.com/products/agent-builder"
+  ]
+}

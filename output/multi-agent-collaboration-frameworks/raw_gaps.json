@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "domain": "Multi-agent collaboration frameworks",
+    "generated_date": "2026-03-25",
+    "total_gaps_identified": 15,
+    "methodology": "Feature matrix analysis + web research on challenges, pain points, and missing features"
+  },
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Standardized Multi-Agent Testing & Evaluation Framework",
+      "category": "Testing & Quality",
+      "description": "No unified, production-grade testing framework exists for multi-agent systems. 67% of multi-agent failures stem from inter-agent interactions rather than individual agent defects, yet testing tools focus on single-agent evaluation. Teams lack tools for scalability testing, adversarial testing, edge-case handling, and simulation-to-real gap testing specific to multi-agent coordination.",
+      "current_state": "Teams use ad-hoc mocking, manual testing, or single-agent evaluation tools. No framework provides automated inter-agent interaction testing, cascading error detection, or emergent behavior analysis.",
+      "affected_tools": "All frameworks lack this natively",
+      "severity": "critical"
+    },
+    {
+      "id": "GAP-002",
+      "title": "Cross-Framework Agent Interoperability",
+      "category": "Interoperability",
+      "description": "Agents built on different frameworks (CrewAI, LangGraph, AutoGen, etc.) cannot communicate or collaborate. A2A protocol adoption is nascent (only CrewAI, Google ADK, Microsoft Agent Framework). MCP is gaining traction but focuses on tool access, not agent-to-agent communication.",
+      "current_state": "Each framework is a silo. Organizations using multiple frameworks must build custom bridges. No universal agent registry or discovery mechanism exists across frameworks.",
+      "affected_tools": "All frameworks except partial Google ADK + A2A adopters",
+      "severity": "high"
+    },
+    {
+      "id": "GAP-003",
+      "title": "Multi-Agent Observability and Debugging",
+      "category": "Observability",
+      "description": "Only LangGraph offers time-travel debugging. Most frameworks provide basic tracing but lack deep multi-agent-specific observability: inter-agent message flow visualization, coordination bottleneck detection, cascading failure analysis, and cross-agent performance profiling.",
+      "current_state": "Teams rely on third-party tools (LangSmith, Langfuse, Maxim) bolted on top. No framework provides native, comprehensive multi-agent debugging with root-cause analysis across agent boundaries.",
+      "affected_tools": "All frameworks except LangGraph (partial)",
+      "severity": "critical"
+    },
+    {
+      "id": "GAP-004",
+      "title": "Agent Security, Identity, and Governance",
+      "category": "Security & Governance",
+      "description": "79% of organizations deploying agentic AI lack formal security policies. Only 14.4% of agents go live with full security approval. No framework provides built-in agent identity management, fine-grained dynamic permissions, real-time activity validation, or compliance audit trails compliant with EU AI Act.",
+      "current_state": "Security is an afterthought. Frameworks provide minimal guardrails (OpenAI SDK, LangGraph) but no comprehensive agent identity, authorization, or governance layer. NIST is only beginning to develop standards.",
+      "affected_tools": "All frameworks - none provide comprehensive governance",
+      "severity": "critical"
+    },
+    {
+      "id": "GAP-005",
+      "title": "Production-Ready Agent Harness Engineering",
+      "category": "DevOps & Infrastructure",
+      "description": "Building production-ready agent harnesses (managing human approvals, filesystem access, tool orchestration, sub-agents, lifecycle management) takes months or years. Less than 25% of organizations have successfully scaled agents to production. Over 80% of AI projects fail to reach production.",
+      "current_state": "Each team builds custom infrastructure. No turnkey solution exists for the full agent lifecycle from development through deployment, monitoring, scaling, and retirement.",
+      "affected_tools": "All open-source frameworks (enterprise platforms partially address this)",
+      "severity": "high"
+    },
+    {
+      "id": "GAP-006",
+      "title": "State Management and Checkpointing Across Agent Boundaries",
+      "category": "State Management",
+      "description": "Only LangGraph and Ray provide robust checkpointing. Most frameworks lack durable state management that persists across failures, enables replay, and works across multi-agent boundaries. Shared state between agents is ad-hoc in most frameworks.",
+      "current_state": "Teams store data in global variables or manually save/reload states. No standard for distributed state management across heterogeneous agent teams.",
+      "affected_tools": "All except LangGraph (partial) and Ray (infrastructure-level)",
+      "severity": "high"
+    },
+    {
+      "id": "GAP-007",
+      "title": "Cost Optimization and Economic Modeling",
+      "category": "Cost Management",
+      "description": "No framework provides built-in cost tracking, budget enforcement, or economic modeling for multi-agent workflows. A multi-agent workflow can cost $0.01-$0.10+ per run, and costs scale unpredictably with agent count and interaction complexity.",
+      "current_state": "Cost management is entirely manual. Organizations treat cost optimization as an afterthought rather than a first-class architectural concern, leading to budget overruns.",
+      "affected_tools": "All frameworks",
+      "severity": "medium"
+    },
+    {
+      "id": "GAP-008",
+      "title": "Coordination Scaling (Beyond 4-Agent Threshold)",
+      "category": "Scalability",
+      "description": "Research shows accuracy gains begin to saturate or fluctuate beyond 4 agents (the 'Coordination Tax'). Multi-agent orchestration patterns that work at 100 req/min fail at 10,000. No framework provides automatic topology optimization or coordination overhead management at scale.",
+      "current_state": "Teams manually tune agent configurations. No automatic scaling, load balancing, or coordination optimization exists for multi-agent workloads.",
+      "affected_tools": "All code-first frameworks; enterprise platforms partially address scaling",
+      "severity": "high"
+    },
+    {
+      "id": "GAP-009",
+      "title": "Dynamic Agent Discovery and Capability Negotiation",
+      "category": "Agent Coordination",
+      "description": "Most frameworks require agents to be pre-configured with knowledge of other agents. Only Vertex AI supports dynamic agent discovery and capability negotiation. No open-source framework provides runtime agent marketplace or capability advertising.",
+      "current_state": "Static agent configurations. Agents cannot dynamically discover, evaluate, or select collaborators based on capabilities and availability.",
+      "affected_tools": "All open-source frameworks",
+      "severity": "medium"
+    },
+    {
+      "id": "GAP-010",
+      "title": "Multi-Agent Conflict Resolution and Consensus",
+      "category": "Agent Coordination",
+      "description": "When multiple agents produce conflicting outputs or recommendations, most frameworks lack built-in conflict resolution, voting, consensus-building, or arbitration mechanisms. Only AutoGen supports multi-party debate patterns natively.",
+      "current_state": "Developers implement custom conflict resolution logic. No standardized patterns for agent disagreement handling, quality arbitration, or output reconciliation.",
+      "affected_tools": "All except AutoGen (partial)",
+      "severity": "medium"
+    },
+    {
+      "id": "GAP-011",
+      "title": "Human-on-the-Loop Oversight (vs Human-in-the-Loop)",
+      "category": "Human-AI Interaction",
+      "description": "The 2026 trend is 'human-on-the-loop' (supervisory) rather than 'human-in-the-loop' (approval per action), but frameworks only support the latter. No framework provides intelligent escalation, risk-based approval routing, or adaptive autonomy levels based on confidence/risk.",
+      "current_state": "Binary choice: either full human approval or full autonomy. No nuanced, risk-aware oversight mechanism that adapts to context.",
+      "affected_tools": "All frameworks except Kore.ai (partial configurable autonomy)",
+      "severity": "medium"
+    },
+    {
+      "id": "GAP-012",
+      "title": "Legacy System Integration for Multi-Agent Workflows",
+      "category": "Integration",
+      "description": "The hardest part of deploying agentic workflows is not intelligence but secure and reliable access to production systems. Salesforce Einstein Copilot struggled because it couldn't navigate customer data silos and legacy CRM workflows. Most frameworks focus on LLM orchestration, not legacy system bridging.",
+      "current_state": "Each integration is custom-built. Enterprise platforms (Kore.ai, n8n) offer pre-built connectors but lack deep bidirectional integration with legacy ERP, mainframe, and proprietary systems.",
+      "affected_tools": "Code-first frameworks especially; enterprise platforms partially",
+      "severity": "high"
+    },
+    {
+      "id": "GAP-013",
+      "title": "Multi-Agent Simulation and Rehearsal Environment",
+      "category": "Testing & Development",
+      "description": "No framework provides a sandbox environment to simulate multi-agent interactions before production deployment. Teams cannot rehearse complex agent workflows, test failure scenarios, or validate coordination patterns in a safe environment.",
+      "current_state": "Testing against live APIs and services. No standard simulation environment for multi-agent system validation.",
+      "affected_tools": "All frameworks",
+      "severity": "medium"
+    },
+    {
+      "id": "GAP-014",
+      "title": "Agent Performance Benchmarking Standards",
+      "category": "Evaluation",
+      "description": "No standardized benchmarks exist for comparing multi-agent framework performance (latency, accuracy, cost-per-task, coordination overhead). ChatDev achieves 33.3% on ProgramDev; AppWorld shows 86.7% failure rate, but no cross-framework comparison methodology exists.",
+      "current_state": "Each framework reports its own metrics in isolation. No independent, standardized benchmarking suite for multi-agent collaboration quality.",
+      "affected_tools": "All frameworks",
+      "severity": "medium"
+    },
+    {
+      "id": "GAP-015",
+      "title": "Deterministic Workflow + LLM Agent Hybrid Orchestration",
+      "category": "Architecture",
+      "description": "Most frameworks are either fully LLM-driven (unpredictable) or fully deterministic (rigid). Few support mixing deterministic business logic with LLM-powered adaptive agents in the same workflow. Microsoft Agent Framework's Process Framework (Q2 2026) and Google ADK's workflow agents are early attempts.",
+      "current_state": "Teams must choose between rigid workflows and unpredictable LLM orchestration. Combining both requires custom engineering.",
+      "affected_tools": "Most frameworks except Google ADK (partial) and upcoming Microsoft Process Framework",
+      "severity": "high"
+    }
+  ]
+}

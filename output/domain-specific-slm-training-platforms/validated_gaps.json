@@ -1,0 +1,316 @@
+{
+  "metadata": {
+    "domain": "Domain-specific SLM training platforms",
+    "scan_date": "2026-03-25",
+    "validation_sources": ["Reddit (r/LocalLLaMA 266K+ members)", "Hacker News", "GitHub trending repos", "Enterprise market reports", "Academic papers", "Industry blogs"],
+    "total_validated_gaps": 12
+  },
+  "market_context": {
+    "enterprise_llm_market_2026": "$8.19 billion",
+    "projected_2034": "$48.25 billion (CAGR 30%)",
+    "domain_specific_segment_cagr": "35.1% (fastest growing)",
+    "slm_market_2025": "$0.93 billion",
+    "slm_market_projected_2032": "$5.45 billion (CAGR 28.7%)",
+    "enterprise_fine_tuning_adoption": "72% of organizations plan to fine-tune or use RAGs",
+    "enterprise_budget": "40% budgeting over $250K for AI",
+    "key_stat": "By 2027, organizations predicted to use small, task-specific AI 3x more than general LLMs"
+  },
+  "validated_gaps": [
+    {
+      "id": "GAP-001",
+      "title": "End-to-End Domain Data Pipeline (Raw Docs to Training Data)",
+      "demand_signals": [
+        {
+          "source": "GitHub",
+          "signal": "easy-dataset repo (ConardLi) trending: converts domain docs to fine-tuning datasets with parsing, segmentation, cleaning. Validates strong demand for this capability.",
+          "strength": "High"
+        },
+        {
+          "source": "GitHub",
+          "signal": "Meta released synthetic-data-kit for generating QA pairs from documents. Validates Big Tech recognizes this gap.",
+          "strength": "High"
+        },
+        {
+          "source": "Industry",
+          "signal": "DigitalDivideData reports: 'The training data was not as good as the team believed' is #1 cause of enterprise fine-tuning failure.",
+          "strength": "Very High"
+        },
+        {
+          "source": "HuggingFace",
+          "signal": "Augmentoolkit, Distilabel, Data Prep Kit all emerging as independent tools to fill this gap in the pipeline.",
+          "strength": "High"
+        },
+        {
+          "source": "Enterprise",
+          "signal": "Fine-tuning requires high-quality data but 'obtaining and curating this data can be slow and expensive, especially for complex tasks requiring domain expertise'",
+          "strength": "Very High"
+        }
+      ],
+      "demand_score": 95,
+      "validation_confidence": "Very High"
+    },
+    {
+      "id": "GAP-002",
+      "title": "Synthetic Domain Data Generation",
+      "demand_signals": [
+        {
+          "source": "GitHub",
+          "signal": "LLM-Synthetic-Data repo maintains live reading list of 100+ papers on synthetic data generation, updated through 2025.",
+          "strength": "High"
+        },
+        {
+          "source": "GitHub",
+          "signal": "Distilabel, Curator, and Augmentoolkit all have growing stars for synthetic data generation frameworks.",
+          "strength": "High"
+        },
+        {
+          "source": "HuggingFace",
+          "signal": "Blog post: 'Fine-tune a SmolLM on domain-specific synthetic data from a LLM' demonstrates demand for teacher->student synthetic data pipeline.",
+          "strength": "Medium-High"
+        },
+        {
+          "source": "Industry",
+          "signal": "'A lack of domain-specific datasets is a common problem for smaller and more specialized models' - widely cited challenge.",
+          "strength": "High"
+        }
+      ],
+      "demand_score": 85,
+      "validation_confidence": "High"
+    },
+    {
+      "id": "GAP-003",
+      "title": "Domain-Specific Evaluation Framework",
+      "demand_signals": [
+        {
+          "source": "Hacker News",
+          "signal": "Developer wanted 'a good interactive demo with a fine-tuned model performing better than the base model, combined with extremely detailed information on how it was fine-tuned'. Evaluation transparency is a pain point.",
+          "strength": "High"
+        },
+        {
+          "source": "Hacker News",
+          "signal": "Developer 'ran up against a timebox allocated for evaluation work' - evaluation is time-consuming and underresourced.",
+          "strength": "Medium-High"
+        },
+        {
+          "source": "Industry",
+          "signal": "Enterprise fine-tuning failures linked to 'absence of evaluation frameworks that measure what actually matters' in production.",
+          "strength": "Very High"
+        },
+        {
+          "source": "NVIDIA Blog",
+          "signal": "NVIDIA published dedicated blog on 'Fine-Tuning LLMOps for Rapid Model Evaluation' acknowledging evaluation as major gap.",
+          "strength": "High"
+        },
+        {
+          "source": "Research",
+          "signal": "Paper on fine-tuning LLM judges: domain-specific evaluation models needed for 'more granular, accurate and critical feedback'.",
+          "strength": "High"
+        }
+      ],
+      "demand_score": 90,
+      "validation_confidence": "Very High"
+    },
+    {
+      "id": "GAP-004",
+      "title": "Continuous Learning / Production Feedback Loop",
+      "demand_signals": [
+        {
+          "source": "Industry",
+          "signal": "'The most valuable source of fine-tuning data is the production data generated by deploying the model' - widely acknowledged but no turnkey solution.",
+          "strength": "High"
+        },
+        {
+          "source": "Industry",
+          "signal": "Amdocs implemented custom NVIDIA AI Blueprint data flywheel - proves enterprise demand but highlights lack of off-the-shelf solution.",
+          "strength": "Medium-High"
+        },
+        {
+          "source": "Enterprise",
+          "signal": "OpenPipe's entire business model (capture prod logs -> fine-tune) validates this need, but only covers a fraction of the flywheel.",
+          "strength": "High"
+        }
+      ],
+      "demand_score": 80,
+      "validation_confidence": "High"
+    },
+    {
+      "id": "GAP-005",
+      "title": "Edge/On-Device Fine-Tuning and Deployment Platform",
+      "demand_signals": [
+        {
+          "source": "Research",
+          "signal": "Shakti SLMs (100M-500M params) demonstrate real demand for edge-optimized domain models in finance, legal, healthcare.",
+          "strength": "High"
+        },
+        {
+          "source": "Industry",
+          "signal": "Dell predicts 'The Power of Small: Edge AI Predictions for 2026' - major enterprise demand for edge SLMs.",
+          "strength": "High"
+        },
+        {
+          "source": "Research",
+          "signal": "2026 research: 'memory bandwidth, not compute, is the binding constraint' for on-device LLMs - specialized tooling needed.",
+          "strength": "Medium-High"
+        },
+        {
+          "source": "Industry",
+          "signal": "r/LocalLLaMA 266K members running models locally demonstrates massive grassroots demand for local/edge deployment.",
+          "strength": "Very High"
+        }
+      ],
+      "demand_score": 82,
+      "validation_confidence": "High"
+    },
+    {
+      "id": "GAP-006",
+      "title": "Domain-Adaptive Continued Pretraining as a Service",
+      "demand_signals": [
+        {
+          "source": "Research",
+          "signal": "March 2026 paper 'The Finetuner's Fallacy: When to Pretrain with Your Finetuning Data' demonstrates that CPT is underused and misunderstood.",
+          "strength": "High"
+        },
+        {
+          "source": "Nature",
+          "signal": "Research explores 'training strategies, scaling, model merging and synergistic capabilities' for domain adaptation - CPT is key.",
+          "strength": "High"
+        },
+        {
+          "source": "Industry",
+          "signal": "Most platforms only support SFT/LoRA. CPT is 'the most effective way to deeply adapt a model' but requires complex setup.",
+          "strength": "Medium-High"
+        }
+      ],
+      "demand_score": 70,
+      "validation_confidence": "Medium-High"
+    },
+    {
+      "id": "GAP-007",
+      "title": "Multi-Tenant Domain Model Management",
+      "demand_signals": [
+        {
+          "source": "Enterprise",
+          "signal": "SaaS companies need to serve multiple client-specific models. Predibase LoRAX addresses serving but not management.",
+          "strength": "Medium"
+        },
+        {
+          "source": "Industry",
+          "signal": "TrueFoundry's MCP server provisioning and AI Gateway hint at demand for multi-tenant model management.",
+          "strength": "Medium"
+        }
+      ],
+      "demand_score": 60,
+      "validation_confidence": "Medium"
+    },
+    {
+      "id": "GAP-008",
+      "title": "Compliance-Aware Training Pipeline for Regulated Industries",
+      "demand_signals": [
+        {
+          "source": "Enterprise",
+          "signal": "Healthcare, finance, legal companies 'especially preferring fine-tuned LLMs' but face compliance hurdles.",
+          "strength": "High"
+        },
+        {
+          "source": "Industry",
+          "signal": "'Regulated industries can't send sensitive data to external APIs' - drives need for on-premise compliance-integrated solutions.",
+          "strength": "High"
+        },
+        {
+          "source": "Market",
+          "signal": "Domain-specific LLMs is fastest-growing segment at 35.1% CAGR, driven by regulated industry needs.",
+          "strength": "Very High"
+        }
+      ],
+      "demand_score": 78,
+      "validation_confidence": "High"
+    },
+    {
+      "id": "GAP-009",
+      "title": "Catastrophic Forgetting Prevention and Testing",
+      "demand_signals": [
+        {
+          "source": "Industry",
+          "signal": "Catastrophic forgetting cited as major challenge: 'fine-tuning on a specific task overwrites parameter configurations supporting other capabilities'.",
+          "strength": "High"
+        },
+        {
+          "source": "Research",
+          "signal": "Paper: 'Fine-Tuning Lowers Safety and Disrupts Evaluation Consistency' - directly validates safety/forgetting concern.",
+          "strength": "High"
+        },
+        {
+          "source": "Hacker News",
+          "signal": "Multiple HN discussions about fine-tuning degrading model quality on general tasks.",
+          "strength": "Medium-High"
+        }
+      ],
+      "demand_score": 72,
+      "validation_confidence": "High"
+    },
+    {
+      "id": "GAP-010",
+      "title": "Domain Ontology and Terminology Integration",
+      "demand_signals": [
+        {
+          "source": "Industry",
+          "signal": "'Specialized fields have terminology that vanilla models might not fully grasp—legal texts, medical notes, etc.'",
+          "strength": "Medium-High"
+        },
+        {
+          "source": "Research",
+          "signal": "SEED project at MIT CSAIL uses LLMs for domain-specific data curation modules, hinting at ontology-guided approaches.",
+          "strength": "Medium"
+        }
+      ],
+      "demand_score": 55,
+      "validation_confidence": "Medium"
+    },
+    {
+      "id": "GAP-011",
+      "title": "Cost-Optimized Training Advisor",
+      "demand_signals": [
+        {
+          "source": "Hacker News",
+          "signal": "Discussion on 'when fine-tuning makes sense' shows developers confused about when/how to fine-tune effectively.",
+          "strength": "High"
+        },
+        {
+          "source": "Industry",
+          "signal": "'Why You Should Not Fine-Tune Models in 2025' article highlights confusion about when fine-tuning is appropriate.",
+          "strength": "Medium-High"
+        },
+        {
+          "source": "Enterprise",
+          "signal": "Most teams waste compute on wrong approach. Fine-tuning covers 80% of use cases at $10-$100 per run, but teams don't know this.",
+          "strength": "High"
+        }
+      ],
+      "demand_score": 68,
+      "validation_confidence": "Medium-High"
+    },
+    {
+      "id": "GAP-012",
+      "title": "Collaborative Domain Expert Annotation and RLHF Platform",
+      "demand_signals": [
+        {
+          "source": "Industry",
+          "signal": "Labelbox and Kili Technology growing in fine-tuning data annotation, but separate from training platforms.",
+          "strength": "Medium-High"
+        },
+        {
+          "source": "Research",
+          "signal": "'SLMs can learn effectively from a few hundred well curated examples' - expert curation is critical for small data scenarios.",
+          "strength": "High"
+        },
+        {
+          "source": "Enterprise",
+          "signal": "Fine-tuning success depends on domain experts who 'can be slow and expensive' to engage.",
+          "strength": "Medium-High"
+        }
+      ],
+      "demand_score": 65,
+      "validation_confidence": "Medium-High"
+    }
+  ]
+}

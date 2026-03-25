@@ -1,0 +1,162 @@
+{
+  "domain": "AI workflow orchestration for enterprises",
+  "generated_date": "2026-03-25",
+  "scoring_formula": "opportunity_score = (demand_score * competition_gap_score * feasibility_score) / 100",
+  "scoring_notes": {
+    "demand_score": "0-100, based on community signals, market evidence, user pain points, funding activity",
+    "competition_gap_score": "0-100, higher means LESS competition / more whitespace (inverted competition)",
+    "feasibility_score": "0-100, based on technical feasibility, time-to-market, capital requirements"
+  },
+  "ranked_gaps": [
+    {
+      "rank": 1,
+      "id": "GAP-001",
+      "title": "Unified Cross-Platform Agent Governance & Sprawl Management",
+      "demand_score": 95,
+      "competition_gap_score": 85,
+      "feasibility_score": 65,
+      "opportunity_score": 52.49,
+      "rationale": "Highest demand signal in the market ($15B projected AMP spend by 2029). Very few competitors addressing cross-platform agent governance holistically. Feasibility moderate due to need for deep integrations across all major frameworks. First-mover advantage is significant.",
+      "recommended_approach": "Build an Agent Management Platform (AMP) that provides a universal agent registry, policy engine, and observability layer across LangGraph, CrewAI, Microsoft, Google, and custom agents. Start with discovery/inventory, add governance rules, then cost tracking.",
+      "time_to_market": "12-18 months for MVP",
+      "capital_required": "High ($5M-15M)"
+    },
+    {
+      "rank": 2,
+      "id": "GAP-002",
+      "title": "AI-Native Cost Intelligence & Token Economics Optimization",
+      "demand_score": 92,
+      "competition_gap_score": 78,
+      "feasibility_score": 75,
+      "opportunity_score": 53.82,
+      "rationale": "Acute pain point with 40%+ project cancellations due to cost. AI gateways partially address routing but no one does workflow-level cost intelligence with ROI attribution. Higher feasibility than GAP-001 because it can start as an observability/analytics layer.",
+      "recommended_approach": "Build a cost intelligence platform that hooks into any orchestration framework, tracks token usage per workflow/agent/step, provides real-time budgeting with alerts, automatic model tier routing, and business outcome ROI dashboards.",
+      "time_to_market": "6-12 months for MVP",
+      "capital_required": "Medium ($2M-8M)"
+    },
+    {
+      "rank": 3,
+      "id": "GAP-005",
+      "title": "Self-Healing AI Workflows with Cascading Failure Prevention",
+      "demand_score": 80,
+      "competition_gap_score": 82,
+      "feasibility_score": 60,
+      "opportunity_score": 39.36,
+      "rationale": "Only UiPath addresses self-healing, and only within its own ecosystem. Semantic error detection and cascade prevention for AI workflows is largely unsolved. Lower feasibility due to technical complexity of semantic failure detection.",
+      "recommended_approach": "Build a middleware layer that monitors agent outputs for semantic anomalies, prevents cascade propagation, and implements graceful degradation strategies. Can integrate with Temporal/Conductor for durable execution backbone.",
+      "time_to_market": "12-18 months for MVP",
+      "capital_required": "Medium-High ($5M-10M)"
+    },
+    {
+      "rank": 4,
+      "id": "GAP-006",
+      "title": "EU AI Act & Regulatory Compliance Automation for AI Workflows",
+      "demand_score": 82,
+      "competition_gap_score": 75,
+      "feasibility_score": 60,
+      "opportunity_score": 36.90,
+      "rationale": "Imminent regulatory deadline (August 2026) creates urgency. Governance tools exist separately but none integrate into orchestration platforms. EUR 35M fines provide strong buying motivation. Moderate feasibility due to regulatory complexity.",
+      "recommended_approach": "Build a compliance layer that integrates into existing orchestration platforms, providing automatic risk classification, documentation generation, audit trails, and regulatory reporting specifically for AI workflows. Plugin model for LangGraph, n8n, etc.",
+      "time_to_market": "6-12 months (urgency: August 2026 deadline)",
+      "capital_required": "Medium ($3M-8M)"
+    },
+    {
+      "rank": 5,
+      "id": "GAP-008",
+      "title": "Adaptive Human-in-the-Loop with Autonomy Spectrum Management",
+      "demand_score": 75,
+      "competition_gap_score": 80,
+      "feasibility_score": 65,
+      "opportunity_score": 39.00,
+      "rationale": "Novel concept with no direct competitors. All platforms offer static HITL but none dynamically adjust autonomy based on risk/confidence. High differentiation potential. Moderate feasibility as it requires real-time risk scoring.",
+      "recommended_approach": "Build an autonomy management module that scores each agent action for risk, adjusts human oversight requirements dynamically, and learns from historical approval patterns to gradually increase trust. Can be a plugin for existing platforms.",
+      "time_to_market": "9-15 months for MVP",
+      "capital_required": "Medium ($3M-7M)"
+    },
+    {
+      "rank": 6,
+      "id": "GAP-004",
+      "title": "Non-Deterministic AI Workflow Testing & Evaluation Framework",
+      "demand_score": 85,
+      "competition_gap_score": 70,
+      "feasibility_score": 55,
+      "opportunity_score": 32.73,
+      "rationale": "Quality is the #1 barrier to agent deployment (32%). Emerging evaluation platforms exist but are fragmented. The gap is an integrated, CI/CD-native testing framework for multi-agent non-deterministic workflows. Lower feasibility due to fundamental non-determinism challenge.",
+      "recommended_approach": "Build a CI/CD-integrated agent testing platform with behavioral property assertions, simulation environments, LLM-as-a-judge with cost optimization, and regression detection. Focus on integration with GitHub Actions/GitLab CI.",
+      "time_to_market": "9-12 months for MVP",
+      "capital_required": "Medium ($3M-8M)"
+    },
+    {
+      "rank": 7,
+      "id": "GAP-003",
+      "title": "Multi-Agent Observability with Decision-Path Tracing",
+      "demand_score": 88,
+      "competition_gap_score": 65,
+      "feasibility_score": 70,
+      "opportunity_score": 40.04,
+      "rationale": "High demand but increasingly competitive with LangSmith, Arize, Maxim, Langfuse all addressing this. Remaining gap is cross-framework multi-agent decision-path replay with counterfactual analysis. Higher feasibility with OpenTelemetry foundation.",
+      "recommended_approach": "Focus on the cross-framework, multi-agent niche: build a tool that traces decisions across heterogeneous agent frameworks, provides counterfactual analysis ('what if agent B had chosen differently?'), and inter-agent conflict resolution visibility.",
+      "time_to_market": "6-12 months for MVP",
+      "capital_required": "Medium ($2M-6M)"
+    },
+    {
+      "rank": 8,
+      "id": "GAP-010",
+      "title": "Vendor-Agnostic Agent Interoperability Protocol",
+      "demand_score": 70,
+      "competition_gap_score": 85,
+      "feasibility_score": 45,
+      "opportunity_score": 26.78,
+      "rationale": "Very high whitespace but low feasibility - requires industry adoption of a new protocol. MCP and A2A are emerging. Risk of being outpaced by Google/Microsoft/Anthropic standards. Potential for standards-body approach.",
+      "recommended_approach": "Contribute to and build tooling around emerging A2A protocol. Create an agent interoperability gateway that translates between LangGraph, CrewAI, Microsoft, and Google agent protocols. Position as the 'Kubernetes of agent communication'.",
+      "time_to_market": "18-24 months for meaningful adoption",
+      "capital_required": "Medium ($3M-8M)"
+    },
+    {
+      "rank": 9,
+      "id": "GAP-009",
+      "title": "Cross-Workflow Orchestration & Process Mining for AI Pipelines",
+      "demand_signals_score": 72,
+      "competition_gap_score": 75,
+      "feasibility_score": 50,
+      "opportunity_score": 27.00,
+      "rationale": "Real need (62% fail to scale) but lower immediate demand signal compared to governance and cost. UiPath is best positioned as incumbent. Process mining for AI workflows is a novel concept requiring new methodologies.",
+      "recommended_approach": "Build AI workflow process mining that discovers, maps, and optimizes agent workflow patterns across departments. Integrate with existing process mining platforms (Celonis) to add AI-awareness layer.",
+      "time_to_market": "12-18 months for MVP",
+      "capital_required": "Medium-High ($5M-10M)"
+    },
+    {
+      "rank": 10,
+      "id": "GAP-007",
+      "title": "Enterprise Data Readiness & Legacy System Integration Layer",
+      "demand_score": 78,
+      "competition_gap_score": 68,
+      "feasibility_score": 45,
+      "opportunity_score": 23.87,
+      "rationale": "Critical bottleneck but addressed partially by iPaaS vendors (MuleSoft, Workato) adding AI features. Lower feasibility due to extreme diversity of legacy systems. Capital-intensive to build comprehensive connectors.",
+      "recommended_approach": "Build an AI-native data readiness assessment tool that scans enterprise data landscape, scores AI-readiness, and provides automated migration pathways. Partner with existing iPaaS vendors rather than compete.",
+      "time_to_market": "12-18 months for MVP",
+      "capital_required": "High ($5M-15M)"
+    }
+  ],
+  "top_3_opportunities_summary": {
+    "1_agent_governance": {
+      "opportunity_score": 52.49,
+      "market_potential": "$15B by 2029",
+      "urgency": "Immediate - agent sprawl is accelerating",
+      "moat": "Network effects from agent registry, data flywheel from governance patterns"
+    },
+    "2_cost_intelligence": {
+      "opportunity_score": 53.82,
+      "market_potential": "Sub-segment of $47.8B agentic AI platform market",
+      "urgency": "High - 40% project cancellation rate due to costs",
+      "moat": "Cost data accumulation, benchmarking network effects, integration depth"
+    },
+    "3_self_healing_workflows": {
+      "opportunity_score": 39.36,
+      "market_potential": "Enterprise workflow reliability market",
+      "urgency": "Growing - production deployments increasing",
+      "moat": "Semantic failure pattern database, ML models for anomaly detection"
+    }
+  }
+}

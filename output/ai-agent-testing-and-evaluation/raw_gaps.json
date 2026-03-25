@@ -1,0 +1,130 @@
+{
+  "domain": "AI Agent Testing and Evaluation",
+  "generated_date": "2026-03-25",
+  "gap_categories": {
+    "feature_gaps": [
+      {
+        "id": "FG-01",
+        "gap": "Multi-agent system end-to-end testing",
+        "description": "Very few tools (only AgentOps, Maxim AI, Evidently, Virtue AI, Datadog) support multi-agent workflows. No tool comprehensively tests inter-agent coordination, shared state conflicts, message passing correctness, and emergent behaviors in multi-agent systems.",
+        "current_coverage": "5 of 19 tools offer basic multi-agent support, but none deeply address orchestration testing"
+      },
+      {
+        "id": "FG-02",
+        "gap": "Session replay and time-travel debugging for agents",
+        "description": "Only AgentOps offers session replay. Most tools provide traces but cannot replay an agent session step-by-step to reproduce and debug issues interactively.",
+        "current_coverage": "1 of 19 tools"
+      },
+      {
+        "id": "FG-03",
+        "gap": "User persona simulation and behavioral testing",
+        "description": "Only Maxim AI offers user persona simulation. Teams cannot easily test how agents behave with adversarial users, confused users, domain experts, non-native speakers, etc.",
+        "current_coverage": "1 of 19 tools"
+      },
+      {
+        "id": "FG-04",
+        "gap": "Real-time guardrails and content safety",
+        "description": "Only 3 tools (Patronus AI, Portkey, Galileo) offer real-time guardrails that can block problematic outputs before reaching users. Most tools only evaluate after the fact.",
+        "current_coverage": "3 of 19 tools"
+      },
+      {
+        "id": "FG-05",
+        "gap": "Compliance and audit trail support",
+        "description": "Only 3 tools (Patronus AI, Portkey, Datadog) provide compliance/audit features. As AI regulation increases globally, there is a major gap in audit-ready evaluation tooling for regulated industries.",
+        "current_coverage": "3 of 19 tools"
+      },
+      {
+        "id": "FG-06",
+        "gap": "Human annotation and feedback workflows",
+        "description": "Only 4 tools (LangSmith, Langfuse, Patronus AI, Galileo, Maxim AI) support structured human annotation. Most tools are fully automated with no human-in-the-loop evaluation capability.",
+        "current_coverage": "5 of 19 tools"
+      },
+      {
+        "id": "FG-07",
+        "gap": "Automated regression detection across model updates",
+        "description": "While some tools offer basic comparison, no tool provides robust automated regression detection that alerts when model updates, prompt changes, or provider version bumps cause quality degradation in production.",
+        "current_coverage": "Partial support in ~8 tools, but none deeply solve this"
+      }
+    ],
+    "segment_gaps": [
+      {
+        "id": "SG-01",
+        "gap": "No-code/low-code evaluation platform for non-technical users",
+        "description": "Almost all tools are developer-focused (CLI, SDK, Python). Product managers, QA analysts, domain experts, and business stakeholders cannot participate in evaluation without engineering support. Only Maxim AI claims low-code support.",
+        "current_coverage": "1 of 19 tools offers no-code interface"
+      },
+      {
+        "id": "SG-02",
+        "gap": "SMB and startup-friendly pricing",
+        "description": "Many tools are either open-source (requiring DevOps investment) or enterprise-priced. Mid-market companies lack affordable, managed evaluation platforms with reasonable pricing.",
+        "current_coverage": "Few tools in the $20-100/mo range with full feature sets"
+      },
+      {
+        "id": "SG-03",
+        "gap": "Domain-specific evaluation for regulated industries",
+        "description": "Healthcare, finance, legal, and government sectors need domain-specific evaluation metrics, compliance checks, and audit trails. Current tools are domain-agnostic.",
+        "current_coverage": "No tools specialize in regulated-industry AI evaluation"
+      },
+      {
+        "id": "SG-04",
+        "gap": "Evaluation tooling for voice/multimodal AI agents",
+        "description": "All current tools focus on text-based LLM evaluation. Voice agents, vision-language agents, and multimodal systems lack specialized testing tools.",
+        "current_coverage": "0 of 19 tools explicitly support multimodal agent evaluation"
+      }
+    ],
+    "workflow_gaps": [
+      {
+        "id": "WG-01",
+        "gap": "End-to-end agent lifecycle testing (dev to prod to monitoring)",
+        "description": "Most tools specialize in either development-time evaluation OR production monitoring. No single tool seamlessly covers the full lifecycle: develop -> test -> deploy -> monitor -> detect regression -> fix -> re-test.",
+        "current_coverage": "Langfuse and LangSmith come closest but still have gaps"
+      },
+      {
+        "id": "WG-02",
+        "gap": "Automated test generation from production failures",
+        "description": "When agents fail in production, there is no tool that automatically converts production failures into regression test cases. Giskard does this for detected issues, but not from live production incidents.",
+        "current_coverage": "Giskard offers partial support; no tool does this from production data"
+      },
+      {
+        "id": "WG-03",
+        "gap": "Collaborative evaluation workflows (eng + PM + domain expert)",
+        "description": "No tool provides good cross-functional collaboration where engineers define metrics, PMs set priorities, and domain experts annotate results in a unified workflow.",
+        "current_coverage": "Orq.ai and Humanloop have basic collaboration; no tool truly solves this"
+      }
+    ],
+    "integration_gaps": [
+      {
+        "id": "IG-01",
+        "gap": "Framework-agnostic agent evaluation",
+        "description": "Most eval tools are tightly coupled to specific frameworks (LangSmith -> LangChain, Opik -> Comet, etc.). Teams using CrewAI, AutoGen, custom frameworks, or switching between frameworks lack a universal evaluation layer.",
+        "current_coverage": "Promptfoo, DeepEval, and Evidently are relatively framework-agnostic"
+      },
+      {
+        "id": "IG-02",
+        "gap": "CI/CD-native agent evaluation pipelines",
+        "description": "While several tools support CI/CD integration, none provide a deeply integrated experience that treats agent evaluation as a first-class CI/CD step with gate conditions, parallel eval, and automatic rollback.",
+        "current_coverage": "Promptfoo and DeepEval have basic CI/CD; others require manual setup"
+      },
+      {
+        "id": "IG-03",
+        "gap": "Unified observability across the full AI stack",
+        "description": "Teams use separate tools for LLM tracing, vector DB monitoring, tool-call validation, and application APM. No tool provides unified observability across the entire agent tech stack.",
+        "current_coverage": "Datadog comes closest with existing APM + LLM observability"
+      }
+    ],
+    "pricing_gaps": [
+      {
+        "id": "PG-01",
+        "gap": "Pay-per-evaluation pricing model",
+        "description": "Most tools charge per seat or per trace/event. For teams that run evaluations sporadically (e.g., before releases), a pay-per-evaluation model would be more cost-effective.",
+        "current_coverage": "No tool offers pure pay-per-eval pricing"
+      },
+      {
+        "id": "PG-02",
+        "gap": "Transparent, predictable pricing for enterprise",
+        "description": "Many enterprise tools require 'contact sales' and annual contracts (Arize, Patronus, etc.). Enterprises wanting predictable budgets and self-serve procurement face friction.",
+        "current_coverage": "Braintrust, Maxim AI have transparent pricing; most enterprise tools do not"
+      }
+    ]
+  }
+}

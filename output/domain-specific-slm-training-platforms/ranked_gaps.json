@@ -1,0 +1,171 @@
+{
+  "metadata": {
+    "domain": "Domain-specific SLM training platforms",
+    "scan_date": "2026-03-25",
+    "scoring_formula": "opportunity_score = (demand * (100 - competition) * feasibility) / 100",
+    "scale": "All factors scored 0-100"
+  },
+  "scoring_criteria": {
+    "demand": "Strength of market demand signals from community, enterprise, and research (0-100)",
+    "competition": "Level of existing competition addressing this gap (0=none, 100=fully addressed)",
+    "feasibility": "Technical and business feasibility of building a solution (0-100)"
+  },
+  "ranked_gaps": [
+    {
+      "rank": 1,
+      "id": "GAP-001",
+      "title": "End-to-End Domain Data Pipeline (Raw Docs to Training Data)",
+      "demand": 95,
+      "competition": 25,
+      "feasibility": 82,
+      "opportunity_score": 58.43,
+      "rationale": "Demand is the highest among all gaps - #1 cited cause of enterprise fine-tuning failure. Competition is low: easy-dataset and Augmentoolkit exist as early OSS tools, Meta's synthetic-data-kit is new, but no integrated platform solution exists. Highly feasible with existing LLM APIs for extraction + established parsing libraries. This is the most actionable high-impact gap.",
+      "recommended_solution": "Unified platform that ingests raw domain documents (PDFs, contracts, medical records, code), extracts structured knowledge, generates instruction-following pairs, validates quality, and outputs ready-to-train datasets in standard formats.",
+      "target_market": "Enterprise ML teams, domain-specific AI startups, consulting firms",
+      "estimated_market_size": "$500M-$1B (subset of $8.19B enterprise LLM market)"
+    },
+    {
+      "rank": 2,
+      "id": "GAP-003",
+      "title": "Domain-Specific Evaluation Framework",
+      "demand": 90,
+      "competition": 30,
+      "feasibility": 78,
+      "opportunity_score": 49.14,
+      "rationale": "Evaluation is universally cited as a critical gap. LLM eval platforms exist (Langfuse, Arize, etc.) but none focus on domain-specific evaluation for fine-tuned SLMs with pre-built evaluation suites for healthcare, legal, finance. Medium competition from general eval tools but very low from domain-specialized ones. Feasible but requires domain expertise investment.",
+      "recommended_solution": "Domain-specific evaluation platform with pre-built test suites for healthcare (clinical accuracy, ICD codes, HIPAA), legal (citation accuracy, clause extraction), finance (numeric precision, regulatory compliance). Includes LLM-as-Judge with domain-trained judge models, regression testing for catastrophic forgetting, and production monitoring.",
+      "target_market": "Enterprise teams in regulated industries, AI safety/compliance teams",
+      "estimated_market_size": "$300M-$700M (growing fast with regulatory pressure)"
+    },
+    {
+      "rank": 3,
+      "id": "GAP-002",
+      "title": "Synthetic Domain Data Generation Platform",
+      "demand": 85,
+      "competition": 35,
+      "feasibility": 80,
+      "opportunity_score": 44.20,
+      "rationale": "High demand for generating domain-specific training data, especially for data-scarce domains. Growing competition from Distilabel, Curator, Meta synthetic-data-kit, but none offer a domain-aware platform (ontology-guided, quality-validated). Highly feasible using existing LLM APIs as teacher models.",
+      "recommended_solution": "Platform that takes domain knowledge base (documents, ontologies, examples) and generates high-quality synthetic training data using teacher LLMs, with quality validation, deduplication, and diversity scoring. Includes domain-specific templates for healthcare, legal, finance, and code.",
+      "target_market": "ML teams in data-scarce domains, startups building vertical AI products",
+      "estimated_market_size": "$200M-$500M"
+    },
+    {
+      "rank": 4,
+      "id": "GAP-005",
+      "title": "Edge/On-Device SLM Fine-Tuning and Deployment Platform",
+      "demand": 82,
+      "competition": 20,
+      "feasibility": 65,
+      "opportunity_score": 42.64,
+      "rationale": "Massive grassroots demand (r/LocalLLaMA 266K+ members) plus enterprise edge AI growth. Very low competition: no platform covers full edge lifecycle (fine-tune -> quantize -> deploy -> feedback -> retrain). Lower feasibility due to hardware fragmentation and on-device fine-tuning technical challenges.",
+      "recommended_solution": "End-to-end edge SLM platform: cloud fine-tuning with edge-optimized quantization (GGUF, ONNX, TensorRT), device profiling for target hardware, on-device adaptation via lightweight LoRA updates, telemetry collection for continuous improvement. Support for mobile, IoT, and embedded devices.",
+      "target_market": "IoT companies, mobile app developers, manufacturing, healthcare device makers",
+      "estimated_market_size": "$300M-$800M (edge AI market growing to $100B+ by 2030)"
+    },
+    {
+      "rank": 5,
+      "id": "GAP-004",
+      "title": "Continuous Learning / Production Feedback Loop (Data Flywheel)",
+      "demand": 80,
+      "competition": 15,
+      "feasibility": 70,
+      "opportunity_score": 47.60,
+      "rationale": "Strong demand as production data is widely recognized as the most valuable fine-tuning signal. Very low competition: OpenPipe captures logs but doesn't close the loop. Amdocs built custom flywheel proving enterprise need. Feasible but requires integrating monitoring, data curation, retraining, and deployment.",
+      "recommended_solution": "Automated data flywheel platform: capture production failures/edge cases -> classify and curate corrective examples -> auto-generate retraining datasets -> trigger fine-tuning runs -> A/B test new model -> deploy if improved -> monitor. Full MLOps integration with human-in-the-loop for quality gates.",
+      "target_market": "Production ML teams, AI-native companies, SaaS companies with AI features",
+      "estimated_market_size": "$200M-$500M"
+    },
+    {
+      "rank": 6,
+      "id": "GAP-008",
+      "title": "Compliance-Aware Training Pipeline for Regulated Industries",
+      "demand": 78,
+      "competition": 20,
+      "feasibility": 65,
+      "opportunity_score": 40.56,
+      "rationale": "Domain-specific LLMs are fastest-growing segment (35.1% CAGR) driven by regulated industries. Low competition: Databricks has governance, Lamini has certifications, but no purpose-built compliance-first fine-tuning platform. Moderate feasibility due to complexity of compliance frameworks across industries.",
+      "recommended_solution": "Compliance-first fine-tuning platform with built-in audit trails, data lineage tracking, model provenance, automated compliance reporting (HIPAA, SOX, GDPR), role-based access control for training data, and certifiable training pipelines. On-premise and air-gapped deployment as default.",
+      "target_market": "Healthcare, financial services, legal, government, defense",
+      "estimated_market_size": "$300M-$600M"
+    },
+    {
+      "rank": 7,
+      "id": "GAP-009",
+      "title": "Catastrophic Forgetting Prevention and Testing",
+      "demand": 72,
+      "competition": 10,
+      "feasibility": 60,
+      "opportunity_score": 38.88,
+      "rationale": "Universally cited challenge with near-zero competition. Academic research exists (EWC, progressive nets) but no platform implements prevention and testing as a feature. Lower feasibility as the problem is partially unsolved in research.",
+      "recommended_solution": "Integrated module within fine-tuning platforms: automated pre/post fine-tuning benchmark comparison, knowledge retention scoring, selective weight freezing recommendations, and mixed training data recipes that preserve general capabilities while adding domain expertise.",
+      "target_market": "All fine-tuning users, especially those needing general + domain capabilities",
+      "estimated_market_size": "$100M-$200M (feature add-on, not standalone)"
+    },
+    {
+      "rank": 8,
+      "id": "GAP-006",
+      "title": "Domain-Adaptive Continued Pretraining as a Service",
+      "demand": 70,
+      "competition": 25,
+      "feasibility": 60,
+      "opportunity_score": 31.50,
+      "rationale": "Research proves CPT is underused and misunderstood. Medium competition: cloud providers offer manual setup. Lower feasibility due to high compute costs and expertise requirements. March 2026 paper 'The Finetuner's Fallacy' validates gap.",
+      "recommended_solution": "Managed CPT service: upload domain corpus, select base model, platform handles tokenization, curriculum design, hyperparameter selection, and training scheduling. Includes cost estimation and expected improvement prediction before committing resources.",
+      "target_market": "Scientific, medical, legal organizations wanting deep domain models",
+      "estimated_market_size": "$150M-$300M"
+    },
+    {
+      "rank": 9,
+      "id": "GAP-011",
+      "title": "Cost-Optimized Training Advisor",
+      "demand": 68,
+      "competition": 15,
+      "feasibility": 75,
+      "opportunity_score": 43.35,
+      "rationale": "Strong demand from confused developers and budget-constrained teams. Very low competition: Predibase Fine-tuning Index is closest. Highly feasible using benchmark data and heuristics. Good as feature within existing platforms or standalone advisory tool.",
+      "recommended_solution": "AI-powered training advisor: describe your task and domain -> get recommendations for base model, training method (LoRA vs full vs CPT), data volume needed, estimated cost, expected quality improvement. Includes benchmark comparisons and ROI calculator.",
+      "target_market": "Startups, non-ML developers, budget-conscious teams",
+      "estimated_market_size": "$50M-$150M (mostly as feature add-on)"
+    },
+    {
+      "rank": 10,
+      "id": "GAP-012",
+      "title": "Collaborative Domain Expert Annotation and RLHF Platform",
+      "demand": 65,
+      "competition": 35,
+      "feasibility": 75,
+      "opportunity_score": 31.69,
+      "rationale": "Medium demand as RLHF with domain experts is growing. Moderate competition from Labelbox, Kili, Scale AI but these are separate from fine-tuning platforms. Feasible to build as integrated module.",
+      "recommended_solution": "Collaborative annotation interface integrated into fine-tuning platform: domain experts (doctors, lawyers) can review model outputs, provide preference rankings, flag errors, and approve training data. Non-technical UI with domain-specific evaluation rubrics.",
+      "target_market": "Teams working with non-technical subject matter experts",
+      "estimated_market_size": "$100M-$250M"
+    },
+    {
+      "rank": 11,
+      "id": "GAP-007",
+      "title": "Multi-Tenant Domain Model Management",
+      "demand": 60,
+      "competition": 25,
+      "feasibility": 70,
+      "opportunity_score": 31.50,
+      "rationale": "Growing demand from SaaS companies and consultancies managing multiple client models. Low competition: Predibase LoRAX handles serving, TrueFoundry has gateway, but no complete management solution. Feasible as extension of existing infrastructure.",
+      "recommended_solution": "Multi-tenant model management platform: per-client LoRA adapters with access control, versioning, A/B testing, cost attribution, usage analytics, and automated model lifecycle management. SaaS-friendly billing and API management.",
+      "target_market": "SaaS companies, consulting firms, managed AI service providers",
+      "estimated_market_size": "$100M-$300M"
+    },
+    {
+      "rank": 12,
+      "id": "GAP-010",
+      "title": "Domain Ontology and Terminology Integration",
+      "demand": 55,
+      "competition": 5,
+      "feasibility": 50,
+      "opportunity_score": 26.13,
+      "rationale": "Niche but meaningful demand from domains with formal ontologies (medical, scientific). Nearly zero competition. Lower feasibility as it requires deep integration with tokenization and training pipeline.",
+      "recommended_solution": "Ontology-aware training module: import domain ontologies (SNOMED, ICD, legal citations), use them to guide tokenizer vocabulary expansion, training data generation, and evaluation criteria. Ensures model learns correct relationships between domain concepts.",
+      "target_market": "Medical informatics, scientific research, legal tech",
+      "estimated_market_size": "$50M-$100M"
+    }
+  ]
+}

@@ -1,0 +1,290 @@
+{
+  "domain": "AI Agent Security and Guardrails",
+  "generated_date": "2026-03-25",
+  "validation_sources": ["Reddit cybersecurity discussions", "Hacker News Show HN projects", "GitHub issues and audits", "Industry surveys (Gravitee, CSA, Kiteworks)", "VC funding data", "OWASP MCP Top 10", "Developer blog posts"],
+  "total_funding_in_ai_security_2025": "$414M across 13 focused companies",
+  "ai_agents_market_size_2025": "$7.84B",
+  "ai_agents_market_projected_2030": "$52.62B",
+  "validated_gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Execution Sandboxing for AI Agents",
+      "demand_score": 95,
+      "demand_signals": [
+        {
+          "source": "Hacker News",
+          "signal": "Multiple Show HN projects building runtime guardrails and kill switches for AI agents",
+          "url": "https://news.ycombinator.com/item?id=47421451"
+        },
+        {
+          "source": "Industry (Cloudflare, Vercel, Ramp, Modal)",
+          "signal": "All shipped sandbox features by early 2026, indicating massive demand",
+          "url": "https://blog.cloudflare.com/dynamic-workers/"
+        },
+        {
+          "source": "NVIDIA Technical Blog",
+          "signal": "Published practical security guidance for sandboxing agentic workflows",
+          "url": "https://developer.nvidia.com/blog/practical-security-guidance-for-sandboxing-agentic-workflows-and-managing-execution-risk/"
+        },
+        {
+          "source": "The New Stack",
+          "signal": "WebAssembly could solve AI agents' most dangerous security gap - containers insufficient",
+          "url": "https://thenewstack.io/webassembly-sandboxing-ai-agents/"
+        },
+        {
+          "source": "Google Cloud",
+          "signal": "GKE Agent Sandbox launched as dedicated product for AI agent isolation",
+          "url": "https://docs.google.com/kubernetes-engine/docs/how-to/agent-sandbox"
+        },
+        {
+          "source": "Developer consensus (Northflank blog)",
+          "signal": "Standard Docker/runc isolation no longer sufficient for untrusted AI agent code",
+          "url": "https://northflank.com/blog/how-to-sandbox-ai-agents"
+        }
+      ],
+      "competition_level": "low_but_emerging",
+      "competition_notes": "Cloud providers (Cloudflare, GKE) offering basic sandbox, but no unified cross-platform agent sandboxing tool exists. MicroVM and Wasm approaches fragmented.",
+      "validation_status": "strongly_validated"
+    },
+    {
+      "id": "GAP-002",
+      "title": "MCP Protocol Security Gateway",
+      "demand_score": 92,
+      "demand_signals": [
+        {
+          "source": "OWASP",
+          "signal": "Published dedicated MCP Top 10 vulnerabilities list in 2026",
+          "url": "https://owasp.org/www-project-mcp-top-10/"
+        },
+        {
+          "source": "Qualys",
+          "signal": "MCP Servers identified as 'The New Shadow IT for AI in 2026'",
+          "url": "https://blog.qualys.com/product-tech/2026/03/19/mcp-servers-shadow-it-ai-qualys-totalai-2026"
+        },
+        {
+          "source": "Doyensec (security research)",
+          "signal": "Published 'The MCP AuthN/Z Nightmare' detailing fundamental protocol security flaws",
+          "url": "https://blog.doyensec.com/2026/03/05/mcp-nightmare.html"
+        },
+        {
+          "source": "Cloud Security Alliance",
+          "signal": "Published 'The Agentic Trust Deficit: MCP's Authentication Vacuum'",
+          "url": "https://cloudsecurityalliance.org/blog/2026/03/24/the-agentic-trust-deficit-why-mcp-s-authentication-vacuum-demands-a-new-security-paradigm"
+        },
+        {
+          "source": "MCP Roadmap",
+          "signal": "MCP's 2026 roadmap makes enterprise readiness a top priority (WorkOS analysis)",
+          "url": "https://workos.com/blog/2026-mcp-roadmap-enterprise-readiness"
+        },
+        {
+          "source": "Dev.to / GitHub",
+          "signal": "Developer built 7 MCP servers for security tools, finding the protocol was the easy part but security was the hard part",
+          "url": "https://dev.to/solomonneas/i-built-7-mcp-servers-for-security-tools-the-protocol-was-the-easy-part-4137"
+        },
+        {
+          "source": "Composio / Integrate.io",
+          "signal": "Multiple 'Best MCP Gateways 2026' comparison articles indicate market forming",
+          "url": "https://composio.dev/content/best-mcp-gateway-for-developers"
+        }
+      ],
+      "competition_level": "low_emerging",
+      "competition_notes": "Lasso Security offers open-source MCP gateway. Obot and ContextForge also emerging. Thales planning MCP security gateway. Market is nascent and fragmented.",
+      "validation_status": "strongly_validated"
+    },
+    {
+      "id": "GAP-003",
+      "title": "AI Model Supply Chain Security",
+      "demand_score": 78,
+      "demand_signals": [
+        {
+          "source": "Snyk Security Audit",
+          "signal": "36% of ClawHub skills contain detectable prompt injection, 13% contain critical security issues",
+          "url": "https://clawhatch.com/blog/state-of-ai-agent-security-2026"
+        },
+        {
+          "source": "GitGuardian",
+          "signal": "AI-service leaks surged 81% with 29M secrets hitting public GitHub in 2026",
+          "url": "https://blog.gitguardian.com/the-state-of-secrets-sprawl-2026/"
+        },
+        {
+          "source": "VC funding",
+          "signal": "Protect AI acquired by Palo Alto Networks; Cisco bought Robust Intelligence for $400M - indicating acquirer demand",
+          "url": null
+        }
+      ],
+      "competition_level": "low",
+      "competition_notes": "Protect AI Guardian (Palo Alto) and Cisco AI Defense are the only serious players. Both are enterprise-only. No open-source or mid-market solution.",
+      "validation_status": "validated"
+    },
+    {
+      "id": "GAP-004",
+      "title": "Agent Identity Management for SMBs/Startups",
+      "demand_score": 85,
+      "demand_signals": [
+        {
+          "source": "Gravitee State of AI Agent Security 2026",
+          "signal": "45.6% of teams rely on shared API keys for agent authentication; only 21.9% treat agents as identity-bearing entities",
+          "url": "https://www.gravitee.io/state-of-ai-agent-security"
+        },
+        {
+          "source": "Cloud Security Alliance",
+          "signal": "68% of organizations cannot distinguish human from AI agent activity",
+          "url": "https://cloudsecurityalliance.org/press-releases/2026/03/24/more-than-two-thirds-of-organizations-cannot-clearly-distinguish-ai-agent-from-human-actions"
+        },
+        {
+          "source": "Oasis Security funding",
+          "signal": "Oasis Security raised $120M specifically for AI agent identity security",
+          "url": null
+        },
+        {
+          "source": "The Hacker News",
+          "signal": "AI Agents described as 'The Next Wave Identity Dark Matter - Powerful, Invisible, and Unmanaged'",
+          "url": "https://thehackernews.com/2026/03/ai-agents-next-wave-identity-dark.html"
+        }
+      ],
+      "competition_level": "medium_enterprise_only",
+      "competition_notes": "Okta, Microsoft, BeyondTrust all launching but exclusively enterprise. No open-source or SMB-accessible agent identity solution exists.",
+      "validation_status": "strongly_validated"
+    },
+    {
+      "id": "GAP-005",
+      "title": "Multi-Agent Security Orchestration",
+      "demand_score": 80,
+      "demand_signals": [
+        {
+          "source": "Gravitee Survey 2026",
+          "signal": "Only 24.4% of organizations have full visibility into agent-to-agent communication",
+          "url": "https://www.gravitee.io/blog/state-of-ai-agent-security-2026-report-when-adoption-outpaces-control"
+        },
+        {
+          "source": "Bessemer Venture Partners",
+          "signal": "Named securing AI agents 'the defining cybersecurity challenge of 2026'",
+          "url": "https://www.bvp.com/atlas/securing-ai-agents-the-defining-cybersecurity-challenge-of-2026"
+        },
+        {
+          "source": "Straiker AI",
+          "signal": "75% of leaders won't let security concerns slow their AI agent deployment, creating forced demand for runtime multi-agent security",
+          "url": "https://www.straiker.ai/blog/the-agent-security-gap-why-75-of-leaders-wont-let-security-concerns-slow-their-ai-deployment"
+        }
+      ],
+      "competition_level": "low",
+      "competition_notes": "No dedicated multi-agent security orchestration tool. Cisco AI Defense and Microsoft Agent 365 partially address it but as part of larger platforms.",
+      "validation_status": "validated"
+    },
+    {
+      "id": "GAP-006",
+      "title": "Shadow AI Discovery and Governance for Midmarket",
+      "demand_score": 70,
+      "demand_signals": [
+        {
+          "source": "Reddit cybersecurity discussions",
+          "signal": "Threads expressing frustration over shadow AI tools adopted bottom-up evading oversight",
+          "url": "https://elnion.com/2026/01/27/from-phishing-to-ai-chaos-what-my-analysis-of-all-reddit-cybersecurity-discussions-so-far-in-2026-revealed/"
+        },
+        {
+          "source": "Help Net Security",
+          "signal": "86% of organizations report no visibility into AI data flows; 1,200 unofficial AI apps per enterprise",
+          "url": "https://www.helpnetsecurity.com/2026/03/03/enterprise-ai-agent-security-2026/"
+        }
+      ],
+      "competition_level": "medium",
+      "competition_notes": "WitnessAI, Lasso, Zenity all offer shadow AI detection but at enterprise pricing. Reco.ai also competes. Midmarket gap remains.",
+      "validation_status": "validated"
+    },
+    {
+      "id": "GAP-007",
+      "title": "Unified Developer-First Security SDK",
+      "demand_score": 88,
+      "demand_signals": [
+        {
+          "source": "Hacker News (multiple Show HN posts)",
+          "signal": "6+ Show HN projects in 2025-2026 building DIY guardrails, firewalls, and security layers - indicating developers want but can't find unified solutions",
+          "url": "https://news.ycombinator.com/item?id=43730192"
+        },
+        {
+          "source": "Dev.to",
+          "signal": "Three structural problems with AI agents: siloed memory, setup complexity, and cost opacity that nobody is solving",
+          "url": "https://dev.to/deiu/the-three-things-wrong-with-ai-agents-in-2026-492m"
+        },
+        {
+          "source": "GitHub ecosystem",
+          "signal": "Proliferation of small, single-purpose security tools (TSZ, Guardrail Layer, various firewalls) shows fragmentation developers must navigate",
+          "url": null
+        },
+        {
+          "source": "VC trend",
+          "signal": "Only 13 companies focus specifically on AI/LLM security despite $414M in funding - indicating room for new entrants",
+          "url": "https://softwarestrategiesblog.com/2025/12/30/ai-security-startups-funding-2025/"
+        }
+      ],
+      "competition_level": "low",
+      "competition_notes": "Arcjet is closest but limited to prompt injection. No comprehensive developer-first SDK that combines guardrails + identity + observability + compliance.",
+      "validation_status": "strongly_validated"
+    },
+    {
+      "id": "GAP-008",
+      "title": "AI Agent Incident Response and Kill Switch",
+      "demand_score": 75,
+      "demand_signals": [
+        {
+          "source": "Kiteworks survey",
+          "signal": "Most organizations can monitor agents but cannot stop them when something goes wrong - governance-containment gap",
+          "url": null
+        },
+        {
+          "source": "Hacker News",
+          "signal": "Developer built LLM firewall specifically with 'kill switch for production incidents'",
+          "url": "https://news.ycombinator.com/item?id=46824665"
+        },
+        {
+          "source": "Industry surveys",
+          "signal": "88% of organizations reported AI agent security incidents in past year, 92.7% in healthcare",
+          "url": "https://www.gravitee.io/blog/state-of-ai-agent-security-2026-report-when-adoption-outpaces-control"
+        }
+      ],
+      "competition_level": "very_low",
+      "competition_notes": "No dedicated tool. Some platforms (Zenity, Microsoft) include basic response capabilities but no standardized incident response framework for AI agents.",
+      "validation_status": "validated"
+    },
+    {
+      "id": "GAP-009",
+      "title": "Cost Transparency and Predictable Pricing",
+      "demand_score": 60,
+      "demand_signals": [
+        {
+          "source": "Dev.to analysis",
+          "signal": "Cost opacity identified as one of three structural problems nobody is solving",
+          "url": "https://dev.to/deiu/the-three-things-wrong-with-ai-agents-in-2026-492m"
+        },
+        {
+          "source": "Reddit",
+          "signal": "Discussions about C-suite deploying expensive tools without adequate staffing",
+          "url": null
+        }
+      ],
+      "competition_level": "low",
+      "competition_notes": "Only Cisco AI Defense Explorer offers free tier. Arcjet has freemium model. Most tools require 'contact sales'.",
+      "validation_status": "partially_validated"
+    },
+    {
+      "id": "GAP-010",
+      "title": "Pre-Deployment Security Validation Pipeline",
+      "demand_score": 72,
+      "demand_signals": [
+        {
+          "source": "Help Net Security",
+          "signal": "AI coding agents keep repeating decade-old security mistakes, produce working software but with gaps in auth, rate limiting",
+          "url": "https://www.helpnetsecurity.com/2026/03/13/claude-code-openai-codex-google-gemini-ai-coding-agent-security/"
+        },
+        {
+          "source": "Dark Reading",
+          "signal": "As coders adopt AI agents, security pitfalls lurk - no shift-left solution for agent deployment",
+          "url": "https://www.darkreading.com/application-security/coders-adopt-ai-agents-security-pitfalls-lurk-2026"
+        }
+      ],
+      "competition_level": "low",
+      "competition_notes": "Promptfoo offers CI/CD integration for testing but not as a deployment gate. No dedicated CI/CD security gate for AI agent deployment.",
+      "validation_status": "validated"
+    }
+  ]
+}

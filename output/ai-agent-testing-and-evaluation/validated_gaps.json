@@ -1,0 +1,288 @@
+{
+  "domain": "AI Agent Testing and Evaluation",
+  "generated_date": "2026-03-25",
+  "validation_sources": ["Reddit", "Hacker News", "GitHub", "Developer blogs", "Industry reports"],
+  "validated_gaps": [
+    {
+      "id": "VG-01",
+      "gap": "Multi-agent system end-to-end testing and coordination validation",
+      "original_ids": ["FG-01"],
+      "demand_signals": [
+        {
+          "source": "GitHub Blog",
+          "url": "https://github.blog/ai-and-ml/generative-ai/multi-agent-workflows-often-fail-heres-how-to-engineer-ones-that-dont/",
+          "signal": "Multi-agent workflows fail due to messy inter-agent communication, inconsistent JSON, field name changes, data type mismatches. Agents make implicit assumptions about state, ordering, and validation."
+        },
+        {
+          "source": "Builder.io",
+          "url": "https://www.builder.io/blog/ai-agent-orchestration",
+          "signal": "Article titled 'AI Agent Orchestration is Broken' - coordination overhead between agents becomes the bottleneck rather than individual model calls."
+        },
+        {
+          "source": "PWC",
+          "url": "https://www.pwc.com/us/en/services/audit-assurance/library/validating-multi-agent-ai-systems.html",
+          "signal": "PWC published a guide on validating multi-agent AI systems, indicating enterprise demand for structured multi-agent testing approaches."
+        },
+        {
+          "source": "arXiv (MAESTRO)",
+          "url": "https://arxiv.org/html/2601.00481v1",
+          "signal": "Academic paper on MAESTRO: Multi-Agent Evaluation Suite for Testing, Reliability, and Observability, confirming research community recognizes this gap."
+        }
+      ],
+      "validation_strength": "Very Strong"
+    },
+    {
+      "id": "VG-02",
+      "gap": "No-code/low-code evaluation platform for non-technical stakeholders",
+      "original_ids": ["SG-01", "WG-03"],
+      "demand_signals": [
+        {
+          "source": "Pragmatic Engineer Newsletter",
+          "url": "https://newsletter.pragmaticengineer.com/p/evals",
+          "signal": "Discussion of 'Gulf of Comprehension' - gap between developer understanding and model behavior. Non-technical users completely locked out of evaluation process."
+        },
+        {
+          "source": "InfoQ",
+          "url": "https://www.infoq.com/articles/evaluating-ai-agents-lessons-learned/",
+          "signal": "Lessons learned emphasize cross-functional collaboration between engineers, PMs, and domain experts is critical but tools don't support it."
+        },
+        {
+          "source": "Orq.ai blog",
+          "url": "https://orq.ai/blog/llm-evaluation-tools",
+          "signal": "Highlights that customizing evaluation pipelines generally requires scripting, posing challenges for non-technical stakeholders wanting to contribute."
+        }
+      ],
+      "validation_strength": "Strong"
+    },
+    {
+      "id": "VG-03",
+      "gap": "Voice and multimodal AI agent evaluation",
+      "original_ids": ["SG-04"],
+      "demand_signals": [
+        {
+          "source": "Hacker News (YC Launch)",
+          "url": "https://news.ycombinator.com/item?id=47232903",
+          "signal": "Cekura (YC F24) launched specifically for voice/chat agent testing, showing VC-backed demand. Article shows significant HN engagement."
+        },
+        {
+          "source": "Maxim AI",
+          "url": "https://www.getmaxim.ai/articles/best-voice-agent-evaluation-tools-in-2026/",
+          "signal": "Dedicated article listing voice agent evaluation tools - a nascent but rapidly growing category with only 5-8 dedicated tools."
+        },
+        {
+          "source": "Cekura.ai",
+          "url": "https://www.cekura.ai/blogs/best-ai-voice-testing-platforms",
+          "signal": "Article lists only 8 voice AI testing platforms total, indicating the space is severely underserved compared to text-based LLM eval."
+        }
+      ],
+      "validation_strength": "Strong"
+    },
+    {
+      "id": "VG-04",
+      "gap": "Automated production-failure-to-test-case pipeline",
+      "original_ids": ["WG-02", "FG-07"],
+      "demand_signals": [
+        {
+          "source": "LangChain Articles",
+          "url": "https://www.langchain.com/articles/llm-evals",
+          "signal": "The harder problems in LLM evals lie in operational mechanics of turning production failures into reproducible test cases. LangSmith tries to close this loop but it's still manual."
+        },
+        {
+          "source": "Anthropic Engineering",
+          "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+          "signal": "Anthropic's engineering blog addresses the gap between production monitoring and regression testing, acknowledging it as a core unsolved challenge."
+        },
+        {
+          "source": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=44735843",
+          "signal": "Lucidic (YC W25) launched to 'debug, test, and evaluate AI agents in production' - YC investment validates demand for production-oriented agent testing."
+        }
+      ],
+      "validation_strength": "Very Strong"
+    },
+    {
+      "id": "VG-05",
+      "gap": "Domain-specific evaluation for regulated industries (healthcare, finance, legal)",
+      "original_ids": ["SG-03", "FG-05"],
+      "demand_signals": [
+        {
+          "source": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=46217578",
+          "signal": "New benchmark shows top LLMs struggle in real mental health care - domain-specific benchmarks revealing failures that generic tools miss."
+        },
+        {
+          "source": "Nature Digital Medicine",
+          "url": "https://www.nature.com/articles/s41746-026-02443-6",
+          "signal": "Academic paper on benchmarking LLM-based agent systems for clinical decision tasks - healthcare urgently needs specialized evaluation."
+        },
+        {
+          "source": "OnHealthcare.tech",
+          "url": "https://www.onhealthcare.tech/p/ai-and-llm-data-provenance-and-audit",
+          "signal": "Detailed article on AI data provenance and audit trails needed for healthcare, showing regulatory pressure is driving demand."
+        },
+        {
+          "source": "FinregE",
+          "url": "https://finreg-e.com/how-to-safely-use-llms-in-financial-services/",
+          "signal": "Financial services face strict compliance requirements (SOX, etc.) that current LLM eval tools don't address."
+        }
+      ],
+      "validation_strength": "Very Strong"
+    },
+    {
+      "id": "VG-06",
+      "gap": "User persona simulation and adversarial behavioral testing",
+      "original_ids": ["FG-03"],
+      "demand_signals": [
+        {
+          "source": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=47182113",
+          "signal": "Discussion on 'Better practical evals for real-world LLM agents' - emphasis on testing with realistic user behaviors, not just unit test scenarios."
+        },
+        {
+          "source": "Merge.dev",
+          "url": "https://www.merge.dev/blog/testing-ai-agents",
+          "signal": "Article on testing AI agents effectively notes the impossibility of predicting every user scenario, highlighting the need for diverse persona simulation."
+        },
+        {
+          "source": "Maxim AI (sole tool)",
+          "url": "https://www.getmaxim.ai/",
+          "signal": "Maxim AI markets persona simulation as a differentiator, but it's the only tool offering this - indicating whitespace."
+        }
+      ],
+      "validation_strength": "Strong"
+    },
+    {
+      "id": "VG-07",
+      "gap": "Framework-agnostic, universal agent evaluation layer",
+      "original_ids": ["IG-01"],
+      "demand_signals": [
+        {
+          "source": "LangChain State of Agent Engineering",
+          "url": "https://www.langchain.com/state-of-agent-engineering",
+          "signal": "The fragmentation of agent frameworks (LangChain, CrewAI, AutoGen, custom) means teams switching frameworks lose their evaluation investment."
+        },
+        {
+          "source": "ZenML blog",
+          "url": "https://www.zenml.io/blog/promptfoo-alternatives",
+          "signal": "Article comparing 9 Promptfoo alternatives reflects developers searching for the right eval tool that works with their specific stack."
+        },
+        {
+          "source": "arXiv (MAESTRO)",
+          "url": "https://arxiv.org/html/2601.00481v1",
+          "signal": "MAESTRO explicitly aims to be framework-agnostic, with 'lightweight adapters' for different MAS frameworks, confirming the integration gap."
+        }
+      ],
+      "validation_strength": "Strong"
+    },
+    {
+      "id": "VG-08",
+      "gap": "Session replay and interactive time-travel debugging for agent workflows",
+      "original_ids": ["FG-02"],
+      "demand_signals": [
+        {
+          "source": "Towards Data Science",
+          "url": "https://towardsdatascience.com/how-we-are-testing-our-agents-in-dev/",
+          "signal": "Article on testing agents in development emphasizes the need to replay and inspect agent decision paths, not just read logs."
+        },
+        {
+          "source": "AgentOps (sole provider)",
+          "url": "https://github.com/AgentOps-AI/agentops",
+          "signal": "AgentOps markets session replay as a key differentiator with 6k+ GitHub stars, showing developer appetite for this feature."
+        },
+        {
+          "source": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=44623207",
+          "signal": "Discussion on 'what actually works in production' for autonomous agents - debugging production failures requires ability to replay exact sequences."
+        }
+      ],
+      "validation_strength": "Moderate"
+    },
+    {
+      "id": "VG-09",
+      "gap": "CI/CD-native agent evaluation with quality gates and auto-rollback",
+      "original_ids": ["IG-02"],
+      "demand_signals": [
+        {
+          "source": "Braintrust",
+          "url": "https://www.braintrust.dev/articles/best-ai-evals-tools-cicd-2025",
+          "signal": "Dedicated article on 'Best AI evals tools for CI/CD in 2025' - shows the topic is in demand but solutions are immature."
+        },
+        {
+          "source": "arXiv",
+          "url": "https://arxiv.org/abs/2603.15676",
+          "signal": "2026 paper on 'Automated Self-Testing as a Quality Gate' for LLM release management - academic research validating this gap."
+        },
+        {
+          "source": "Dev.to",
+          "url": "https://dev.to/draismaaaa/your-coding-agent-already-knows-how-to-test-your-ai-agent-we-just-turned-it-into-a-skill-5f0g",
+          "signal": "Developer article on using coding agents to test AI agents shows teams improvising solutions because proper CI/CD integration doesn't exist."
+        }
+      ],
+      "validation_strength": "Strong"
+    },
+    {
+      "id": "VG-10",
+      "gap": "Real-time guardrails with customizable safety policies",
+      "original_ids": ["FG-04"],
+      "demand_signals": [
+        {
+          "source": "Edstellar",
+          "url": "https://www.edstellar.com/blog/ai-agent-reliability-challenges",
+          "signal": "AI agent reliability challenges article highlights security vulnerabilities and hallucinations carrying real operational and reputational consequences."
+        },
+        {
+          "source": "Sendbird",
+          "url": "https://sendbird.com/blog/agentic-ai-challenges",
+          "signal": "10 major agentic AI challenges - many relate to real-time safety and output control that current tools don't adequately address."
+        },
+        {
+          "source": "Virtue AI / HelpNetSecurity",
+          "url": "https://www.helpnetsecurity.com/2026/03/18/virtue-ai-agent-forgingground/",
+          "signal": "Virtue AI launching in March 2026 with continuous stress testing for enterprise agents, showing fresh VC investment in this space."
+        }
+      ],
+      "validation_strength": "Strong"
+    },
+    {
+      "id": "VG-11",
+      "gap": "Cost-effective evaluation for SMBs and startups",
+      "original_ids": ["SG-02", "PG-01", "PG-02"],
+      "demand_signals": [
+        {
+          "source": "General market observation",
+          "url": "https://www.braintrust.dev/pricing",
+          "signal": "Braintrust offers a generous free tier partly because mid-market teams were underserved. Most tools are either free-but-DIY or enterprise-expensive."
+        },
+        {
+          "source": "RAND study (referenced in multiple articles)",
+          "url": "https://testomat.io/blog/ai-agent-testing/",
+          "signal": "80-90% of AI agent projects fail in production - startups especially cannot afford expensive evaluation tools and thus skip testing entirely."
+        }
+      ],
+      "validation_strength": "Moderate"
+    },
+    {
+      "id": "VG-12",
+      "gap": "End-to-end agent lifecycle platform (dev -> test -> deploy -> monitor -> iterate)",
+      "original_ids": ["WG-01", "IG-03"],
+      "demand_signals": [
+        {
+          "source": "LangChain ecosystem",
+          "url": "https://www.langchain.com/articles/llm-monitoring-observability",
+          "signal": "LangChain's own article argues observability needs evaluations built in - acknowledging even their ecosystem hasn't fully closed the loop."
+        },
+        {
+          "source": "AWS Blog",
+          "url": "https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-for-production-a-practical-guide-to-strands-evals/",
+          "signal": "AWS published guide to Strands Evals for production agent evaluation, showing cloud providers see the lifecycle gap."
+        },
+        {
+          "source": "IBM",
+          "url": "https://www.ibm.com/think/insights/ai-agents-2025-expectations-vs-reality",
+          "signal": "IBM analysis of AI agents expectations vs reality in 2025 highlights that lifecycle tooling immaturity is a key adoption barrier."
+        }
+      ],
+      "validation_strength": "Strong"
+    }
+  ]
+}

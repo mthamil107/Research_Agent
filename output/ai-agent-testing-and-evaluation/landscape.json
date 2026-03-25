@@ -1,0 +1,277 @@
+{
+  "domain": "AI Agent Testing and Evaluation",
+  "scan_date": "2026-03-25",
+  "total_tools_found": 30,
+  "tools": [
+    {
+      "name": "LangSmith",
+      "url": "https://smith.langchain.com/",
+      "description": "Full-stack LLM observability, debugging, testing, and monitoring platform by LangChain. Gold standard for tracing complex agent paths, loop detection, and tool-call visualization.",
+      "key_features": ["trace visualization", "LLM-as-judge evaluators", "human annotation workflows", "offline evals", "online evals", "multi-turn evaluation", "dataset management", "prompt versioning"],
+      "pricing": "Free tier (5k traces/mo), Plus $39/seat/mo, Enterprise custom",
+      "target_audience": "AI/ML engineers building with LangChain or general LLM apps",
+      "maturity": "Mature"
+    },
+    {
+      "name": "DeepEval",
+      "url": "https://github.com/confident-ai/deepeval",
+      "description": "Open-source LLM evaluation framework with research-backed metrics including G-Eval, hallucination detection, answer relevancy, and task completion scoring using LLM-as-a-judge.",
+      "key_features": ["14+ evaluation metrics", "LLM-as-a-judge", "Pytest integration", "CI/CD support", "hallucination detection", "RAG evaluation", "bias detection", "conversational evals"],
+      "pricing": "Open-source (free). Confident AI cloud platform has paid tiers.",
+      "target_audience": "AI engineers, ML teams wanting test-driven LLM development",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Promptfoo",
+      "url": "https://www.promptfoo.dev/",
+      "description": "Local-first CLI and dashboard for evaluating prompts, RAG flows, and agents. Focused on automated testing and red-teaming/security testing in CI/CD pipelines.",
+      "key_features": ["CLI-first workflow", "prompt comparison", "red-teaming", "security testing", "CI/CD integration", "cost tracking", "regression detection", "model comparison"],
+      "pricing": "Open-source (free). Cloud version has paid tiers.",
+      "target_audience": "Developers, DevOps teams, security-conscious engineering teams",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Langfuse",
+      "url": "https://langfuse.com/",
+      "description": "Open-source LLM engineering platform for tracing, prompt management, and evaluation. Supports LLM-as-judge metrics, human annotations, benchmarks, and production monitoring.",
+      "key_features": ["open-source", "self-hostable", "tracing", "prompt management", "LLM-as-judge", "human annotations", "A/B experiments", "production dashboards", "dataset management"],
+      "pricing": "Free self-hosted. Cloud: Free tier, Pro $59/mo, Team $399/mo, Enterprise custom",
+      "target_audience": "Engineering teams building LLM-powered products",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Braintrust",
+      "url": "https://www.braintrust.dev/",
+      "description": "AI observability platform for building quality AI products. Offers online/offline scorers, AI proxy with unified API across providers, and comprehensive tracing.",
+      "key_features": ["online and offline scoring", "AI proxy (unified API)", "LLM-as-judge", "custom scorers", "deterministic checks", "dataset management", "prompt playground", "caching"],
+      "pricing": "Free tier (1M trace spans, 10k scores), Pro and Enterprise tiers",
+      "target_audience": "AI product teams, full-stack developers",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Arize Phoenix",
+      "url": "https://phoenix.arize.com/",
+      "description": "Open-source LLM tracing and evaluation tool built on OpenTelemetry. Strong in RAG evaluation with dataset clustering, embedding visualization, and automated instrumentation.",
+      "key_features": ["OpenTelemetry-based tracing", "embedding visualization", "RAG evaluation", "dataset clustering", "auto-instrumentation", "experiment tracking", "open-source"],
+      "pricing": "Open-source (free). Arize cloud platform has paid tiers with annual contracts.",
+      "target_audience": "ML engineers, data scientists, RAG developers",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Ragas",
+      "url": "https://ragas.io/",
+      "description": "Specialized open-source framework for evaluating RAG pipelines. Provides metrics like faithfulness, answer relevancy, context precision, and context recall.",
+      "key_features": ["RAG-specific metrics", "faithfulness scoring", "context precision", "context recall", "answer relevancy", "integration with multiple platforms", "open-source"],
+      "pricing": "Open-source (free, MIT license)",
+      "target_audience": "Teams building RAG applications",
+      "maturity": "Mature"
+    },
+    {
+      "name": "TruLens",
+      "url": "https://www.trulens.org/",
+      "description": "Open-source tool for evaluating and tracing AI agents and RAG applications using feedback functions for groundedness, context relevance, and coherence.",
+      "key_features": ["feedback functions", "groundedness evaluation", "context relevance", "coherence checks", "agent tracing", "RAG evaluation", "open-source"],
+      "pricing": "Open-source (free, MIT license)",
+      "target_audience": "AI researchers and engineers building RAG/agent systems",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Giskard",
+      "url": "https://www.giskard.ai/",
+      "description": "AI red-teaming and LLM security platform providing hallucination detection, factuality checks, robustness testing, and automatic test suite generation from detected issues.",
+      "key_features": ["red-teaming", "hallucination detection", "factuality checks", "robustness testing", "auto test suite generation", "regression prevention", "security scanning"],
+      "pricing": "Open-source core. Enterprise plans available.",
+      "target_audience": "Enterprise AI teams, compliance and security teams",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Opik (by Comet)",
+      "url": "https://www.comet.com/site/products/opik/",
+      "description": "Open-source end-to-end LLM development platform with observability, evaluation, and monitoring. Supports Pytest-based model unit tests and integrates with major frameworks.",
+      "key_features": ["LLM tracing", "dataset & experiments", "LLM-as-judge", "hallucination detection", "moderation", "RAG assessment", "Pytest integration", "open-source"],
+      "pricing": "Open-source (free). Comet cloud has paid tiers.",
+      "target_audience": "ML engineers, AI development teams",
+      "maturity": "Growing"
+    },
+    {
+      "name": "Evidently AI",
+      "url": "https://www.evidentlyai.com/",
+      "description": "AI evaluation and LLM observability platform with 100+ built-in metrics, visual reports, test suites, and live monitoring dashboards for LLMs, RAGs, and multi-agent workflows.",
+      "key_features": ["100+ metrics", "visual reports", "test suites", "live monitoring dashboards", "data drift detection", "LLM-as-judge", "open-source core", "multi-agent support"],
+      "pricing": "Open-source core (free). Cloud platform has paid tiers.",
+      "target_audience": "Data science and ML teams, production AI teams",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Patronus AI",
+      "url": "https://www.patronus.ai/",
+      "description": "Enterprise AI evaluation and testing platform focused on simulation research, hallucination detection, and comprehensive LLM output assessment. Integrates with CrewAI.",
+      "key_features": ["hallucination detection", "automated evaluation", "simulation testing", "enterprise compliance", "CrewAI integration", "custom evaluators"],
+      "pricing": "Enterprise pricing (custom)",
+      "target_audience": "Enterprise AI teams, regulated industries",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Helicone",
+      "url": "https://www.helicone.ai/",
+      "description": "LLM observability platform with built-in caching and cost tracking. One-line integration via base URL swap for minimal-effort observability.",
+      "key_features": ["one-line integration", "cost tracking", "caching", "request logging", "latency monitoring", "model comparison", "user tracking"],
+      "pricing": "Free (10k requests/mo), Pro $25/mo, Enterprise custom",
+      "target_audience": "Developers wanting quick LLM observability with minimal setup",
+      "maturity": "Mature"
+    },
+    {
+      "name": "AgentOps",
+      "url": "https://www.agentops.ai/",
+      "description": "Python SDK for AI agent monitoring, LLM cost tracking, and benchmarking. Features time-travel debugging, multi-agent workflow visualization, and session replay.",
+      "key_features": ["agent session replay", "time-travel debugging", "multi-agent visualization", "cost tracking", "400+ LLM support", "benchmarking", "Python SDK"],
+      "pricing": "Free to start, flexible scaling",
+      "target_audience": "Python developers building AI agents",
+      "maturity": "Growing"
+    },
+    {
+      "name": "LangWatch",
+      "url": "https://langwatch.ai/",
+      "description": "LLM monitoring platform with built-in evaluations, token-level usage tracking, guardrails, and topic clustering for production applications.",
+      "key_features": ["built-in evaluations", "token-level tracking", "guardrails", "topic clustering", "cost analytics", "quality monitoring"],
+      "pricing": "Free (10k requests/mo), Paid from $79/mo",
+      "target_audience": "Teams running LLM apps in production",
+      "maturity": "Growing"
+    },
+    {
+      "name": "Lunary",
+      "url": "https://lunary.ai/",
+      "description": "Lightweight open-source LLM monitoring platform focused on RAG pipelines and chatbots with specialized tracing for retrieval-augmented generation.",
+      "key_features": ["RAG-specialized tracing", "AI playground", "user tracking", "template management", "open-source", "self-hostable"],
+      "pricing": "Free (10k events/mo), Paid $20/user/mo",
+      "target_audience": "Small teams building RAG chatbots",
+      "maturity": "Growing"
+    },
+    {
+      "name": "Humanloop",
+      "url": "https://humanloop.com/",
+      "description": "LLM IDE for building, testing, and monitoring AI applications. Supports prompt/agent management with built-in version control, collaboration, and evaluation tools.",
+      "key_features": ["prompt IDE", "version control", "collaboration", "evaluation tools", "A/B testing", "human feedback collection", "deployment management"],
+      "pricing": "Free tier, Pro and Enterprise tiers",
+      "target_audience": "Product teams and engineers collaborating on LLM apps",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Maxim AI",
+      "url": "https://www.getmaxim.ai/",
+      "description": "End-to-end AI evaluation platform combining simulation, evaluation, and observability. Standout agent simulation feature tests across thousands of scenarios with different user personas.",
+      "key_features": ["agent simulation", "user persona testing", "tracing", "human-in-the-loop evaluation", "production monitoring", "multi-scenario testing"],
+      "pricing": "Free tier, Pro $29/seat/mo, Business $49/seat/mo, Enterprise custom",
+      "target_audience": "Teams deploying agent-based workflows in production",
+      "maturity": "Growing"
+    },
+    {
+      "name": "Portkey",
+      "url": "https://portkey.ai/",
+      "description": "AI gateway with integrated observability, guardrails, and governance. Routes to 200+ LLMs with load balancing, failover, and centralized monitoring.",
+      "key_features": ["AI gateway", "200+ model support", "load balancing", "failover", "guardrails", "governance", "cost tracking", "real-time monitoring"],
+      "pricing": "Free tier, paid plans available",
+      "target_audience": "Engineering teams managing multiple LLM providers",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Galileo AI",
+      "url": "https://galileo.ai/",
+      "description": "LLM evaluation platform with Luna-2 models providing real-time guardrails to block problematic responses. Strong in evaluation metrics and production guardrails.",
+      "key_features": ["Luna-2 guardrail models", "real-time response blocking", "evaluation metrics", "hallucination detection", "data quality scoring"],
+      "pricing": "Free tier, Enterprise custom",
+      "target_audience": "Enterprise teams needing real-time LLM guardrails",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Virtue AI (Agent ForgingGround)",
+      "url": "https://www.virtueai.com/",
+      "description": "Enterprise-scale testing ground for continuous evaluation and stress-testing of AI agents and multi-agent systems, featuring built-in red-teaming agents.",
+      "key_features": ["continuous stress testing", "red-teaming agents", "multi-agent system testing", "pre/during/post deployment testing", "enterprise scale"],
+      "pricing": "Enterprise pricing",
+      "target_audience": "Enterprise teams deploying AI agents at scale",
+      "maturity": "Early"
+    },
+    {
+      "name": "Inspect AI",
+      "url": "https://inspect.ai-safety-institute.org.uk/",
+      "description": "Open-source LLM evaluation framework by the UK AI Safety Institute supporting research-grade model-level and agent-level evaluation.",
+      "key_features": ["research-grade evaluation", "model-level eval", "agent-level eval", "safety benchmarks", "open-source", "extensible task framework"],
+      "pricing": "Open-source (free)",
+      "target_audience": "AI safety researchers, academic institutions",
+      "maturity": "Growing"
+    },
+    {
+      "name": "Datadog LLM Observability",
+      "url": "https://www.datadoghq.com/product/ai/llm-observability/",
+      "description": "End-to-end tracing across AI agents within the Datadog ecosystem. Provides visibility into inputs, outputs, latency, token usage, and errors at each step.",
+      "key_features": ["end-to-end tracing", "latency tracking", "token usage analytics", "error monitoring", "structured experiments", "quality evaluations", "security evaluations", "APM integration"],
+      "pricing": "Part of Datadog pricing (usage-based, enterprise-oriented)",
+      "target_audience": "Enterprise teams already using Datadog",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Weights & Biases (W&B)",
+      "url": "https://wandb.ai/",
+      "description": "Mature ML experiment tracking platform expanded to support LLM evaluation and monitoring. Ideal for teams already in the W&B ecosystem.",
+      "key_features": ["experiment tracking", "model versioning", "LLM evaluation", "collaboration", "artifact management", "reporting dashboards"],
+      "pricing": "Free for individuals, Teams $50/user/mo, Enterprise custom",
+      "target_audience": "ML teams, research labs",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Parea AI",
+      "url": "https://www.parea.ai/",
+      "description": "Platform for debugging, testing, and monitoring LLM applications with detailed tracing, prompt experiment comparison, and pre-built/custom evaluation metrics.",
+      "key_features": ["trace observability", "prompt experiment comparison", "pre-built metrics", "custom metrics", "debugging tools", "production monitoring"],
+      "pricing": "Free tier, paid plans available",
+      "target_audience": "Engineering teams building production LLM products",
+      "maturity": "Growing"
+    },
+    {
+      "name": "Orq.ai",
+      "url": "https://orq.ai/",
+      "description": "Generative AI collaboration platform supporting multiple evaluation strategies including function-based, Python, LLM-as-a-Judge, and RAGAS for generation, retrieval, and reasoning.",
+      "key_features": ["multi-strategy evaluation", "LLM-as-judge", "RAGAS integration", "prompt management", "collaboration", "production monitoring"],
+      "pricing": "Free tier, paid plans available",
+      "target_audience": "Cross-functional teams (engineers, PMs, domain experts)",
+      "maturity": "Growing"
+    },
+    {
+      "name": "Agenta",
+      "url": "https://agenta.ai/",
+      "description": "Open-source LLM developer platform with prompt management, evaluation, and observability. Self-hostable with focus on collaborative prompt engineering.",
+      "key_features": ["prompt management", "A/B testing", "evaluation workflows", "observability", "open-source", "self-hostable", "collaboration"],
+      "pricing": "Open-source (free self-hosted), Cloud plans available",
+      "target_audience": "Engineering teams wanting self-hosted LLM tooling",
+      "maturity": "Growing"
+    },
+    {
+      "name": "Mabl",
+      "url": "https://www.mabl.com/",
+      "description": "AI-powered test automation platform for software testing that has expanded into AI application testing with autonomous test generation and self-healing tests.",
+      "key_features": ["autonomous test generation", "self-healing tests", "visual testing", "API testing", "CI/CD integration", "low-code"],
+      "pricing": "Enterprise pricing (custom)",
+      "target_audience": "QA teams, enterprise software testing",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Applitools",
+      "url": "https://applitools.com/",
+      "description": "Visual AI testing platform using computer vision for visual validation of AI-generated UIs and outputs.",
+      "key_features": ["visual AI testing", "cross-browser testing", "visual regression", "AI-powered comparisons", "CI/CD integration"],
+      "pricing": "Free tier, paid plans from $500/mo",
+      "target_audience": "QA teams focused on visual validation",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Testomat.io",
+      "url": "https://testomat.io/",
+      "description": "Test management platform with specific capabilities for AI agent testing, including test case management and reporting for AI QA workflows.",
+      "key_features": ["test case management", "AI agent test workflows", "reporting", "CI/CD integration", "team collaboration"],
+      "pricing": "Free tier, paid plans available",
+      "target_audience": "QA teams testing AI agents",
+      "maturity": "Growing"
+    }
+  ]
+}

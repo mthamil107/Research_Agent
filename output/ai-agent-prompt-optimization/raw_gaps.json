@@ -1,0 +1,150 @@
+{
+  "domain": "AI Agent Prompt Optimization",
+  "generated_date": "2026-03-25",
+  "gap_categories": {
+    "feature_gaps": [
+      {
+        "id": "FG-01",
+        "name": "Multi-Agent Prompt Optimization",
+        "description": "No tool provides end-to-end prompt optimization specifically for multi-agent systems. MASS framework exists in research but no productized tool optimizes prompts across agent topologies, handoffs, and inter-agent communication protocols.",
+        "current_coverage": "Only DSPy and Opik touch agent-specific optimization; no tool handles multi-agent topology-aware prompt tuning",
+        "severity": "high"
+      },
+      {
+        "id": "FG-02",
+        "name": "Multimodal Prompt Optimization",
+        "description": "Only 3 of 20 tools (15%) support multimodal prompts. No tool offers optimization specifically for image/video/audio prompts. Research (MPO framework) exists but no productized solution.",
+        "current_coverage": "PromptPerfect supports Midjourney, PromptLayer supports vision models, Vertex AI supports multimodal - but none optimize multimodal prompts algorithmically",
+        "severity": "high"
+      },
+      {
+        "id": "FG-03",
+        "name": "Prompt Security & Red Teaming as a Service",
+        "description": "Only Promptfoo offers red teaming/security testing. No dedicated prompt security optimization tool that helps harden prompts against jailbreaks, injection attacks, and data leakage while maintaining quality.",
+        "current_coverage": "Promptfoo has 67+ attack plugins but it's primarily a testing tool, not a security-focused optimizer",
+        "severity": "high"
+      },
+      {
+        "id": "FG-04",
+        "name": "Prompt Caching & Cost Optimization",
+        "description": "Only Helicone offers response caching (up to 95% cost reduction). No tool combines prompt optimization with cost-aware optimization that recommends shorter/cheaper prompts achieving the same quality.",
+        "current_coverage": "Helicone caches responses; some tools track costs - but none optimize prompts to minimize cost while maintaining quality",
+        "severity": "medium"
+      },
+      {
+        "id": "FG-05",
+        "name": "Automated Regression Testing for Prompts",
+        "description": "Only 35% of tools offer regression testing. No tool provides automated continuous prompt regression detection when models update or when prompts change in production.",
+        "current_coverage": "Promptfoo, Braintrust, Latitude offer some regression testing but it's manual/semi-automated",
+        "severity": "medium"
+      },
+      {
+        "id": "FG-06",
+        "name": "Cross-Model Prompt Translation & Portability",
+        "description": "No tool automatically translates or optimizes prompts when switching between models (e.g., GPT-4 to Claude to Gemini). Teams must manually rewrite prompts for each model.",
+        "current_coverage": "Zero tools offer this capability",
+        "severity": "high"
+      },
+      {
+        "id": "FG-07",
+        "name": "Prompt Distillation for Edge/Mobile",
+        "description": "Research on prompt distillation exists but no tool compresses complex prompts into token-efficient versions for edge devices or smaller models while preserving intent.",
+        "current_coverage": "Zero productized tools",
+        "severity": "medium"
+      }
+    ],
+    "segment_gaps": [
+      {
+        "id": "SG-01",
+        "name": "Domain-Specific Prompt Optimization (Healthcare, Legal, Finance)",
+        "description": "No prompt optimization tool is tailored for regulated industries. Healthcare needs HIPAA-aware prompt optimization; legal needs compliance-focused prompts; finance needs risk-aware optimization.",
+        "current_coverage": "Generic tools exist; domain-specific LLMs exist (Med-PaLM, ChatLAW); but no domain-specific prompt optimization platform",
+        "severity": "high"
+      },
+      {
+        "id": "SG-02",
+        "name": "Small Business / Solo Developer Affordable Tier",
+        "description": "Pricing gap between free tiers (limited) and paid tiers ($39-250/mo). Small businesses and indie developers need a $10-20/mo tier with meaningful features.",
+        "current_coverage": "Free tiers are very limited (5k-50k requests); jump to $39-250/mo is steep for small teams",
+        "severity": "medium"
+      },
+      {
+        "id": "SG-03",
+        "name": "Non-Technical Business Users",
+        "description": "While some tools have no-code editors, no tool provides a fully non-technical prompt optimization workflow with guided wizards, natural language instructions, and business-outcome-focused metrics.",
+        "current_coverage": "PromptLayer, Braintrust have no-code editors but still require technical understanding of prompts",
+        "severity": "medium"
+      }
+    ],
+    "workflow_gaps": [
+      {
+        "id": "WG-01",
+        "name": "End-to-End Prompt Lifecycle Management",
+        "description": "No single tool covers the full lifecycle: ideation -> authoring -> optimization -> testing -> deployment -> monitoring -> iteration. Teams stitch together 3-5 tools.",
+        "current_coverage": "Braintrust and LangSmith come closest but still lack automated optimization; DSPy optimizes but lacks deployment/monitoring",
+        "severity": "high"
+      },
+      {
+        "id": "WG-02",
+        "name": "Prompt-as-Code GitOps Workflow",
+        "description": "No tool provides a native Git-based prompt management workflow where prompts are treated as code artifacts with branch/merge/PR review, beyond basic versioning.",
+        "current_coverage": "PromptLayer has Git-like versioning but it's not actual Git integration; no PR review workflow for prompts",
+        "severity": "medium"
+      },
+      {
+        "id": "WG-03",
+        "name": "Collaborative Prompt Debugging",
+        "description": "No tool enables real-time collaborative debugging of prompts (like Google Docs for prompt engineering) where multiple team members can simultaneously test, annotate, and refine prompts.",
+        "current_coverage": "Tools offer collaboration features but not real-time co-editing or shared debugging sessions",
+        "severity": "low"
+      }
+    ],
+    "integration_gaps": [
+      {
+        "id": "IG-01",
+        "name": "IDE-Native Prompt Engineering",
+        "description": "No major tool offers deep IDE integration (VS Code, JetBrains) with inline prompt editing, testing, and optimization without leaving the coding environment.",
+        "current_coverage": "Promptfoo has CLI; some tools have SDKs; but no VS Code extension for prompt optimization",
+        "severity": "medium"
+      },
+      {
+        "id": "IG-02",
+        "name": "Framework-Agnostic Agent Integration",
+        "description": "Most optimization tools are tied to specific frameworks (LangSmith to LangChain). No truly framework-agnostic prompt optimization tool works seamlessly with CrewAI, AutoGen, LangGraph, and custom agent frameworks.",
+        "current_coverage": "Langfuse and Helicone are more agnostic via OpenTelemetry but lack deep agent optimization",
+        "severity": "high"
+      },
+      {
+        "id": "IG-03",
+        "name": "CI/CD Pipeline Deep Integration",
+        "description": "Only 35% of tools offer CI/CD integration. No tool provides native GitHub Actions/GitLab CI prompt testing with quality gates that block deployments on prompt regression.",
+        "current_coverage": "Promptfoo has GitHub Actions; Braintrust has quality gates; but comprehensive CI/CD for prompts is rare",
+        "severity": "medium"
+      }
+    ],
+    "pricing_gaps": [
+      {
+        "id": "PG-01",
+        "name": "Mid-Tier Pricing ($10-30/mo)",
+        "description": "Gap between free tiers and $39-250/mo paid plans. No tool offers a meaningful mid-tier for small teams (2-5 people) doing serious prompt work.",
+        "current_coverage": "Langfuse Core at $29/mo is closest; most tools jump from free to $39-50/user/mo",
+        "severity": "medium"
+      },
+      {
+        "id": "PG-02",
+        "name": "Usage-Based Only Pricing",
+        "description": "Most tools charge per-seat. No pure usage-based pricing model where you pay only for prompt optimization runs, not seats.",
+        "current_coverage": "Braintrust charges per GB of tracing; most others are seat-based",
+        "severity": "low"
+      },
+      {
+        "id": "PG-03",
+        "name": "Open Source with Premium Automated Optimization",
+        "description": "Open source tools (Langfuse, Agenta, Latitude) lack automated prompt optimization. Automated optimization tools (DSPy, Braintrust Loop) lack full platform features. No open-source tool with premium auto-optimization add-on.",
+        "current_coverage": "DSPy is open source with optimization but no platform; Langfuse is open source platform but no optimization",
+        "severity": "high"
+      }
+    ]
+  },
+  "total_gaps_identified": 18
+}

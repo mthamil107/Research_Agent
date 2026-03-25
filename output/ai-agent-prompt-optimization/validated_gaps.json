@@ -1,0 +1,329 @@
+{
+  "domain": "AI Agent Prompt Optimization",
+  "generated_date": "2026-03-25",
+  "validation_sources": ["GitHub Issues", "Hacker News", "OpenAI Community", "Dev.to", "Medium", "Academic papers (arxiv)", "Tom's Guide", "TechCrunch", "Industry blogs"],
+  "validated_gaps": [
+    {
+      "id": "FG-01",
+      "name": "Multi-Agent Prompt Optimization",
+      "demand_evidence": [
+        {
+          "source": "GitHub - kagent-dev/kagent Issue #981",
+          "url": "https://github.com/kagent-dev/kagent/issues/981",
+          "signal": "Feature request for integrating DSPy as native prompt compilation service for agents, noting 'hand-crafted prompts are a major bottleneck for deploying reliable agents in production'"
+        },
+        {
+          "source": "GitHub - strands-agents/sdk-python Issue #609",
+          "url": "https://github.com/strands-agents/sdk-python/issues/609",
+          "signal": "Feature request for native prompt optimization capability, stating 'manual prompt tuning can't keep pace with evolving requirements' for long-running agent trajectories"
+        },
+        {
+          "source": "arxiv - Multi-Agent Design (MASS)",
+          "url": "https://arxiv.org/abs/2502.02533",
+          "signal": "Research paper proposing 3-stage multi-agent optimization framework, indicating academic demand for this capability"
+        },
+        {
+          "source": "Microsoft Agent Lightning",
+          "url": "https://github.com/microsoft/agent-lightning",
+          "signal": "Microsoft built a tool to selectively optimize agents in multi-agent systems, validating enterprise demand"
+        },
+        {
+          "source": "Hacker News - AdaptiQ Core",
+          "url": "https://news.ycombinator.com/item?id=44637770",
+          "signal": "Show HN for RL-based agent optimization tool that saves 30% tokens, showing developer interest"
+        }
+      ],
+      "demand_level": "very_high",
+      "validation_confidence": "high"
+    },
+    {
+      "id": "FG-02",
+      "name": "Multimodal Prompt Optimization",
+      "demand_evidence": [
+        {
+          "source": "arxiv - Multimodal Prompt Optimizer (MPO)",
+          "url": "https://arxiv.org/abs/2510.09201",
+          "signal": "Research paper noting 'prompt optimization approaches remain confined to text, ultimately limiting the full potential of MLLMs'"
+        },
+        {
+          "source": "arxiv - UniAPO",
+          "url": "https://arxiv.org/abs/2508.17890",
+          "signal": "First framework for unified multimodal automated prompt optimization, indicating the gap is recognized in research"
+        },
+        {
+          "source": "GitHub - awesome-prompt-optimization",
+          "url": "https://github.com/malteos/awesome-prompt-optimization",
+          "signal": "Curated collection covering text, image, video, and multimodal - community aggregation shows demand"
+        }
+      ],
+      "demand_level": "high",
+      "validation_confidence": "medium"
+    },
+    {
+      "id": "FG-03",
+      "name": "Prompt Security & Red Teaming as a Service",
+      "demand_evidence": [
+        {
+          "source": "Hacker News - Agent Firewall",
+          "url": "https://news.ycombinator.com/item?id=46683661",
+          "signal": "Show HN: 'I built a firewall for agents because prompt engineering isn't security' - developer built this due to unmet need"
+        },
+        {
+          "source": "arxiv - Bypassing LLM Guardrails",
+          "url": "https://arxiv.org/abs/2504.11168",
+          "signal": "Research showing guardrails can be bypassed with up to 100% evasion success, indicating critical security gap"
+        },
+        {
+          "source": "F5 AI Guardrails Product Launch",
+          "url": "https://www.helpnetsecurity.com/2026/01/15/f5-ai-guardrails-red-team/",
+          "signal": "Enterprise vendor F5 launched dedicated AI guardrails product, validating enterprise demand"
+        },
+        {
+          "source": "Hacker News Discussion",
+          "url": "https://news.ycombinator.com/item?id=44712315",
+          "signal": "Community notes 'most safety mechanisms rely on system prompts or flimsy Python logic inside the agent itself'"
+        }
+      ],
+      "demand_level": "very_high",
+      "validation_confidence": "high"
+    },
+    {
+      "id": "FG-06",
+      "name": "Cross-Model Prompt Translation & Portability",
+      "demand_evidence": [
+        {
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/03/02/users-are-ditching-chatgpt-for-claude-heres-how-to-make-the-switch/",
+          "signal": "Major tech publication covering the difficulty of switching between AI models, indicating mass-market pain"
+        },
+        {
+          "source": "Tom's Guide",
+          "url": "https://www.tomsguide.com/ai/i-quit-chatgpt-heres-how-i-moved-everything-to-claude-and-gemini-without-losing-my-data-or-my-mind",
+          "signal": "Consumer-facing guide on switching models, indicating widespread user pain"
+        },
+        {
+          "source": "Reza Motaghi Blog",
+          "url": "https://rezamotaghi.com/one-person-startup/translate-ai-prompts/",
+          "signal": "Detailed article explaining why 'GPT prompts fail in Claude' - each model has different logic stacks"
+        },
+        {
+          "source": "Hacker News Discussion",
+          "url": "https://news.ycombinator.com/item?id=45289941",
+          "signal": "Users report 'carefully tuned prompts from GPT-4o are broken, with styles, logic, and answer habits all shifted when upgrading'"
+        }
+      ],
+      "demand_level": "very_high",
+      "validation_confidence": "high"
+    },
+    {
+      "id": "WG-01",
+      "name": "End-to-End Prompt Lifecycle Management",
+      "demand_evidence": [
+        {
+          "source": "Nate's Newsletter - Prompt Tooling Ecosystem",
+          "url": "https://natesnewsletter.substack.com/p/the-complete-prompt-tooling-ecosystem",
+          "signal": "'Prompting is too hard' - comprehensive analysis of fragmented tooling ecosystem, identifying 19+ tools needed for full lifecycle"
+        },
+        {
+          "source": "Dust.tt Blog - System Prompt Learning",
+          "url": "https://dust.tt/blog/system-prompt-learning-the-feedback-loop-your-agents-are-missing",
+          "signal": "'Most feedback happens outside tools entirely: in Slack threads, team meetings, or quiet frustration' - broken feedback loop"
+        },
+        {
+          "source": "OpenAI Community",
+          "url": "https://community.openai.com/t/prompt-engineering-is-dead-and-context-engineering-is-already-obsolete-why-the-future-is-automated-workflow-architecture-with-llms/1314011",
+          "signal": "Discussion about prompt engineering evolving into automated workflow architecture, indicating demand for unified platform"
+        }
+      ],
+      "demand_level": "high",
+      "validation_confidence": "high"
+    },
+    {
+      "id": "SG-01",
+      "name": "Domain-Specific Prompt Optimization (Healthcare, Legal, Finance)",
+      "demand_evidence": [
+        {
+          "source": "Medium - LLM Compliance Optimization",
+          "url": "https://medium.com/@sgreenman/best-practices-for-llm-optimization-for-call-and-message-compliance-prompt-engineering-rag-and-45ccca32ff17",
+          "signal": "Detailed guide on LLM optimization for compliance, achieving 80-100% accuracy with prompt engineering for healthcare marketing"
+        },
+        {
+          "source": "NVIDIA Blog",
+          "url": "https://developer.nvidia.com/blog/writer-releases-domain-specific-llms-for-healthcare-and-finance/",
+          "signal": "Major companies releasing domain-specific LLMs but lacking domain-specific prompt optimization tools"
+        },
+        {
+          "source": "Brim Labs Blog",
+          "url": "https://brimlabs.ai/blog/how-to-build-domain-specific-llm-pipelines-for-finance-healthcare-and-legal-workflows/",
+          "signal": "Guide on building domain-specific pipelines, indicating teams are cobbling together custom solutions"
+        }
+      ],
+      "demand_level": "high",
+      "validation_confidence": "medium"
+    },
+    {
+      "id": "IG-01",
+      "name": "IDE-Native Prompt Engineering",
+      "demand_evidence": [
+        {
+          "source": "GitHub - vscode-prompt-runner",
+          "url": "https://github.com/js8544/vscode-prompt-runner",
+          "signal": "Independent developer built VS Code extension to turn VS Code into prompt IDE, indicating unmet need"
+        },
+        {
+          "source": "VS Code Marketplace - Prompt IDE",
+          "url": "https://marketplace.visualstudio.com/items?itemName=riguz.prompt-ide",
+          "signal": "Multiple VS Code prompt extensions exist but none from major prompt management platforms"
+        },
+        {
+          "source": "Medium - Prompty Extension",
+          "url": "https://medium.com/@piyushsonawane10/streamlining-ai-prompt-engineering-with-the-prompty-extension-for-vs-code-3d9c90cb2772",
+          "signal": "Microsoft's Prompty format shows demand for IDE-integrated prompt engineering"
+        }
+      ],
+      "demand_level": "medium",
+      "validation_confidence": "medium"
+    },
+    {
+      "id": "FG-04",
+      "name": "Prompt Cost Optimization",
+      "demand_evidence": [
+        {
+          "source": "Databricks Blog",
+          "url": "https://www.databricks.com/blog/building-state-art-enterprise-agents-90x-cheaper-automated-prompt-optimization",
+          "signal": "Databricks reports building enterprise agents 90x cheaper with automated prompt optimization, showing massive cost savings potential"
+        },
+        {
+          "source": "Hacker News - PromptOptimizer",
+          "url": "https://news.ycombinator.com/item?id=36014570",
+          "signal": "Show HN: 'Minimize LLM token complexity to save cost' - developer built tool specifically for cost optimization"
+        },
+        {
+          "source": "Hacker News - AdaptiQ Core",
+          "url": "https://news.ycombinator.com/item?id=44637770",
+          "signal": "Tool that saves 30% tokens through RL optimization, demonstrating demand for cost-aware prompt optimization"
+        }
+      ],
+      "demand_level": "high",
+      "validation_confidence": "high"
+    },
+    {
+      "id": "FG-05",
+      "name": "Automated Prompt Regression Testing",
+      "demand_evidence": [
+        {
+          "source": "Hacker News Discussion",
+          "url": "https://news.ycombinator.com/item?id=45289941",
+          "signal": "'Editing prompts is like playing whack-a-mole: once you clear an edge case, a new problem pops up elsewhere'"
+        },
+        {
+          "source": "Hacker News - Model Version Breakage",
+          "url": "https://news.ycombinator.com/item?id=45008915",
+          "signal": "Discussion about prompts breaking when models update, indicating need for continuous regression detection"
+        },
+        {
+          "source": "ProductManagement.ai",
+          "url": "https://www.productmanagement.ai/p/prompt-optimization-guide",
+          "signal": "'Stop Rewriting Prompts' guide shows teams struggle with prompt drift and regression"
+        }
+      ],
+      "demand_level": "high",
+      "validation_confidence": "high"
+    },
+    {
+      "id": "FG-07",
+      "name": "Prompt Distillation for Edge/Mobile",
+      "demand_evidence": [
+        {
+          "source": "Zignuts Prompt Engineering Guide",
+          "url": "https://www.zignuts.com/blog/prompt-engineering-guide",
+          "signal": "'Prompt Distillation techniques compress complex instructions into token-efficient commands for edge devices'"
+        },
+        {
+          "source": "Hacker News - Prompt Engine",
+          "url": "https://news.ycombinator.com/item?id=42339302",
+          "signal": "Tool that auto-picks LLMs based on prompts, indicating need for model-aware prompt compression"
+        }
+      ],
+      "demand_level": "medium",
+      "validation_confidence": "low"
+    },
+    {
+      "id": "IG-02",
+      "name": "Framework-Agnostic Agent Integration",
+      "demand_evidence": [
+        {
+          "source": "Hacker News Discussion",
+          "url": "https://news.ycombinator.com/item?id=43998472",
+          "signal": "Discussion on effectiveness of LLM agent loops highlighting framework fragmentation"
+        },
+        {
+          "source": "GitHub - awesome-llm-agents",
+          "url": "https://github.com/kaushikb11/awesome-llm-agents",
+          "signal": "Curated list shows 50+ agent frameworks, none with universal prompt optimization integration"
+        },
+        {
+          "source": "GitHub - future-agi/agent-opt",
+          "url": "https://github.com/future-agi/agent-opt",
+          "signal": "Open source library for automated optimization of AI agent workflows, attempting to be framework-agnostic"
+        }
+      ],
+      "demand_level": "high",
+      "validation_confidence": "medium"
+    },
+    {
+      "id": "WG-02",
+      "name": "Prompt-as-Code GitOps Workflow",
+      "demand_evidence": [
+        {
+          "source": "VLDB Paper - Prompts as First-Class Citizens",
+          "url": "https://vldb.org/cidrdb/papers/2026/p26-cetintemel.pdf",
+          "signal": "Academic paper proposing 'Making Prompts First-Class Citizens for Adaptive LLM Pipelines' at top DB conference"
+        },
+        {
+          "source": "Microsoft Prompty Format",
+          "url": "https://medium.com/@piyushsonawane10/streamlining-ai-prompt-engineering-with-the-prompty-extension-for-vs-code-3d9c90cb2772",
+          "signal": "Microsoft created Prompty as a version-controlled prompt asset format, validating need for prompts-as-code"
+        }
+      ],
+      "demand_level": "medium",
+      "validation_confidence": "medium"
+    },
+    {
+      "id": "PG-03",
+      "name": "Open Source Platform + Premium Auto-Optimization",
+      "demand_evidence": [
+        {
+          "source": "GitHub - GEPA",
+          "url": "https://github.com/gepa-ai/gepa",
+          "signal": "Open source reflective text evolution optimizer integrated into MLflow, showing demand for open optimization"
+        },
+        {
+          "source": "GitHub - promptolution",
+          "url": "https://arxiv.org/html/2512.02840v2",
+          "signal": "Modular, lightweight open-source framework for automatic prompt optimization, filling the gap"
+        }
+      ],
+      "demand_level": "high",
+      "validation_confidence": "medium"
+    },
+    {
+      "id": "SG-02",
+      "name": "Affordable Mid-Tier Pricing",
+      "demand_evidence": [
+        {
+          "source": "General market observation",
+          "url": "https://www.braintrust.dev/pricing",
+          "signal": "Braintrust jumps from free to $249/mo with no mid-tier; multiple tools have similar gaps"
+        },
+        {
+          "source": "God of Prompt Blog",
+          "url": "https://www.godofprompt.ai/blog/how-to-300x-your-productivity-with-these-13-ai-tools-for-small-business-operations",
+          "signal": "'98% of small businesses now use AI tools' but most prompt optimization tools price them out"
+        }
+      ],
+      "demand_level": "medium",
+      "validation_confidence": "medium"
+    }
+  ]
+}

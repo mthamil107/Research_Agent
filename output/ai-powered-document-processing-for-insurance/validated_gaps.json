@@ -1,0 +1,226 @@
+{
+  "domain": "AI-powered document processing for insurance",
+  "generated_date": "2026-03-25",
+  "demand_signals": [
+    {
+      "gap_id": "GAP-001",
+      "title": "Affordable IDP for Small MGAs and Wholesalers",
+      "demand_signals": [
+        {
+          "source": "Industry Reports",
+          "signal": "88% of SMBs believe automation helps compete with larger companies, but upfront cost is primary barrier",
+          "url": "https://www.docstar.com/blog/why-insurance-companies-are-automating-document-chaos"
+        },
+        {
+          "source": "Industry Analysis",
+          "signal": "Licensed producers spend significant time re-typing ACORD data into carrier portals instead of selling",
+          "url": "https://dyadtech.com/ai-and-automation-in-insurance-agencies/"
+        },
+        {
+          "source": "Market Trend",
+          "signal": "50% of insurance workforce retiring in 15 years, creating 400,000 unfilled positions - automation critical for small agencies",
+          "url": "https://www.patracorp.com/resources/blogs/5-critical-pain-points-crushing-insurance-process/"
+        },
+        {
+          "source": "Startup Activity",
+          "signal": "Syntora, LAVA Automation, Dyad targeting small agency automation specifically",
+          "url": "https://syntora.io/solutions/how-do-small-insurance-companies-implement-ai-automation-effectively"
+        }
+      ],
+      "demand_strength": "Strong",
+      "validation_confidence": "High"
+    },
+    {
+      "gap_id": "GAP-002",
+      "title": "Comprehensive Regulatory Compliance and Explainable AI",
+      "demand_signals": [
+        {
+          "source": "Regulatory (NAIC)",
+          "signal": "23 states + DC adopted NAIC AI Model Bulletin; model law on third-party oversight anticipated in 2026",
+          "url": "https://www.fenwick.com/insights/publications/tracking-the-evolution-of-ai-insurance-regulation"
+        },
+        {
+          "source": "State Legislation",
+          "signal": "At least 17 states introduced AI bills in 2025 targeting insurance bias, vendor practices, explainability",
+          "url": "https://www.bipc.com/when-algorithms-underwrite-insurance-regulators-demanding-explainable-ai-systems"
+        },
+        {
+          "source": "Industry Survey",
+          "signal": "Nearly 1/3 of health insurers still do not regularly test AI models for bias or discrimination",
+          "url": "https://www.bakertilly.com/insights/the-regulatory-implications-of-ai-and-ml-for-the-insurance-industry"
+        },
+        {
+          "source": "HN Discussion",
+          "signal": "Insurance AI Benchmark with 510 scenarios published to test AI decision-making transparency",
+          "url": "https://news.ycombinator.com/item?id=46953463"
+        }
+      ],
+      "demand_strength": "Very Strong",
+      "validation_confidence": "Very High"
+    },
+    {
+      "gap_id": "GAP-003",
+      "title": "Multilingual Document Processing for Global Insurers",
+      "demand_signals": [
+        {
+          "source": "Industry Analysis",
+          "signal": "Insurance companies receive claims in 40+ languages; non-English adds 7-10 days processing",
+          "url": "https://www.insurancethoughtleadership.com/claims/language-barriers-create-claims-challenges"
+        },
+        {
+          "source": "Compliance Requirement",
+          "signal": "EU requires policy documents in each member state's official language",
+          "url": "https://www.deepl.com/en/blog/language-ai-insurance"
+        },
+        {
+          "source": "Data Quality",
+          "signal": "10-25% of insurance records unreliable due to language/cultural nuances",
+          "url": "https://ad-astrainc.com/blog/why-insurance-firms-choose-human-over-ai-in-language-services"
+        }
+      ],
+      "demand_strength": "Moderate-Strong",
+      "validation_confidence": "High"
+    },
+    {
+      "gap_id": "GAP-004",
+      "title": "End-to-End Unified Claims + Underwriting Document Platform",
+      "demand_signals": [
+        {
+          "source": "Feature Matrix Analysis",
+          "signal": "Clear market bifurcation between claims-only and underwriting-only tools; no unified solution",
+          "url": null
+        },
+        {
+          "source": "Industry Trend",
+          "signal": "Carriers want automated real-time claims ecosystems that combine triage, damage assessment, and payment triggers",
+          "url": "https://www.roots.ai/blog/10-insurance-ai-predictions-2026-forecasting-shift-from-promise-performance"
+        },
+        {
+          "source": "Cost Pressure",
+          "signal": "US insurance companies spending $132.86B in 2024 on modernization; want fewer vendor relationships",
+          "url": "https://ncube.com/insurance-legacy-system-transformation"
+        }
+      ],
+      "demand_strength": "Moderate",
+      "validation_confidence": "Medium"
+    },
+    {
+      "gap_id": "GAP-005",
+      "title": "Handwritten and Degraded Document Processing",
+      "demand_signals": [
+        {
+          "source": "Industry Pain Point",
+          "signal": "57% of insurance executives cite data quality as biggest AI implementation challenge",
+          "url": "https://riskandinsurance.com/how-underwriting-and-claims-are-reshaped-by-ai-in-insurance-and-how-they-stay-the-same/"
+        },
+        {
+          "source": "Operational Reality",
+          "signal": "74% of insurance companies still rely on old tech / paper-based processes",
+          "url": "https://www.scmgalaxy.com/tutorials/top-10-ai-insurance-claim-processing-tools-in-2025-features-pros-cons-comparison/"
+        }
+      ],
+      "demand_strength": "Moderate",
+      "validation_confidence": "Medium"
+    },
+    {
+      "gap_id": "GAP-006",
+      "title": "Intelligent Exception Handling and Ambiguity Resolution",
+      "demand_signals": [
+        {
+          "source": "Industry Analysis",
+          "signal": "Automated workflows unforgiving about missing fields; files bounce between queues adding days/weeks",
+          "url": "https://riskandinsurance.com/how-ai-is-changing-the-claims-landscape-speed-accuracy-and-a-human-touch/"
+        },
+        {
+          "source": "HN Discussion",
+          "signal": "AI claim denials and delays raise concerns about automated decision-making without human nuance",
+          "url": "https://news.ycombinator.com/item?id=41358132"
+        },
+        {
+          "source": "Technology Trend",
+          "signal": "Multi-agent AI (Five Sigma Clive) emerging to handle complex multi-step claims processes",
+          "url": "https://fivesigmalabs.com/clive/"
+        }
+      ],
+      "demand_strength": "Moderate-Strong",
+      "validation_confidence": "Medium-High"
+    },
+    {
+      "gap_id": "GAP-007",
+      "title": "Cross-Document Intelligence and Contradiction Detection",
+      "demand_signals": [
+        {
+          "source": "Operational Need",
+          "signal": "Underwriters process 50-page risk reports with embedded tables, multi-layered slips, multi-period loss runs",
+          "url": "https://riskandinsurance.com/generative-ai-in-insurance-claims-faces-a-scale-problem/"
+        },
+        {
+          "source": "Fraud Prevention",
+          "signal": "Cross-document correlation needed for fraud detection but largely unaddressed in current tools",
+          "url": "https://www.v7labs.com/blog/ai-in-insurance-use-cases"
+        }
+      ],
+      "demand_strength": "Moderate",
+      "validation_confidence": "Medium"
+    },
+    {
+      "gap_id": "GAP-008",
+      "title": "Open Source / Self-Hosted Insurance IDP",
+      "demand_signals": [
+        {
+          "source": "GitHub Analysis",
+          "signal": "No insurance-specific open-source IDP projects exist; only generic document management tools",
+          "url": "https://github.com/paperless-ngx/paperless-ngx"
+        },
+        {
+          "source": "Data Sovereignty",
+          "signal": "Regulated markets increasingly demand on-premises or self-hosted AI deployment options",
+          "url": "https://www.cleveroad.com/blog/intelligent-document-processing-for-insurance/"
+        }
+      ],
+      "demand_strength": "Low-Moderate",
+      "validation_confidence": "Low-Medium"
+    },
+    {
+      "gap_id": "GAP-009",
+      "title": "Real-Time Fraud Detection Integrated with Document Processing",
+      "demand_signals": [
+        {
+          "source": "Feature Gap",
+          "signal": "Only 2 of 14 surveyed tools combine document processing with fraud detection",
+          "url": null
+        },
+        {
+          "source": "Public Concern",
+          "signal": "HN discussions about AI insurance claim denials and false positives from weak proxy signals",
+          "url": "https://news.ycombinator.com/item?id=41358132"
+        }
+      ],
+      "demand_strength": "Moderate",
+      "validation_confidence": "Medium"
+    },
+    {
+      "gap_id": "GAP-010",
+      "title": "Legacy System Integration Without Full Platform Replacement",
+      "demand_signals": [
+        {
+          "source": "Industry Data",
+          "signal": "US insurers spending $132.86B (2024) on legacy modernization, expected $229.07B by 2029",
+          "url": "https://ncube.com/insurance-legacy-system-transformation"
+        },
+        {
+          "source": "Technical Gap",
+          "signal": "Legacy systems often lack APIs; encapsulation strategy (API wrapping) needed but few vendors offer it",
+          "url": "https://www.openlegacy.com/solutions/industry/insurance-industry"
+        },
+        {
+          "source": "Market Reality",
+          "signal": "74% of insurers on legacy tech; most IDP tools assume greenfield or major transformation",
+          "url": "https://www.decerto.com/post/integrating-insurance-software-with-legacy-systems-challenges-and-solutions"
+        }
+      ],
+      "demand_strength": "Strong",
+      "validation_confidence": "High"
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "domain": "AI Agent Prompt Optimization",
+  "scan_date": "2026-03-25",
+  "total_tools_found": 20,
+  "tools": [
+    {
+      "name": "DSPy",
+      "url": "https://dspy.ai/",
+      "description": "Stanford NLP framework for programming (not prompting) language models. Replaces manual prompt engineering with automated optimization using declarative modules and signatures.",
+      "key_features": ["Declarative prompt programming", "Automated prompt optimization", "Multiple optimizers (COPRO, MIPROv2, GEPA)", "Typed input/output signatures", "Few-shot example generation", "Bayesian optimization", "Modular LM programs"],
+      "pricing": "Free / Open Source (MIT)",
+      "target_audience": "ML researchers, AI engineers",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Promptfoo",
+      "url": "https://www.promptfoo.dev/",
+      "description": "Open-source CLI and library for evaluating and red-teaming LLM apps. Supports 90+ model providers and 67+ security attack plugins. Now maintained by OpenAI.",
+      "key_features": ["CLI-based prompt testing", "Red teaming & vulnerability scanning", "CI/CD integration", "Side-by-side model comparison", "Declarative YAML configs", "Local execution", "GitHub Actions support"],
+      "pricing": "Free / Open Source (MIT)",
+      "target_audience": "Developers, DevOps engineers, security teams",
+      "maturity": "Mature"
+    },
+    {
+      "name": "LangSmith",
+      "url": "https://www.langchain.com/pricing",
+      "description": "Developer platform by LangChain for building, monitoring, debugging, testing, and optimizing LLM-powered applications. Deep integration with LangChain ecosystem.",
+      "key_features": ["Prompt versioning", "Prompt Canvas (interactive editor)", "Tracing & observability", "Evaluation framework", "Dataset management", "Collaborative editing", "Large-scale testing"],
+      "pricing": "Free (5k traces/mo) / Plus $39/seat/mo / Enterprise custom",
+      "target_audience": "LangChain developers, AI engineering teams",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Langfuse",
+      "url": "https://langfuse.com/",
+      "description": "Open-source LLM engineering platform for observability, prompt management, evaluation, and debugging. Self-hostable with MIT license.",
+      "key_features": ["Open source prompt management", "Version control", "Tracing & observability", "Evaluation framework", "Datasets", "Non-technical UI editing", "Instant prompt deployment"],
+      "pricing": "Free (50k units/mo) / Core $29/mo / Pro $199/mo / Enterprise $2,499/mo / Self-host free",
+      "target_audience": "AI engineering teams, startups, enterprises",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Braintrust",
+      "url": "https://www.braintrust.dev/",
+      "description": "AI observability platform for building quality AI products. Features Loop, an AI assistant that automatically optimizes prompts.",
+      "key_features": ["Automated prompt optimization (Loop AI)", "Experiment tracking", "Side-by-side comparison", "CI/CD quality gates", "Staging/production environments", "Dataset generation", "Real-time scoring"],
+      "pricing": "Free / $249/mo / Tracing $3/GB",
+      "target_audience": "AI product teams, engineers, product managers",
+      "maturity": "Mature"
+    },
+    {
+      "name": "PromptLayer",
+      "url": "https://www.promptlayer.com/",
+      "description": "Prompt management platform with Git-like version control, A/B testing, and no-code editing. HIPAA compliant.",
+      "key_features": ["Prompt versioning (Git-like)", "A/B testing", "No-code editor", "Request logging", "Multimodal prompting", "Evaluation framework", "HIPAA compliance"],
+      "pricing": "Free (5k requests/mo) / Pro $50/user/mo / Team $150/mo (5 users) / Enterprise custom",
+      "target_audience": "Product teams, non-technical stakeholders, enterprises",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Humanloop",
+      "url": "https://humanloop.com/",
+      "description": "Enterprise-grade AI evaluation platform with prompt management, version control, and LLM observability.",
+      "key_features": ["Prompt management", "Evaluation platform", "Observability", "Version control & rollback", "Experimentation", "BYOK (Bring Your Own Key)", "Log-based billing"],
+      "pricing": "Free / Pro $50/user/mo / Team $150/mo (5 users) / Enterprise custom",
+      "target_audience": "Enterprise AI teams",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Helicone",
+      "url": "https://www.helicone.ai/",
+      "description": "Open-source LLM observability platform with AI Gateway. Supports 100+ providers with intelligent routing and caching.",
+      "key_features": ["AI Gateway (100+ providers)", "Intelligent routing & fallbacks", "Prompt versioning", "A/B testing", "Cost tracking & optimization", "Caching (up to 95% cost reduction)", "SOC 2 & GDPR compliant"],
+      "pricing": "Free (10k requests/mo) / Paid tiers available / Self-host available",
+      "target_audience": "AI engineering teams, cost-conscious organizations",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Maxim AI",
+      "url": "https://www.getmaxim.ai/",
+      "description": "End-to-end evaluation and observability platform for shipping AI agents. Includes Playground++ for prompt engineering.",
+      "key_features": ["End-to-end simulation", "Evaluation framework", "Observability", "Prompt playground", "Cross-functional collaboration", "Agent testing"],
+      "pricing": "Free tier / Paid plans available",
+      "target_audience": "AI product teams, agent developers",
+      "maturity": "Growing"
+    },
+    {
+      "name": "Orq.ai",
+      "url": "https://orq.ai/",
+      "description": "Generative AI collaboration platform for building, deploying, and monitoring LLM apps with prompt management.",
+      "key_features": ["Prompt management", "AI agents runtime", "Knowledge bases", "Memory stores", "Evaluation", "Deployment management", "SCIM provisioning"],
+      "pricing": "Free (50k spans/mo) / Pro €250/mo / Enterprise custom",
+      "target_audience": "AI development teams, enterprises",
+      "maturity": "Growing"
+    },
+    {
+      "name": "Agenta",
+      "url": "https://agenta.ai/",
+      "description": "Open-source LLMOps platform for prompt management, evaluation, and observability. SOC 2 compliant.",
+      "key_features": ["Prompt playground", "Prompt versioning", "A/B testing", "Evaluation framework", "Observability", "Self-hostable", "Open source (MIT)"],
+      "pricing": "Free tier / Cloud paid plans / Self-host free",
+      "target_audience": "AI developers, teams wanting self-hosted solutions",
+      "maturity": "Growing"
+    },
+    {
+      "name": "PromptPerfect",
+      "url": "https://promptperfect.jina.ai/",
+      "description": "Automated prompt optimizer using reinforcement learning. Supports multiple AI models including GPT-4, ChatGPT, and Midjourney.",
+      "key_features": ["Automated prompt optimization", "Multi-model support", "Reinforcement learning", "Prompt generation", "One-click optimization"],
+      "pricing": "Freemium",
+      "target_audience": "Content creators, casual users, prompt engineers",
+      "maturity": "Mature"
+    },
+    {
+      "name": "Latitude",
+      "url": "https://latitude.so/",
+      "description": "Open-source agent engineering platform for building and operating LLM features in production. Uses PromptL language.",
+      "key_features": ["Prompt manager with PromptL", "AI Gateway", "Dataset management", "Batch evaluations", "Regression testing", "Variables/conditionals/loops in prompts", "Self-hostable"],
+      "pricing": "Free tier / Cloud / Self-host (LGPL-3.0)",
+      "target_audience": "AI developers, teams building production LLM apps",
+      "maturity": "Growing"
+    },
+    {
+      "name": "Arize Phoenix",
+      "url": "https://phoenix.arize.com/",
+      "description": "Open-source AI observability and evaluation platform with prompt management. Self-hostable with no feature gates.",
+      "key_features": ["AI observability", "Prompt management", "Evaluation", "Tracing", "OpenTelemetry-based", "Self-hostable", "SOC 2 & HIPAA options"],
+      "pricing": "Free open source / Cloud plans available",
+      "target_audience": "ML engineers, AI teams",
+      "maturity": "Mature"
+    },
+    {
+      "name": "AutoPrompt",
+      "url": "https://github.com/Eladlev/AutoPrompt",
+      "description": "Framework for automatic prompt tuning using Intent-based Prompt Calibration. Iteratively builds edge-case datasets and optimizes prompts.",
+      "key_features": ["Intent-based calibration", "Edge case generation", "Iterative optimization", "LangChain integration", "Wandb integration", "Argilla integration"],
+      "pricing": "Free / Open Source",
+      "target_audience": "ML researchers, AI engineers",
+      "maturity": "Early"
+    },
+    {
+      "name": "Opik (by Comet)",
+      "url": "https://www.comet.com/site/products/opik/",
+      "description": "Agent optimizer with 7 algorithms for automated prompt engineering. Uses Bayesian optimization for parameter tuning.",
+      "key_features": ["7 optimization algorithms", "Bayesian optimization", "Parameter tuning (temperature, top_p, etc.)", "Agentic system optimization", "Experiment tracking"],
+      "pricing": "Free tier / Paid plans available",
+      "target_audience": "ML engineers, agent developers",
+      "maturity": "Growing"
+    },
+    {
+      "name": "Vertex AI Prompt Optimizer",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/announcing-vertex-ai-prompt-optimizer",
+      "description": "Google Cloud's iterative LLM-based optimization algorithm for finding the best prompt for any model.",
+      "key_features": ["Iterative optimization", "Evaluator + optimizer model pair", "Google Cloud integration", "Multi-model support", "Candidate prompt generation"],
+      "pricing": "Google Cloud pricing (pay-per-use)",
+      "target_audience": "Google Cloud users, enterprise teams",
+      "maturity": "Mature"
+    },
+    {
+      "name": "OpenAI Prompt Optimizer",
+      "url": "https://platform.openai.com/docs/guides/prompt-engineering",
+      "description": "Built-in chat interface in OpenAI dashboard for optimizing prompts according to best practices. Pairs with datasets.",
+      "key_features": ["Dashboard-based optimization", "Best practices application", "Dataset pairing", "OpenAI model support"],
+      "pricing": "Included with OpenAI API access",
+      "target_audience": "OpenAI API users",
+      "maturity": "Mature"
+    },
+    {
+      "name": "PrompTessor",
+      "url": "https://promptessor.com/",
+      "description": "AI prompt analysis and optimization tool with detailed metrics and actionable optimization variations.",
+      "key_features": ["6 detailed metrics (Clarity, Specificity, Context, Goal Orientation, Structure, Constraints)", "Multiple optimization approaches", "Expected impact scoring", "Deep-dive analysis"],
+      "pricing": "Freemium",
+      "target_audience": "Prompt engineers, content creators",
+      "maturity": "Early"
+    },
+    {
+      "name": "Mirascope",
+      "url": "https://mirascope.com/",
+      "description": "Lightweight Python library for structured prompt engineering with strong type safety and automated optimization.",
+      "key_features": ["Type-safe prompts", "Python-native", "Structured outputs", "Prompt templates", "Multi-provider support", "Lightweight library"],
+      "pricing": "Free / Open Source",
+      "target_audience": "Python developers, AI engineers",
+      "maturity": "Growing"
+    }
+  ]
+}

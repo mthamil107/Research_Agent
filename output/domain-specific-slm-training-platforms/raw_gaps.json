@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "domain": "Domain-specific SLM training platforms",
+    "scan_date": "2026-03-25",
+    "total_gaps_identified": 12
+  },
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "End-to-End Domain Data Pipeline (Raw Docs to Training Data)",
+      "description": "Most platforms expect pre-formatted JSONL/CSV datasets. No platform provides a fully automated pipeline that ingests raw domain documents (PDFs, contracts, medical records, code repos), extracts knowledge, and generates high-quality instruction-following training pairs automatically.",
+      "current_coverage": "Only Unsloth Studio has Data Recipes for basic doc-to-dataset conversion. Cloud providers have basic data tools but not domain-aware curation.",
+      "affected_users": "Enterprise teams with proprietary domain documents but no ML data engineering team",
+      "severity": "Critical",
+      "category": "Data Pipeline"
+    },
+    {
+      "id": "GAP-002",
+      "title": "Synthetic Domain Data Generation",
+      "description": "Only 2 of 20 platforms (Vertex AI, NeMo) offer any synthetic data generation. There is no platform that uses a large teacher model to automatically generate domain-specific synthetic training data from a knowledge base, taxonomy, or ontology.",
+      "current_coverage": "Almost nonexistent in managed platforms. Researchers use ad-hoc scripts with GPT-4/Claude to generate data.",
+      "affected_users": "Teams in data-scarce domains (niche industries, low-resource languages, specialized sciences)",
+      "severity": "High",
+      "category": "Data Pipeline"
+    },
+    {
+      "id": "GAP-003",
+      "title": "Domain-Specific Evaluation Framework",
+      "description": "Most platforms offer only generic metrics (loss, perplexity). No platform provides built-in domain-specific evaluation suites for healthcare (clinical accuracy, ICD code matching), legal (citation accuracy, clause extraction), finance (numeric precision, regulatory compliance), etc.",
+      "current_coverage": "Databricks has LLM-as-Judge. Most others have zero domain-aware evaluation.",
+      "affected_users": "Enterprise teams in regulated industries needing to prove model quality",
+      "severity": "Critical",
+      "category": "Evaluation"
+    },
+    {
+      "id": "GAP-004",
+      "title": "Continuous Learning / Production Feedback Loop",
+      "description": "No platform provides an automated flywheel: capture production failures -> curate corrective examples -> retrain -> deploy -> monitor. Current tools require manual intervention at every step.",
+      "current_coverage": "OpenPipe captures production logs. Amdocs built a custom flywheel with NVIDIA Blueprint. No turnkey solution exists.",
+      "affected_users": "Production ML teams wanting models that improve over time",
+      "severity": "High",
+      "category": "MLOps"
+    },
+    {
+      "id": "GAP-005",
+      "title": "Edge/On-Device Fine-Tuning and Deployment Platform",
+      "description": "Memory bandwidth (not compute) is the bottleneck for edge LLMs. No unified platform handles the full cycle: fine-tune SLM in cloud -> quantize -> deploy to edge -> collect on-device feedback -> re-fine-tune. On-device personalization remains a research concept.",
+      "current_coverage": "Unsloth exports to GGUF/Ollama. SageMaker has edge export. No platform covers the full edge lifecycle.",
+      "affected_users": "IoT, mobile, manufacturing, healthcare device teams deploying SLMs at edge",
+      "severity": "High",
+      "category": "Deployment"
+    },
+    {
+      "id": "GAP-006",
+      "title": "Domain-Adaptive Continued Pretraining as a Service",
+      "description": "Continued pretraining on domain corpus is the most effective way to deeply adapt a model, but only 7/20 platforms support it and none make it easy. No platform offers a managed service that takes a domain corpus and automatically runs continued pretraining with the right hyperparameters.",
+      "current_coverage": "Axolotl, LLaMA-Factory support it via config. Cloud providers offer it as complex manual setup.",
+      "affected_users": "Teams needing deep domain knowledge injection (scientific, legal, medical domains)",
+      "severity": "Medium-High",
+      "category": "Training"
+    },
+    {
+      "id": "GAP-007",
+      "title": "Multi-Tenant Domain Model Management",
+      "description": "Enterprises serving multiple clients/departments need to manage dozens of domain-specific LoRA adapters with access control, versioning, A/B testing, and cost attribution per tenant. Only Predibase (LoRAX) addresses multi-adapter serving.",
+      "current_coverage": "Predibase LoRAX serves 1000s of adapters. No platform provides the full management layer (versioning, access control, cost attribution).",
+      "affected_users": "SaaS companies, consulting firms, and enterprises with multiple domain models",
+      "severity": "Medium-High",
+      "category": "Platform"
+    },
+    {
+      "id": "GAP-008",
+      "title": "Compliance-Aware Training Pipeline for Regulated Industries",
+      "description": "Healthcare (HIPAA), finance (SOX, Basel), and legal domains require audit trails, data lineage, model provenance, and compliance certification throughout the fine-tuning pipeline. No platform offers built-in compliance workflows.",
+      "current_coverage": "Databricks has governance built in. Lamini and Fireworks have certifications. But no platform has compliance-as-a-feature with automated audit trails for the training pipeline.",
+      "affected_users": "Healthcare, financial services, legal, and government teams",
+      "severity": "High",
+      "category": "Enterprise"
+    },
+    {
+      "id": "GAP-009",
+      "title": "Catastrophic Forgetting Prevention and Knowledge Retention Testing",
+      "description": "Fine-tuning on domain data often degrades general capabilities. No platform offers automated testing for catastrophic forgetting or techniques to maintain general knowledge while adding domain expertise.",
+      "current_coverage": "Academic research on EWC, progressive nets, etc. No platform implements this as a feature.",
+      "affected_users": "Any team fine-tuning models for domain tasks that also need general capabilities",
+      "severity": "Medium",
+      "category": "Training"
+    },
+    {
+      "id": "GAP-010",
+      "title": "Domain Ontology and Terminology Integration",
+      "description": "No platform allows importing a domain ontology, taxonomy, or controlled vocabulary to guide tokenization, training data generation, and evaluation. Domain terminology handling is entirely manual.",
+      "current_coverage": "Zero coverage. All platforms treat domain knowledge as opaque training data.",
+      "affected_users": "Medical, legal, scientific, and engineering domains with formal ontologies",
+      "severity": "Medium",
+      "category": "Data Pipeline"
+    },
+    {
+      "id": "GAP-011",
+      "title": "Cost-Optimized Training Advisor",
+      "description": "Most teams waste significant compute by choosing wrong base models, wrong training methods, or wrong hyperparameters for their domain task. No platform offers an intelligent advisor that recommends: base model, training method (LoRA vs full vs CPT), data volume needed, and estimated cost.",
+      "current_coverage": "Predibase Fine-tuning Index benchmarks models. MonsterAPI auto-optimizes batch size. No holistic advisor exists.",
+      "affected_users": "Budget-constrained teams, startups, and non-ML-expert developers",
+      "severity": "Medium",
+      "category": "Usability"
+    },
+    {
+      "id": "GAP-012",
+      "title": "Collaborative Domain Expert Annotation and RLHF Platform",
+      "description": "Domain fine-tuning requires domain experts (doctors, lawyers, engineers) to validate outputs and provide preference feedback. No SLM training platform integrates a collaborative annotation/RLHF interface designed for non-technical domain experts.",
+      "current_coverage": "Labelbox and Kili Technology offer annotation but are separate from training. No integrated solution within fine-tuning platforms.",
+      "affected_users": "Teams collaborating with subject matter experts for RLHF/DPO",
+      "severity": "Medium-High",
+      "category": "Data Pipeline"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "domain": "AI workflow orchestration for enterprises",
+  "generated_date": "2026-03-25",
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Unified Cross-Platform Agent Governance & Sprawl Management",
+      "description": "Enterprises deploy 50+ agents across different frameworks (LangGraph, CrewAI, Microsoft, Google, custom). No single platform provides centralized governance, discovery, inventory, lifecycle management, and policy enforcement across heterogeneous agent ecosystems. Agent sprawl creates redundant development, security vulnerabilities, and 'token hemorrhaging' from overlapping compute.",
+      "current_state": "Only UiPath offers partial cross-platform agent management. Most tools only govern agents built within their own framework. Shadow AI agents proliferate across departments.",
+      "affected_features": ["cross_platform_agent_mgmt", "audit_logging", "guardrails_safety", "cost_optimization"],
+      "severity": "critical",
+      "evidence": "Deloitte predicts agent sprawl is the top challenge for 2026. Half of executives plan $10-50M investment in securing agentic architectures."
+    },
+    {
+      "id": "GAP-002",
+      "title": "AI-Native Cost Intelligence & Token Economics Optimization",
+      "description": "Agentic workflows with chained LLM calls create unpredictable, rapidly escalating costs. A $0.15/execution workflow at 500K requests/day becomes catastrophically expensive. No platform provides real-time cost forecasting, per-workflow token budgeting, automatic model downgrade routing based on cost thresholds, or ROI attribution per workflow.",
+      "current_state": "Portkey AI offers basic cost tracking. Most platforms have partial or no cost optimization. No platform ties cost to business outcome ROI.",
+      "affected_features": ["cost_optimization", "llm_routing_abstraction"],
+      "severity": "critical",
+      "evidence": "Gartner warns 40%+ agentic AI projects may be cancelled by 2027 due to escalating costs. Token costs multiply with agent chaining."
+    },
+    {
+      "id": "GAP-003",
+      "title": "Multi-Agent Observability with Decision-Path Tracing",
+      "description": "When an agent takes a 12-step journey, teams cannot trace every decision point, understand inter-agent disagreements, or debug non-deterministic behavior across runs. Existing observability tools track latency/throughput but miss agent reasoning chains, tool selection rationale, and cascading failure paths.",
+      "current_state": "LangSmith, Prefect, and Google Vertex offer partial tracing. No platform provides full multi-agent decision-path replay with counterfactual analysis.",
+      "affected_features": ["observability_tracing", "data_lineage_tracking"],
+      "severity": "high",
+      "evidence": "Most teams 'can't see nearly enough' of agentic systems in production. Debugging multi-agent conversations described as 'a nightmare'."
+    },
+    {
+      "id": "GAP-004",
+      "title": "Non-Deterministic AI Workflow Testing & Evaluation Framework",
+      "description": "Traditional testing assumes deterministic behavior; traditional ML evaluation assumes fixed input-output mappings. Agentic AI breaks both assumptions. No platform provides integrated behavioral property testing, simulation environments for stress-testing agents against synthetic scenarios, or regression testing for non-deterministic multi-step workflows.",
+      "current_state": "Teams experiment with LLM-as-a-judge and scenario-based test suites ad-hoc. Google Vertex has LLM-based regression testing but limited to its ecosystem. No cross-platform solution exists.",
+      "affected_features": ["observability_tracing", "guardrails_safety"],
+      "severity": "high",
+      "evidence": "Testing non-deterministic agents is identified as a 'fundamental challenge' in 2026. Over 40% of projects could be cancelled partly due to inadequate testing."
+    },
+    {
+      "id": "GAP-005",
+      "title": "Self-Healing AI Workflows with Cascading Failure Prevention",
+      "description": "Unlike traditional software failures, agent errors compound quickly - one wrong decision cascades across systems, transactions, and workflows. Only UiPath offers self-healing automation. Most platforms rely on simple retries but cannot detect semantic errors, gracefully degrade, or prevent cascade failures across interconnected agent workflows.",
+      "current_state": "UiPath claims 40% failure reduction with self-healing. All other platforms limited to retry/timeout mechanisms. No platform prevents semantic error cascades.",
+      "affected_features": ["self_healing_automation", "durable_execution", "guardrails_safety"],
+      "severity": "high",
+      "evidence": "Agent errors 'compound quickly' and 'cascade across systems'. Production failures often surface as 'silent inconsistencies'."
+    },
+    {
+      "id": "GAP-006",
+      "title": "EU AI Act & Regulatory Compliance Automation for AI Workflows",
+      "description": "The EU AI Act imposes fines up to EUR 35M or 7% of global turnover, with high-risk system rules effective August 2026. No AI workflow orchestration platform provides built-in regulatory classification, automated risk assessment, mandatory transparency documentation, or compliance reporting specifically for orchestrated AI workflows.",
+      "current_state": "Separate governance tools (Credo AI, IBM watsonx.governance) exist but are disconnected from orchestration platforms. No integrated solution.",
+      "affected_features": ["guardrails_safety", "audit_logging", "data_lineage_tracking"],
+      "severity": "critical",
+      "evidence": "EU AI Act high-risk rules take effect August 2026. Governance frameworks 'haven't kept pace' with deployment speed."
+    },
+    {
+      "id": "GAP-007",
+      "title": "Enterprise Data Readiness & Legacy System Integration Layer",
+      "description": "46% of product teams cite lack of integration with existing tools as the biggest barrier. Enterprises must redesign core systems to accommodate AI agents as workflow executors. No platform provides automated data digitization assessment, legacy system adaptation, or progressive migration from traditional workflows to AI-orchestrated ones.",
+      "current_state": "UiPath and IBM have 700+ connectors but focus on SaaS. Most platforms poorly handle unstructured legacy data, mainframe systems, and hybrid on-prem/cloud bridges.",
+      "affected_features": ["prebuilt_enterprise_connectors", "on_premises_deployment"],
+      "severity": "high",
+      "evidence": "Only 21% have reached enterprise-scale AI workflow deployment. 'You can't deploy these tools unless your data is fully digitized and tagged.'"
+    },
+    {
+      "id": "GAP-008",
+      "title": "Adaptive Human-in-the-Loop with Autonomy Spectrum Management",
+      "description": "A progressive 'autonomy spectrum' (humans in the loop, on the loop, out of the loop) must emerge based on task complexity and outcome criticality. No platform dynamically adjusts the human oversight level based on risk scoring, confidence levels, or regulatory requirements of each workflow step.",
+      "current_state": "Most platforms offer static human-in-the-loop checkpoints. No adaptive, context-aware escalation based on real-time risk assessment.",
+      "affected_features": ["human_in_the_loop", "guardrails_safety"],
+      "severity": "medium-high",
+      "evidence": "Deloitte describes the 'autonomy spectrum' as an emerging critical requirement. Guardrails must balance robustness with usefulness."
+    },
+    {
+      "id": "GAP-009",
+      "title": "Cross-Workflow Orchestration & Process Mining for AI Pipelines",
+      "description": "62% of large organizations have departmental AI pilots that never become enterprise-wide because tools remain isolated. No platform discovers, maps, and optimizes AI workflow dependencies across departments, identifies bottlenecks, or provides process mining specifically for AI-orchestrated enterprise processes.",
+      "current_state": "Traditional process mining tools (Celonis, UiPath Process Mining) don't understand AI agent workflows. AI orchestration tools lack cross-department visibility.",
+      "affected_features": ["cross_platform_agent_mgmt", "data_lineage_tracking", "observability_tracing"],
+      "severity": "medium-high",
+      "evidence": "62% of large organizations fail to scale from departmental pilots. Without centralized orchestration, 'automation fragments'."
+    },
+    {
+      "id": "GAP-010",
+      "title": "Vendor-Agnostic Agent Interoperability Protocol",
+      "description": "AI agent sprawl increases across different programming languages, frameworks, infrastructure, and communication protocols. No universal standard enables agents built with LangGraph, CrewAI, Microsoft Agent Framework, and Google ADK to communicate and collaborate natively.",
+      "current_state": "MCP (Model Context Protocol) addresses model-tool communication but not agent-to-agent. Each framework has proprietary agent communication. A2A (Agent-to-Agent) protocol emerging but immature.",
+      "affected_features": ["cross_platform_agent_mgmt", "multi_language_sdk"],
+      "severity": "medium",
+      "evidence": "Agent sprawl across 'different programming languages, frameworks, infrastructure, and communication protocols' identified as key 2026 trend."
+    }
+  ],
+  "sources": [
+    "https://cloudwars.com/ai/enterprise-ai-in-2026-scaling-ai-agents-with-autonomy-orchestration-and-accountability/",
+    "https://www.deloitte.com/us/en/insights/industry/technology/technology-media-and-telecom-predictions/2026/ai-agent-orchestration.html",
+    "https://machinelearningmastery.com/5-production-scaling-challenges-for-agentic-ai-in-2026/",
+    "https://www.cio.com/article/4132287/taming-agent-sprawl-3-pillars-of-ai-orchestration.html",
+    "https://www.ignitho.com/enterprise-ai-orchestration-2026/",
+    "https://www.presidio.com/blogs/enterprise-ai-governance-in-2026/",
+    "https://customerthink.com/2026-the-year-ai-gets-real-and-workflow-orchestration-takes-center-stage/",
+    "https://47billion.com/blog/ai-agents-in-production-frameworks-protocols-and-what-actually-works-in-2026/"
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "domain": "AI Agent Security and Guardrails",
+  "generated_date": "2026-03-25",
+  "scoring_methodology": {
+    "formula": "opportunity_score = (demand * competition_inversed * feasibility) / 100",
+    "demand": "0-100 based on validated demand signals (surveys, HN projects, funding, community activity)",
+    "competition_inversed": "0-100 where 100 = no competition, 0 = saturated market",
+    "feasibility": "0-100 based on technical complexity, time to market, and capital requirements"
+  },
+  "ranked_gaps": [
+    {
+      "rank": 1,
+      "id": "GAP-007",
+      "title": "Unified Developer-First Security SDK",
+      "demand": 88,
+      "competition_inversed": 85,
+      "feasibility": 75,
+      "opportunity_score": 56.1,
+      "rationale": "Highest opportunity due to massive unmet demand from developers building multiple DIY solutions on HN, very low competition (Arcjet covers only prompt injection), and moderate feasibility (can be built incrementally as open-source). The $414M AI security funding and only 13 focused companies indicate strong VC interest in this space. Key differentiator: combine guardrails + identity + observability in a single `npm install` or `pip install` package.",
+      "recommended_approach": "Open-source SDK with freemium cloud tier. Start with JS/Python, integrate prompt injection + PII masking + basic identity + audit logging. Monetize via hosted dashboard, team features, and compliance reporting.",
+      "time_to_mvp": "3-4 months",
+      "target_revenue_model": "Open-core with usage-based cloud pricing"
+    },
+    {
+      "rank": 2,
+      "id": "GAP-002",
+      "title": "MCP Protocol Security Gateway",
+      "demand": 92,
+      "competition_inversed": 75,
+      "feasibility": 70,
+      "opportunity_score": 48.3,
+      "rationale": "Extremely high demand validated by OWASP MCP Top 10, CSA reports, and multiple developer blog posts. Competition is emerging (Lasso open-source gateway, Obot) but still nascent. 41% of MCP servers unauthenticated creates urgent need. MCP is becoming the standard protocol for AI agent communication, making this a potentially foundational infrastructure play.",
+      "recommended_approach": "Open-source MCP proxy/gateway that sits between clients and MCP servers. Auto-enforces authentication, authorization, input validation, and audit logging. Plugin architecture for custom policies.",
+      "time_to_mvp": "2-3 months",
+      "target_revenue_model": "Open-source with managed cloud gateway service"
+    },
+    {
+      "rank": 3,
+      "id": "GAP-001",
+      "title": "Execution Sandboxing for AI Agents",
+      "demand": 95,
+      "competition_inversed": 50,
+      "feasibility": 65,
+      "opportunity_score": 30.9,
+      "rationale": "Highest raw demand (0% feature coverage in security tools) but competition is emerging from cloud providers (Cloudflare, GKE Agent Sandbox). Feasibility is moderate due to deep infrastructure requirements (MicroVM, gVisor, or Wasm runtimes). Opportunity is in cross-platform, cloud-agnostic sandboxing that isn't locked to one provider.",
+      "recommended_approach": "Cross-platform agent sandboxing layer supporting multiple isolation backends (Firecracker, gVisor, Wasm). Provide SDK that makes sandboxing a one-line integration for any AI framework.",
+      "time_to_mvp": "4-6 months",
+      "target_revenue_model": "Usage-based (per sandbox execution) + enterprise self-hosted"
+    },
+    {
+      "rank": 4,
+      "id": "GAP-004",
+      "title": "Agent Identity Management for SMBs/Startups",
+      "demand": 85,
+      "competition_inversed": 60,
+      "feasibility": 60,
+      "opportunity_score": 30.6,
+      "rationale": "Strong demand (45.6% use shared API keys, 68% can't distinguish human from agent activity). Enterprise vendors (Okta, Microsoft) are launching but priced out of reach for SMBs and startups. A lightweight, affordable agent identity solution could capture the long tail of smaller companies deploying agents.",
+      "recommended_approach": "Lightweight agent identity service: register agents, issue scoped credentials, provide audit trails, integrate with existing IdPs. Self-hosted or low-cost cloud. API-first design.",
+      "time_to_mvp": "3-4 months",
+      "target_revenue_model": "Freemium with per-agent pricing"
+    },
+    {
+      "rank": 5,
+      "id": "GAP-005",
+      "title": "Multi-Agent Security Orchestration",
+      "demand": 80,
+      "competition_inversed": 80,
+      "feasibility": 50,
+      "opportunity_score": 32.0,
+      "rationale": "Very low competition (no dedicated tool exists) and strong demand as enterprises average 37 agents. However, feasibility is lower due to complexity of cross-framework, cross-vendor multi-agent coordination. Requires deep integration with multiple agent frameworks (LangGraph, CrewAI, AutoGen, etc.).",
+      "recommended_approach": "Agent mesh security layer providing trust boundaries, communication policies, cross-agent monitoring, and blast radius containment. Framework-agnostic via lightweight sidecar pattern.",
+      "time_to_mvp": "5-7 months",
+      "target_revenue_model": "Enterprise subscription with open-source core"
+    },
+    {
+      "rank": 6,
+      "id": "GAP-008",
+      "title": "AI Agent Incident Response and Kill Switch",
+      "demand": 75,
+      "competition_inversed": 90,
+      "feasibility": 65,
+      "opportunity_score": 43.9,
+      "rationale": "Almost no competition and strong demand (88% reported security incidents). Feasibility is moderate as it requires integration hooks into various agent frameworks. Could be built as a feature of GAP-007 (unified SDK) or standalone.",
+      "recommended_approach": "Agent circuit-breaker service: register agents, define policies, auto-halt on violation, manual kill switch dashboard. Integrates via SDK hooks or proxy pattern.",
+      "time_to_mvp": "2-3 months",
+      "target_revenue_model": "SaaS with per-agent pricing"
+    },
+    {
+      "rank": 7,
+      "id": "GAP-003",
+      "title": "AI Model Supply Chain Security",
+      "demand": 78,
+      "competition_inversed": 70,
+      "feasibility": 55,
+      "opportunity_score": 30.0,
+      "rationale": "Only 2 tools address this (both enterprise). 36% of ClawHub skills contain prompt injection. However, building comprehensive model/plugin scanning requires significant investment in vulnerability databases and detection capabilities.",
+      "recommended_approach": "Open-source model/plugin scanner that integrates into CI/CD. Scan MCP servers, HuggingFace models, and agent tools for known vulnerabilities, prompt injection, and secrets exposure. SBOM generation.",
+      "time_to_mvp": "4-5 months",
+      "target_revenue_model": "Open-core with paid vulnerability database updates"
+    },
+    {
+      "rank": 8,
+      "id": "GAP-010",
+      "title": "Pre-Deployment Security Validation Pipeline",
+      "demand": 72,
+      "competition_inversed": 75,
+      "feasibility": 70,
+      "opportunity_score": 37.8,
+      "rationale": "Clear gap between testing tools (Promptfoo/Garak) and deployment gates. Feasibility is good because it can build on existing open-source red-teaming tools and add the gate/policy layer.",
+      "recommended_approach": "CI/CD plugin that runs automated security validation (using Promptfoo/Garak engines) as a deployment gate. Pass/fail policies based on OWASP/NIST thresholds. GitHub Actions, GitLab CI, Jenkins plugins.",
+      "time_to_mvp": "2-3 months",
+      "target_revenue_model": "Freemium CI/CD plugin + paid policy management"
+    },
+    {
+      "rank": 9,
+      "id": "GAP-006",
+      "title": "Shadow AI Discovery and Governance for Midmarket",
+      "demand": 70,
+      "competition_inversed": 50,
+      "feasibility": 55,
+      "opportunity_score": 19.3,
+      "rationale": "Moderate demand and moderate competition (enterprise vendors offer this but at high price). Feasibility is moderate due to need for network traffic analysis and integration with diverse SaaS platforms. Lower opportunity as enterprise vendors will likely offer downmarket editions.",
+      "recommended_approach": "Lightweight network-based AI usage discovery tool. Deploy as proxy or browser extension. Detect AI service usage, classify risk, generate reports. Target mid-market pricing ($500-2000/mo).",
+      "time_to_mvp": "3-4 months",
+      "target_revenue_model": "Subscription (per-seat or per-company)"
+    },
+    {
+      "rank": 10,
+      "id": "GAP-009",
+      "title": "Cost Transparency and Predictable Pricing",
+      "demand": 60,
+      "competition_inversed": 60,
+      "feasibility": 80,
+      "opportunity_score": 28.8,
+      "rationale": "Real pain point but harder to build a standalone product around. Better addressed as a feature of other gap solutions (e.g., the Unified SDK in GAP-007 could differentiate on transparent pricing).",
+      "recommended_approach": "Not a standalone product. Instead, incorporate transparent, usage-based pricing as a differentiator in any of the above gap solutions.",
+      "time_to_mvp": "N/A (feature, not product)",
+      "target_revenue_model": "N/A"
+    }
+  ],
+  "top_3_opportunities_summary": {
+    "1_unified_developer_sdk": {
+      "score": 56.1,
+      "one_liner": "Open-source SDK combining guardrails, identity, observability, and compliance in a single developer-friendly package",
+      "why_now": "6+ DIY HN projects, only 13 focused companies despite $414M funding, massive developer frustration with fragmented tooling"
+    },
+    "2_mcp_security_gateway": {
+      "score": 48.3,
+      "one_liner": "Security proxy for MCP protocol enforcing auth, authorization, input validation, and audit logging",
+      "why_now": "OWASP MCP Top 10 published, 41% servers unauthenticated, MCP becoming de facto standard, CVE in popular mcp-remote package"
+    },
+    "3_agent_incident_response": {
+      "score": 43.9,
+      "one_liner": "Circuit-breaker service with kill switch, policy enforcement, and automated halt capabilities for AI agents",
+      "why_now": "88% of orgs reported AI agent incidents, governance-containment gap identified as defining challenge, near-zero competition"
+    }
+  }
+}

@@ -1,0 +1,402 @@
+{
+  "metadata": {
+    "domain": "MCP Server Ecosystem Tools",
+    "scan_date": "2026-03-25",
+    "total_tools_identified": 38,
+    "categories": [
+      "Directories & Registries",
+      "Hosting & Deployment Platforms",
+      "Server Generation & SDKs",
+      "Testing & Debugging",
+      "Monitoring & Observability",
+      "Security & Authentication",
+      "Gateways & Proxies",
+      "No-Code/Low-Code Builders",
+      "Analytics & Evaluation",
+      "MCP Clients (IDEs/Apps)",
+      "Package Management"
+    ]
+  },
+  "tools": [
+    {
+      "name": "MCP Official Registry",
+      "url": "https://registry.modelcontextprotocol.io/",
+      "description": "The official centralized metadata repository for publicly accessible MCP servers, backed by Anthropic, GitHub, PulseMCP, and Microsoft. API freeze at v0.1.",
+      "key_features": ["Server metadata catalog", "API for programmatic access", "Web browsing interface", "Standardized server.json format", "NPM registry support"],
+      "pricing": "Free / Open Source",
+      "target_audience": "All MCP developers and consumers",
+      "maturity": "Preview (v0.1 API freeze)",
+      "category": "Directories & Registries"
+    },
+    {
+      "name": "MCP.so",
+      "url": "https://mcp.so/",
+      "description": "Community-driven MCP marketplace with 18,900+ servers collected. Central directory for discovering, sharing, and learning about MCP servers.",
+      "key_features": ["Largest catalog (18,900+ servers)", "Community-driven", "Search and filtering", "Server categorization"],
+      "pricing": "Free",
+      "target_audience": "Developers seeking MCP servers",
+      "maturity": "Mature",
+      "category": "Directories & Registries"
+    },
+    {
+      "name": "PulseMCP",
+      "url": "https://www.pulsemcp.com/servers",
+      "description": "Daily-updated directory of 12,480+ MCP servers with popularity signals, visitor metrics, and official/community tags.",
+      "key_features": ["Daily updates", "Popularity rankings", "Official/community tags", "Clean layout", "Use case examples"],
+      "pricing": "Free",
+      "target_audience": "Developers browsing and prototyping",
+      "maturity": "Mature",
+      "category": "Directories & Registries"
+    },
+    {
+      "name": "Glama",
+      "url": "https://glama.ai/",
+      "description": "MCP hosting platform and curated directory with 9,000+ servers. Provides quality scorecards, one-click deployment, isolated VMs, and observability.",
+      "key_features": ["Server quality scorecards", "One-click deployment hosting", "Isolated VM per server", "Persistent state", "End-to-end encryption", "Built-in observability", "Security/vulnerability scanning"],
+      "pricing": "Free directory; Paid hosting tiers",
+      "target_audience": "Developers and enterprises needing hosted MCP",
+      "maturity": "Mature",
+      "category": "Hosting & Deployment Platforms"
+    },
+    {
+      "name": "Smithery",
+      "url": "https://smithery.ai/",
+      "description": "MCP registry, CLI, and managed runtime platform. Handles running MCP servers on Smithery infrastructure with real-time LLM endpoint connectivity.",
+      "key_features": ["Server registry/marketplace", "CLI for search/install/manage", "Managed server runtime", "Skills system", "Scaffold tool for building servers"],
+      "pricing": "Free tier; Paid plans available",
+      "target_audience": "Developers building and consuming MCP servers",
+      "maturity": "Mature",
+      "category": "Hosting & Deployment Platforms"
+    },
+    {
+      "name": "Awesome MCP Servers (punkpeye)",
+      "url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "description": "GitHub-hosted curated collection of MCP servers, synced with mcpservers.org web directory. One of the largest community-maintained lists.",
+      "key_features": ["Curated list", "Web directory sync", "Categorized servers", "Community maintained"],
+      "pricing": "Free / Open Source",
+      "target_audience": "Developers discovering MCP servers",
+      "maturity": "Mature",
+      "category": "Directories & Registries"
+    },
+    {
+      "name": "LobeHub MCP Marketplace",
+      "url": "https://lobehub.com/mcp",
+      "description": "Comprehensive MCP marketplace integrated with LobeChat, featuring tools, resources, and prompts.",
+      "key_features": ["Integrated with LobeChat", "Tools/resources/prompts", "Installation guides"],
+      "pricing": "Free",
+      "target_audience": "LobeChat users and general developers",
+      "maturity": "Mature",
+      "category": "Directories & Registries"
+    },
+    {
+      "name": "Official MCP TypeScript SDK",
+      "url": "https://github.com/modelcontextprotocol/typescript-sdk",
+      "description": "Official TypeScript SDK for building MCP servers and clients. Current version v1.27.1.",
+      "key_features": ["Full protocol implementation", "Server and client support", "Stdio and HTTP transport", "Resource/tool/prompt primitives"],
+      "pricing": "Free / Open Source",
+      "target_audience": "TypeScript/JavaScript developers",
+      "maturity": "Stable (v1.27.1)",
+      "category": "Server Generation & SDKs"
+    },
+    {
+      "name": "Official MCP Python SDK",
+      "url": "https://github.com/modelcontextprotocol/python-sdk",
+      "description": "Official Python SDK for MCP. Current version v1.26.",
+      "key_features": ["Full protocol implementation", "FastMCP high-level API", "Async support", "Type hints"],
+      "pricing": "Free / Open Source",
+      "target_audience": "Python developers",
+      "maturity": "Stable (v1.26)",
+      "category": "Server Generation & SDKs"
+    },
+    {
+      "name": "mcp-go",
+      "url": "https://github.com/mark3labs/mcp-go",
+      "description": "Community Go implementation of MCP with backward compatibility across multiple spec versions.",
+      "key_features": ["Full MCP spec implementation", "Minimal boilerplate", "Backward compatibility (4 spec versions)", "Inspired the official Go SDK"],
+      "pricing": "Free / Open Source",
+      "target_audience": "Go developers",
+      "maturity": "Stable",
+      "category": "Server Generation & SDKs"
+    },
+    {
+      "name": "Official Go SDK (x/tools/internal/mcp)",
+      "url": "https://pkg.go.dev/golang.org/x/tools/internal/mcp",
+      "description": "Official Go SDK for MCP, currently unstable and subject to breaking changes.",
+      "key_features": ["Official Go implementation", "Protocol compliance"],
+      "pricing": "Free / Open Source",
+      "target_audience": "Go developers",
+      "maturity": "Unstable / Early",
+      "category": "Server Generation & SDKs"
+    },
+    {
+      "name": "Speakeasy",
+      "url": "https://www.speakeasy.com/product/mcp-server",
+      "description": "Platform that generates production-ready MCP servers from OpenAPI specifications. Also generates SDKs, docs, and Terraform providers.",
+      "key_features": ["OpenAPI to MCP generation", "Self-hosted output", "Cloudflare Workers deployment", "Docker support", "SDK wrapper MCP servers", "Gram managed platform"],
+      "pricing": "Free tier; Paid plans for teams",
+      "target_audience": "API providers wanting MCP compatibility",
+      "maturity": "Mature",
+      "category": "Server Generation & SDKs"
+    },
+    {
+      "name": "Stainless",
+      "url": "https://www.stainless.com/docs/mcp/",
+      "description": "Generates MCP servers from OpenAPI specs as a subpackage within TypeScript SDKs.",
+      "key_features": ["OpenAPI to MCP generation", "SDK-integrated MCP server", "TypeScript focused", "npm package publishing"],
+      "pricing": "Paid plans",
+      "target_audience": "API companies building SDKs",
+      "maturity": "Mature",
+      "category": "Server Generation & SDKs"
+    },
+    {
+      "name": "FastMCP",
+      "url": "https://gofastmcp.com/",
+      "description": "High-level Python framework for building MCP servers with automatic tool generation from type hints, docstrings, and OpenAPI specs.",
+      "key_features": ["Python type hint auto-generation", "OpenAPI spec import", "Minimal boilerplate", "Decorator-based API"],
+      "pricing": "Free / Open Source",
+      "target_audience": "Python developers",
+      "maturity": "Stable",
+      "category": "Server Generation & SDKs"
+    },
+    {
+      "name": "MCP Inspector",
+      "url": "https://github.com/modelcontextprotocol/inspector",
+      "description": "Official interactive developer tool for testing and debugging MCP servers. React UI + Node.js proxy.",
+      "key_features": ["Real-time communication logs", "Protocol validation", "Stdio/SSE/HTTP support", "Tool/resource/prompt testing", "Web-based UI"],
+      "pricing": "Free / Open Source",
+      "target_audience": "MCP server developers",
+      "maturity": "Stable",
+      "category": "Testing & Debugging"
+    },
+    {
+      "name": "MCPJam Inspector",
+      "url": "https://github.com/MCPJam/inspector",
+      "description": "Enhanced MCP inspector for testing ChatGPT apps, MCP ext-apps, and MCP servers with full widget emulator and LLM chat.",
+      "key_features": ["Widget emulator", "LLM chat integration", "OAuth flow inspection", "Extended app support"],
+      "pricing": "Free / Open Source",
+      "target_audience": "MCP and ChatGPT app developers",
+      "maturity": "Early",
+      "category": "Testing & Debugging"
+    },
+    {
+      "name": "Docker MCP Inspector",
+      "url": "https://github.com/docker/mcp-inspector",
+      "description": "Docker's fork of the MCP Inspector for visual testing of MCP servers within Docker environments.",
+      "key_features": ["Docker integration", "Visual testing", "Container-native"],
+      "pricing": "Free / Open Source",
+      "target_audience": "Docker-based MCP developers",
+      "maturity": "Early",
+      "category": "Testing & Debugging"
+    },
+    {
+      "name": "MCPevals",
+      "url": "https://www.mcpevals.io/",
+      "description": "Node.js package and GitHub Action for evaluating MCP tool implementations using LLM-based scoring across accuracy, completeness, relevance, clarity, and reasoning.",
+      "key_features": ["LLM-based scoring", "GitHub Action integration", "CI/CD compatible", "Multi-dimension evaluation", "GPT-4 powered"],
+      "pricing": "Free / Open Source",
+      "target_audience": "MCP server developers wanting quality assurance",
+      "maturity": "Early",
+      "category": "Analytics & Evaluation"
+    },
+    {
+      "name": "MCPcat",
+      "url": "https://mcpcat.io/",
+      "description": "Analytics tool showing what agents are doing on your product and where they get stuck. OTEL-based telemetry forwarding.",
+      "key_features": ["Agent interaction analytics", "OTEL forwarding to Datadog/Sentry/PostHog", "Traffic visualization", "Client/server/model breakdown"],
+      "pricing": "Free tier; Paid plans",
+      "target_audience": "Teams running MCP servers in production",
+      "maturity": "Early-Mid",
+      "category": "Analytics & Evaluation"
+    },
+    {
+      "name": "Sentry MCP Monitoring",
+      "url": "https://blog.sentry.io/introducing-mcp-server-monitoring/",
+      "description": "Protocol-aware visibility into MCP server usage, broken down by transport, performance, tools, and resources.",
+      "key_features": ["Protocol-aware monitoring", "Transport breakdown (SSE/HTTP)", "Tool call analytics", "Performance metrics"],
+      "pricing": "Part of Sentry plans",
+      "target_audience": "Production MCP server operators",
+      "maturity": "Mature (Sentry platform)",
+      "category": "Monitoring & Observability"
+    },
+    {
+      "name": "Datadog MCP Server",
+      "url": "https://docs.datadoghq.com/bits_ai/mcp_server/",
+      "description": "Bridge between Datadog observability data and AI agents supporting MCP, providing structured access to monitoring insights.",
+      "key_features": ["Observability data access for AI", "Query/retrieve insights", "Integration with Datadog platform"],
+      "pricing": "Part of Datadog plans",
+      "target_audience": "Datadog customers using MCP",
+      "maturity": "Mature (Datadog platform)",
+      "category": "Monitoring & Observability"
+    },
+    {
+      "name": "Moesif MCP Observability",
+      "url": "https://www.moesif.com/blog/monitoring/model-context-protocol/How-to-Setup-Observability-For-Your-MCP-Server-with-Moesif/",
+      "description": "API analytics platform with MCP server observability integration for monitoring usage patterns and performance.",
+      "key_features": ["API analytics", "Usage pattern monitoring", "Performance tracking"],
+      "pricing": "Moesif pricing tiers",
+      "target_audience": "API-focused MCP operators",
+      "maturity": "Mid",
+      "category": "Monitoring & Observability"
+    },
+    {
+      "name": "MCP OAuth Gateway",
+      "url": "https://github.com/atrawog/mcp-oauth-gateway",
+      "description": "OAuth 2.1 Authorization Server that adds authentication to any MCP server without code modification. Uses GitHub as identity provider.",
+      "key_features": ["OAuth 2.1", "Dynamic client registration (RFC 7591/7592)", "GitHub IdP", "No-code-change deployment"],
+      "pricing": "Free / Open Source",
+      "target_audience": "MCP server operators needing auth",
+      "maturity": "Early",
+      "category": "Security & Authentication"
+    },
+    {
+      "name": "MCP Auth Proxy",
+      "url": "https://github.com/sigbit/mcp-auth-proxy",
+      "description": "OAuth 2.1/OIDC authentication proxy for MCP servers supporting Google, GitHub, Okta, Auth0, Azure AD, and Keycloak.",
+      "key_features": ["Multi-IdP support", "No code changes needed", "OAuth 2.1/OIDC", "Drop-in proxy"],
+      "pricing": "Free / Open Source",
+      "target_audience": "MCP operators needing enterprise auth",
+      "maturity": "Early",
+      "category": "Security & Authentication"
+    },
+    {
+      "name": "Kong AI MCP OAuth2 Plugin",
+      "url": "https://developer.konghq.com/plugins/ai-mcp-oauth2/",
+      "description": "Kong gateway plugin securing MCP traffic using OAuth 2.0, ensuring only authorized clients access MCP servers.",
+      "key_features": ["Kong Gateway integration", "OAuth 2.0 enforcement", "Enterprise-grade", "API management"],
+      "pricing": "Kong Enterprise pricing",
+      "target_audience": "Enterprise API teams",
+      "maturity": "Mature (Kong platform)",
+      "category": "Security & Authentication"
+    },
+    {
+      "name": "Azure API Management for MCP",
+      "url": "https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-api-management-your-auth-gateway-for-mcp-servers/4402690",
+      "description": "Azure APIM as authentication gateway for MCP servers, enabling enterprise-grade security for remote MCP deployments.",
+      "key_features": ["Azure ecosystem integration", "Enterprise auth", "API management", "Policy enforcement"],
+      "pricing": "Azure pricing",
+      "target_audience": "Azure enterprise customers",
+      "maturity": "Mature (Azure platform)",
+      "category": "Security & Authentication"
+    },
+    {
+      "name": "Runlayer",
+      "url": "https://techcrunch.com/2025/11/17/mcp-ai-agent-security-startup-runlayer-launches-with-8-unicorns-11m-from-khoslas-keith-rabois-and-felicis/",
+      "description": "MCP security startup ($11M seed) providing all-in-one gateway with threat detection, observability, permissions, and enterprise development.",
+      "key_features": ["All-in-one security gateway", "Threat detection", "Observability", "Detailed permissions", "Enterprise-ready"],
+      "pricing": "Enterprise pricing",
+      "target_audience": "Enterprise teams deploying MCP at scale",
+      "maturity": "Early (well-funded startup)",
+      "category": "Security & Authentication"
+    },
+    {
+      "name": "HyprMCP Gateway",
+      "url": "https://github.com/hyprmcp/mcp-gateway",
+      "description": "MCP OAuth Proxy with dynamic client registration, prompt analytics, and MCP firewall for enterprise-grade servers.",
+      "key_features": ["OAuth proxy", "Dynamic client registration", "Prompt analytics", "MCP firewall"],
+      "pricing": "Free / Open Source",
+      "target_audience": "Enterprise MCP server operators",
+      "maturity": "Early",
+      "category": "Gateways & Proxies"
+    },
+    {
+      "name": "Composio",
+      "url": "https://composio.dev/",
+      "description": "Agentic integration platform providing unified MCP gateway to 500+ managed integrations with OAuth handling, audit logs, and framework support.",
+      "key_features": ["500+ managed integrations", "Unified auth layer", "Framework support (Autogen/CrewAI/LangChain)", "SOC2/ISO compliance", "Human-in-the-loop approvals", "Audit logs"],
+      "pricing": "Free tier; Growth $29/mo; Enterprise custom",
+      "target_audience": "AI agent developers needing integrations",
+      "maturity": "Mature",
+      "category": "Gateways & Proxies"
+    },
+    {
+      "name": "Pipedream MCP",
+      "url": "https://mcp.pipedream.com/",
+      "description": "Access to MCP servers for 3,000+ APIs with 10,000+ prebuilt tools through Pipedream's integration platform.",
+      "key_features": ["3,000+ API integrations", "10,000+ prebuilt tools", "Managed auth", "Workflow automation"],
+      "pricing": "Pipedream pricing tiers",
+      "target_audience": "Developers needing broad API access",
+      "maturity": "Mature (Pipedream platform)",
+      "category": "Gateways & Proxies"
+    },
+    {
+      "name": "MintMCP",
+      "url": "https://www.mintmcp.com/",
+      "description": "Enterprise MCP gateway with one-click deployment, OAuth protection, and SOC 2 Type II compliance with audit-ready logs.",
+      "key_features": ["One-click STDIO deployment", "OAuth protection", "SOC 2 Type II", "Audit-ready logs", "Enterprise governance"],
+      "pricing": "Enterprise pricing",
+      "target_audience": "Enterprise platform engineering teams",
+      "maturity": "Mid",
+      "category": "Gateways & Proxies"
+    },
+    {
+      "name": "Lunar.dev MCPX",
+      "url": "https://lunar.dev/",
+      "description": "Enterprise MCP gateway prioritizing governance and granular RBAC with immutable audit trails for multi-tenant SaaS.",
+      "key_features": ["Granular RBAC", "Immutable audit trails", "Multi-tenant support", "~4ms latency", "Enterprise governance"],
+      "pricing": "Enterprise pricing",
+      "target_audience": "Multi-tenant SaaS enterprises",
+      "maturity": "Mid",
+      "category": "Gateways & Proxies"
+    },
+    {
+      "name": "MCPCore",
+      "url": "https://mcpcore.io/",
+      "description": "No-code MCP server builder. Describe tools in plain language, AI generates code/parameters, test instantly, one-click deploy.",
+      "key_features": ["Natural language tool description", "AI code generation", "Instant testing", "One-click deployment"],
+      "pricing": "Unknown (likely freemium)",
+      "target_audience": "Non-technical users and rapid prototypers",
+      "maturity": "Early",
+      "category": "No-Code/Low-Code Builders"
+    },
+    {
+      "name": "Latenode MCP",
+      "url": "https://latenode.com/mcp",
+      "description": "MCP server builder combining custom code flexibility with visual builder. 500+ integrations, JavaScript support, AI Builder.",
+      "key_features": ["Visual builder", "500+ integrations", "Custom JavaScript", "AI Builder"],
+      "pricing": "Latenode pricing tiers",
+      "target_audience": "Low-code developers",
+      "maturity": "Mid",
+      "category": "No-Code/Low-Code Builders"
+    },
+    {
+      "name": "Flow (No-Code MCP Studio)",
+      "url": "https://www.theunwindai.com/p/build-test-deploy-mcp-servers-with-nocode",
+      "description": "No-code MCP Studio for vibe-coding MCP servers via chat, publishing to GitHub, and deploying on Flow Cloud.",
+      "key_features": ["Chat-based server creation", "GitHub publishing", "Cloud deployment", "Inspector integration"],
+      "pricing": "Unknown",
+      "target_audience": "Non-technical users",
+      "maturity": "Early",
+      "category": "No-Code/Low-Code Builders"
+    },
+    {
+      "name": "Mintlify MCP Generator",
+      "url": "https://mintlify.com/",
+      "description": "Generates MCP servers from documentation and OpenAPI specifications. Limited to OpenAPI spec input.",
+      "key_features": ["Documentation-to-MCP generation", "OpenAPI spec support"],
+      "pricing": "Mintlify plans",
+      "target_audience": "API documentation teams",
+      "maturity": "Mid",
+      "category": "Server Generation & SDKs"
+    },
+    {
+      "name": "@mcpm/cli",
+      "url": "https://www.npmjs.com/package/@mcpm/cli",
+      "description": "MCP package manager CLI for searching, installing, and managing MCP server configuration.",
+      "key_features": ["Package search", "Installation from registry", "Configuration management"],
+      "pricing": "Free / Open Source",
+      "target_audience": "MCP developers",
+      "maturity": "Early",
+      "category": "Package Management"
+    },
+    {
+      "name": "MCP Manager",
+      "url": "https://mcpmanager.ai/",
+      "description": "Platform focused on MCP deployment management, security best practices, and enterprise guidance.",
+      "key_features": ["Deployment management", "Security guidance", "Enterprise best practices"],
+      "pricing": "Unknown",
+      "target_audience": "Enterprise MCP operators",
+      "maturity": "Early-Mid",
+      "category": "Hosting & Deployment Platforms"
+    }
+  ]
+}

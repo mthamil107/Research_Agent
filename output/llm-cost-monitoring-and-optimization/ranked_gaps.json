@@ -1,0 +1,182 @@
+{
+  "domain": "LLM Cost Monitoring and Optimization",
+  "generated_date": "2026-03-25",
+  "scoring_methodology": {
+    "demand": "0-10: How strongly the market signals need for this. Based on community discussions, enterprise pain points, search volume, and industry reports.",
+    "competition": "0-10: How underserved this gap is (10 = no one addresses it, 0 = fully solved). Inverse of competitive coverage.",
+    "feasibility": "0-10: How achievable building a solution is. Technical complexity, data availability, go-to-market path.",
+    "formula": "opportunity_score = (demand * competition * feasibility) / 100"
+  },
+  "ranked_gaps": [
+    {
+      "rank": 1,
+      "id": "FG3",
+      "gap": "AI Agent / Multi-Agent Workflow Cost Attribution",
+      "demand": 9,
+      "competition": 8,
+      "feasibility": 7,
+      "opportunity_score": 5.04,
+      "rationale": "Agentic AI is the hottest trend in 2026. Agent costs are exploding (10x projected). No tool provides per-agent-step cost tracking, per-agent budget limits, or automatic cost optimization for multi-agent workflows. Massive demand, minimal competition. Feasibility is moderate due to complexity of instrumenting diverse agent frameworks."
+    },
+    {
+      "rank": 2,
+      "id": "FG2",
+      "gap": "Intelligent Cost-Quality-Aware Model Routing with Integrated Observability",
+      "demand": 9,
+      "competition": 7,
+      "feasibility": 7,
+      "opportunity_score": 4.41,
+      "rationale": "Research proves 85% cost savings possible. RouteLLM, BEST-Route, NVIDIA blueprints show big-tech interest. But no production-ready commercial tool integrates routing + cost observability + quality tracking in one platform. High feasibility given existing research code to build on."
+    },
+    {
+      "rank": 3,
+      "id": "FG5",
+      "gap": "Automated Prompt Cost Optimization",
+      "demand": 8,
+      "competition": 8,
+      "feasibility": 7,
+      "opportunity_score": 4.48,
+      "rationale": "60-80% cost reduction from prompt optimization is well-documented. LLMLingua shows 20x compression possible. No monitoring tool automatically identifies expensive prompts and suggests optimizations. Integration into existing observability platforms is technically feasible."
+    },
+    {
+      "rank": 4,
+      "id": "FG1",
+      "gap": "Predictive Cost Forecasting & Budget Planning",
+      "demand": 8,
+      "competition": 9,
+      "feasibility": 6,
+      "opportunity_score": 4.32,
+      "rationale": "No tool does ML-driven cost forecasting for LLM spend. FinOps Foundation recognizing this gap. 72% of companies increasing LLM spend need better forecasting. Feasibility moderate - requires historical data accumulation and handling volatile LLM pricing."
+    },
+    {
+      "rank": 5,
+      "id": "IG3",
+      "gap": "Self-Hosted / On-Premise Model Cost Tracking (TCO)",
+      "demand": 8,
+      "competition": 8,
+      "feasibility": 6,
+      "opportunity_score": 3.84,
+      "rationale": "Self-hosted LLM adoption growing rapidly (vLLM, Ollama). No tool tracks total cost of ownership including GPU compute, electricity, maintenance time. LiteLLM adding Ollama cost tracking shows demand. Feasibility moderate due to need for GPU telemetry integration."
+    },
+    {
+      "rank": 6,
+      "id": "SG2",
+      "gap": "Finance / CFO-Oriented AI Cost Governance Dashboard",
+      "demand": 8,
+      "competition": 8,
+      "feasibility": 7,
+      "opportunity_score": 4.48,
+      "rationale": "All existing tools are developer-focused. Finance teams, FinOps practitioners need business-language dashboards showing ROI, unit economics, cost-per-outcome. 24% of enterprises flag budget limitations. High feasibility as it's primarily a UX/reporting layer on existing data."
+    },
+    {
+      "rank": 7,
+      "id": "FG4",
+      "gap": "Enterprise Chargeback / Showback Reporting",
+      "demand": 7,
+      "competition": 7,
+      "feasibility": 7,
+      "opportunity_score": 3.43,
+      "rationale": "Large enterprises need invoice-ready chargeback reports for departments. FinOps Foundation working group on this. Per-team tracking exists in LiteLLM/Portkey but no tool generates actual chargeback invoices with approval workflows."
+    },
+    {
+      "rank": 8,
+      "id": "WG3",
+      "gap": "End-to-End Cost-of-Quality Optimization Workflow",
+      "demand": 7,
+      "competition": 8,
+      "feasibility": 6,
+      "opportunity_score": 3.36,
+      "rationale": "Teams optimize cost and quality separately. No tool answers 'minimum cost for target quality.' Weave's cost-per-correct is closest but doesn't automate optimization. Research on cost-quality Pareto frontiers is active."
+    },
+    {
+      "rank": 9,
+      "id": "WG2",
+      "gap": "CI/CD Cost Regression Testing",
+      "demand": 7,
+      "competition": 9,
+      "feasibility": 7,
+      "opportunity_score": 4.41,
+      "rationale": "No tool integrates cost checks into CI/CD pipelines. Braintrust has quality CI/CD checks but not cost. A prompt change doubling token usage should fail a pipeline. Very feasible as extension of existing eval frameworks."
+    },
+    {
+      "rank": 10,
+      "id": "FG6",
+      "gap": "Cross-Provider Cost Normalization & Billing Reconciliation",
+      "demand": 7,
+      "competition": 8,
+      "feasibility": 5,
+      "opportunity_score": 2.80,
+      "rationale": "Tools estimate costs from public pricing but don't reconcile with actual provider invoices. Negotiated rates create discrepancy. Feasibility lower due to need for billing API integrations with each provider."
+    },
+    {
+      "rank": 11,
+      "id": "WG1",
+      "gap": "Development-to-Production Cost Simulation",
+      "demand": 6,
+      "competition": 9,
+      "feasibility": 6,
+      "opportunity_score": 3.24,
+      "rationale": "Dev-time patterns don't predict production costs. Multiple sources cite production cost surprises. No tool provides 'cost staging.' Feasibility moderate - requires statistical modeling of usage scaling."
+    },
+    {
+      "rank": 12,
+      "id": "SG1",
+      "gap": "SMB / Solo Developer Cost Dashboard",
+      "demand": 6,
+      "competition": 6,
+      "feasibility": 8,
+      "opportunity_score": 2.88,
+      "rationale": "Multiple HN Show posts for simple cost trackers. Free tiers exist but need integration. Very feasible to build a simple aggregator. Competition moderate as Helicone/Langfuse free tiers partially serve this."
+    },
+    {
+      "rank": 13,
+      "id": "IG2",
+      "gap": "FinOps Platform Integration Layer",
+      "demand": 6,
+      "competition": 7,
+      "feasibility": 6,
+      "opportunity_score": 2.52,
+      "rationale": "AI spend siloed from cloud cost management. FinOps Foundation working on this. Datadog partially bridges. Moderate demand from enterprises using established FinOps tools."
+    },
+    {
+      "rank": 14,
+      "id": "SG3",
+      "gap": "Non-Technical Team LLM Cost Visibility",
+      "demand": 5,
+      "competition": 8,
+      "feasibility": 7,
+      "opportunity_score": 2.80,
+      "rationale": "PMs and business users lack cost awareness. No tool provides non-technical cost visibility. Feasibility high as it's a UX problem. Demand moderate as this is a secondary concern."
+    },
+    {
+      "rank": 15,
+      "id": "IG1",
+      "gap": "ERP / Financial System Integration",
+      "demand": 5,
+      "competition": 9,
+      "feasibility": 4,
+      "opportunity_score": 1.80,
+      "rationale": "No LLM tool integrates with SAP/Oracle/NetSuite. Demand exists in large enterprises. Low feasibility due to complexity of ERP integrations and long enterprise sales cycles."
+    },
+    {
+      "rank": 16,
+      "id": "PG1",
+      "gap": "Truly Free Comprehensive Hosted Solution",
+      "demand": 5,
+      "competition": 5,
+      "feasibility": 5,
+      "opportunity_score": 1.25,
+      "rationale": "Open-source options growing (Portkey just went fully OSS). Demand for free tools high but monetization challenging. Market moving toward open source making this gap smaller."
+    },
+    {
+      "rank": 17,
+      "id": "PG2",
+      "gap": "Pay-Per-Savings Pricing Model",
+      "demand": 4,
+      "competition": 9,
+      "feasibility": 4,
+      "opportunity_score": 1.44,
+      "rationale": "Novel pricing concept. CAST AI uses savings-based for infra. Hard to measure attributable savings accurately for LLM costs. Interesting but difficult to execute well."
+    }
+  ]
+}

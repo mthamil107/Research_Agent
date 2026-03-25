@@ -1,0 +1,450 @@
+{
+  "meta": {
+    "domain": "Multi-agent collaboration frameworks",
+    "scan_date": "2026-03-25",
+    "total_tools_identified": 18,
+    "market_size_2025": "$7.6 billion",
+    "projected_cagr": "49.6% through 2033",
+    "gartner_inquiry_surge": "1,445% from Q1 2024 to Q2 2025"
+  },
+  "tools": [
+    {
+      "name": "CrewAI",
+      "url": "https://crewai.com",
+      "description": "Low-code, open-source platform for creating, deploying, and managing multi-agent AI systems with role-based agent orchestration",
+      "key_features": [
+        "Role-based agent design with defined responsibilities",
+        "Flexible API integrations (Gmail, Teams, Notion, HubSpot, Salesforce, Slack)",
+        "Task-dependent automation with inter-agent delegation",
+        "Real-time tracing and observability",
+        "CrewAI Studio for visual crew building",
+        "LLM-agnostic compatibility",
+        "Memory and context management"
+      ],
+      "pricing": {
+        "model": "Execution-based",
+        "free_tier": "50 executions/month, 1 deployed crew, 1 seat",
+        "basic": "$99/month (100 executions, 2 crews, 5 seats)",
+        "ultra": "$120,000/year",
+        "open_source": "Free (self-hosted)"
+      },
+      "target_audience": "Developers and teams building collaborative multi-agent workflows",
+      "maturity": "Production-ready",
+      "github_stars": "25,000+",
+      "category": "Code-first SDK"
+    },
+    {
+      "name": "LangGraph (LangChain)",
+      "url": "https://www.langchain.com/langgraph",
+      "description": "Graph-based orchestration layer built on LangChain for managing stateful, long-running agents with complex branching workflows",
+      "key_features": [
+        "Graph-based workflow modeling (agents as nodes)",
+        "Durable execution with automatic resume from failures",
+        "Built-in memory for conversation history and context",
+        "Human-in-the-loop oversight at any execution point",
+        "Support for single, multi-agent, and hierarchical control flows",
+        "Deep Agents for planning with subagents",
+        "LangSmith integration for tracing and evaluation"
+      ],
+      "pricing": {
+        "model": "Open-source + SaaS tooling",
+        "framework": "Free (MIT license)",
+        "langsmith_free": "5,000 traces/month",
+        "langsmith_plus": "$39/seat/month",
+        "enterprise": "Custom pricing (self-hosting, SSO)"
+      },
+      "target_audience": "Developers building complex, stateful agent workflows",
+      "maturity": "Production-ready",
+      "github_stars": "15,000+",
+      "category": "Code-first SDK"
+    },
+    {
+      "name": "Microsoft AutoGen",
+      "url": "https://microsoft.github.io/autogen/",
+      "description": "Open-source framework from Microsoft for building multi-agent AI applications with asynchronous, event-driven architecture",
+      "key_features": [
+        "Multi-agent conversations with message passing",
+        "Asynchronous event-driven architecture (v0.4)",
+        "Code execution and tool use",
+        "Human-in-the-loop support",
+        "Pluggable components (agents, tools, memory, models)",
+        "Proactive and long-running agents",
+        "Being merged into Microsoft Agent Framework"
+      ],
+      "pricing": {
+        "model": "Free / Open-source",
+        "cost": "Free"
+      },
+      "target_audience": "Researchers and developers building collaborative AI agents",
+      "maturity": "Mature (transitioning to Microsoft Agent Framework)",
+      "github_stars": "50,400+",
+      "category": "Code-first SDK"
+    },
+    {
+      "name": "Microsoft Agent Framework",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "description": "Unified open-source framework merging Semantic Kernel and AutoGen for building, orchestrating, and deploying AI agents in Python and .NET",
+      "key_features": [
+        "Graph-based multi-agent orchestration",
+        "MCP and A2A protocol support",
+        "Session-based state management",
+        "Type safety, middleware, telemetry",
+        "OpenAPI-first design for cross-runtime portability",
+        "Process Framework for deterministic business workflows (Q2 2026)",
+        "Python and .NET support"
+      ],
+      "pricing": {
+        "model": "Free / Open-source",
+        "cost": "Free"
+      },
+      "target_audience": "Enterprise developers building production AI agent systems",
+      "maturity": "Release Candidate (GA targeted Q1 2026)",
+      "github_stars": "N/A (new)",
+      "category": "Code-first SDK"
+    },
+    {
+      "name": "OpenAI Agents SDK",
+      "url": "https://github.com/openai/openai-agents-python",
+      "description": "Lightweight Python framework for building multi-agent workflows with tracing and guardrails, evolved from Swarm",
+      "key_features": [
+        "Agent handoffs for task delegation",
+        "Built-in tracing and debugging",
+        "Guardrails for input/output validation",
+        "Realtime voice agents with gpt-realtime-1.5",
+        "Provider-agnostic (100+ LLMs supported)",
+        "Lightweight and minimal abstraction",
+        "Context management"
+      ],
+      "pricing": {
+        "model": "Free SDK + pay-per-use API",
+        "sdk": "Free / Open-source",
+        "api_costs": "Per-token pricing based on model used"
+      },
+      "target_audience": "Developers building multi-agent applications with OpenAI models",
+      "maturity": "Production-ready",
+      "github_stars": "20,000+",
+      "category": "Code-first SDK"
+    },
+    {
+      "name": "Google ADK (Agent Development Kit)",
+      "url": "https://google.github.io/adk-docs/",
+      "description": "Open-source, code-first toolkit for building, evaluating, and deploying multi-agent systems optimized for Gemini and Google ecosystem",
+      "key_features": [
+        "Multi-agent by design with hierarchical composition",
+        "AutoFlow mechanism for dynamic agent routing",
+        "Workflow agents (Sequential, Parallel, Loop)",
+        "MCP tool support and 3rd-party library integration",
+        "Python, TypeScript, and Go support",
+        "Vertex AI Agent Engine deployment",
+        "Model-agnostic despite Gemini optimization"
+      ],
+      "pricing": {
+        "model": "Free SDK + cloud deployment costs",
+        "sdk": "Free / Open-source",
+        "vertex_ai": "Pay-as-you-go ($0.0864/vCPU-hour)"
+      },
+      "target_audience": "Developers building multi-agent systems in Google Cloud ecosystem",
+      "maturity": "Production-ready",
+      "github_stars": "10,000+",
+      "category": "Code-first SDK"
+    },
+    {
+      "name": "Anthropic Claude Agent SDK",
+      "url": "https://github.com/anthropics/claude-agent-sdk-python",
+      "description": "General-purpose agent runtime with MCP integration, subagents, and Agent Teams for parallel coordinated work",
+      "key_features": [
+        "MCP for tool/resource connectivity",
+        "Skills for task-specific knowledge",
+        "Subagents for parallel independent work",
+        "Agent Teams for coordination",
+        "Runtime MCP server management",
+        "Streaming via async iterators",
+        "Hooks and plugin system"
+      ],
+      "pricing": {
+        "model": "Free SDK + pay-per-use API",
+        "sdk": "Free / Open-source",
+        "api_costs": "Per-token pricing based on Claude model used"
+      },
+      "target_audience": "Developers building agent systems with Claude models",
+      "maturity": "Early production (v0.1.48 Python, v0.2.71 TypeScript)",
+      "github_stars": "5,000+",
+      "category": "Code-first SDK"
+    },
+    {
+      "name": "MetaGPT",
+      "url": "https://github.com/FoundationAgents/MetaGPT",
+      "description": "Multi-agent framework simulating a software company with role-based agents (PM, architect, engineer) following SOPs",
+      "key_features": [
+        "Role-based agent simulation (product managers, architects, engineers)",
+        "SOP-driven workflow orchestration",
+        "MGX - AI agent development team",
+        "Data Interpreter for autonomous analysis",
+        "Multi-modal vision agent (GPT-4V)",
+        "Integrated RAG module",
+        "Natural language to code generation"
+      ],
+      "pricing": {
+        "model": "Free / Open-source",
+        "cost": "Free"
+      },
+      "target_audience": "Software development teams and researchers",
+      "maturity": "Research/experimental with production features",
+      "github_stars": "45,000+",
+      "category": "Code-first SDK"
+    },
+    {
+      "name": "Agno (formerly Phidata)",
+      "url": "https://www.agno.com",
+      "description": "High-performance agent framework and runtime for building, running, and managing multi-agent systems at scale",
+      "key_features": [
+        "Teams with automatic agent-to-agent communication",
+        "Deterministic workflows for step-based execution",
+        "Long-term memory and session storage",
+        "Domain knowledge and chat history",
+        "Integration with Telegram, Slack, WhatsApp",
+        "Context passing and result aggregation",
+        "Self-hosted with no data leaving your system"
+      ],
+      "pricing": {
+        "model": "Self-hosted, no per-event fees",
+        "details": "Contact for pricing; no surprise egress costs"
+      },
+      "target_audience": "Teams building production multi-agent applications with privacy requirements",
+      "maturity": "Production-ready",
+      "github_stars": "18,000+",
+      "category": "Code-first SDK"
+    },
+    {
+      "name": "CAMEL-AI",
+      "url": "https://www.camel-ai.org",
+      "description": "Research-oriented multi-agent framework for autonomous agent collaboration, communication, and complex task solving at scale",
+      "key_features": [
+        "Structured multi-agent interactions with role specialization",
+        "30+ toolkits (browser automation, multimodal, code execution, MCP)",
+        "Reinforcement learning with verifiable rewards",
+        "Stateful memory for multi-step interactions",
+        "Designed for millions of agents at scale",
+        "Synthetic data creation and augmentation",
+        "OWL (Optimized Workforce Learning) for real-world automation"
+      ],
+      "pricing": {
+        "model": "Free / Open-source",
+        "cost": "Free"
+      },
+      "target_audience": "Researchers and developers exploring large-scale multi-agent systems",
+      "maturity": "Research with production components",
+      "github_stars": "15,000+",
+      "category": "Code-first SDK"
+    },
+    {
+      "name": "DSPy",
+      "url": "https://dspy.ai",
+      "description": "Declarative framework for programming (not prompting) language models with automatic prompt optimization for agent pipelines",
+      "key_features": [
+        "Declarative programming model for LM pipelines",
+        "Automatic prompt optimization (MIPROv2)",
+        "ReAct agent support",
+        "Modular pipeline composition",
+        "Agenspy extension for MCP and A2A protocols",
+        "Fine-tuning pipeline integration",
+        "LM-agnostic design"
+      ],
+      "pricing": {
+        "model": "Free / Open-source",
+        "cost": "Free"
+      },
+      "target_audience": "ML engineers and researchers building optimized LM applications",
+      "maturity": "Production-ready for pipelines, experimental for multi-agent",
+      "github_stars": "22,000+",
+      "category": "Code-first SDK"
+    },
+    {
+      "name": "Amazon Bedrock Agents",
+      "url": "https://aws.amazon.com/bedrock/agents/",
+      "description": "Fully managed multi-agent collaboration service on AWS with supervisor-collaborator hierarchical model",
+      "key_features": [
+        "Supervisor-collaborator hierarchical model",
+        "Inline Agents for dynamic role adjustment at runtime",
+        "Payload Referencing for efficient data transfer",
+        "CloudFormation and CDK support for agent teams",
+        "Multi-model support",
+        "Integration with AWS services",
+        "Stateful runtime (coming with OpenAI partnership)"
+      ],
+      "pricing": {
+        "model": "Pay-as-you-go",
+        "details": "Based on model tokens consumed and agent compute"
+      },
+      "target_audience": "Enterprise teams building multi-agent systems on AWS",
+      "maturity": "GA (since March 2025)",
+      "github_stars": "N/A (managed service)",
+      "category": "Enterprise infrastructure platform"
+    },
+    {
+      "name": "Google Vertex AI Agent Builder",
+      "url": "https://cloud.google.com/products/agent-builder",
+      "description": "Google Cloud managed platform for building multi-agent systems with ADK integration and deterministic guardrails",
+      "key_features": [
+        "ADK integration for multi-agent systems",
+        "Dynamic agent discovery and capability negotiation",
+        "Deterministic guardrails and orchestration controls",
+        "Search and conversational features",
+        "Agent Engine Runtime",
+        "Session and memory management",
+        "Free tier available"
+      ],
+      "pricing": {
+        "model": "Pay-as-you-go",
+        "vcpu": "$0.0864/vCPU-hour",
+        "memory": "$0.0090/GB-hour",
+        "search": "$1.50-$6.00 per 1,000 queries",
+        "free_tier": "10 agent engines, 90 days"
+      },
+      "target_audience": "Enterprise teams building agents on Google Cloud",
+      "maturity": "GA",
+      "github_stars": "N/A (managed service)",
+      "category": "Enterprise infrastructure platform"
+    },
+    {
+      "name": "Azure Foundry Agent Service",
+      "url": "https://azure.microsoft.com/en-us/products/ai-foundry/agent-service",
+      "description": "Microsoft Azure managed service for building and orchestrating multi-agent experiences with enterprise tool integration",
+      "key_features": [
+        "Multi-agent orchestration with dynamic collaboration",
+        "Visual workflow builder",
+        "Enterprise tool integration (Logic Apps, Fabric, SharePoint)",
+        "Grounding with Bing Search",
+        "No additional charge for native agent creation",
+        "Agent Commit Units pre-purchase plan",
+        "Integration with Microsoft ecosystem"
+      ],
+      "pricing": {
+        "model": "Pay-as-you-go + pre-purchase plans",
+        "agent_creation": "Free (pay for model tokens and tools)",
+        "pre_purchase": "Agent Commit Units (ACUs) for discounted rates"
+      },
+      "target_audience": "Enterprise teams in Microsoft ecosystem",
+      "maturity": "GA",
+      "github_stars": "N/A (managed service)",
+      "category": "Enterprise infrastructure platform"
+    },
+    {
+      "name": "Kore.ai Agent Platform",
+      "url": "https://www.kore.ai/ai-agent-platform",
+      "description": "Enterprise agentic AI platform with multi-agent orchestration, 250+ integrations, and configurable autonomy levels",
+      "key_features": [
+        "Multiple orchestration patterns (supervisor, adaptive, custom)",
+        "Configurable agent autonomy (human-in-the-loop to fully autonomous)",
+        "250+ enterprise-grade integrations (CRM, ITSM, HRIS, ERP)",
+        "No-code + pro-code development",
+        "Built-in governance and observability",
+        "Context sharing across agents",
+        "Cross-functional workflow execution"
+      ],
+      "pricing": {
+        "model": "Custom enterprise pricing",
+        "automation_ai": "Billed per 15-minute session",
+        "contact_center": "Billed per seat",
+        "details": "Contact sales for pricing"
+      },
+      "target_audience": "Large enterprises with complex multi-agent needs",
+      "maturity": "Production-ready / Enterprise",
+      "github_stars": "N/A (proprietary)",
+      "category": "Enterprise infrastructure platform"
+    },
+    {
+      "name": "n8n",
+      "url": "https://n8n.io",
+      "description": "Open-source workflow automation platform with AI agent capabilities for multi-agent setups and RAG systems",
+      "key_features": [
+        "Visual workflow builder with AI agent nodes",
+        "Multi-agent coordination (research, writing, QA agents)",
+        "Human-in-the-loop checks at any workflow point",
+        "600+ community-built templates",
+        "MCP support for tool integration",
+        "Any LLM or vector store support",
+        "Self-hostable with open-source core"
+      ],
+      "pricing": {
+        "model": "Open-source + cloud",
+        "self_hosted": "Free",
+        "cloud_starter": "$24/month",
+        "cloud_pro": "$60/month",
+        "enterprise": "Custom"
+      },
+      "target_audience": "Teams building automated workflows with AI agent capabilities",
+      "maturity": "Production-ready",
+      "github_stars": "55,000+",
+      "category": "Visual / Low-code"
+    },
+    {
+      "name": "LlamaIndex",
+      "url": "https://www.llamaindex.ai",
+      "description": "Data framework for LLM applications specializing in RAG and knowledge-intensive multi-agent workflows",
+      "key_features": [
+        "Advanced RAG pipelines with indexing, retrieval, and ranking",
+        "Multi-agent orchestration capabilities",
+        "Structured and unstructured data integration",
+        "Knowledge-grounded agent reasoning",
+        "Tool integration framework",
+        "LlamaCloud managed service",
+        "Compatible with other agent frameworks"
+      ],
+      "pricing": {
+        "model": "Open-source + managed service",
+        "framework": "Free / Open-source",
+        "llama_cloud": "Pay-as-you-go"
+      },
+      "target_audience": "Developers building knowledge-intensive AI applications",
+      "maturity": "Production-ready",
+      "github_stars": "38,000+",
+      "category": "Code-first SDK"
+    },
+    {
+      "name": "Ray (Anyscale)",
+      "url": "https://www.ray.io",
+      "description": "Distributed computing framework for scaling AI workloads including multi-agent simulations and training",
+      "key_features": [
+        "Distributed multi-agent simulation at scale",
+        "RLlib for multi-agent reinforcement learning",
+        "Serve for model deployment",
+        "Horizontal scaling across clusters",
+        "Fault tolerance and recovery",
+        "Python-native API",
+        "Anyscale managed platform"
+      ],
+      "pricing": {
+        "model": "Open-source + managed platform",
+        "framework": "Free / Open-source",
+        "anyscale": "Pay-as-you-go cloud pricing"
+      },
+      "target_audience": "ML engineers building large-scale distributed AI systems",
+      "maturity": "Production-ready / Mature",
+      "github_stars": "35,000+",
+      "category": "Infrastructure"
+    }
+  ],
+  "emerging_protocols": [
+    {
+      "name": "Model Context Protocol (MCP)",
+      "by": "Anthropic",
+      "description": "Standardizes how agents access tools and external resources"
+    },
+    {
+      "name": "Agent-to-Agent Protocol (A2A)",
+      "by": "Google",
+      "description": "Standardized inter-agent communication and collaboration"
+    },
+    {
+      "name": "Agent Protocol",
+      "by": "LangChain / AI Foundation",
+      "description": "HTTP-based protocol for agent interoperability"
+    }
+  ],
+  "market_categories": {
+    "visual_low_code": ["n8n", "Flowise", "Zapier Agents"],
+    "code_first_sdks": ["LangGraph", "CrewAI", "OpenAI Agents SDK", "Google ADK", "Microsoft Agent Framework", "Agno", "CAMEL-AI", "MetaGPT", "DSPy", "Anthropic Claude Agent SDK"],
+    "enterprise_platforms": ["Amazon Bedrock Agents", "Vertex AI Agent Builder", "Azure Foundry Agent Service", "Kore.ai"]
+  }
+}

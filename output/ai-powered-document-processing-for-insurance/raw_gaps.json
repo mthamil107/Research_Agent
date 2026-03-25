@@ -1,0 +1,147 @@
+{
+  "domain": "AI-powered document processing for insurance",
+  "generated_date": "2026-03-25",
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Affordable IDP for Small MGAs and Wholesalers",
+      "description": "Most AI document processing platforms are priced for enterprise carriers ($50K+ annual minimums). Small MGAs, wholesalers, and independent agencies with lower document volumes lack affordable, purpose-built IDP solutions. Only Docsumo and Surefyre offer SMB-friendly pricing.",
+      "evidence": [
+        "Hyperscience starts at $50K/year minimum",
+        "Most platforms require custom enterprise quotes",
+        "50% of insurance workforce retiring in 15 years increases need for automation at all tiers",
+        "MGA commissions create tight margins requiring affordable solutions"
+      ],
+      "affected_segment": "Small MGAs, wholesalers, independent agencies",
+      "current_alternatives": ["Docsumo", "Surefyre"],
+      "severity": "High"
+    },
+    {
+      "id": "GAP-002",
+      "title": "Comprehensive Regulatory Compliance and Explainable AI",
+      "description": "23+ states have adopted NAIC model bulletin on AI use. Regulators demand explainable AI with audit trails, but most IDP tools offer only basic compliance features. No platform provides comprehensive regulatory compliance tooling with full decision lineage, bias detection, and multi-state compliance tracking out of the box.",
+      "evidence": [
+        "23 states + DC adopted NAIC model bulletin on AI use as of August 2025",
+        "Regulators demanding explainable AI systems",
+        "Most tools rated 'Limited' or 'Basic' on compliance/audit trail",
+        "No tool in the matrix has full explainable AI capability"
+      ],
+      "affected_segment": "All insurers operating in regulated US states",
+      "current_alternatives": ["StackAI (partial)", "InsurNest AI agents (conceptual)"],
+      "severity": "High"
+    },
+    {
+      "id": "GAP-003",
+      "title": "Multilingual Document Processing for Global Insurers",
+      "description": "Global insurers process claims and policies in 40+ languages, yet most IDP platforms have limited or no multi-language support. Non-English documents add 7-10 days to processing. 10-25% of insurance records may be unreliable due to translation issues.",
+      "evidence": [
+        "Insurance companies receive claims in 40+ languages",
+        "Non-English claims add 7-10 days processing time",
+        "10-25% of records unreliable due to language nuances",
+        "EU requires policy documents in each member state's official language",
+        "Only ABBYY, UiPath, and Tungsten offer meaningful multilingual support"
+      ],
+      "affected_segment": "Global/multinational insurers, EU-market insurers",
+      "current_alternatives": ["ABBYY Vantage", "DeepL (translation layer, not IDP)"],
+      "severity": "High"
+    },
+    {
+      "id": "GAP-004",
+      "title": "End-to-End Unified Claims + Underwriting Document Platform",
+      "description": "Current tools are siloed: claims platforms (Sprout.ai, Five Sigma, Tractable) don't do underwriting, and underwriting tools (Pibit, Convr, Federato) don't process claims documents. No single platform handles the full insurance document lifecycle from submission through underwriting through claims with shared intelligence.",
+      "evidence": [
+        "Feature matrix shows clear claims vs. underwriting tool bifurcation",
+        "Sprout.ai, Tractable, Five Sigma = claims only",
+        "Pibit, Convr, Federato = underwriting only",
+        "Only Hyperscience and ABBYY cover both, but as generic IDP not insurance-workflow-native"
+      ],
+      "affected_segment": "Mid-market carriers wanting single-vendor solutions",
+      "current_alternatives": ["Hyperscience (generic)", "ABBYY Vantage (generic)"],
+      "severity": "Medium-High"
+    },
+    {
+      "id": "GAP-005",
+      "title": "Handwritten and Degraded Document Processing",
+      "description": "Insurance operations regularly deal with handwritten FNOL forms, scanned faxes, degraded PDFs, and legacy paper records. Current AI models struggle with inconsistent handwriting, poor scan quality, and non-standard formats.",
+      "evidence": [
+        "Scanned handwritten FNOL forms identified as major pain point",
+        "Data quality cited as biggest challenge by 57% of executives",
+        "Document format inconsistency is a core gap between AI training data and real operations",
+        "74% of insurance companies still rely on old tech / paper processes"
+      ],
+      "affected_segment": "All insurers with legacy paper workflows",
+      "current_alternatives": ["Hyperscience (partial)", "ABBYY (partial)"],
+      "severity": "Medium"
+    },
+    {
+      "id": "GAP-006",
+      "title": "Intelligent Exception Handling and Ambiguity Resolution",
+      "description": "When AI processing encounters missing fields, ambiguous data, or incomplete documents, current systems simply reject and return files, triggering costly bounce-back loops. No platform offers conversational or intelligent disambiguation that resolves issues proactively.",
+      "evidence": [
+        "Automated workflows are unforgiving about missing fields",
+        "Files bounce between queues with repeated requests for reformatted information",
+        "Every bounce adds days or weeks to processing",
+        "Non-standard cases don't slot into rule-based workflows"
+      ],
+      "affected_segment": "Claims departments, underwriting teams",
+      "current_alternatives": ["Five Sigma Clive (partial multi-agent approach)"],
+      "severity": "Medium-High"
+    },
+    {
+      "id": "GAP-007",
+      "title": "Cross-Document Intelligence and Contradiction Detection",
+      "description": "Insurance workflows involve multiple documents per case (applications, medical records, loss runs, police reports, prior policies). No tool comprehensively cross-references all documents in a case to detect contradictions, inconsistencies, or missing correlations across the full document set.",
+      "evidence": [
+        "Underwriters process 50-page risk engineering reports with embedded tables",
+        "Multi-layered slips with inconsistent formatting common",
+        "Loss run reports span multiple policy periods",
+        "Fraud detection requires cross-document correlation"
+      ],
+      "affected_segment": "Complex commercial lines, specialty insurers",
+      "current_alternatives": ["None with comprehensive cross-document intelligence"],
+      "severity": "Medium"
+    },
+    {
+      "id": "GAP-008",
+      "title": "Open Source / Self-Hosted Insurance IDP",
+      "description": "There are no meaningful open-source IDP solutions purpose-built for insurance. Existing open-source projects (Paperless-ngx, openIMIS) are either generic document management or health financing admin tools, not insurance document intelligence platforms.",
+      "evidence": [
+        "GitHub search reveals no insurance-specific IDP open source tools",
+        "Only generic document management (Paperless-ngx) and sample notebooks (AWS, LlamaIndex) exist",
+        "Data sovereignty concerns drive need for self-hosted options",
+        "Insurers in regulated markets may need on-premises deployment"
+      ],
+      "affected_segment": "Security-conscious insurers, regulated markets, cost-sensitive organizations",
+      "current_alternatives": ["Paperless-ngx (generic)", "AWS sample code (DIY)"],
+      "severity": "Medium"
+    },
+    {
+      "id": "GAP-009",
+      "title": "Real-Time Fraud Detection Integrated with Document Processing",
+      "description": "Most IDP platforms extract data but don't perform fraud analysis during ingestion. Fraud detection is typically a separate system. Only Sprout.ai and Five Sigma combine document processing with fraud detection, but neither specializes in document-level forgery or manipulation detection.",
+      "evidence": [
+        "Only 2 of 14 tools have fraud detection capability",
+        "AI hallucinations and weak proxy signals cause false positives",
+        "Fraud detection requires cross-document correlation not available in most tools",
+        "Document forgery detection (altered PDFs, manipulated images) is largely unaddressed"
+      ],
+      "affected_segment": "All insurers, particularly health and auto",
+      "current_alternatives": ["Sprout.ai (partial)", "Five Sigma (partial)"],
+      "severity": "Medium"
+    },
+    {
+      "id": "GAP-010",
+      "title": "Legacy System Integration Without Full Platform Replacement",
+      "description": "74% of insurers rely on legacy tech. Most AI IDP tools require significant platform investment or ecosystem buy-in. Only Roots AI (Guidewire) offers deep integration with a specific legacy platform. There's a gap for lightweight, plug-in IDP layers that work with diverse legacy policy admin and claims systems without requiring migration.",
+      "evidence": [
+        "74% of insurance companies still rely on old tech",
+        "Integration with existing systems cited as major challenge",
+        "Only Roots AI validated for Guidewire specifically",
+        "Most platforms assume greenfield or major transformation projects"
+      ],
+      "affected_segment": "Insurers with legacy Majesco, Duck Creek, Sapiens, or custom systems",
+      "current_alternatives": ["Roots AI (Guidewire only)", "Tungsten (140+ connectors but generic)"],
+      "severity": "Medium-High"
+    }
+  ]
+}
