@@ -1,11 +1,20 @@
 """
-GapFinder — Automated Software Tool Gap Discovery
+GapFinder — Automated Software Tool Gap Discovery (v2)
 
 A research agent that systematically discovers unserved gaps in any
-software domain. Feed it a category, it maps the landscape, finds
-what's missing, validates demand, and outputs a ranked gap report.
+software domain, then reality-checks them against actual competition.
+
+Phase 1 (Stages 1-6): Find and score gaps
+Phase 2 (Stage 7-8): Kill gaps with Competition Reality Check
 
 Uses Claude API with web search for data gathering and analysis.
+
+Usage:
+    python gapfinder.py                          # Scan all default domains (v1 only)
+    python gapfinder.py --v2                     # Full pipeline with reality check
+    python gapfinder.py "AI agent testing"       # Scan specific domain
+    python gapfinder.py --v2 "MCP server tools"  # Specific domain + reality check
+    python gapfinder.py --reality-check          # Run Stage 7 on existing v1 output
 """
 
 import anthropic
@@ -19,8 +28,9 @@ from pathlib import Path
 
 client = anthropic.Anthropic()
 
-MODEL = "claude-sonnet-4-20250514"
+MODEL = os.environ.get("GAPFINDER_MODEL", "claude-sonnet-4-20250514")
 OUTPUT_DIR = Path("output")
+TOP_N_GAPS = int(os.environ.get("GAPFINDER_TOP_N", "20"))
 
 DOMAINS_TO_SCAN = [
     "AI agent testing and evaluation",
@@ -73,14 +83,17 @@ def extract_text_from_response(response) -> str:
     return "\n".join(parts)
 
 
-def call_claude(prompt: str, max_tokens: int = 16000) -> anthropic.types.Message:
+def call_claude(prompt: str, system: str = "", max_tokens: int = 16000) -> anthropic.types.Message:
     """Call Claude with web search enabled."""
-    return client.messages.create(
+    kwargs = dict(
         model=MODEL,
         max_tokens=max_tokens,
         tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": 20}],
         messages=[{"role": "user", "content": prompt}],
     )
+    if system:
+        kwargs["system"] = system
+    return client.messages.create(**kwargs)
 
 
 def git_commit(message: str):
@@ -138,7 +151,6 @@ Return ONLY a JSON object (no other text) in this format:
     data = extract_json_from_response(response)
 
     if not data:
-        # Fallback: save raw text
         data = {"domain": domain, "raw_response": extract_text_from_response(response)}
 
     out_file = out_dir / "landscape.json"
@@ -170,8 +182,7 @@ Return ONLY a JSON object:
   "matrix": {{
     "ToolName": {{
       "feature1": true,
-      "feature2": false,
-      ...
+      "feature2": false
     }}
   }},
   "common_features": ["features most tools have"],
@@ -374,9 +385,7 @@ def stage_6_report(domain: str, ranked: dict, out_dir: Path) -> str:
         score = gap.get("opportunity_score", "N/A")
         lines.append(f"## #{gap.get('rank', '?')}. {gap.get('title', 'Untitled')}")
         lines.append(f"**Opportunity Score:** {score}\n")
-        lines.append(
-            f"| Dimension | Score |"
-        )
+        lines.append("| Dimension | Score |")
         lines.append("| --- | --- |")
         lines.append(f"| Demand | {gap.get('demand_score', '?')}/10 |")
         lines.append(f"| Competition (10=empty) | {gap.get('competition_score', '?')}/10 |")
@@ -407,6 +416,193 @@ def stage_6_report(domain: str, ranked: dict, out_dir: Path) -> str:
     out_file.write_text(report, encoding="utf-8")
     print(f"    -> {out_file}")
     return report
+
+
+# ---------------------------------------------------------------------------
+# Stage 7: Competition Reality Check (v2)
+# ---------------------------------------------------------------------------
+REALITY_CHECK_SYSTEM = """You are a skeptical market analyst. Your job is to DISPROVE \
+that a gap exists, not confirm it. Search aggressively for:
+1. Existing solutions (commercial, open-source, first-party)
+2. Announced solutions (blog posts, changelogs, roadmaps)
+3. Adjacent solutions that could expand into this space
+4. Platform owners fixing it themselves
+
+Assume every gap is already being solved until proven otherwise.
+Your value is in preventing wasted effort, not in optimism."""
+
+
+def stage_7_reality_check(gap: dict, domain: str) -> dict:
+    """Run Competition Reality Check on a single gap."""
+    title = gap.get("title", gap.get("name", "Unknown"))
+    description = gap.get("description", gap.get("what_to_build", ""))
+
+    prompt = f"""Run a Competition Reality Check on this gap:
+
+**Gap:** {title}
+**Domain:** {domain}
+**Thesis:** {description}
+
+Execute these 5 checks:
+
+1. **Direct Competitor Search** — Search at least 5 queries:
+   - "{title} tool 2025 2026"
+   - "{title} open source GitHub"
+   - "{title} startup funding"
+   - "top {title} tools"
+   - "{title} solution platform"
+
+2. **First-Party Fix Detection** — Check if platform owners are solving this:
+   - Anthropic, OpenAI, Google, Cloudflare, AWS, Microsoft changelogs/blogs
+   - Score: None=0, Acknowledged=-10, Beta=-25, GA=-50, Multiple GA=-75
+
+3. **Velocity Analysis** — What % of solutions shipped in last 6 months?
+
+4. **"Top N List" Test** — Search for "top 5 [category] tools 2026" or "best [category] 2026"
+
+5. **Open-Source Saturation** — Search GitHub for repos matching this, last 6 months
+
+Return ONLY a JSON object:
+{{
+  "gap_title": "{title}",
+  "competitors_found": [
+    {{"name": "...", "type": "first-party|startup|oss|enterprise", "maturity": "pre-launch|beta|GA|established", "key_metric": "...", "backed_by": "...", "launch_date": "..."}}
+  ],
+  "competitor_count": 0,
+  "first_party_fix_status": "none|acknowledged|beta|GA|multiple_GA",
+  "first_party_details": "...",
+  "velocity": "slow|accelerating|rapid|solved",
+  "solutions_shipped_6mo": "N/M",
+  "top_n_list_exists": false,
+  "top_n_source": "",
+  "github_repos_6mo": 0,
+  "oss_saturation": "open|early|crowded|saturated",
+  "reality_check_score": 0,
+  "verdict": "PROCEED|DIFFERENTIATE|PIVOT|ABANDON",
+  "differentiation_angle": "If DIFFERENTIATE or PIVOT, what angle would work?",
+  "evidence_urls": ["..."]
+}}
+
+Scoring for reality_check_score:
+  Start at 100
+  Subtract first_party_modifier (0 to -75)
+  Subtract velocity_penalty: -(percentage of solutions from last 6mo * 0.3)
+  Subtract saturation_penalty: -(github_repos_6mo * 3, max -30)
+  Subtract top_n_penalty: -20 if comparison articles exist
+  Floor at 0
+
+Verdicts:
+  reality_check_score > 60: PROCEED
+  reality_check_score 30-60: DIFFERENTIATE
+  reality_check_score 10-30: PIVOT
+  reality_check_score < 10: ABANDON"""
+
+    response = call_claude(prompt, system=REALITY_CHECK_SYSTEM)
+    data = extract_json_from_response(response)
+
+    if not data:
+        data = {
+            "gap_title": title,
+            "raw_response": extract_text_from_response(response),
+            "verdict": "UNKNOWN",
+            "reality_check_score": -1,
+        }
+
+    return data
+
+
+def run_reality_checks(top_gaps: list[dict]) -> list[dict]:
+    """Run Stage 7 reality checks on top gaps."""
+    print(f"\n{'='*60}")
+    print(f"  Stage 7: Competition Reality Check ({len(top_gaps)} gaps)")
+    print(f"{'='*60}")
+
+    results = []
+    for i, gap in enumerate(top_gaps, 1):
+        title = gap.get("title", gap.get("name", "Unknown"))
+        domain = gap.get("domain", "Unknown")
+        print(f"\n  [{i}/{len(top_gaps)}] Reality-checking: {title}")
+        result = stage_7_reality_check(gap, domain)
+
+        # Carry forward original scoring
+        result["original_score"] = gap.get("opportunity_score", 0)
+        result["domain"] = domain
+        results.append(result)
+
+        score = result.get("reality_check_score", "?")
+        verdict = result.get("verdict", "?")
+        print(f"    -> Reality: {score}/100 | Verdict: {verdict}")
+
+    return results
+
+
+# ---------------------------------------------------------------------------
+# Stage 8: Final Report (v2)
+# ---------------------------------------------------------------------------
+def stage_8_final_report(reality_results: list[dict]):
+    """Generate the v2 master report with reality-checked scores."""
+    print("\n  Stage 8: Final Report (v2)...")
+
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    now = datetime.now().strftime("%Y-%m-%d %H:%M")
+
+    # Save raw reality check data
+    rc_file = OUTPUT_DIR / "reality_checks.json"
+    rc_file.write_text(json.dumps(reality_results, indent=2), encoding="utf-8")
+
+    # Count verdicts
+    verdicts = {"PROCEED": 0, "DIFFERENTIATE": 0, "PIVOT": 0, "ABANDON": 0, "UNKNOWN": 0}
+    for r in reality_results:
+        v = r.get("verdict", "UNKNOWN")
+        verdicts[v] = verdicts.get(v, 0) + 1
+
+    lines = [
+        "# GapFinder v2 — Competition Reality Check Report",
+        f"Generated: {now}",
+        f"Reality-checked **{len(reality_results)}** top gaps\n",
+        "## Verdict Summary\n",
+        "| Verdict | Count |",
+        "| --- | --- |",
+    ]
+    for v, c in verdicts.items():
+        if c > 0:
+            lines.append(f"| {v} | {c} |")
+    lines.append("")
+
+    # Scorecard table
+    lines.append("## Full Scorecard\n")
+    lines.append("| # | Gap | Domain | Original | Reality | Verdict |")
+    lines.append("| --- | --- | --- | --- | --- | --- |")
+    for i, r in enumerate(reality_results, 1):
+        title = r.get("gap_title", "Unknown")
+        domain = r.get("domain", "?")
+        orig = r.get("original_score", "?")
+        rc = r.get("reality_check_score", "?")
+        verdict = r.get("verdict", "?")
+        lines.append(f"| {i} | {title} | {domain} | {orig} | {rc}/100 | {verdict} |")
+    lines.append("")
+
+    # Detail cards for non-ABANDON gaps
+    survivors = [r for r in reality_results if r.get("verdict") in ("PROCEED", "DIFFERENTIATE")]
+    if survivors:
+        lines.append("## Survivors (PROCEED / DIFFERENTIATE)\n")
+        for r in survivors:
+            lines.append(f"### {r.get('gap_title', 'Unknown')}")
+            lines.append(f"- **Domain:** {r.get('domain', '?')}")
+            lines.append(f"- **Reality Score:** {r.get('reality_check_score', '?')}/100")
+            lines.append(f"- **Verdict:** {r.get('verdict', '?')}")
+            lines.append(f"- **Competitors found:** {r.get('competitor_count', len(r.get('competitors_found', [])))}")
+            lines.append(f"- **First-party fix:** {r.get('first_party_fix_status', '?')}")
+            lines.append(f"- **Velocity:** {r.get('velocity', '?')}")
+            if r.get("differentiation_angle"):
+                lines.append(f"- **Angle:** {r['differentiation_angle']}")
+            lines.append("")
+
+    report = "\n".join(lines)
+    report_file = OUTPUT_DIR / "master_gap_report_v2.md"
+    report_file.write_text(report, encoding="utf-8")
+    git_commit("Stage 8: v2 reality-checked report")
+    print(f"    -> {report_file}")
 
 
 # ---------------------------------------------------------------------------
@@ -447,12 +643,13 @@ def scan_domain(domain: str) -> dict:
     return ranked
 
 
-def run_full_scan(domains: list[str] | None = None):
-    """Scan all domains and generate a master report."""
+def run_full_scan(domains: list[str] | None = None, run_v2: bool = False):
+    """Scan all domains and generate master report. Optionally run v2 reality check."""
     domains = domains or DOMAINS_TO_SCAN
     all_gaps = []
 
-    print(f"GapFinder — Scanning {len(domains)} domain(s)")
+    print(f"GapFinder {'v2' if run_v2 else 'v1'} — Scanning {len(domains)} domain(s)")
+    print(f"Model: {MODEL}")
     print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M')}\n")
 
     for domain in domains:
@@ -464,18 +661,18 @@ def run_full_scan(domains: list[str] | None = None):
     # Sort all gaps across domains by opportunity score
     all_gaps.sort(key=lambda g: g.get("opportunity_score", 0), reverse=True)
 
-    # Master report
+    # Master report (v1)
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     now = datetime.now().strftime("%Y-%m-%d %H:%M")
     lines = [
-        f"# GapFinder Master Report",
+        "# GapFinder Master Report",
         f"Generated: {now}",
         f"Scanned **{len(domains)}** domains | Found **{len(all_gaps)}** total gaps\n",
         "---\n",
-        "## Top 20 Gaps by Opportunity Score\n",
+        f"## Top {TOP_N_GAPS} Gaps by Opportunity Score\n",
     ]
 
-    for i, gap in enumerate(all_gaps[:20], 1):
+    for i, gap in enumerate(all_gaps[:TOP_N_GAPS], 1):
         lines.append(f"### {i}. {gap.get('title', 'Untitled')}")
         lines.append(f"- **Domain:** {gap.get('domain', 'N/A')}")
         lines.append(f"- **Opportunity Score:** {gap.get('opportunity_score', 'N/A')}")
@@ -501,20 +698,59 @@ def run_full_scan(domains: list[str] | None = None):
     git_commit("All gaps ranked data (JSON)")
 
     print(f"\n{'='*60}")
-    print(f"  DONE — {len(all_gaps)} gaps found across {len(domains)} domains")
+    print(f"  Phase 1 DONE — {len(all_gaps)} gaps found across {len(domains)} domains")
     print(f"  Master report: {master_file}")
-    print(f"  Raw data: {raw_file}")
     print(f"{'='*60}")
+
+    # Phase 2: Reality Check (v2)
+    if run_v2:
+        top_gaps = all_gaps[:TOP_N_GAPS]
+        reality_results = run_reality_checks(top_gaps)
+        stage_8_final_report(reality_results)
+
+        proceed = sum(1 for r in reality_results if r.get("verdict") == "PROCEED")
+        diff = sum(1 for r in reality_results if r.get("verdict") == "DIFFERENTIATE")
+        abandon = sum(1 for r in reality_results if r.get("verdict") == "ABANDON")
+        print(f"\n{'='*60}")
+        print(f"  Phase 2 DONE — Reality Check Complete")
+        print(f"  PROCEED: {proceed} | DIFFERENTIATE: {diff} | ABANDON: {abandon}")
+        print(f"{'='*60}")
+
+
+def run_reality_check_only():
+    """Run Stage 7-8 on existing v1 output (all_gaps_ranked.json)."""
+    raw_file = OUTPUT_DIR / "all_gaps_ranked.json"
+    if not raw_file.exists():
+        print(f"ERROR: {raw_file} not found. Run v1 scan first.")
+        sys.exit(1)
+
+    all_gaps = json.loads(raw_file.read_text(encoding="utf-8"))
+    print(f"Loaded {len(all_gaps)} gaps from {raw_file}")
+
+    top_gaps = all_gaps[:TOP_N_GAPS]
+    reality_results = run_reality_checks(top_gaps)
+    stage_8_final_report(reality_results)
 
 
 # ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
-if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        # Scan specific domains from CLI arguments
-        domains = sys.argv[1:]
-        run_full_scan(domains)
+def main():
+    args = sys.argv[1:]
+
+    run_v2 = "--v2" in args
+    reality_only = "--reality-check" in args
+
+    # Remove flags from args
+    domains = [a for a in args if not a.startswith("--")]
+
+    if reality_only:
+        run_reality_check_only()
+    elif domains:
+        run_full_scan(domains, run_v2=run_v2)
     else:
-        # Scan all default domains
-        run_full_scan()
+        run_full_scan(run_v2=run_v2)
+
+
+if __name__ == "__main__":
+    main()

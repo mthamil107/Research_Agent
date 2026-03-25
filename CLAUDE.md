@@ -1,36 +1,33 @@
 # GapFinder — Automated Software Tool Gap Discovery
 
 ## What This Is
-A research agent that discovers unserved gaps in software domains using Claude API + web search.
-See `GAPFINDER-SPEC.md` for the full architecture and design rationale.
+A research agent that discovers unserved gaps in software domains using Claude API + web search,
+then reality-checks them against actual competition. See README.md for full documentation.
 
 ## Quick Start
 
 ```bash
-# Install dependencies
 pip install -r requirements.txt
-
-# Set your API key
 export ANTHROPIC_API_KEY=sk-ant-...
 
-# Scan all default domains
-python gapfinder.py
-
-# Scan specific domains
-python gapfinder.py "AI agent testing" "MCP server tools"
+python gapfinder.py "AI agent testing"       # v1: find gaps
+python gapfinder.py --v2 "AI agent testing"  # v2: find + reality-check
+python gapfinder.py --reality-check          # v2: reality-check existing results
 ```
 
 ## Project Structure
-- `gapfinder.py` — Main pipeline (6 stages: landscape -> matrix -> gaps -> validate -> score -> report)
+- `gapfinder.py` — Main pipeline (8 stages: landscape -> matrix -> gaps -> validate -> score -> report -> reality check -> final report)
 - `output/` — Generated reports and intermediate JSON (per-domain subdirectories)
-- `GAPFINDER-SPEC.md` — Full specification and domain list
+- `GAPFINDER-SPEC.md` — v1 specification and domain list
+- `GAPFINDER-V2-SPEC.md` — v2 Competition Reality Check methodology
 
-## Pipeline Stages
-1. **Landscape Scan** — Find all tools via web search
-2. **Feature Matrix** — Build tool x feature comparison
-3. **Gap Identification** — Find missing features, segments, workflows
-4. **Demand Validation** — Search Reddit/HN/Twitter/GitHub for demand signals
-5. **Scoring & Ranking** — Score gaps on demand/competition/feasibility
-6. **Report Generation** — Markdown report with top 10 gaps per domain
+## Pipeline
+- **Phase 1 (Stages 1-6):** Find and score gaps
+- **Phase 2 (Stages 7-8):** Kill gaps with Competition Reality Check
 
 Each stage saves JSON output and commits to git automatically.
+
+## Environment Variables
+- `ANTHROPIC_API_KEY` — Required
+- `GAPFINDER_MODEL` — Override model (default: claude-sonnet-4-20250514)
+- `GAPFINDER_TOP_N` — Number of top gaps to reality-check (default: 20)
