@@ -1,0 +1,430 @@
+{
+  "meta": {
+    "generated_at": "2026-03-30",
+    "methodology": "Competition Reality Check v3",
+    "scoring": "Start at 100, subtract: first_party_modifier(0-75), velocity_penalty(velocity%*0.3), saturation_penalty(repos*3 max 30), top_n_penalty(20 if exists). Floor 0.",
+    "verdict_thresholds": ">60 PROCEED, 30-60 DIFFERENTIATE, 10-30 PIVOT, <10 ABANDON",
+    "gaps_checked": 5
+  },
+  "reality_checks": [
+    {
+      "gap_id": 1,
+      "gap_title": "Unified Context Budget Manager",
+      "original_score": 6.48,
+      "domain": "Agent Context Engineering",
+      "competitors_found": [
+        {
+          "name": "Anthropic Claude Agent SDK (auto-compact + context editing)",
+          "type": "first-party",
+          "maturity": "GA",
+          "key_metric": "Built-in compaction and context editing that auto-manages token budget in agent loops"
+        },
+        {
+          "name": "OpenAI Agents SDK (session trimming + usage tracking)",
+          "type": "first-party",
+          "maturity": "GA",
+          "key_metric": "Built-in session memory with trimming/compression; aggregated token usage tracking per run"
+        },
+        {
+          "name": "LangChain Context Engineering Module",
+          "type": "framework",
+          "maturity": "GA",
+          "key_metric": "Progressive disclosure, compression, routing, tool management patterns; dedicated context docs"
+        },
+        {
+          "name": "MCP (Model Context Protocol)",
+          "type": "standard/protocol",
+          "maturity": "GA",
+          "key_metric": "Industry standard (Linux Foundation); progressive discovery reduces tool token usage by 98.7%"
+        },
+        {
+          "name": "know-cli (Token Budget Allocator)",
+          "type": "open-source tool",
+          "maturity": "beta",
+          "key_metric": "PyPI package with --context-budget flag; allocates 60% code, 15% imports, 15% summaries, 10% overview"
+        },
+        {
+          "name": "Manus Context Engine",
+          "type": "proprietary",
+          "maturity": "GA",
+          "key_metric": "Production context engineering with documented token allocation strategies"
+        },
+        {
+          "name": "Context-Engineering-for-Multi-Agent-Systems (GitHub)",
+          "type": "open-source",
+          "maturity": "active",
+          "key_metric": "Universal Context Engine with token & cost analytics; updated March 2026"
+        },
+        {
+          "name": "Agent-Skills-for-Context-Engineering (GitHub)",
+          "type": "open-source",
+          "maturity": "active",
+          "key_metric": "Comprehensive agent skills collection for context management in production"
+        }
+      ],
+      "competitor_count": 8,
+      "first_party_fix_status": "GA",
+      "first_party_details": "Both Anthropic (auto-compact, context editing) and OpenAI (session trimming, usage tracking) have GA built-in context management. Claude Agent SDK auto-summarizes at 95% capacity. LangChain has dedicated context engineering docs.",
+      "velocity": "rapid",
+      "velocity_details": "MCP adopted by all major providers and donated to Linux Foundation. Anthropic shipped context editing in late 2025. Multiple context engineering blog posts and tools in Q1 2026. 'State of Context Engineering in 2026' articles exist.",
+      "github_repos_6mo": 6,
+      "top_n_list_exists": false,
+      "scoring_breakdown": {
+        "starting_score": 100,
+        "first_party_penalty": -65,
+        "first_party_rationale": "Both Anthropic AND OpenAI have GA solutions. Claude Agent SDK auto-compact is essentially a built-in context budget manager. MCP progressive discovery handles tool context allocation.",
+        "velocity_penalty": -24,
+        "velocity_rationale": "~80% of the problem space addressed in last 6 months; 80*0.3=24",
+        "saturation_penalty": -18,
+        "saturation_rationale": "6 relevant repos * 3 = 18",
+        "top_n_penalty": 0,
+        "top_n_rationale": "No specific 'top N context budget managers' list found"
+      },
+      "reality_check_score": 0,
+      "verdict": "ABANDON",
+      "differentiation_angle": "The first-party solutions from Anthropic and OpenAI directly address this. Claude Agent SDK's auto-compact is literally a unified context budget manager. MCP's progressive discovery handles tool context allocation. LangChain provides the middleware layer. The only remaining niche might be cross-provider context budget orchestration (managing budgets across Claude + GPT + Gemini in a single workflow), but this is an extremely narrow use case.",
+      "evidence_urls": [
+        "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+        "https://platform.claude.com/cookbook/tool-use-automatic-context-compaction",
+        "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+        "https://openai.github.io/openai-agents-python/context/",
+        "https://docs.langchain.com/oss/python/langchain/context-engineering",
+        "https://modelcontextprotocol.io/specification/2025-11-25",
+        "https://github.com/Denis2054/Context-Engineering-for-Multi-Agent-Systems",
+        "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+        "https://www.newsletter.swirlai.com/p/state-of-context-engineering-in-2026"
+      ]
+    },
+    {
+      "gap_id": 2,
+      "gap_title": "Human-in-the-Loop Orchestration for Browser Agents",
+      "original_score": 6.48,
+      "domain": "Browser Automation",
+      "competitors_found": [
+        {
+          "name": "Browserbase Stagehand (Live View + action preview)",
+          "type": "commercial platform",
+          "maturity": "GA",
+          "key_metric": "Live View iFrame for real-time monitoring; action preview before execution; human browser control takeover"
+        },
+        {
+          "name": "OpenAI Agents SDK (human-in-the-loop)",
+          "type": "first-party SDK",
+          "maturity": "GA",
+          "key_metric": "Built-in approval-based HITL with RunToolApprovalItem; pause/resume/approve/reject workflow"
+        },
+        {
+          "name": "LangGraph (interrupt() function)",
+          "type": "framework",
+          "maturity": "GA",
+          "key_metric": "interrupt() pauses graph mid-execution for human input; structured approval workflows"
+        },
+        {
+          "name": "Browser Use (agent-sdk)",
+          "type": "open-source",
+          "maturity": "active",
+          "key_metric": "81k+ GitHub stars; HITL as feature request/implementation; 89.1% WebVoyager benchmark"
+        },
+        {
+          "name": "Cloudflare Agents (human-in-the-loop)",
+          "type": "platform",
+          "maturity": "GA",
+          "key_metric": "Dedicated HITL docs for agent workflows"
+        },
+        {
+          "name": "Vercel AI SDK 6",
+          "type": "SDK",
+          "maturity": "GA",
+          "key_metric": "Tool execution approval for HITL control; improved in SDK 6"
+        },
+        {
+          "name": "AgentScope",
+          "type": "open-source",
+          "maturity": "active",
+          "key_metric": "Built-in ReAct agent with HITL steering, memory, planning"
+        },
+        {
+          "name": "Permit.io HITL for AI Agents",
+          "type": "commercial",
+          "maturity": "GA",
+          "key_metric": "Best practices framework for HITL in agent workflows"
+        }
+      ],
+      "competitor_count": 8,
+      "first_party_fix_status": "GA",
+      "first_party_details": "OpenAI Agents SDK has full approval-based HITL with pause/resume. Vercel AI SDK 6 has tool execution approval. Cloudflare has dedicated HITL docs. These are first-party solutions from major platforms.",
+      "velocity": "rapid",
+      "velocity_details": "HITL has become a standard security feature across all browser agent frameworks. Multiple 'Top 10 Browser Agents 2026' lists exist. Stagehand Live View, OpenAI HITL, LangGraph interrupt() all shipped/matured in last 6 months.",
+      "github_repos_6mo": 8,
+      "top_n_list_exists": true,
+      "top_n_details": "Multiple 'top N browser agent' lists exist: '11 Best AI Browser Agents in 2026' (Firecrawl), '10 Best Agentic Browsers' (BrightData), 'Top 10 Browser AI Agents 2026' (o-mega), 'Best 30+ Open Source Web Agents' (aimultiple)",
+      "scoring_breakdown": {
+        "starting_score": 100,
+        "first_party_penalty": -55,
+        "first_party_rationale": "OpenAI, Vercel, Cloudflare all have GA HITL. Stagehand has Live View takeover. However, no single tool combines failure detection + auto-escalation + approval in one browser-specific SDK.",
+        "velocity_penalty": -21,
+        "velocity_rationale": "~70% shipped in last 6 months; 70*0.3=21",
+        "saturation_penalty": -24,
+        "saturation_rationale": "8 repos * 3 = 24",
+        "top_n_penalty": -20,
+        "top_n_rationale": "Multiple 'top N browser agent' comparison articles exist"
+      },
+      "reality_check_score": 0,
+      "verdict": "ABANDON",
+      "differentiation_angle": "The HITL pattern is now table-stakes across all agent frameworks. Stagehand's Live View provides browser-specific human takeover. OpenAI's approval workflow handles pause/resume. LangGraph's interrupt() handles arbitrary human checkpoints. The thesis that 'no SDK provides failure detection + human takeover + approval workflows' is factually incorrect as of 2026. The space is saturated with solutions.",
+      "evidence_urls": [
+        "https://openai.github.io/openai-agents-js/guides/human-in-the-loop/",
+        "https://www.browserbase.com/blog/ai-web-agent-sdk",
+        "https://developers.cloudflare.com/agents/concepts/human-in-the-loop/",
+        "https://ai-sdk.dev/cookbook/next/human-in-the-loop",
+        "https://github.com/browser-use/agent-sdk",
+        "https://www.firecrawl.dev/blog/best-browser-agents",
+        "https://www.permit.io/blog/human-in-the-loop-for-ai-agents-best-practices-frameworks-use-cases-and-demo",
+        "https://github.com/browser-use/browser-use/issues/221"
+      ]
+    },
+    {
+      "gap_id": 3,
+      "gap_title": "Developer-Friendly Model Conversion & Optimization Hub",
+      "original_score": 6.48,
+      "domain": "On-Device/Edge SLM",
+      "competitors_found": [
+        {
+          "name": "HuggingFace Optimum",
+          "type": "open-source framework",
+          "maturity": "GA",
+          "key_metric": "Unified API for ONNX export, quantization, graph optimization; supports ONNX Runtime, OpenVINO, ExecuTorch backends"
+        },
+        {
+          "name": "llama.cpp convert/quantize scripts",
+          "type": "open-source",
+          "maturity": "GA",
+          "key_metric": "HF-to-GGUF conversion + quantization (2-8 bit); gguf-my-repo one-click HuggingFace tool"
+        },
+        {
+          "name": "NVIDIA TensorRT / TensorRT Edge-LLM",
+          "type": "first-party",
+          "maturity": "GA",
+          "key_metric": "HF checkpoint to ONNX to TensorRT pipeline; Edge-LLM for Jetson/DRIVE platforms"
+        },
+        {
+          "name": "RunAnywhere",
+          "type": "commercial platform",
+          "maturity": "GA",
+          "key_metric": "Modular SDKs supporting GGUF, ONNX, CoreML/MLX backends; OTA model updates; enterprise control plane"
+        },
+        {
+          "name": "Apple coremltools",
+          "type": "first-party",
+          "maturity": "GA",
+          "key_metric": "Converts TorchScript, SavedModel, ONNX, Keras to .mlmodel"
+        },
+        {
+          "name": "Intel OpenVINO",
+          "type": "first-party",
+          "maturity": "GA",
+          "key_metric": "Model optimization + quantization for Intel hardware; integrated with HF Optimum"
+        },
+        {
+          "name": "UniQL (Unified Quantization + Low-rank)",
+          "type": "research/open-source",
+          "maturity": "beta",
+          "key_metric": "One-shot cloud quantization with on-device configurable pruning; supports Transformers, SSMs, hybrid models"
+        }
+      ],
+      "competitor_count": 7,
+      "first_party_fix_status": "GA",
+      "first_party_details": "HuggingFace Optimum is essentially the unified conversion hub. NVIDIA provides TensorRT conversion. Apple provides coremltools. Intel provides OpenVINO. Each major hardware vendor has their own conversion tool, and HF Optimum integrates several.",
+      "velocity": "rapid",
+      "velocity_details": "NVIDIA shipped TensorRT Edge-LLM in 2025-2026. RunAnywhere emerged as a multi-format platform. HuggingFace gguf-my-repo simplifies GGUF conversion. UniQL published. Multiple 'choosing the right format' guides published in 2026.",
+      "github_repos_6mo": 5,
+      "top_n_list_exists": true,
+      "top_n_details": "'Top Edge AI Solutions in 2026' (RunAnywhere), 'Top 10 Edge AI Frameworks for 2025', comparison guides on GGUF vs GPTQ vs AWQ",
+      "scoring_breakdown": {
+        "starting_score": 100,
+        "first_party_penalty": -55,
+        "first_party_rationale": "HuggingFace Optimum is the de facto hub. Each vendor (NVIDIA, Apple, Intel) has GA conversion tools. RunAnywhere consolidates multi-format. But no single tool does ALL formats with auto-quantization in one click.",
+        "velocity_penalty": -18,
+        "velocity_rationale": "~60% improvement in last 6 months; 60*0.3=18",
+        "saturation_penalty": -15,
+        "saturation_rationale": "5 repos * 3 = 15",
+        "top_n_penalty": -20,
+        "top_n_rationale": "Multiple comparison articles and 'top N' edge AI lists exist"
+      },
+      "reality_check_score": 0,
+      "verdict": "ABANDON",
+      "differentiation_angle": "HuggingFace Optimum already serves as the conversion hub for most formats. The remaining gap (a true 'one-click convert to ALL formats simultaneously') is technically possible but commercially weak: developers typically target 1-2 deployment formats, not all simultaneously. RunAnywhere already offers multi-format SDK support. The value proposition is too narrow against entrenched vendor tools.",
+      "evidence_urls": [
+        "https://github.com/huggingface/optimum",
+        "https://huggingface.co/docs/optimum/en/exporters/onnx/usage_guides/export_a_model",
+        "https://huggingface.co/docs/hub/gguf",
+        "https://github.com/NVIDIA/TensorRT-Edge-LLM",
+        "https://www.runanywhere.ai/blog/top-edge-ai-solutions-2026",
+        "https://www.index.dev/skill-vs-skill/ai-gptq-vs-awq-vs-gguf",
+        "https://v-chandra.github.io/on-device-llms/"
+      ]
+    },
+    {
+      "gap_id": 4,
+      "gap_title": "Unified Function Calling Data Format & Converter",
+      "original_score": 6.48,
+      "domain": "Function Calling Training for SLMs",
+      "competitors_found": [
+        {
+          "name": "xLAM (Salesforce) - standardized trajectory format",
+          "type": "open-source framework",
+          "maturity": "GA",
+          "key_metric": "Aggregates agent trajectories from distinct environments into consistent format; #1 on Berkeley Function Calling Leaderboard"
+        },
+        {
+          "name": "Gorilla / BFCL (Berkeley Function Calling Leaderboard)",
+          "type": "open-source benchmark + tools",
+          "maturity": "GA",
+          "key_metric": "BFCL V4 Agentic with standardized evaluation; format sensitivity evaluation"
+        },
+        {
+          "name": "ToolMind unified dataset",
+          "type": "research dataset",
+          "maturity": "published",
+          "key_metric": "Unifies xlam-60k, When2Call, glaive-v2, ToolACE, BUTTONInstruct, APIGen-MT-5k, Tau-bench into single format"
+        },
+        {
+          "name": "TRL (HuggingFace) tool calling training support",
+          "type": "first-party library",
+          "maturity": "GA",
+          "key_metric": "Native fine-tuning support for custom tools since trl 0.19; standardized conversation format with tool_calls field"
+        },
+        {
+          "name": "LLaMA-Factory format conversion (Alpaca/ShareGPT/ChatML)",
+          "type": "open-source",
+          "maturity": "GA",
+          "key_metric": "standardize_sharegpt function; supports Alpaca, ShareGPT, ChatML formats with field mapping"
+        },
+        {
+          "name": "Unsloth datasets guide",
+          "type": "open-source + docs",
+          "maturity": "GA",
+          "key_metric": "Comprehensive dataset format guide with conversion utilities for function calling training"
+        },
+        {
+          "name": "Granite-FunctionCalling (IBM)",
+          "type": "research + model",
+          "maturity": "published",
+          "key_metric": "Repurposes datasets by re-instructing for function calling and unifying output schema to structured JSON"
+        },
+        {
+          "name": "Unified Tool Integration Protocol (arxiv 2508.02979)",
+          "type": "research paper",
+          "maturity": "published",
+          "key_metric": "Protocol-agnostic approach to function calling across OpenAI, Anthropic, Google formats"
+        }
+      ],
+      "competitor_count": 8,
+      "first_party_fix_status": "GA",
+      "first_party_details": "HuggingFace TRL has native tool calling training support since v0.19. xLAM provides standardized format. ToolMind already unifies 7+ datasets. MCP provides a standard tool interface protocol. LLaMA-Factory handles format conversion.",
+      "velocity": "rapid",
+      "velocity_details": "TRL v0.19+ added native tool calling support. ToolMind unified 7 datasets. xLAM hit #1 on BFCL. BFCL V4 Agentic released. Unified Tool Integration paper published. ~70% of problem solved in last 6 months.",
+      "github_repos_6mo": 7,
+      "top_n_list_exists": false,
+      "scoring_breakdown": {
+        "starting_score": 100,
+        "first_party_penalty": -50,
+        "first_party_rationale": "HuggingFace TRL has native support. xLAM standardizes formats. ToolMind unifies datasets. But no single 'universal converter CLI' exists that auto-converts between all formats bidirectionally.",
+        "velocity_penalty": -21,
+        "velocity_rationale": "~70% shipped in last 6 months; 70*0.3=21",
+        "saturation_penalty": -21,
+        "saturation_rationale": "7 repos * 3 = 21",
+        "top_n_penalty": 0,
+        "top_n_rationale": "No 'top N function calling data converters' list found"
+      },
+      "reality_check_score": 8,
+      "verdict": "ABANDON",
+      "differentiation_angle": "The thesis is largely disproven. TRL handles training format natively. xLAM and ToolMind have already unified major datasets. LLaMA-Factory converts between Alpaca/ShareGPT/ChatML. The remaining narrow gap -- a CLI tool that bidirectionally converts between ALL provider-specific function calling schemas -- is a utility, not a product. The academic paper on Unified Tool Integration shows the research community considers this largely solved at the protocol level via MCP.",
+      "evidence_urls": [
+        "https://github.com/SalesforceAIResearch/xLAM",
+        "https://github.com/ShishirPatil/gorilla",
+        "https://arxiv.org/html/2511.15718v2",
+        "https://huggingface.co/docs/trl/en/rewards",
+        "https://docs.unsloth.ai/get-started/fine-tuning-llms-guide/datasets-guide",
+        "https://arxiv.org/html/2508.02979v1",
+        "https://github.com/Applied-Machine-Learning-Lab/Awesome-Function-Callings",
+        "https://docs.anyscale.com/llm/fine-tuning/data-preparation"
+      ]
+    },
+    {
+      "gap_id": 5,
+      "gap_title": "Reward Function Marketplace",
+      "original_score": 5.76,
+      "domain": "RL for SLM Reasoning",
+      "competitors_found": [
+        {
+          "name": "TRL trl.rewards module (built-in reward functions)",
+          "type": "first-party library",
+          "maturity": "GA",
+          "key_metric": "Built-in composable reward functions: accuracy_reward, reasoning_accuracy_reward, think_format_reward, get_soft_overlong_punishment; supports weighted sum of multiple rewards"
+        },
+        {
+          "name": "rLLM framework",
+          "type": "open-source",
+          "maturity": "active",
+          "key_metric": "Reward functions scoring results with multiple RL algorithms (GRPO, REINFORCE, RLOO, rejection sampling)"
+        },
+        {
+          "name": "Eureka (NVIDIA)",
+          "type": "research + open-source",
+          "maturity": "published",
+          "key_metric": "LLM-generated reward functions that outperform human-engineered rewards; evolutionary optimization over reward code"
+        },
+        {
+          "name": "Text2Reward",
+          "type": "research",
+          "maturity": "published",
+          "key_metric": "Automated dense reward function generation from natural language descriptions"
+        },
+        {
+          "name": "RLHF-Reward-Modeling (RLHFlow)",
+          "type": "open-source",
+          "maturity": "active",
+          "key_metric": "Recipes to train reward models for RLHF; Decision-Tree-Reward achieving 95.4% on RewardBench"
+        },
+        {
+          "name": "awesome-RLVR (OpenDILab)",
+          "type": "curated list",
+          "maturity": "active",
+          "key_metric": "Curated list of RLVR resources; continually updated"
+        }
+      ],
+      "competitor_count": 6,
+      "first_party_fix_status": "GA",
+      "first_party_details": "HuggingFace TRL v1.0 has a built-in trl.rewards module with composable reward functions and weighted sum support. GRPOTrainer natively supports multiple reward functions. This is essentially a mini reward function registry within the de facto standard RL training library.",
+      "velocity": "accelerating",
+      "velocity_details": "TRL shipped trl.rewards module with composable functions. RLVR became a major paradigm. Eureka showed LLMs can auto-generate reward functions (potentially obsoleting a marketplace). RewardBench 2 released. ~50% of problem addressed in last 6 months.",
+      "github_repos_6mo": 5,
+      "top_n_list_exists": false,
+      "scoring_breakdown": {
+        "starting_score": 100,
+        "first_party_penalty": -40,
+        "first_party_rationale": "TRL has built-in composable rewards but only 4 functions. Not a full marketplace. However, Eureka's approach of LLM-generated rewards may make a marketplace unnecessary.",
+        "velocity_penalty": -15,
+        "velocity_rationale": "~50% addressed in last 6 months; 50*0.3=15",
+        "saturation_penalty": -15,
+        "saturation_rationale": "5 repos * 3 = 15",
+        "top_n_penalty": 0,
+        "top_n_rationale": "No 'top N reward function' marketplace list found"
+      },
+      "reality_check_score": 30,
+      "verdict": "DIFFERENTIATE",
+      "differentiation_angle": "TRL's trl.rewards module has only 4 built-in functions -- there IS room for a community-contributed registry of tested, domain-specific reward functions (code quality, safety, factuality, citation accuracy, SQL correctness, etc.). However, Eureka and Text2Reward show that LLMs can auto-generate reward functions, which undermines the marketplace model. The viable angle is a curated, benchmarked registry with standardized evaluation metrics (like RewardBench scores) for each reward function, integrated as a TRL plugin. Focus on RLVR verifiers for non-math/code domains where the 'verifier problem' remains unsolved.",
+      "evidence_urls": [
+        "https://huggingface.co/docs/trl/en/rewards",
+        "https://github.com/huggingface/trl",
+        "https://github.com/rllm-org/rllm",
+        "https://eureka-research.github.io/",
+        "https://github.com/RLHFlow/RLHF-Reward-Modeling",
+        "https://github.com/opendilab/awesome-RLVR",
+        "https://subhadipmitra.com/blog/2026/rlvr-beyond-math-code/",
+        "https://text-to-reward.github.io/"
+      ]
+    }
+  ]
+}

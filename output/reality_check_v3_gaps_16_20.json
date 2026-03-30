@@ -1,0 +1,402 @@
+{
+  "meta": {
+    "generated": "2026-03-30",
+    "methodology": "Competition Reality Check v3 — Start at 100, subtract penalties for each competitor/solution found",
+    "scoring": ">60 PROCEED | 30-60 DIFFERENTIATE | 10-30 PIVOT | <10 ABANDON"
+  },
+  "reality_checks": [
+    {
+      "gap_id": 16,
+      "gap_title": "Budget-Constrained Adaptive Routing Optimizer",
+      "original_score": 5.12,
+      "domain": "Model Routing",
+      "thesis": "No router dynamically optimizing quality within a cost budget using contextual bandits",
+      "competitors_found": [
+        {
+          "name": "PILOT (Adaptive LLM Routing under Budget Constraints)",
+          "url": "https://arxiv.org/abs/2508.21141",
+          "description": "Published at EMNLP 2025 Findings. A novel LinUCB extension that models LLM routing as a contextual bandit problem with an online cost policy modeled as a multi-choice knapsack problem. Uses shared embedding space for queries and LLMs, learned from human preference data and refined through online bandit feedback. This is EXACTLY the thesis — adaptive routing under budget constraints using contextual bandits.",
+          "threat_level": "CRITICAL",
+          "penalty": -30
+        },
+        {
+          "name": "BaRP (Bandit-feedback Routing with Preferences)",
+          "url": "https://arxiv.org/abs/2510.07429",
+          "description": "Published October 2025. Trains under the same partial-feedback restriction as deployment (bandit feedback), while supporting preference-tunable inference where operators can dial the performance/cost trade-off at test time without retraining. Improves average score by 16.84% while reducing cost by 50% compared to baselines.",
+          "threat_level": "CRITICAL",
+          "penalty": -25
+        },
+        {
+          "name": "LLM Bandit (Cost-Efficient LLM Generation via Preference-Conditioned Dynamic Routing)",
+          "url": "https://arxiv.org/abs/2502.02743",
+          "description": "February 2025. Preference-conditioned dynamic routing mechanism allowing users to specify quality-cost preferences at inference time. Customizable balance between performance and cost.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "OmniRouter",
+          "url": "https://arxiv.org/html/2502.20576v5",
+          "description": "Budget and Performance Controllable Multi-LLM Routing. Two-stage approach with hybrid predictor estimating model capabilities and costs, plus constrained optimizer minimizing costs while satisfying performance requirements. Achieves 6.30% higher accuracy while reducing costs by 10.15%.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "Martian Router",
+          "url": "https://route.withmartian.com/",
+          "description": "Commercial LLM router that dynamically selects the best model per query. Reports up to 98% cost savings. Accenture invested in Martian in 2025. Now includes model compliance features. Production-grade service with enterprise adoption.",
+          "threat_level": "HIGH",
+          "penalty": -12
+        },
+        {
+          "name": "NotDiamond",
+          "url": "https://www.notdiamond.ai/",
+          "description": "AI model router that automatically determines the best-suited LLM per query. Reports 10x cost savings. Also powers OpenRouter's Auto Router. Maintains awesome-ai-model-routing curated list on GitHub.",
+          "threat_level": "HIGH",
+          "penalty": -10
+        },
+        {
+          "name": "RouteLLM (LMSYS)",
+          "url": "https://github.com/lm-sys/RouteLLM",
+          "description": "Open-source framework for cost-effective LLM routing from the LMSYS team. Drop-in OpenAI client replacement. Reduces costs up to 85% while maintaining 95% GPT-4 performance. Trains strong-vs-weak routers from human preference data.",
+          "threat_level": "HIGH",
+          "penalty": -10
+        },
+        {
+          "name": "LLMRouter (UIUC)",
+          "url": "https://github.com/ulab-uiuc/LLMRouter",
+          "description": "Released December 2025. Open-source library with 16+ routers, unified CLI, plugin workflow for custom routers. Automatically routes queries based on task complexity, cost, and performance requirements.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "OpenRouter Auto Router",
+          "url": "https://openrouter.ai/docs/guides/routing/routers/auto-router",
+          "description": "Production auto-router powered by NotDiamond. Automatically selects the best model per prompt considering complexity, task type, and model capabilities.",
+          "threat_level": "MEDIUM",
+          "penalty": -5
+        },
+        {
+          "name": "Azure OpenAI Model Router",
+          "url": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-router",
+          "description": "First-party Microsoft feature. Supports 18 models for automatic routing including Claude, DeepSeek, Llama, and Grok models. Enterprise-grade with Azure integration.",
+          "threat_level": "MEDIUM",
+          "penalty": -5
+        }
+      ],
+      "first_party_fixes": [
+        "OpenAI launched model routing in ChatGPT (August 2025 with GPT-5) to automatically route between fast/cheap and slow/expensive models — though later discontinued for free-tier users",
+        "Azure OpenAI Model Router supports 18 models for automatic routing across providers",
+        "All major providers now offer prompt caching (90% savings on OpenAI, 90% on Anthropic, 90% on Google) and batch APIs (50% discount) as first-party cost optimization"
+      ],
+      "velocity_assessment": "EXTREMELY HIGH — 5+ academic papers published in 2025 alone specifically on budget-constrained contextual-bandit LLM routing. Multiple commercial products (Martian, NotDiamond) in production with enterprise customers. LLMRouter library launched Dec 2025 with 16+ routing strategies. The exact thesis has been published as a peer-reviewed paper (PILOT at EMNLP 2025).",
+      "reality_score": -35,
+      "capped_score": 0,
+      "verdict": "ABANDON",
+      "rationale": "This gap does not exist. The PILOT paper (EMNLP 2025) implements EXACTLY the thesis: adaptive LLM routing under budget constraints using contextual bandits. BaRP and LLM Bandit also use bandit feedback for cost-quality optimization. Multiple commercial routers (Martian, NotDiamond, OpenRouter Auto) are in production. LLMRouter provides an open-source library with 16+ routing strategies. Azure has a first-party model router. The space is saturated with both academic research and commercial products."
+    },
+    {
+      "gap_id": 17,
+      "gap_title": "End-to-End Reasoning Distillation Pipeline",
+      "original_score": 5.04,
+      "domain": "Reasoning Distillation",
+      "thesis": "No unified platform with visual pipeline builder for teacher-student reasoning transfer",
+      "competitors_found": [
+        {
+          "name": "OpenAI Model Distillation API",
+          "url": "https://openai.com/index/api-model-distillation/",
+          "description": "First-party integrated distillation workflow: Stored Completions automatically capture teacher model outputs (o1-preview, GPT-4o), Evals measure fine-tuned model performance, and Fine-tuning creates student models (GPT-4o mini). End-to-end pipeline for reasoning transfer from frontier to cost-efficient models.",
+          "threat_level": "CRITICAL",
+          "penalty": -25
+        },
+        {
+          "name": "Predibase (acquired by Rubrik) — Distillation Playbook + RFT",
+          "url": "https://github.com/predibase/llm_distillation_playbook",
+          "description": "Published open-source LLM Distillation Playbook with 12 best practices. Platform offers end-to-end fine-tuning including reinforcement fine-tuning (RFT) for reasoning tasks with as little as 10 rows of data. First platform to offer RL-based fine-tuning. Covers data gen + training + evaluation + deployment.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "DeepSeek-R1 Distilled Models",
+          "url": "https://huggingface.co/deepseek-ai",
+          "description": "Demonstrated that distillation can transfer advanced chain-of-thought reasoning into models as small as 1.5B parameters. Open-weight distilled models (1.5B to 70B) widely adopted. Published methodology for reasoning transfer from R1 teacher to student models.",
+          "threat_level": "HIGH",
+          "penalty": -12
+        },
+        {
+          "name": "Chain-of-Thought Curriculum Distillation (CoTCD)",
+          "url": "https://dl.acm.org/doi/10.1145/3775073.3775200",
+          "description": "Combines CoT guidance with Curriculum Learning for reasoning distillation. 770M T5 student reaches 94% of 540B teacher's performance on SVAMP. Published methodology for progressive reasoning transfer.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "AdaptDistill (Adaptive Student-Aware Distillation)",
+          "url": "https://openreview.net/forum?id=tds7TrLx9N",
+          "description": "Iteratively identifies student errors and has the teacher refine explanations according to student needs. Each iteration targets the student's learning deficiencies directly. Adaptive reasoning transfer pipeline.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "TinyLLM (Multi-Teacher Distillation)",
+          "url": "https://arxiv.org/html/2402.04616v3",
+          "description": "Paradigm for small student LLM to distill from multiple teacher LLMs with rationale guidance. Mitigates limited knowledge diversity with co-advisor teachers. Published at WSDM conference.",
+          "threat_level": "MEDIUM",
+          "penalty": -5
+        },
+        {
+          "name": "NVIDIA NeMo Data Designer",
+          "url": "https://developer.nvidia.com/blog/how-to-build-license-compliant-synthetic-data-pipelines-for-ai-model-distillation/",
+          "description": "Open-source tooling for defining, versioning, and scaling synthetic data pipelines supporting distillation workflows. Part of the NeMo framework for building end-to-end distillation pipelines.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "Fine-Tuning Platforms (Together AI, Anyscale, LLaMA-Factory)",
+          "url": "https://blog.premai.io/8-best-llm-fine-tuning-platforms-in-2026-compared/",
+          "description": "8+ fine-tuning platforms in 2026 support teacher-student workflows. Together AI supports distillation with production deployment. LLaMA-Factory and Axolotl are open-source CLI tools covering training + evaluation. Most support reasoning model fine-tuning.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        }
+      ],
+      "first_party_fixes": [
+        "OpenAI's Model Distillation API provides end-to-end Stored Completions -> Evals -> Fine-tuning pipeline for distilling from o1/GPT-4o to GPT-4o mini",
+        "OpenAI added Reinforcement Fine-Tuning (RFT) for reasoning model training with programmable graders",
+        "DeepSeek published open-weight distilled reasoning models from 1.5B to 70B params"
+      ],
+      "velocity_assessment": "HIGH — OpenAI's first-party distillation API is production-ready. Multiple academic papers on reasoning-specific distillation published in 2025 (CoTCD, AdaptDistill, TinyLLM). 8+ fine-tuning platforms support teacher-student workflows. The 'visual pipeline builder' angle is the only uncovered niche, but the actual distillation pipeline is well-served.",
+      "reality_score": 11,
+      "capped_score": 11,
+      "verdict": "PIVOT",
+      "rationale": "The core thesis — end-to-end reasoning distillation pipeline — is heavily addressed by OpenAI's first-party distillation API, Predibase's platform, and multiple academic frameworks. The only differentiator claimed is the 'visual pipeline builder' aspect, which is a UI feature, not a fundamental capability gap. OpenAI provides stored completions + evals + fine-tuning as an integrated workflow. The space has high velocity with multiple competing approaches. A visual builder alone is insufficient differentiation against first-party API solutions."
+    },
+    {
+      "gap_id": 18,
+      "gap_title": "Plug-and-Play Reasoning Enhancement Layer",
+      "original_score": 5.04,
+      "domain": "Test-Time Compute",
+      "thesis": "No model-agnostic SDK wrapping SLMs with MCTS/beam search via simple API",
+      "competitors_found": [
+        {
+          "name": "LLM Reasoners (maitrix-org)",
+          "url": "https://github.com/maitrix-org/llm-reasoners",
+          "description": "Library for advanced LLM reasoning supporting MCTS, DFS/BFS, Beam Search, Tree-of-Thoughts, and more. Model-agnostic — supports HuggingFace transformers, OpenAI API, Exllama, fairscale, llama.cpp. Integrated SGLang for 100x speed-up. Visualization with one line of code. This is essentially the proposed gap as an open-source library.",
+          "threat_level": "CRITICAL",
+          "penalty": -30
+        },
+        {
+          "name": "AG2/AutoGen ReasoningAgent",
+          "url": "https://docs.ag2.ai/latest/docs/user-guide/reference-agents/reasoningagent/",
+          "description": "Plug-and-play reasoning agent with configurable MCTS, Beam Search, and LATS strategies. Simple API: just set reason_config={'method': 'mcts', 'nsim': 5}. Part of AG2 (formerly AutoGen) ecosystem. pip install ag2. Works with any LLM backend.",
+          "threat_level": "CRITICAL",
+          "penalty": -25
+        },
+        {
+          "name": "TTA* (Test-Time A* Search)",
+          "url": "https://openreview.net/forum?id=eJ1yDj6vtH",
+          "description": "Explicitly described as 'a drop-in decoding wrapper for SLMs' that uses A*-style search. Training-free, no external supervision or multi-model structure needed. Practical in resource-constrained settings. Systematically explores, critiques, and refines candidate solutions via self-reflection.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "MCP-Reasoner",
+          "url": "https://github.com/Jacck/mcp-reasoner",
+          "description": "MCP server implementation with Beam Search and MCTS for Claude Desktop. Systematic reasoning with thought evaluation. Plug-and-play architecture via Model Context Protocol.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "SC-MCTS (Interpretable Contrastive MCTS Reasoning)",
+          "url": "https://github.com/zitian-gao/SC-MCTS",
+          "description": "Open-source MCTS-based reasoning implementation on GitHub. Interpretable contrastive approach for enhancing LLM reasoning.",
+          "threat_level": "MEDIUM",
+          "penalty": -5
+        },
+        {
+          "name": "Forest-of-Thought and other test-time scaling papers",
+          "url": "https://github.com/Dereck0602/Awesome_Test_Time_LLMs",
+          "description": "Curated list of 100+ papers on test-time LLM reasoning. Multiple open implementations of MCTS, beam search, and tree search for LLMs. Very active research area with new papers weekly.",
+          "threat_level": "MEDIUM",
+          "penalty": -5
+        }
+      ],
+      "first_party_fixes": [
+        "OpenAI o1/o3/o4 models have built-in test-time compute scaling — users get enhanced reasoning without any wrapper",
+        "Anthropic Claude's extended thinking mode provides native test-time compute without external SDK",
+        "Google Gemini 2.5 Pro/Flash include built-in 'thinking' capabilities with configurable thinking budgets",
+        "DeepSeek-R1 provides native chain-of-thought reasoning in the model itself"
+      ],
+      "velocity_assessment": "EXTREMELY HIGH — LLM Reasoners library provides exactly this: model-agnostic MCTS/beam search with simple API and multi-backend support. AG2 ReasoningAgent offers plug-and-play MCTS/beam search with one-line config. All major providers have built native reasoning into their models, reducing the need for external wrappers. 100+ papers published on test-time compute in 2025 alone. The space is saturated from both the library side and the first-party model side.",
+      "reality_score": -12,
+      "capped_score": 0,
+      "verdict": "ABANDON",
+      "rationale": "This gap does not exist. LLM Reasoners is a mature, model-agnostic library providing exactly MCTS/beam search/DFS/BFS/Tree-of-Thoughts with support for HuggingFace, OpenAI, llama.cpp and more. AG2 ReasoningAgent provides plug-and-play MCTS/beam search/LATS with trivial configuration. TTA* is explicitly described as a 'drop-in decoding wrapper for SLMs.' Furthermore, the major providers (OpenAI o-series, Claude extended thinking, Gemini thinking, DeepSeek-R1) have built reasoning directly into models, making external wrappers increasingly unnecessary. The thesis is comprehensively disproved."
+    },
+    {
+      "gap_id": 19,
+      "gap_title": "Difficulty-Calibrated Reasoning Curriculum Generator",
+      "original_score": 5.04,
+      "domain": "Synthetic Data Generation",
+      "thesis": "No system generating progressively harder training examples matching model learning frontier",
+      "competitors_found": [
+        {
+          "name": "DataEnvGym (ICLR 2025)",
+          "url": "https://github.com/codezakh/dataenvgym",
+          "description": "Testbed of teacher environments for data generation agents. Frames data generation as sequential decision-making. Agent generates training data based on student feedback (errors/weak skills). Iteratively improves student across 4 domains (math, code, VQA, tool-use). Uses skill-based scaffolding for curriculum control. Published at ICLR 2025. This directly addresses progressive difficulty calibration based on model learning frontier.",
+          "threat_level": "CRITICAL",
+          "penalty": -25
+        },
+        {
+          "name": "Prompt Curriculum Learning (PCL) — ICLR 2026",
+          "url": "https://openreview.net/pdf/33b6a4fd2066a3c9dd58eb0b4ce0d887c1c8d102.pdf",
+          "description": "RL algorithm that selects intermediate-difficulty prompts using a learned value model for LLM post-training. Identifies prompts of intermediate difficulty for the current policy in an on-policy manner. Published at ICLR 2026. Directly generates difficulty-calibrated training curriculum matching model frontier.",
+          "threat_level": "CRITICAL",
+          "penalty": -25
+        },
+        {
+          "name": "Arcee AI Trinity Training Curriculum",
+          "url": "https://www.arcee.ai/blog/trinity-large",
+          "description": "Trinity models trained on 10-17T tokens organized into phases with progressively higher quality and STEM concentration. 8T+ tokens of synthetic data with curriculum-based difficulty progression. Demonstrates production-scale curriculum learning for model training.",
+          "threat_level": "HIGH",
+          "penalty": -12
+        },
+        {
+          "name": "Chain-of-Thought Curriculum Distillation (CoTCD)",
+          "url": "https://dl.acm.org/doi/10.1145/3775073.3775200",
+          "description": "Combines CoT guidance with Curriculum Learning. Progressively harder reasoning examples for distillation. 770M model reaches 94% of 540B teacher's performance.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "VCR: Cone of Experience Driven Synthetic Data for Math Reasoning (AAAI 2025)",
+          "url": "https://arxiv.org/html/2503.14023v2",
+          "description": "Synthetic data framework generating progressively difficult mathematical reasoning data using a Cone of Experience approach. Published at AAAI 2025.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "Difficulty-Targeted Online Data Selection for RL Fine-Tuning",
+          "url": "https://openreview.net/pdf?id=KJvHnl3kUv",
+          "description": "Focuses on improving data efficiency for LLM reinforcement fine-tuning through difficulty-targeted online data selection and rollout replay. Selects training data matching current model capability.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "Gretel Synthetic Data Platform (acquired by NVIDIA for $320M+)",
+          "url": "https://www.gretel.ai/",
+          "description": "Enterprise synthetic data platform with pipeline automation, CI/CD integration, and data quality validation. NVIDIA acquisition signals strategic importance. While not specifically difficulty-calibrated, provides production infrastructure for synthetic data generation at scale.",
+          "threat_level": "LOW",
+          "penalty": -3
+        },
+        {
+          "name": "NVIDIA NeMo Data Designer",
+          "url": "https://developer.nvidia.com/blog/how-to-build-license-compliant-synthetic-data-pipelines-for-ai-model-distillation/",
+          "description": "Open-source tooling for defining, versioning, and scaling synthetic data pipelines. Supports distillation workflows with quality controls.",
+          "threat_level": "LOW",
+          "penalty": -3
+        }
+      ],
+      "first_party_fixes": [
+        "OpenAI's Reinforcement Fine-Tuning (RFT) with programmable graders implicitly handles difficulty calibration through reward-based training",
+        "DeepSeek's RL-based training approach uses reward models that inherently select for appropriately difficult problems"
+      ],
+      "velocity_assessment": "HIGH — DataEnvGym (ICLR 2025) directly addresses agent-driven data generation with student feedback loops for curriculum control. PCL (ICLR 2026) provides RL-based difficulty-calibrated prompt selection. Multiple papers at top venues (AAAI, ICLR, ACL) on curriculum-based synthetic data generation. Arcee demonstrates production-scale curriculum training. The academic approaches exist but productization remains limited.",
+      "reality_score": 8,
+      "capped_score": 8,
+      "verdict": "ABANDON",
+      "rationale": "The core research problem is well-solved. DataEnvGym (ICLR 2025) provides exactly the framework for generating training data matching model learning frontier through student feedback loops. PCL (ICLR 2026) provides difficulty-calibrated prompt selection for RL post-training. Multiple academic papers demonstrate curriculum-based synthetic data approaches. While no single commercial product bundles everything with a polished UI, the underlying algorithms are published, open-source, and advancing rapidly. The thesis that 'no system' exists for this is false — multiple systems exist in research form, and the gap between research implementations and a product is a UI/packaging problem, not a fundamental capability gap."
+    },
+    {
+      "gap_id": 20,
+      "gap_title": "Context Quality Scoring and Observability Dashboard",
+      "original_score": 5.04,
+      "domain": "Agent Context Engineering",
+      "thesis": "No tool measuring context precision, freshness, conflicts, and utilization",
+      "competitors_found": [
+        {
+          "name": "Ragas (RAG Assessment Framework)",
+          "url": "https://docs.ragas.io/",
+          "description": "Research-backed metrics framework providing context precision, context recall, context relevancy, context entities recall, faithfulness, and answer relevance scoring. Integrates with LangSmith, Arize Phoenix, and other observability platforms. Open-source, widely adopted. Directly measures context precision and quality.",
+          "threat_level": "CRITICAL",
+          "penalty": -20
+        },
+        {
+          "name": "Maxim AI",
+          "url": "https://www.getmaxim.ai/",
+          "description": "End-to-end AI evaluation and observability platform. Unified evaluation framework with deterministic rules, statistical methods, and LLM-as-judge scoring. Distributed tracing with automated evaluations. Real-time alerts. Supports RAG context evaluation including precision, recall, and freshness.",
+          "threat_level": "CRITICAL",
+          "penalty": -20
+        },
+        {
+          "name": "Galileo AI",
+          "url": "https://galileo.ai/",
+          "description": "AI observability and evaluation platform with proprietary Luna-2 evaluation models running at sub-200ms latency. Scores context adherence, tool selection quality, and conversation quality with 93-97% accuracy. Agentic Evaluations launched January 2025. Explicitly targets context quality for agents.",
+          "threat_level": "CRITICAL",
+          "penalty": -20
+        },
+        {
+          "name": "Arize Phoenix",
+          "url": "https://phoenix.arize.com/",
+          "description": "Open-source AI observability platform built on OpenTelemetry. Vendor-agnostic, supports LlamaIndex, LangChain, Haystack, DSPy. Provides context retrieval evaluation, tracing, and debugging for RAG and agent systems.",
+          "threat_level": "HIGH",
+          "penalty": -12
+        },
+        {
+          "name": "LangSmith",
+          "url": "https://smith.langchain.com/",
+          "description": "LangChain-native tracing and evaluation platform. Dataset management, evaluation for LLM pipelines, RAG architectures. Traces individual agent steps and tool calls. 89% of organizations have implemented some form of observability for agents.",
+          "threat_level": "HIGH",
+          "penalty": -12
+        },
+        {
+          "name": "Langfuse",
+          "url": "https://langfuse.com/",
+          "description": "Open-source LLM observability platform. Tracing, evaluation, and prompt management. Growing alternative to LangSmith with strong open-source adoption.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "Tacnode Context Lake",
+          "url": "https://tacnode.io/",
+          "description": "Emerged from stealth January 2026. Purpose-built context infrastructure for AI agents. Shared context layer with live data ingestion, incremental transformation, and low-latency retrieval. In production at DoorDash. Founded by ex-Meta/Microsoft/Amazon/Google engineers. Directly addresses context quality as infrastructure.",
+          "threat_level": "HIGH",
+          "penalty": -12
+        },
+        {
+          "name": "Braintrust",
+          "url": "https://www.braintrust.dev/",
+          "description": "AI evaluation and observability platform. RAG evaluation tools with context quality metrics. Production monitoring with automated evaluation pipelines.",
+          "threat_level": "MEDIUM",
+          "penalty": -5
+        },
+        {
+          "name": "Google Research — Context Sufficiency",
+          "url": "https://research.google/blog/deeper-insights-into-retrieval-augmented-generation-the-role-of-sufficient-context/",
+          "description": "Research on measuring whether context provides enough information for correct answers. Developing methods to quantify context sufficiency for LLMs. Advancing beyond relevance to measuring actual utilization.",
+          "threat_level": "MEDIUM",
+          "penalty": -5
+        }
+      ],
+      "first_party_fixes": [
+        "Google Research published context sufficiency metrics for RAG systems",
+        "Anthropic published 'Effective Context Engineering for AI Agents' — establishing context engineering as a discipline",
+        "Gartner declared context engineering the successor to prompt engineering, driving vendor adoption",
+        "60% of new RAG deployments include systematic evaluation from day one (up from 30% in early 2025)"
+      ],
+      "velocity_assessment": "EXTREMELY HIGH — 5+ dedicated platforms (Maxim AI, Galileo, Arize Phoenix, Ragas, LangSmith) provide context quality scoring and observability dashboards in production today. Tacnode emerged in January 2026 specifically for agent context infrastructure. 89% of organizations have implemented some form of agent observability. Context precision, recall, and relevancy metrics are standard features across multiple platforms. The space is crowded and maturing rapidly.",
+      "reality_score": -14,
+      "capped_score": 0,
+      "verdict": "ABANDON",
+      "rationale": "This gap categorically does not exist. Multiple mature platforms (Ragas, Maxim AI, Galileo, Arize Phoenix, LangSmith, Langfuse, Braintrust) provide exactly context quality scoring with observability dashboards. Ragas provides context precision, context recall, context relevancy, and faithfulness metrics as standard features. Galileo scores context adherence with 93-97% accuracy at sub-200ms latency. Tacnode launched in January 2026 specifically as context infrastructure for agents. The thesis that 'no tool measuring context precision, freshness, conflicts, and utilization' exists is demonstrably false — multiple tools measure exactly these dimensions and are widely adopted in production."
+    }
+  ],
+  "summary": {
+    "total_gaps_checked": 5,
+    "verdicts": {
+      "PROCEED": 0,
+      "DIFFERENTIATE": 0,
+      "PIVOT": 1,
+      "ABANDON": 4
+    },
+    "overview": "All 5 gaps in this batch (16-20) failed the reality check decisively. Gap 16 (Budget-Constrained Routing) is directly addressed by PILOT (EMNLP 2025) which implements the exact thesis, plus 8+ commercial and open-source alternatives. Gap 17 (Reasoning Distillation Pipeline) has OpenAI's first-party distillation API and 8+ fine-tuning platforms, surviving only as PIVOT due to the visual builder angle. Gap 18 (Plug-and-Play Reasoning Layer) is comprehensively solved by LLM Reasoners and AG2 ReasoningAgent, plus all major providers now have native reasoning built in. Gap 19 (Difficulty-Calibrated Curriculum Generator) is addressed by DataEnvGym (ICLR 2025) and PCL (ICLR 2026). Gap 20 (Context Quality Observability) has 5+ dedicated platforms (Ragas, Maxim AI, Galileo, Arize, LangSmith) with exactly the described metrics in production."
+  }
+}

@@ -1,0 +1,407 @@
+{
+  "meta": {
+    "generated": "2026-03-29",
+    "methodology": "Competition Reality Check v3 — Start at 100, subtract penalties for each competitor/solution found",
+    "scoring": ">60 PROCEED | 30-60 DIFFERENTIATE | 10-30 PIVOT | <10 ABANDON"
+  },
+  "reality_checks": [
+    {
+      "gap_id": 6,
+      "gap_title": "Quantization-Aware Reasoning Evaluation Suite",
+      "original_score": 5.76,
+      "domain": "SLM Reasoning Eval",
+      "thesis": "No tool tests reasoning quality across quantization levels (FP16/INT8/INT4)",
+      "competitors_found": [
+        {
+          "name": "SLMQuant",
+          "url": "https://arxiv.org/abs/2511.13023",
+          "description": "First systematic benchmark for SLM quantization. Evaluates 3 algorithms on 6 datasets and 3 architectures. Published at ACM workshop. Directly addresses SLM quantization sensitivity vs LLMs.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "LLMC / LightCompress",
+          "url": "https://github.com/ModelTC/llmc",
+          "description": "Plug-and-play compression toolkit with built-in benchmarking across dozens of algorithms, models, hardware. Published at EMNLP 2024, AAAI 2026. Covers weight-only, weight-activation, mixed-precision quantization with evaluation across 5 task types including emergent abilities.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "Quantized-Reasoning-Models (ruikangliu)",
+          "url": "https://github.com/ruikangliu/Quantized-Reasoning-Models",
+          "description": "COLM 2025 paper with open-source code. Systematic study evaluating DeepSeek-R1-Distilled (1.5B-70B), QwQ-32B, Qwen3-8B across weight/KV-cache/activation quantization at varying bit-widths. Evaluates on AIME, MATH-500, GPQA, LiveCodeBench reasoning benchmarks. This is almost exactly the proposed gap.",
+          "threat_level": "CRITICAL",
+          "penalty": -25
+        },
+        {
+          "name": "EfficientQAT",
+          "url": "https://github.com/OpenGVLab/EfficientQAT",
+          "description": "ACL 2025 Main. Quantization-aware training framework with INT vs FP comparison framework covering MXFP8/MXFP6/MXFP4/NVFP4 formats.",
+          "threat_level": "MEDIUM",
+          "penalty": -10
+        },
+        {
+          "name": "ParoQuant",
+          "url": "https://github.com/z-lab/paroquant",
+          "description": "ICLR 2026 paper. State-of-the-art INT4 quantization using learned pairwise rotations. Supports NVIDIA GPUs (vLLM, Transformers) and Apple Silicon (MLX).",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "Red Hat/InstructLab quantization evaluation",
+          "url": "https://developers.redhat.com/articles/2024/10/17/we-ran-over-half-million-evaluations-quantized-llms",
+          "description": "Half a million evaluations on quantized LLMs. Enterprise-grade evaluation at scale.",
+          "threat_level": "LOW",
+          "penalty": -5
+        }
+      ],
+      "first_party_fixes": [
+        "vLLM includes built-in quantization benchmarking across FP16/INT8/INT4/AWQ/GPTQ formats",
+        "AWS published optimizing-llm-inference-with-quantization benchmark repo on GitHub"
+      ],
+      "first_party_penalty": -5,
+      "velocity_assessment": "Extremely high. Multiple top-tier papers in 2025-2026 (COLM 2025, ACL 2025, ICLR 2026, AAAI 2026) all with open-source code. The Quantized-Reasoning-Models repo is a near-exact match for the proposed gap thesis.",
+      "velocity_penalty": -10,
+      "top_n_articles_found": true,
+      "top_n_penalty": -3,
+      "github_repos_recent": [
+        "ruikangliu/Quantized-Reasoning-Models (Apr 2025)",
+        "ModelTC/llmc (continuously updated, AAAI 2026)",
+        "OpenGVLab/EfficientQAT (ACL 2025)",
+        "z-lab/paroquant (ICLR 2026)",
+        "pprp/Awesome-LLM-Quantization (curated list)"
+      ],
+      "github_penalty": -5,
+      "final_score": 100 - 15 - 15 - 25 - 10 - 8 - 5 - 5 - 10 - 3 - 5,
+      "final_score_calculated": -1,
+      "final_score_floored": 0,
+      "verdict": "ABANDON",
+      "rationale": "This gap is thoroughly closed. The Quantized-Reasoning-Models repo from COLM 2025 is almost an exact implementation of the proposed tool — it systematically evaluates reasoning quality across quantization levels for small and large models. LLMC provides the toolkit layer, SLMQuant addresses SLM-specific concerns, and EfficientQAT/ParoQuant handle QAT with evaluation. The academic community has converged on this problem with multiple open-source implementations. There is no remaining gap."
+    },
+    {
+      "gap_id": 7,
+      "gap_title": "Browser Agent Security & Sandboxing Layer",
+      "original_score": 5.76,
+      "domain": "Browser Automation",
+      "thesis": "No security middleware for browser agents with domain allowlists, PII redaction, credential vaults",
+      "competitors_found": [
+        {
+          "name": "Vercel agent-browser",
+          "url": "https://github.com/vercel-labs/agent-browser",
+          "description": "Browser automation CLI for AI agents with built-in security: domain allowlists (with wildcard support), AES-256-GCM encrypted auth vault (LLM never sees passwords), content boundary markers, sub-resource blocking for non-allowed domains. This implements the core thesis almost exactly.",
+          "threat_level": "CRITICAL",
+          "penalty": -25
+        },
+        {
+          "name": "Invariant Labs Guardrails (acquired by Snyk)",
+          "url": "https://github.com/invariantlabs-ai/invariant",
+          "description": "Rule-based guardrailing layer specifically for browser agents and MCP-powered apps. Deploys between app and MCP servers. Includes browser-specific fill action checks, harmful request detection, and the Explorer observability dashboard. Acquired by Snyk (enterprise validation). Also includes MCP-Scan for vulnerability scanning.",
+          "threat_level": "CRITICAL",
+          "penalty": -20
+        },
+        {
+          "name": "Straiker (Defend AI)",
+          "url": "https://www.straiker.ai/",
+          "description": "Funded startup ($21M from Lightspeed + Bain Capital). Runtime guardrails for agentic web browsers: blocks prompt-injection, stops data leakage, prevents session hijacks, human-in-the-loop control. Subsecond threat detection across multimodal inputs.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "1Password + Browserbase (Secure Agentic Autofill)",
+          "url": "https://1password.com/blog/closing-the-credential-risk-gap-for-browser-use-ai-agents",
+          "description": "Enterprise partnership providing credential vault integration for browser agents. Credentials injected via browser extensions, AI agent never handles credentials directly. End-to-end encryption with human oversight.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "Browser-Use sandbox architecture",
+          "url": "https://browser-use.com/posts/two-ways-to-sandbox-agents",
+          "description": "Published sandbox patterns: zero-secrets sandbox with control plane, short-lived IAM roles, session isolation. Built-in to the browser-use framework.",
+          "threat_level": "MEDIUM",
+          "penalty": -10
+        },
+        {
+          "name": "PII Shield (browser extension)",
+          "url": "https://arxiv.org/abs/2603.24895",
+          "description": "March 2026 paper. Browser-level overlay for PII management in AI interactions. Entity-recognition module replaces PII with generalized placeholders.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "agent-infra/sandbox",
+          "url": "https://github.com/agent-infra/sandbox",
+          "description": "All-in-one sandbox for AI agents combining Browser, Shell, File, MCP and VSCode Server in a single Docker container.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        }
+      ],
+      "first_party_fixes": [
+        "Google Gemini CLI has open issue for browser agent security guardrails (navigation, data exfiltration, prompt injection)",
+        "Playwright has built-in --isolated and sandboxing flags recommended for AI agent use",
+        "OWASP published AI Agent Security Cheat Sheet covering browser agent security"
+      ],
+      "first_party_penalty": -5,
+      "velocity_assessment": "Extremely high velocity. Vercel shipped agent-browser with full security suite. Snyk acquired Invariant Labs (Jun 2025). Straiker raised $21M. 1Password partnered with Browserbase. Multiple solutions shipped in last 6 months. This space is crowded and accelerating.",
+      "velocity_penalty": -10,
+      "top_n_articles_found": true,
+      "top_n_penalty": -3,
+      "github_repos_recent": [
+        "vercel-labs/agent-browser (active, full security features)",
+        "invariantlabs-ai/invariant (acquired by Snyk Jun 2025)",
+        "agent-infra/sandbox (all-in-one Docker sandbox)",
+        "mudrii/hermes-agent-docs (security documentation)"
+      ],
+      "github_penalty": -5,
+      "final_score": 100 - 25 - 20 - 15 - 15 - 10 - 8 - 8 - 5 - 10 - 3 - 5,
+      "final_score_calculated": -24,
+      "final_score_floored": 0,
+      "verdict": "ABANDON",
+      "rationale": "This gap is emphatically closed. Vercel's agent-browser implements domain allowlists, encrypted credential vaults, and content boundary markers. Invariant Labs (now Snyk) provides rule-based guardrails specifically for browser agents. Straiker ($21M funded) does runtime security for agentic browsers. 1Password + Browserbase handles credential vaults. PII Shield handles PII redaction. The thesis that 'no security middleware exists' is simply false — multiple well-funded, production-grade solutions exist and are actively competing."
+    },
+    {
+      "gap_id": 8,
+      "gap_title": "KG-SLM Integration for Agentic Workflows",
+      "original_score": 5.76,
+      "domain": "Knowledge Graph + SLM",
+      "thesis": "No SLM-optimized KG memory library for agent frameworks",
+      "competitors_found": [
+        {
+          "name": "Graphiti / Zep",
+          "url": "https://github.com/getzep/graphiti",
+          "description": "Open-source temporal knowledge graph engine for AI agent memory. Hybrid search (semantic + BM25 + graph traversal) with ZERO LLM calls during retrieval — meaning retrieval works with any model size. However, ingestion requires LLM structured output support, which limits SLM compatibility.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "Cognee",
+          "url": "https://github.com/topoteretes/cognee",
+          "description": "Open-source knowledge engine for AI agent memory. Combines vector search + graph databases. Add memory in 6 lines of code. Integrates with LangGraph. However, primarily designed for LLM-scale models, not explicitly SLM-optimized.",
+          "threat_level": "HIGH",
+          "penalty": -12
+        },
+        {
+          "name": "KG-R1",
+          "url": "https://arxiv.org/html/2509.26383v1",
+          "description": "RL-optimized agent system that consolidates reasoning and retrieval into single-agent workflow. Achieves competitive reasoning accuracy with small-parameter models while reducing token usage.",
+          "threat_level": "MEDIUM",
+          "penalty": -10
+        },
+        {
+          "name": "LangGraph + GraphRAG patterns",
+          "url": "https://docs.langchain.com/oss/python/langchain/multi-agent",
+          "description": "LangGraph 1.0 (Oct 2025) with graph-first agent orchestration. Memgraph/Neo4j integrations for KG creation from unstructured data. Works with any LLM including smaller models.",
+          "threat_level": "MEDIUM",
+          "penalty": -10
+        },
+        {
+          "name": "LlamaIndex + Cognee GraphRAG pipelines",
+          "url": "https://www.cognee.ai/blog/deep-dives/cognee-llamaindex-graphrag-pipelines",
+          "description": "Integration enabling RAG-to-GraphRAG pipeline transformation. LlamaIndex supports local/small models.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        }
+      ],
+      "first_party_fixes": [
+        "Neo4j partnered with Zep/Graphiti for agent KG memory",
+        "LangChain/LangGraph provides native KG integration patterns",
+        "LlamaIndex supports KG indexes with configurable LLM backends including local models"
+      ],
+      "first_party_penalty": -5,
+      "velocity_assessment": "High velocity. Graphiti is actively maintained with Neo4j partnership. Cognee growing rapidly. LangGraph hit 1.0 stability. However, the specific 'SLM-optimized' angle has a partial gap — most tools assume large model capabilities (structured output, complex extraction). The retrieval side works with small models, but KG construction/maintenance with SLMs remains underserved.",
+      "velocity_penalty": -5,
+      "top_n_articles_found": true,
+      "top_n_penalty": -3,
+      "github_repos_recent": [
+        "getzep/graphiti (active, Neo4j partnership)",
+        "topoteretes/cognee (active, growing)",
+        "zjukg/KG-LLM-Papers (comprehensive paper list)"
+      ],
+      "github_penalty": -5,
+      "final_score": 100 - 15 - 12 - 10 - 10 - 8 - 5 - 5 - 3 - 5,
+      "final_score_calculated": 27,
+      "verdict": "PIVOT",
+      "rationale": "The general KG-agent-memory space is well-served by Graphiti/Zep, Cognee, and LangGraph GraphRAG patterns. However, there is a narrow remaining angle: these tools are designed for LLM-scale models. Graphiti explicitly requires structured output support (OpenAI/Gemini), which most SLMs lack. Cognee assumes capable LLMs for extraction. The 'SLM-optimized' part of the thesis has partial validity — a library that handles KG construction with quantized/small models (using simpler extraction, template-based triplet generation, or fine-tuned small extractors) could differentiate. But the market is moving fast toward model-agnostic solutions, and as SLMs gain structured output capabilities, this window is closing. Pivot to a more specific angle or abandon."
+    },
+    {
+      "gap_id": 9,
+      "gap_title": "SLM-Optimized Reward Model Training Toolkit",
+      "original_score": 5.76,
+      "domain": "Reward Model Training",
+      "thesis": "No lightweight PRM/ORM training on consumer GPUs with pre-built recipes",
+      "competitors_found": [
+        {
+          "name": "TRL (Transformers Reinforcement Learning) — RewardTrainer + PRMTrainer",
+          "url": "https://huggingface.co/docs/trl/main/en/reward_trainer",
+          "description": "HuggingFace's official library. Includes both RewardTrainer (ORM) and dedicated PRMTrainer. Full PEFT integration enables training on large models with modest hardware via quantization and LoRA/QLoRA. Can train Qwen 3 0.6B reward models. This directly addresses the thesis — lightweight PRM/ORM training with consumer GPU support via quantization.",
+          "threat_level": "CRITICAL",
+          "penalty": -25
+        },
+        {
+          "name": "OpenRLHF",
+          "url": "https://github.com/OpenRLHF/OpenRLHF",
+          "description": "Easy-to-use, scalable RLHF framework. Enables 7B models across multiple 24GB RTX 4090 GPUs (consumer hardware). Supports PPO, GRPO, REINFORCE++, DPO, KTO. Includes reward model training as core component.",
+          "threat_level": "HIGH",
+          "penalty": -18
+        },
+        {
+          "name": "RLHFlow/RLHF-Reward-Modeling",
+          "url": "https://github.com/RLHFlow/RLHF-Reward-Modeling",
+          "description": "Open-source recipes for training PRM and ORM models using next-token prediction. Includes data, code, hyperparameters. Top-3 8B reward models on RewardBench were trained using this repo. Pre-built recipes is exactly the thesis.",
+          "threat_level": "CRITICAL",
+          "penalty": -20
+        },
+        {
+          "name": "sdiehl/prm",
+          "url": "https://github.com/sdiehl/prm",
+          "description": "Dedicated library for training process reward models. ProcessRewardTrainer wrapper around HuggingFace Trainer. Includes training and tree-search inference with step-level scoring. Small models like Mistral-7B supported on modest GPUs.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "PRIME-RL/ImplicitPRM",
+          "url": "https://github.com/PRIME-RL/ImplicitPRM",
+          "description": "Free Process Rewards without Process Labels — removes need for expensive step-level annotation. Reduces training overhead significantly.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "GenPRM (AAAI 2026)",
+          "url": "https://github.com/RyanLiu112/GenPRM",
+          "description": "Generative reasoning approach to process reward models. Scales test-time compute. Recent (AAAI 2026).",
+          "threat_level": "MEDIUM",
+          "penalty": -5
+        }
+      ],
+      "first_party_fixes": [
+        "HuggingFace TRL is the de facto standard, actively maintained, with dedicated PRM/ORM trainers and consumer GPU support via PEFT/QLoRA",
+        "HuggingFace hosts pre-trained reward models on the Hub (e.g., ArmoRM, Skywork-Reward)"
+      ],
+      "first_party_penalty": -5,
+      "velocity_assessment": "Extremely high. TRL added PRMTrainer recently. OpenRLHF explicitly supports consumer RTX 4090 GPUs. RLHFlow provides complete recipes. Multiple AAAI/ICLR 2026 papers with code. The ecosystem is mature and accelerating.",
+      "velocity_penalty": -10,
+      "top_n_articles_found": true,
+      "top_n_penalty": -3,
+      "github_repos_recent": [
+        "huggingface/trl (standard, PRMTrainer added)",
+        "OpenRLHF/OpenRLHF (consumer GPU support, active)",
+        "RLHFlow/RLHF-Reward-Modeling (pre-built recipes)",
+        "sdiehl/prm (dedicated PRM library)",
+        "PRIME-RL/ImplicitPRM (label-free PRMs)",
+        "RyanLiu112/GenPRM (AAAI 2026)"
+      ],
+      "github_penalty": -5,
+      "final_score": 100 - 25 - 18 - 20 - 15 - 8 - 5 - 5 - 10 - 3 - 5,
+      "final_score_calculated": -14,
+      "final_score_floored": 0,
+      "verdict": "ABANDON",
+      "rationale": "This gap is comprehensively closed. TRL's PRMTrainer + RewardTrainer with PEFT/QLoRA is exactly what the thesis proposes — lightweight PRM/ORM training on consumer GPUs. RLHFlow provides pre-built recipes with reproducible results (top RewardBench models). OpenRLHF supports RTX 4090s. sdiehl/prm is a dedicated PRM training library. The thesis that 'no lightweight PRM/ORM training exists on consumer GPUs with pre-built recipes' is factually incorrect. Every component exists and is well-maintained."
+    },
+    {
+      "gap_id": 10,
+      "gap_title": "Multi-Step Agentic Workflow Router",
+      "original_score": 5.76,
+      "domain": "Model Routing",
+      "thesis": "No production router selecting optimal model per step in multi-agent workflows",
+      "competitors_found": [
+        {
+          "name": "Microsoft Foundry Model Router",
+          "url": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-router",
+          "description": "Generally available. Trained model that intelligently routes prompts to best LLM in real-time. Integrated into Foundry Agent Service. Explicitly supports step-level routing: 'make each step a separate API call rather than one massive prompt — this lets the router use a cheaper model for simple steps.' This is exactly the thesis.",
+          "threat_level": "CRITICAL",
+          "penalty": -25
+        },
+        {
+          "name": "RouteLLM",
+          "url": "https://github.com/lm-sys/routellm",
+          "description": "Open-source framework from LMSYS for serving and evaluating LLM routers. 4 built-in router types including LLM-based classifier. Outperforms Martian and Unify AI on routing quality. Can be used per-step in workflows.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "NVIDIA LLM Router Blueprint",
+          "url": "https://github.com/NVIDIA-AI-Blueprints/llm-router",
+          "description": "Production-ready v1 + next-gen v2 with multimodal support. Uses Qwen 1.7B for semantic classification. Intent-based and auto-routing. Designed for step-level routing in workflows.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "Martian",
+          "url": "https://withmartian.com",
+          "description": "Commercial model routing platform. Dynamically routes requests to best LLM optimizing cost/quality/latency. Partnership with Accenture for enterprise adoption.",
+          "threat_level": "HIGH",
+          "penalty": -12
+        },
+        {
+          "name": "Not Diamond",
+          "url": "https://docs.notdiamond.ai",
+          "description": "Model routing API with Prompt Adaptation. Supports custom model routing including fine-tuned models and agentic workflows. 5-60% accuracy improvements on enterprise datasets.",
+          "threat_level": "HIGH",
+          "penalty": -12
+        },
+        {
+          "name": "LLMRouter (ulab-uiuc)",
+          "url": "https://github.com/ulab-uiuc/LLMRouter",
+          "description": "Open-source library for LLM routing. Crossed 1K GitHub stars Jan 2026. OpenClaw Router released Feb 2026 as OpenAI-compatible server.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "LangGraph routing pattern",
+          "url": "https://medium.com/@huzaifaali4013399/the-routing-pattern-build-smart-multi-agent-ai-workflows-with-langgraph-44f177aadf7a",
+          "description": "Native routing pattern in LangGraph for multi-agent workflows. Built-in conditional routing with state machines.",
+          "threat_level": "MEDIUM",
+          "penalty": -5
+        }
+      ],
+      "first_party_fixes": [
+        "Microsoft Foundry Model Router is GA and integrated into their Agent Service (first-party step-level routing)",
+        "NVIDIA provides LLM Router Blueprint as official reference architecture",
+        "AWS published Multi-LLM Routing Strategies for generative AI applications guide"
+      ],
+      "first_party_penalty": -8,
+      "velocity_assessment": "Maximum velocity. Microsoft shipped GA product. NVIDIA has official blueprint. RouteLLM, LLMRouter, Not Diamond, Martian all active. OpenClaw Router shipped Feb 2026. This is one of the most active spaces in AI infrastructure.",
+      "velocity_penalty": -10,
+      "top_n_articles_found": true,
+      "top_n_penalty": -3,
+      "github_repos_recent": [
+        "lm-sys/routellm (LMSYS, active)",
+        "NVIDIA-AI-Blueprints/llm-router (NVIDIA, active)",
+        "ulab-uiuc/LLMRouter (1K+ stars, OpenClaw Feb 2026)",
+        "Not-Diamond/awesome-ai-model-routing (curated list)",
+        "withmartian/routerbench (benchmark)",
+        "SubinoyBera/AgentFlow (LangGraph multi-agent router)"
+      ],
+      "github_penalty": -5,
+      "final_score": 100 - 25 - 15 - 15 - 12 - 12 - 8 - 5 - 8 - 10 - 3 - 5,
+      "final_score_calculated": -18,
+      "final_score_floored": 0,
+      "verdict": "ABANDON",
+      "rationale": "This gap is completely closed by multiple production-grade solutions. Microsoft Foundry Model Router is GA and explicitly supports step-level routing in agentic workflows. NVIDIA provides an official blueprint. RouteLLM (LMSYS) is open-source and battle-tested. Martian and Not Diamond are well-funded commercial solutions. LLMRouter has 1K+ GitHub stars with an OpenAI-compatible server (Feb 2026). The thesis that 'no production router selects optimal model per step' is factually wrong — Microsoft alone has a first-party GA solution doing exactly this."
+    }
+  ],
+  "summary": {
+    "total_gaps_checked": 5,
+    "verdicts": {
+      "PROCEED": 0,
+      "DIFFERENTIATE": 0,
+      "PIVOT": 1,
+      "ABANDON": 4
+    },
+    "survivors": [
+      {
+        "gap_id": 8,
+        "title": "KG-SLM Integration for Agentic Workflows",
+        "verdict": "PIVOT",
+        "score": 27,
+        "pivot_suggestion": "The general KG-agent-memory space is crowded (Graphiti, Cognee, LangGraph). However, these tools assume LLM-grade model capabilities for KG construction. A narrow opportunity may exist for SLM-specific KG construction using template-based triplet extraction or fine-tuned small extractors, but the window is closing as SLMs gain structured output support."
+      }
+    ],
+    "key_findings": [
+      "Gap 6 (Quantization Reasoning Eval): Killed by Quantized-Reasoning-Models (COLM 2025) which is nearly an exact implementation of the thesis, plus LLMC, SLMQuant, and EfficientQAT.",
+      "Gap 7 (Browser Agent Security): Killed by Vercel agent-browser (domain allowlists + credential vault + content boundaries), Invariant Labs/Snyk (guardrails), Straiker ($21M funded), and 1Password+Browserbase partnership.",
+      "Gap 8 (KG-SLM Integration): Partially served by Graphiti/Cognee/LangGraph but they assume LLM-scale capabilities. Narrow SLM-optimized angle may survive but is closing.",
+      "Gap 9 (Reward Model Training): Killed by TRL PRMTrainer + RewardTrainer with PEFT/QLoRA (consumer GPU support), RLHFlow pre-built recipes, OpenRLHF (RTX 4090 support), and sdiehl/prm.",
+      "Gap 10 (Workflow Router): Killed by Microsoft Foundry Model Router (GA, step-level routing), NVIDIA LLM Router, RouteLLM, Martian, Not Diamond, and LLMRouter (1K+ stars)."
+    ]
+  }
+}

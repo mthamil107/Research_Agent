@@ -1,0 +1,426 @@
+{
+  "meta": {
+    "generated": "2026-03-30",
+    "methodology": "Competition Reality Check v3 — Start at 100, subtract penalties for each competitor/solution found",
+    "scoring": ">60 PROCEED | 30-60 DIFFERENTIATE | 10-30 PIVOT | <10 ABANDON"
+  },
+  "reality_checks": [
+    {
+      "gap_id": 11,
+      "gap_title": "End-to-End SLM Function Calling Toolkit",
+      "original_score": 5.76,
+      "domain": "Function Calling Training",
+      "thesis": "No unified CLI/SDK for synthetic data gen + LoRA fine-tuning + evaluation + edge export",
+      "competitors_found": [
+        {
+          "name": "Distil Labs (Vibe-Tuning)",
+          "url": "https://www.distillabs.ai/",
+          "description": "End-to-end platform: from a single prompt, it auto-generates synthetic data via knowledge distillation, fine-tunes a compact SLM student model, and evaluates. Explicitly supports tool calling and multi-turn tool calling tasks. Has a Claude Code skill for seamless integration. This is essentially the proposed gap as a managed service.",
+          "threat_level": "CRITICAL",
+          "penalty": -25
+        },
+        {
+          "name": "Microsoft slm-finetuning-for-function-calling",
+          "url": "https://github.com/microsoft/slm-finetuning-for-function-calling",
+          "description": "Official Microsoft tutorial repo covering synthetic data preparation, chat templates, LoRA fine-tuning, and evaluation specifically for SLM function calling. Designed for Phi-series models on Azure ML. Covers most of the pipeline except edge export.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "Salesforce xLAM + APIGen Pipeline",
+          "url": "https://github.com/SalesforceAIResearch/xLAM",
+          "description": "Complete pipeline: APIGen generates synthetic function-calling data with 3-step verification (format, execution, semantic), xLAM models (1B to 8B) are fine-tuned and released. xLAM-1b-fc-r is #3 on BFCL with only 1B params. Includes 60k dataset on HuggingFace and training cookbook.",
+          "threat_level": "CRITICAL",
+          "penalty": -25
+        },
+        {
+          "name": "Google FunctionGemma + Unsloth",
+          "url": "https://huggingface.co/google/functiongemma-270m-it",
+          "description": "Google released FunctionGemma (270M param model specialized for function calling) with an open training recipe for customization. Unsloth provides optimized LoRA fine-tuning notebooks for FunctionGemma with 2x speed, 70% less memory. LM Studio supports local deployment. Covers data gen + fine-tune + edge deploy.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "Together AI Fine-Tuning for Tool Calling",
+          "url": "https://www.together.ai/blog/fine-tuning-update",
+          "description": "End-to-end managed solution for production-grade tool calling spanning fine-tuning through inference. Supports Qwen, Moonshot AI, and Z.AI models. Covers the fine-tuning + evaluation + deployment pipeline as a service.",
+          "threat_level": "HIGH",
+          "penalty": -12
+        },
+        {
+          "name": "SiliconFlow / LLaMA-Factory / Axolotl",
+          "url": "https://www.siliconflow.com/articles/en/the-best-fine-tuning-platforms-of-open-source-llm",
+          "description": "General-purpose fine-tuning platforms that support LoRA/QLoRA for function calling tasks. SiliconFlow offers all-in-one fine-tuning + deployment. LLaMA-Factory and Axolotl are open-source CLI tools covering training + evaluation. Not SLM-specific but easily adapted.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "Block Goose Toolshim Fine-Tuning",
+          "url": "https://block.github.io/goose/blog/2025/04/11/finetuning-toolshim/",
+          "description": "Fine-tuning small models (Mistral-Nemo 14B, Gemma 4-12B, Qwen2.5-Coder 7-14B) specifically for tool calling. Published methodology and results.",
+          "threat_level": "LOW",
+          "penalty": -3
+        }
+      ],
+      "first_party_fixes": [
+        {
+          "vendor": "Google",
+          "description": "FunctionGemma released with training recipe for bespoke function calling at the edge. Google AI Edge SDK adds RAG and function calling libraries for on-device deployment.",
+          "penalty": -5
+        },
+        {
+          "vendor": "OpenAI",
+          "description": "OpenAI cookbook has official fine-tuning-for-function-calling guide using GPT-4o to generate synthetic training data.",
+          "penalty": -3
+        }
+      ],
+      "velocity_assessment": "VERY HIGH — Multiple major players shipped competing solutions in the last 6 months. Distil Labs, Salesforce xLAM, Google FunctionGemma, and Together AI all launched or updated their function-calling training pipelines in 2025-2026. The space is rapidly converging on integrated workflows.",
+      "velocity_penalty": -10,
+      "raw_score": 100,
+      "total_penalties": -121,
+      "final_score": 0,
+      "verdict": "ABANDON",
+      "reasoning": "This gap is comprehensively filled. Distil Labs offers exactly the proposed product (prompt-to-production SLM with tool calling via automated synth data + fine-tune + eval). Salesforce xLAM provides the open-source equivalent with APIGen data pipeline + pre-trained models. Google FunctionGemma + Unsloth covers edge-optimized function calling with training recipes. Microsoft provides tutorials. Together AI offers managed service. There is no meaningful whitespace remaining — the market has multiple solutions at every layer of the stack."
+    },
+    {
+      "gap_id": 12,
+      "gap_title": "Tool-Use & Agentic Reasoning Data Generator",
+      "original_score": 5.67,
+      "domain": "Synthetic Data Generation",
+      "thesis": "No platform generating multi-step tool-calling reasoning traces at scale",
+      "competitors_found": [
+        {
+          "name": "TOUCAN",
+          "url": "https://github.com/TheAgentArk/Toucan",
+          "description": "1.5M synthetic tool-agentic trajectories from 495 real-world MCP environments spanning 2000+ tools. Uses 5 models for query generation, 3 teacher models for trajectory generation, rule-based and model-based validation. Models fine-tuned on TOUCAN outperform closed-source models on BFCL V3. Dataset on HuggingFace. This is exactly the proposed gap.",
+          "threat_level": "CRITICAL",
+          "penalty": -25
+        },
+        {
+          "name": "Salesforce APIGen-MT",
+          "url": "https://apigen-mt.github.io/",
+          "description": "Agentic pipeline for multi-turn data generation via simulated agent-human interplay. Two-phase framework: blueprint generation with LLM reviewer committee, then interaction simulation. 3-stage verification (format, execution, semantic). 99% success rate on human eval. Open-sourced dataset + xLAM-2-fc-r models. Directly addresses multi-step tool-calling traces.",
+          "threat_level": "CRITICAL",
+          "penalty": -25
+        },
+        {
+          "name": "SWiRL (Stanford)",
+          "url": "https://scalingintelligence.stanford.edu/pubs/sdgrl/",
+          "description": "Step-Wise Reinforcement Learning methodology for multi-step reasoning and tool use. Iteratively generates trajectories with chain-of-thought reasoning + tool calling, then applies step-wise RL. Outperforms baselines by 12-21% across 5 benchmarks. Published research with open methodology.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "Microsoft Orca-AgentInstruct",
+          "url": "https://www.microsoft.com/en-us/research/blog/orca-agentinstruct-agentic-flows-can-be-effective-synthetic-data-generators/",
+          "description": "Agentic solution for synthetic-data generation. Leverages agentic framework to generate tailored datasets from raw data sources, creating both prompts and responses. Designed as a synthetic data factory for model fine-tuning.",
+          "threat_level": "HIGH",
+          "penalty": -12
+        },
+        {
+          "name": "HardGen Framework",
+          "url": "https://arxiv.org/pdf/2601.01498",
+          "description": "Three-phase framework: failure-inspired hard trace sampling, trace-conditioned tool evolution for synthesizing advanced tools, and feedback-guided CoT refinement. Specifically targets generating hard tool-use training data.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "BUTTONInstruct",
+          "url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/69c49f75ca31620f1f0d38093d9f3d9b-Paper-Conference.pdf",
+          "description": "ICLR 2025 paper. 8K high-quality data points with multi-turn function call trajectories. LLMs fine-tuned on BUTTONInstruct show improved performance on multi-turn function calling benchmarks.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "DataDreamer",
+          "url": "https://github.com/datadreamer-dev/DataDreamer",
+          "description": "Open-source Python library for synthetic data generation and LLM training workflows. Supports prompting, data generation, fine-tuning, distillation. ACL 2024 paper. General-purpose but applicable to tool-calling data generation.",
+          "threat_level": "LOW",
+          "penalty": -5
+        },
+        {
+          "name": "NVIDIA Synthetic Data for Agentic AI",
+          "url": "https://www.nvidia.com/en-us/use-cases/synthetic-data-generation-for-agentic-ai/",
+          "description": "NVIDIA platform for synthetic data generation specifically targeting agentic AI development. Enterprise-grade solution for creating diverse datasets at scale.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "Tonic Fabricate",
+          "url": "https://www.tonic.ai/guides/generate-synthetic-data-via-agentic-ai",
+          "description": "Agentic synthetic data generation platform. Equips LLMs with SQLite database for iterative data building, JavaScript sandbox, and built-in data generators. Supports structured and relational synthetic data.",
+          "threat_level": "LOW",
+          "penalty": -3
+        }
+      ],
+      "first_party_fixes": [
+        {
+          "vendor": "Salesforce",
+          "description": "APIGen and APIGen-MT are first-party research tools from Salesforce AI Research, open-sourced with datasets and models. Directly addresses multi-step tool-calling trace generation.",
+          "penalty": -5
+        }
+      ],
+      "velocity_assessment": "EXTREME — TOUCAN (Oct 2025) generated 1.5M trajectories from 495 MCP environments. APIGen-MT (Apr 2025) with open datasets. SWiRL published. HardGen published Jan 2026. The research community has aggressively attacked this problem from multiple angles in the last 6 months.",
+      "velocity_penalty": -10,
+      "raw_score": 100,
+      "total_penalties": -124,
+      "final_score": 0,
+      "verdict": "ABANDON",
+      "reasoning": "This gap has been comprehensively eliminated. TOUCAN alone generates 1.5M multi-step tool-calling trajectories at scale from real MCP environments — that is literally the thesis of this gap. APIGen-MT provides multi-turn agentic data with rigorous verification. SWiRL adds RL-based training on tool-use traces. The space has multiple open-source solutions, open datasets (TOUCAN-1.5M, APIGen-MT-5K, BUTTONInstruct), and pre-trained models. There is no remaining whitespace."
+    },
+    {
+      "gap_id": 13,
+      "gap_title": "Edge-Native SLM Cascading Router",
+      "original_score": 5.67,
+      "domain": "Model Routing",
+      "thesis": "No on-device router cascading between SLMs based on query complexity",
+      "competitors_found": [
+        {
+          "name": "vLLM Semantic Router",
+          "url": "https://github.com/vllm-project/semantic-router",
+          "description": "System-level intelligent router for Mixture-of-Models at Cloud, Data Center AND Edge. Signal-driven decision routing with quality-aware cascading from cheap to expensive models. v0.1 Iris released Jan 2026 with support for local Apple Silicon + cloud fallback. Directly addresses on-device routing with cascading. Very high velocity project.",
+          "threat_level": "CRITICAL",
+          "penalty": -25
+        },
+        {
+          "name": "RouteLLM (LMSYS)",
+          "url": "https://github.com/lm-sys/RouteLLM",
+          "description": "Open-source framework for serving and evaluating LLM routers. Routes between strong/expensive and weak/cheap models based on query analysis. 85%+ cost reduction on MT Bench. OpenAI-compatible server. Well-established with HuggingFace models and datasets.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "Token-Level Routing for Edge Devices",
+          "url": "https://github.com/Jianshu1only/Token-Routing",
+          "description": "Token routing system specifically for edge devices. Uses Qwen2.5-0.5B for on-device inference, cascading to Qwen2.5-32B. Achieves higher system throughput than previous configurations. Research paper + demo package on GitHub.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "Unified Cascade Routing Framework (ICLR/OpenReview)",
+          "url": "https://openreview.net/forum?id=AAl89VNNy1",
+          "description": "Unified framework integrating routing and cascading into a theoretically optimal strategy. Addresses exactly the combination of routing (selecting model) and cascading (sequential escalation) that the gap describes.",
+          "threat_level": "MEDIUM",
+          "penalty": -10
+        },
+        {
+          "name": "Edge-Cloud Collaborative Inference Survey",
+          "url": "https://arxiv.org/html/2507.16731v1",
+          "description": "Comprehensive survey on collaborative inference between edge SLMs and cloud LLMs. Documents gating/routing networks for query-complexity-based routing, edge-cloud cascading architectures, and multiple implementation approaches.",
+          "threat_level": "MEDIUM",
+          "penalty": -5
+        },
+        {
+          "name": "Data-Augmented Model Routing Framework",
+          "url": "https://link.springer.com/article/10.1007/s11227-025-08034-8",
+          "description": "Multi-LLM model routing approach for edge-cloud environments. Classifies prompts for weak vs strong LLM routing. Up to 16x better efficiency than existing cascaded approaches while preserving accuracy. Published in Journal of Supercomputing 2025.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "Requesty / Martian / Not-Diamond",
+          "url": "https://www.requesty.ai/blog/the-future-of-llm-routing-on-device-edge-ai-and-federated-models-1751656903",
+          "description": "Commercial model routing providers. Martian backed by Accenture investment. Not-Diamond maintains awesome-ai-model-routing curated list. Requesty publishes on edge routing futures. All primarily cloud-based but moving toward edge.",
+          "threat_level": "LOW",
+          "penalty": -5
+        }
+      ],
+      "first_party_fixes": [
+        {
+          "vendor": "vLLM Project",
+          "description": "vLLM Semantic Router is a major first-party initiative from the vLLM project (the dominant LLM inference engine). v0.1 Iris released Jan 2026, Athena release Mar 2026. Explicitly supports edge deployment with cascade routing.",
+          "penalty": -8
+        },
+        {
+          "vendor": "Google",
+          "description": "Google AI Edge SDK supports on-device SLM inference with function calling. While not a router per se, Google's edge infrastructure makes it easy to build local cascading on top of their models.",
+          "penalty": -3
+        }
+      ],
+      "velocity_assessment": "VERY HIGH — vLLM Semantic Router went from announcement (Sep 2025) to v0.1 Iris (Jan 2026) to Athena (Mar 2026) in 6 months. Multiple academic papers on unified cascade-routing published in 2025-2026. Token-level routing for edge devices published. The space is rapidly maturing.",
+      "velocity_penalty": -10,
+      "raw_score": 100,
+      "total_penalties": -104,
+      "final_score": 0,
+      "verdict": "ABANDON",
+      "reasoning": "vLLM Semantic Router is exactly this product — a system-level intelligent router for mixture-of-models at cloud, data center, and edge, with quality-aware cascading from cheap to expensive models. It shipped v0.1 in January 2026, already supports Apple Silicon local deployment, and is backed by the vLLM project (the dominant LLM inference engine). RouteLLM provides a mature alternative. Token-level routing exists for edge devices. Academic research has unified routing and cascading into optimal frameworks. The gap thesis that 'no on-device router cascading between SLMs' is false — multiple solutions exist."
+    },
+    {
+      "gap_id": 14,
+      "gap_title": "On-Device RAG Pipeline Framework",
+      "original_score": 5.67,
+      "domain": "On-Device/Edge SLM",
+      "thesis": "No open-source on-device RAG SDK with local vector storage, zero cloud dependency",
+      "competitors_found": [
+        {
+          "name": "Google AI Edge RAG SDK (MediaPipe)",
+          "url": "https://ai.google.dev/edge/mediapipe/solutions/genai/rag",
+          "description": "Official Google SDK providing fundamental components for on-device RAG pipeline with LLM Inference API. Supports Android, iOS, Web. Creates embeddings locally, retrieves from local storage, generates with on-device LLM. Part of MediaPipe ecosystem. Actively maintained (last updated Mar 2026). This IS the proposed gap, built by Google.",
+          "threat_level": "CRITICAL",
+          "penalty": -25
+        },
+        {
+          "name": "Microsoft Foundry Local",
+          "url": "https://techcommunity.microsoft.com/blog/educatordeveloperblog/build-a-fully-offline-rag-app-with-foundry-local-no-cloud-required/4499964",
+          "description": "Fully offline RAG app framework. Runs Phi-3.5 Mini on CPU/NPU with OpenAI-compatible API. No cloud dependency. Uses SQLite for vector storage. Total footprint: 4 npm packages. Also supports ONNX hybrid RAG stack. Official Microsoft product.",
+          "threat_level": "CRITICAL",
+          "penalty": -25
+        },
+        {
+          "name": "Edge-Veda",
+          "url": "https://github.com/ramanujammv1988/edge-veda",
+          "description": "On-device AI SDK for Flutter with RAG, embeddings, function calling, vision, STT, TTS. 100% offline. Dual-model architecture (embedder + generator), semantic chunking, streaming answers with source attribution. Metal GPU on iOS, CPU on Android. Thermal/memory/battery-aware runtime. Published Mar 2026.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "LLMWare",
+          "url": "https://github.com/llmware-ai/llmware",
+          "description": "Unified framework for enterprise RAG pipelines with small specialized models. Supports GGUF, OpenVINO, ONNX, Qualcomm QNN. 300+ model catalog. Integrated on-device RAG with document parsing, vector DB options, dual-pass retrieval. Runs on AI PCs, edge devices. Client agent < 120MB.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "Google ai_edge_rag (Flutter)",
+          "url": "https://pub.dev/packages/ai_edge_rag",
+          "description": "Official Google Flutter package for AI Edge RAG. Provides on-device RAG pipeline components for Flutter apps. Part of the Google AI Edge ecosystem.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "Ollama + LangChain/LlamaIndex (Local RAG Stack)",
+          "url": "https://www.firecrawl.dev/blog/best-open-source-rag-frameworks",
+          "description": "Widely-adopted local RAG pattern: Ollama for local LLM inference + LangChain/LlamaIndex for orchestration + local vector DB (ChromaDB, Qdrant, FAISS). Zero cloud dependency. Extremely well-documented with hundreds of tutorials. 2026 ecosystem is mature.",
+          "threat_level": "HIGH",
+          "penalty": -12
+        },
+        {
+          "name": "Txtai",
+          "url": "https://github.com/neuml/txtai",
+          "description": "Lightweight RAG framework that runs seamlessly on edge devices, local machines, and cloud. Scalable and lightweight with built-in vector search.",
+          "threat_level": "MEDIUM",
+          "penalty": -5
+        },
+        {
+          "name": "Browser-Based On-Device RAG",
+          "url": "https://huggingface.co/blog/rasgaard/on-device-rag",
+          "description": "Local on-device LLM with RAG running entirely through the browser using WebGPU. Zero install, zero cloud. HuggingFace blog with tutorial.",
+          "threat_level": "LOW",
+          "penalty": -3
+        }
+      ],
+      "first_party_fixes": [
+        {
+          "vendor": "Google",
+          "description": "Google AI Edge RAG SDK is a first-party solution covering exactly the gap thesis. Supports Android, iOS, Web. Part of MediaPipe. Actively developed.",
+          "penalty": -10
+        },
+        {
+          "vendor": "Microsoft",
+          "description": "Foundry Local is a first-party Microsoft solution for fully offline RAG with Phi models. Also released ONNX hybrid RAG stack tutorial.",
+          "penalty": -8
+        }
+      ],
+      "velocity_assessment": "EXTREME — Google AI Edge RAG SDK actively updated (Mar 2026). Microsoft Foundry Local launched with multiple tutorials. Edge-Veda published Mar 2026. LLMWare continuously updated. The 'local RAG' pattern with Ollama is now standard practice with hundreds of tutorials. Mobile NPUs have reached critical mass for on-device inference.",
+      "velocity_penalty": -10,
+      "raw_score": 100,
+      "total_penalties": -136,
+      "final_score": 0,
+      "verdict": "ABANDON",
+      "reasoning": "This gap is thoroughly disproven. Google's AI Edge RAG SDK is literally 'an open-source on-device RAG SDK with local vector storage, zero cloud dependency' — it is the exact thesis of this gap, built and maintained by Google. Microsoft Foundry Local provides the same for Windows/NPU. Edge-Veda does it for Flutter. LLMWare does it for enterprise. The Ollama+LangChain local RAG stack is now standard practice. The thesis that no such solution exists is flatly false — there are at least 4-5 production-ready options from major vendors."
+    },
+    {
+      "gap_id": 15,
+      "gap_title": "Custom Domain Verifier Training Platform",
+      "original_score": 5.40,
+      "domain": "Reward Model Training",
+      "thesis": "No platform for training domain verifiers (legal, medical, finance)",
+      "competitors_found": [
+        {
+          "name": "Labelbox RLVR Platform",
+          "url": "https://labelbox.com/solutions/reinforcement-learning-with-verifiable-rewards/",
+          "description": "Streamlines RLVR pipelines with comprehensive data services. Defines problem domains, generates diverse prompts, creates evaluation rubrics, develops custom code-based verifiers. Has domain experts for finance (CFA, MBA), legal, and medical (HIPAA-compliant). Covers the full pipeline from domain definition to verifier training.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "Nebius Token Factory Post-Training",
+          "url": "https://nebius.com/services/token-factory/post-training",
+          "description": "White-glove reinforcement fine-tuning program. Nebius AI researchers build custom reward models, architect RFT pipelines, drive behavioral tuning. Supports custom reward model creation for domain-specific applications on dedicated Papyrax infrastructure.",
+          "threat_level": "HIGH",
+          "penalty": -15
+        },
+        {
+          "name": "Databricks RLVR for Domain-Specific Reasoning",
+          "url": "https://www.databricks.com/blog/power-rlvr-training-leading-sql-reasoning-model-databricks",
+          "description": "Uses RLVR to develop reasoning models for domain-specific tasks including code generation, data analysis, organizational knowledge integration, and document extraction. Published methodology for training SQL reasoning models with verifiable rewards.",
+          "threat_level": "MEDIUM",
+          "penalty": -10
+        },
+        {
+          "name": "Multi-Domain RLVR Research",
+          "url": "https://arxiv.org/html/2503.23829v1",
+          "description": "Research paper on expanding RL with verifiable rewards across diverse domains including medicine, chemistry, psychology, economics. Shows that reasonably effective verifiers can be trained for diverse domains using 7B models, achieving performance comparable to much larger off-the-shelf generative verifiers.",
+          "threat_level": "MEDIUM",
+          "penalty": -10
+        },
+        {
+          "name": "NeuralForge by Kellton",
+          "url": "https://www.kellton.com/ai-ml/neuralforge",
+          "description": "RLHF & RLVR AI Agent Training Platform. Positioned as a dedicated platform for training AI agents with reinforcement learning from verifiable rewards.",
+          "threat_level": "MEDIUM",
+          "penalty": -8
+        },
+        {
+          "name": "VerIF (Hybrid Verification)",
+          "url": "https://www.emergentmind.com/topics/rl-with-verifiable-rewards-rlvr",
+          "description": "Hybrid approach combining hard (code-driven Python script) and soft (LLM-based) verification for instruction following. Demonstrates that custom domain verifiers can be built by combining programmatic checks with LLM judges.",
+          "threat_level": "LOW",
+          "penalty": -5
+        },
+        {
+          "name": "Toloka RLVR Services",
+          "url": "https://toloka.ai/blog/reinforcement-learning-with-verifiable-rewards-unlocking-reliable-ai-reasoning/",
+          "description": "Data labeling platform with RLVR capabilities. Offers domain expert annotation services for training verifiers across specialized domains.",
+          "threat_level": "LOW",
+          "penalty": -5
+        }
+      ],
+      "first_party_fixes": [
+        {
+          "vendor": "OpenAI",
+          "description": "o3/o4-mini emphasize scaling RL with tool-use. OpenAI's reinforcement fine-tuning API supports custom reward functions, enabling domain-specific verifier-like training.",
+          "penalty": -5
+        },
+        {
+          "vendor": "HuggingFace",
+          "description": "TRL library supports training reward models and RLHF/RLVR workflows. Combined with PEFT, enables domain-specific reward model training on consumer hardware.",
+          "penalty": -5
+        }
+      ],
+      "velocity_assessment": "HIGH — RLVR has exploded in 2025-2026. awesome-RLVR repo tracks dozens of papers. Multi-domain RLVR research published Mar 2025 showing domain portability. Labelbox, Nebius, Databricks all offer domain-specific verifier training services. The research-to-product pipeline is well-established.",
+      "velocity_penalty": -8,
+      "raw_score": 100,
+      "total_penalties": -86,
+      "final_score": 14,
+      "verdict": "PIVOT",
+      "reasoning": "While no single self-serve platform exists that lets you point-and-click train a domain verifier for legal/medical/finance, the gap is partially filled. Labelbox and Nebius offer white-glove services for exactly this. Databricks published RLVR for domain-specific reasoning. Research shows 7B models can serve as effective domain verifiers. The HuggingFace TRL library provides the open-source training infrastructure. The remaining whitespace is narrow: a self-serve, no-code platform specifically for training domain verifiers without requiring ML expertise. But the trend is toward RLVR tooling becoming commoditized, and the domain expertise barrier (you need actual legal/medical/finance experts to define verification criteria) may be the real moat, not the software."
+    }
+  ],
+  "summary": {
+    "total_gaps_checked": 5,
+    "verdicts": {
+      "PROCEED": 0,
+      "DIFFERENTIATE": 0,
+      "PIVOT": 1,
+      "ABANDON": 4
+    },
+    "key_findings": [
+      "Gap 11 (SLM Function Calling Toolkit): ABANDON — Distil Labs, Salesforce xLAM, Google FunctionGemma, Microsoft tutorials, and Together AI collectively cover every component of the proposed pipeline.",
+      "Gap 12 (Tool-Use Data Generator): ABANDON — TOUCAN generated 1.5M tool-agentic trajectories from 495 MCP environments. APIGen-MT provides verified multi-turn data. SWiRL adds RL training. The problem is solved from multiple angles.",
+      "Gap 13 (Edge-Native SLM Cascading Router): ABANDON — vLLM Semantic Router is exactly this product, with v0.1 shipped Jan 2026, explicitly supporting edge deployment with cascade routing. RouteLLM and token-level routing for edge devices also exist.",
+      "Gap 14 (On-Device RAG Pipeline): ABANDON — Google AI Edge RAG SDK, Microsoft Foundry Local, Edge-Veda, and LLMWare all provide exactly the proposed solution. The thesis is flatly false.",
+      "Gap 15 (Custom Domain Verifier Training): PIVOT — White-glove services exist (Labelbox, Nebius) but no self-serve platform. However, the domain expertise barrier may matter more than the software, and RLVR tooling is rapidly commoditizing."
+    ]
+  }
+}
