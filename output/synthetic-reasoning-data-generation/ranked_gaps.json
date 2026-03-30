@@ -1,0 +1,293 @@
+{
+  "domain": "Synthetic Reasoning Data Generation Tools",
+  "scoring_date": "2026-03-29",
+  "scoring_formula": "opportunity = demand * competition_openness * feasibility / 100",
+  "scoring_notes": "demand (0-10): validated user pain + market signals. competition_openness (0-10): 10=no competitors, 0=saturated. feasibility (0-10): 10=easy to build, 0=impossible.",
+  "ranked_gaps": [
+    {
+      "rank": 1,
+      "id": "GAP-005",
+      "title": "Tool-Use & Agentic Reasoning Data Generator",
+      "category": "feature_gap",
+      "scores": {
+        "demand": 9,
+        "competition_openness": 9,
+        "feasibility": 7,
+        "opportunity_score": 5.67
+      },
+      "what_to_build": "A platform that generates multi-step tool-calling and API-usage reasoning traces at scale. Users define available tools (APIs, databases, code interpreters), and the system generates diverse scenarios where an agent must reason through which tools to call, in what order, with what parameters, and how to interpret results. Outputs formatted for SFT and RLHF/RLVR training.",
+      "who_needs_it": "Agentic AI developers, companies building AI assistants that use tools (Cursor, Devin-like products), API integration platforms, enterprise teams building internal AI agents. Gartner says 40% of enterprise apps will embed task-specific agents by 2026.",
+      "why_now": "Agentic AI is the #1 trend in 2025-2026. Every major lab (OpenAI, Anthropic, Google, NVIDIA) is investing heavily. But training data for tool-use reasoning barely exists — only 3/16 tools support it, all research-only. The market is wide open.",
+      "build_complexity": "medium-high",
+      "estimated_build_time": "3-4 months for MVP",
+      "market_size_estimate": "TAM: $500M+ (subset of $2.7B synthetic data market by 2030, agentic AI is largest growth vector). SAM: $100-200M (teams actively training agentic models). SOM: $10-30M (first 2 years).",
+      "key_risks": ["Major labs may build in-house", "Rapidly evolving tool-use standards", "Quality verification for multi-step tool chains is hard"]
+    },
+    {
+      "rank": 2,
+      "id": "GAP-009",
+      "title": "Difficulty-Calibrated Reasoning Curriculum Generator",
+      "category": "feature_gap",
+      "scores": {
+        "demand": 9,
+        "competition_openness": 8,
+        "feasibility": 7,
+        "opportunity_score": 5.04
+      },
+      "what_to_build": "A system that assesses a model's current reasoning capabilities, then generates progressively harder training examples that match the model's learning frontier. Uses adaptive difficulty calibration (not static difficulty levels) — continuously re-evaluates as the model improves. Integrates with RL training loops.",
+      "who_needs_it": "ML engineers fine-tuning reasoning models, research labs doing RLVR/RLHF, education technology companies building adaptive learning systems, teams wanting to minimize compute waste on too-easy or too-hard examples.",
+      "why_now": "5+ papers at EMNLP/ICLR 2025-2026 on adaptive curriculum learning for LLM reasoning. CDAS showed 57% training time reduction. The research is proven but no productized tool exists. RL training for reasoning is now mainstream (DeepSeek R1, RLVR).",
+      "build_complexity": "medium-high",
+      "estimated_build_time": "3-4 months for MVP",
+      "market_size_estimate": "TAM: $300M (reasoning model training infrastructure). SAM: $80-150M (teams using RL for reasoning). SOM: $8-20M.",
+      "key_risks": ["Difficulty estimation is model-dependent", "Research moving fast — techniques may change", "Requires deep RL integration"]
+    },
+    {
+      "rank": 3,
+      "id": "GAP-002",
+      "title": "Automated Reasoning Trace Verification & Quality Assurance Platform",
+      "category": "feature_gap",
+      "scores": {
+        "demand": 9,
+        "competition_openness": 8,
+        "feasibility": 6,
+        "opportunity_score": 4.32
+      },
+      "what_to_build": "An automated pipeline that verifies the correctness of generated reasoning traces using formal methods (math proof checkers), code execution, logic validators, and LLM-as-judge ensembles. Includes contamination detection, consistency checking, and quality scoring dashboards. Plugs into any generation pipeline.",
+      "who_needs_it": "ML engineers building reasoning models who currently 'eyeball' quality, AI safety researchers needing verified training data, benchmark creators guarding against contamination, enterprise teams needing auditable training data.",
+      "why_now": "Multiple EMNLP/ICML 2025 papers confirm verification is the #1 unsolved problem. 'Quality assurance amounts to informal spot-checking.' As reasoning models become safety-critical (medical, legal, financial), unverified training data becomes unacceptable.",
+      "build_complexity": "high",
+      "estimated_build_time": "4-6 months for MVP",
+      "market_size_estimate": "TAM: $400M (data quality for AI). SAM: $100-200M (reasoning-specific verification). SOM: $10-25M.",
+      "key_risks": ["Verification itself can be wrong (verifier accuracy)", "Different reasoning domains need different verifiers", "Formal verification doesn't scale to all reasoning types"]
+    },
+    {
+      "rank": 4,
+      "id": "GAP-001",
+      "title": "Domain-Specific Reasoning Data Generation Platform",
+      "category": "segment_gap",
+      "scores": {
+        "demand": 9,
+        "competition_openness": 7,
+        "feasibility": 7,
+        "opportunity_score": 4.41
+      },
+      "what_to_build": "A platform for generating reasoning training data in regulated/vertical domains: legal (contract analysis, case reasoning), medical (diagnostic reasoning, treatment planning), finance (risk assessment, compliance reasoning), accounting (audit trails). Includes domain-specific ontologies, compliance-aware generation, and expert-reviewed templates.",
+      "who_needs_it": "Enterprise AI teams in financial services, healthcare providers building clinical AI, legal tech companies, accounting/audit firms. GPT-4 gets only 16.58% on accounting reasoning — massive improvement opportunity.",
+      "why_now": "EU AI Act fully applicable August 2026 creates regulatory urgency. WEF 2025: 'collision between quality training data hunger and strict privacy mandates.' Domain-specific reasoning accuracy is embarrassingly low. Enterprises are willing to pay premium prices for domain-quality data.",
+      "build_complexity": "medium",
+      "estimated_build_time": "3-5 months for MVP (one domain)",
+      "market_size_estimate": "TAM: $800M+ (enterprise AI training data). SAM: $200-400M (regulated industry AI). SOM: $15-40M (one vertical first).",
+      "key_risks": ["Domain expertise required (need SMEs)", "Regulatory compliance complexity varies by jurisdiction", "Enterprise sales cycles are long"]
+    },
+    {
+      "rank": 5,
+      "id": "GAP-010",
+      "title": "Multimodal Reasoning Data Generation (Vision + Text + Code)",
+      "category": "feature_gap",
+      "scores": {
+        "demand": 9,
+        "competition_openness": 8,
+        "feasibility": 5,
+        "opportunity_score": 3.60
+      },
+      "what_to_build": "A tool that generates multimodal reasoning training data: interpret charts, reason about images, combine visual + textual + code reasoning in single traces. Uses programmatic image generation (LaTeX, HTML, SVG) paired with reasoning chains. Supports document understanding, chart QA, diagram reasoning, and visual math.",
+      "who_needs_it": "Multimodal model developers (Microsoft Phi-4-vision, GLM-4.5V teams showed the way), document understanding startups, vision-language model trainers, enterprise teams processing visual documents.",
+      "why_now": "Microsoft published Phi-4-reasoning-vision showing synthetic data 'materially improves multimodal reasoning.' CVPR 2025 had a dedicated Multimodal Algorithmic Reasoning workshop. But no generation tool exists — everyone builds custom pipelines.",
+      "build_complexity": "high",
+      "estimated_build_time": "5-7 months for MVP",
+      "market_size_estimate": "TAM: $600M (multimodal AI training). SAM: $100-200M (reasoning-specific multimodal). SOM: $5-15M.",
+      "key_risks": ["Multimodal verification is extremely hard", "Image generation quality varies", "Fast-moving research may obsolete approaches"]
+    },
+    {
+      "rank": 6,
+      "id": "GAP-014",
+      "title": "Real-Time Reasoning Data Flywheel (Production -> Training Loop)",
+      "category": "workflow_gap",
+      "scores": {
+        "demand": 8,
+        "competition_openness": 8,
+        "feasibility": 6,
+        "opportunity_score": 3.84
+      },
+      "what_to_build": "A system that monitors production model reasoning failures, automatically generates targeted synthetic training data to address those exact weaknesses, and feeds it back into the training pipeline. Includes failure pattern detection, targeted data generation, verification, and continuous model improvement loops.",
+      "who_needs_it": "Production ML teams running reasoning models at scale, MLOps engineers, model improvement teams at companies like coding assistants, search engines, customer support AI. CorrectNav showed 16.5% -> 81.9% improvement over 3 flywheel cycles.",
+      "why_now": "Arize AI + NVIDIA NeMo partnership validates the data flywheel concept. 'Learning from Reasoning Failures' paper (2025) proves the approach. As more reasoning models go to production, the feedback loop becomes essential. NVIDIA added 'data flywheel' to their glossary.",
+      "build_complexity": "high",
+      "estimated_build_time": "5-7 months for MVP",
+      "market_size_estimate": "TAM: $500M (MLOps + model improvement). SAM: $100-150M (reasoning model operations). SOM: $8-20M.",
+      "key_risks": ["Requires production monitoring integration", "Failure attribution is hard (why did the model fail?)", "Latency requirements for real-time feedback"]
+    },
+    {
+      "rank": 7,
+      "id": "GAP-008",
+      "title": "End-to-End Reasoning Data to RL Training Pipeline",
+      "category": "workflow_gap",
+      "scores": {
+        "demand": 8,
+        "competition_openness": 7,
+        "feasibility": 5,
+        "opportunity_score": 2.80
+      },
+      "what_to_build": "A unified platform: define reasoning task -> generate data -> verify quality -> train with RL (RLVR/GRPO) -> evaluate -> iterate. Single tool replacing 5+ separate tools. Includes reward model training, verifiable reward computation, and experiment tracking.",
+      "who_needs_it": "ML engineers who currently stitch together Open-R1 + SWiRL + NeMo + custom scripts. Research labs wanting reproducible reasoning model training. Startups that can't afford a team of 10 to manage the pipeline.",
+      "why_now": "RLVR is now 'de facto core' of post-training (2025). Kimi-Researcher proved end-to-end RL works. But the tooling is fragmented — no single product covers the full loop. The integration tax is enormous.",
+      "build_complexity": "very_high",
+      "estimated_build_time": "6-9 months for MVP",
+      "market_size_estimate": "TAM: $400M (LLM training infrastructure). SAM: $80-150M (reasoning-specific training). SOM: $5-15M.",
+      "key_risks": ["Massive scope — hard to do everything well", "Competing with well-funded infra companies", "RL training requires significant GPU resources"]
+    },
+    {
+      "rank": 8,
+      "id": "GAP-015",
+      "title": "Cost-Optimized Reasoning Data Generation (Small Model Bootstrapping)",
+      "category": "pricing_gap",
+      "scores": {
+        "demand": 8,
+        "competition_openness": 7,
+        "feasibility": 7,
+        "opportunity_score": 3.92
+      },
+      "what_to_build": "A cost-aware reasoning data generation platform that routes easy examples to cheap models and hard examples to expensive models. Includes budget management, quality-per-dollar metrics, cost forecasting, and iterative bootstrapping with exponential budget allocation. Supports self-improvement loops where small models progressively generate harder data.",
+      "who_needs_it": "Budget-constrained startups, academic researchers, small teams who need reasoning data but cannot afford millions in API costs. 'Generation cost often exceeds training cost' — confirmed pain point.",
+      "why_now": "'Spend Wisely' paper (2025) proved exponential budget allocation outperforms constant policies. Phi-4 showed GPT-4o generating 10B tokens — the cost is enormous. As reasoning models democratize, cost optimization becomes critical for non-BigTech players.",
+      "build_complexity": "medium",
+      "estimated_build_time": "2-3 months for MVP",
+      "market_size_estimate": "TAM: $300M (budget-constrained AI teams). SAM: $60-120M (synthetic data for SMBs/academia). SOM: $5-15M.",
+      "key_risks": ["Cheap models may produce low-quality reasoning", "Cost optimization adds complexity", "Margins may be thin if competing on price"]
+    },
+    {
+      "rank": 9,
+      "id": "GAP-006",
+      "title": "Reasoning Data Contamination & Deduplication Detection",
+      "category": "feature_gap",
+      "scores": {
+        "demand": 8,
+        "competition_openness": 7,
+        "feasibility": 6,
+        "opportunity_score": 3.36
+      },
+      "what_to_build": "A tool that scans synthetic reasoning datasets for benchmark contamination, near-duplicates, and data leakage. Uses hierarchical contamination detection (beyond surface-level similarity), semantic deduplication, and benchmark fingerprinting. Generates contamination reports with severity scores.",
+      "who_needs_it": "Benchmark maintainers (HuggingFace Open LLM Leaderboard), model evaluators, training data curators, AI safety teams. ICML 2025 spotlight on this topic confirms urgency.",
+      "why_now": "'Synthetic data generators conceptually mimic benchmarks without direct lexical overlap' — current methods fail on synthetic data contamination. As synthetic reasoning data scales to billions of tokens, contamination becomes systematic, not accidental.",
+      "build_complexity": "medium",
+      "estimated_build_time": "3-4 months for MVP",
+      "market_size_estimate": "TAM: $200M (AI evaluation and testing). SAM: $50-100M (benchmark integrity). SOM: $3-10M.",
+      "key_risks": ["Adversarial contamination is hard to detect", "False positive rate must be very low", "Niche market — may struggle to scale revenue"]
+    },
+    {
+      "rank": 10,
+      "id": "GAP-013",
+      "title": "Privacy-Preserving Reasoning Data Generation for Enterprises",
+      "category": "integration_gap",
+      "scores": {
+        "demand": 8,
+        "competition_openness": 7,
+        "feasibility": 5,
+        "opportunity_score": 2.80
+      },
+      "what_to_build": "Generate reasoning training data from proprietary enterprise documents (contracts, medical records, financial reports) without leaking sensitive information. Combines differential privacy, federated learning, and PII detection with reasoning trace generation. On-premise deployment option.",
+      "who_needs_it": "Enterprise data teams in regulated industries, healthcare AI developers (HIPAA), financial services AI teams (SOX, PCI-DSS), legal departments. 80% of enterprise data is unstructured and growing 60% annually.",
+      "why_now": "EU AI Act fully applicable August 2026. Gartner: 75% of businesses using synthetic data by 2026. Gretel acquired by NVIDIA for $320M (validates market). But Gretel is privacy-focused without reasoning specialization — the intersection is unserved.",
+      "build_complexity": "high",
+      "estimated_build_time": "5-7 months for MVP",
+      "market_size_estimate": "TAM: $600M (privacy-preserving AI). SAM: $100-200M (reasoning + privacy intersection). SOM: $8-20M.",
+      "key_risks": ["Privacy guarantees are hard to prove formally", "Enterprise sales cycles are long", "Competing with NVIDIA/Gretel if they add reasoning"]
+    },
+    {
+      "rank": 11,
+      "id": "GAP-012",
+      "title": "Reasoning Trace Diversity & Coverage Analyzer",
+      "category": "feature_gap",
+      "scores": {
+        "demand": 7,
+        "competition_openness": 8,
+        "feasibility": 7,
+        "opportunity_score": 3.92
+      },
+      "what_to_build": "An analytics dashboard that maps reasoning pattern coverage in a dataset: what types of reasoning are present (causal, mathematical, deductive, analogical, etc.), where blind spots exist, what's over/under-represented. Uses entropy metrics, taxonomy mapping, and visual distribution reports.",
+      "who_needs_it": "Dataset curators building reasoning training sets, teams doing data mixture optimization, researchers studying reasoning capabilities. 'Data Recipes for Reasoning Models' (2025) confirms need for systematic coverage analysis.",
+      "why_now": "EMNLP 2025 introduced metrics for reasoning type diversity via entropy. 'From Blind Spots to Gains' paper shows diagnostic-driven data curation works. But no standalone tool exists — everyone builds ad-hoc scripts.",
+      "build_complexity": "medium",
+      "estimated_build_time": "2-3 months for MVP",
+      "market_size_estimate": "TAM: $150M (data quality tooling). SAM: $30-60M (reasoning-specific analytics). SOM: $2-8M.",
+      "key_risks": ["May be a feature, not a product", "Reasoning taxonomy is not standardized", "Hard to monetize analytics-only tools"]
+    },
+    {
+      "rank": 12,
+      "id": "GAP-004",
+      "title": "Visual/No-Code Reasoning Data Pipeline Builder",
+      "category": "workflow_gap",
+      "scores": {
+        "demand": 7,
+        "competition_openness": 7,
+        "feasibility": 6,
+        "opportunity_score": 2.94
+      },
+      "what_to_build": "A drag-and-drop visual interface for building reasoning data generation pipelines. Non-technical users (domain experts, curriculum designers) can configure data sources, reasoning types, difficulty levels, verification steps, and output formats without writing Python. Real-time preview of generated samples.",
+      "who_needs_it": "Domain experts in legal/medical/finance who understand reasoning but cannot code, education/curriculum designers, small teams without ML engineers. SyGra Studio launched in 2026 for general synthetic data — shows market timing is right.",
+      "why_now": "70% of enterprise apps use low-code/no-code by 2025. SyGra Studio validates visual synthetic data tools. But reasoning data has unique requirements (CoT structure, verification, difficulty control) that generic no-code tools cannot handle.",
+      "build_complexity": "medium-high",
+      "estimated_build_time": "4-6 months for MVP",
+      "market_size_estimate": "TAM: $300M (no-code AI tooling). SAM: $50-100M (synthetic data creation by non-engineers). SOM: $3-10M.",
+      "key_risks": ["SyGra Studio may add reasoning features", "Hard to make powerful AND simple", "Domain experts may still need ML guidance"]
+    },
+    {
+      "rank": 13,
+      "id": "GAP-003",
+      "title": "Multi-Provider Reasoning Data Generation Orchestrator",
+      "category": "integration_gap",
+      "scores": {
+        "demand": 7,
+        "competition_openness": 6,
+        "feasibility": 7,
+        "opportunity_score": 2.94
+      },
+      "what_to_build": "An orchestration layer that generates reasoning traces from multiple LLM providers simultaneously (GPT-4o, Claude, DeepSeek-R1, Llama, Gemini), compares quality across providers, blends best outputs, and tracks costs. Unified API with provider-agnostic configuration.",
+      "who_needs_it": "AI research teams comparing model reasoning quality, startups avoiding vendor lock-in, teams doing model distillation from multiple teachers. HuggingFace LLM comparison dataset shows demand for cross-model evaluation.",
+      "why_now": "DeepSeek-V3.2 surpasses GPT-5 on reasoning benchmarks — the best model changes monthly. Teams need flexibility. But Distilabel already supports multi-provider (partial solution), reducing the gap's urgency.",
+      "build_complexity": "medium",
+      "estimated_build_time": "2-3 months for MVP",
+      "market_size_estimate": "TAM: $200M (LLM orchestration). SAM: $40-80M (reasoning data generation). SOM: $3-8M.",
+      "key_risks": ["Distilabel/DataDreamer already partially solve this", "Provider APIs change frequently", "May be a feature in a larger platform, not a standalone product"]
+    },
+    {
+      "rank": 14,
+      "id": "GAP-007",
+      "title": "Human-in-the-Loop Reasoning Data Curation Platform",
+      "category": "workflow_gap",
+      "scores": {
+        "demand": 7,
+        "competition_openness": 6,
+        "feasibility": 6,
+        "opportunity_score": 2.52
+      },
+      "what_to_build": "An annotation platform specifically designed for reviewing multi-step reasoning chains. Annotators can approve/reject/edit individual reasoning steps, flag logical errors, rate difficulty, and provide corrected traces. Supports active learning to prioritize the most uncertain traces for review.",
+      "who_needs_it": "Annotation teams at Scale AI, Surge AI, etc. Domain experts reviewing reasoning traces in legal/medical/finance. AI safety teams needing verified reasoning data. NIST showing government interest in HITL annotation.",
+      "why_now": "VLDB 2025 workshop on human+AI data curation. ACL 2025 survey on LLM-based active learning. But Argilla already provides annotation infrastructure and could add reasoning-specific features, reducing the standalone opportunity.",
+      "build_complexity": "medium",
+      "estimated_build_time": "3-4 months for MVP",
+      "market_size_estimate": "TAM: $300M (data annotation tooling). SAM: $50-80M (reasoning-specific annotation). SOM: $3-8M.",
+      "key_risks": ["Argilla/Label Studio may add reasoning features", "Annotation is commodity business with thin margins", "Requires large annotator community to be useful"]
+    },
+    {
+      "rank": 15,
+      "id": "GAP-011",
+      "title": "Reasoning Data Marketplace / Sharing Hub",
+      "category": "pricing_gap",
+      "scores": {
+        "demand": 6,
+        "competition_openness": 6,
+        "feasibility": 5,
+        "opportunity_score": 1.80
+      },
+      "what_to_build": "A marketplace for buying, selling, and sharing curated reasoning datasets. Quality ratings, domain tags, licensing framework, contamination certificates, preview samples. Sellers upload reasoning datasets; buyers search by domain, reasoning type, difficulty, and format.",
+      "who_needs_it": "Small teams without GPU budgets, enterprises wanting pre-built domain reasoning data, data sellers with unique domain expertise. Prime Intellect's SYNTHETIC-1 release (900K samples) shows demand for shared reasoning data.",
+      "why_now": "Multiple teams independently generating similar data (DeepSeek 800K, Open-R1 350K, SYNTHETIC-1 900K). 10+ generic data marketplaces exist but none specialize in reasoning. HuggingFace Hub is free — hard to charge for a layer on top.",
+      "build_complexity": "medium",
+      "estimated_build_time": "3-5 months for MVP",
+      "market_size_estimate": "TAM: $200M (AI data marketplaces). SAM: $20-40M (reasoning data specifically). SOM: $1-5M.",
+      "key_risks": ["HuggingFace may add marketplace features", "Chicken-and-egg: need buyers AND sellers", "Quality verification is essential but expensive", "Open-source culture may resist paid reasoning data"]
+    }
+  ]
+}

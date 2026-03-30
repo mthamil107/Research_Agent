@@ -1,0 +1,508 @@
+{
+  "domain": "Model Routing, Cascading & Orchestration for SLMs",
+  "generated": "2026-03-29",
+  "stage": "demand_validation",
+  "validation_sources": ["Reddit", "Hacker News", "GitHub", "arXiv", "industry blogs", "VC analyses"],
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Edge-Native SLM Cascading Router",
+      "demand_signals": [
+        {
+          "source": "Springer Nature (2025)",
+          "type": "academic_paper",
+          "signal": "Data-augmented model routing framework for efficient LLM deployment in edge-cloud environments published in Journal of Supercomputing",
+          "url": "https://link.springer.com/article/10.1007/s11227-025-08034-8"
+        },
+        {
+          "source": "arXiv survey (2025)",
+          "type": "academic_paper",
+          "signal": "Comprehensive survey on 'Collaborative Inference and Learning between Edge SLMs and Cloud LLMs' — highlights cascading as critical open challenge",
+          "url": "https://arxiv.org/html/2507.16731v1"
+        },
+        {
+          "source": "Dell (2026)",
+          "type": "industry_prediction",
+          "signal": "Dell predicts dramatic shift from LLMs to SLMs optimized for edge environments in 2026",
+          "url": "https://www.dell.com/en-us/blog/the-power-of-small-edge-ai-predictions-for-2026/"
+        },
+        {
+          "source": "Requesty Blog",
+          "type": "industry_blog",
+          "signal": "Dedicated article on 'The Future of LLM Routing: On-device, Edge AI, and Federated Models' — confirms market anticipation",
+          "url": "https://www.requesty.ai/blog/the-future-of-llm-routing-on-device-edge-ai-and-federated-models-1751656903"
+        },
+        {
+          "source": "AWS Blog",
+          "type": "industry_deployment",
+          "signal": "AWS blog on edge deployment of fine-tuned SLMs for telco operations — real enterprise use case",
+          "url": "https://aws.amazon.com/blogs/industries/architecting-the-semantic-mcp-server-edge-deployment-of-fine-tuned-slms-to-solve-the-data-ingestion-problem-for-telco-operations/"
+        },
+        {
+          "source": "Gartner prediction",
+          "type": "analyst_forecast",
+          "signal": "Gartner predicts by 2027, organizations will use small task-specific AI models 3x more than general-purpose LLMs"
+        },
+        {
+          "source": "Research finding",
+          "type": "cost_benefit",
+          "signal": "Hybrid edge-cloud for agentic AI workloads yields energy savings up to 75% and cost reductions exceeding 80%"
+        }
+      ],
+      "demand_score": 9,
+      "demand_summary": "Massive research activity (multiple 2025 papers, surveys), strong industry signals (Dell, AWS, Gartner), and clear cost/energy benefits. No production tool exists yet despite overwhelming evidence of need."
+    },
+    {
+      "id": "GAP-002",
+      "title": "Confidence-Calibrated Cascading Framework",
+      "demand_signals": [
+        {
+          "source": "arXiv (2026)",
+          "type": "academic_survey",
+          "signal": "Dedicated survey: 'Dynamic Model Routing and Cascading for Efficient LLM Inference' published March 2026",
+          "url": "https://arxiv.org/html/2603.04445v1"
+        },
+        {
+          "source": "ICLR 2024",
+          "type": "academic_paper",
+          "signal": "Conference paper on 'Large Language Model Cascades with Mixture of Thought Representations' at ICLR",
+          "url": "https://proceedings.iclr.cc/paper_files/paper/2024/file/5de11e930c1bbfda5d4fc9d2b0924032-Paper-Conference.pdf"
+        },
+        {
+          "source": "arXiv (2025)",
+          "type": "academic_paper",
+          "signal": "Bi-directional Model Cascading with Proxy Confidence — novel approach using auxiliary models to approximate larger model confidence",
+          "url": "https://arxiv.org/html/2504.19391v2"
+        },
+        {
+          "source": "arXiv (2025)",
+          "type": "academic_paper",
+          "signal": "Cost-Saving LLM Cascades with Early Abstention — up to 16x efficiency gains",
+          "url": "https://arxiv.org/html/2502.09054v1"
+        },
+        {
+          "source": "OpenReview",
+          "type": "academic_paper",
+          "signal": "Improving Model Cascades Through Confidence Tuning — peer-reviewed research on calibrated cascading",
+          "url": "https://openreview.net/pdf?id=qYI4fw3g4v"
+        }
+      ],
+      "demand_score": 9,
+      "demand_summary": "Extremely active research area with a dedicated 2026 survey, multiple ICLR/arXiv papers, and demonstrated 16x efficiency gains. Research-to-product gap is wide — strong productization opportunity."
+    },
+    {
+      "id": "GAP-003",
+      "title": "Per-User Personalized Routing",
+      "demand_signals": [
+        {
+          "source": "arXiv (2025)",
+          "type": "academic_paper",
+          "signal": "PersonalizedRouter: graph-based framework outperforms existing methods by 15-60% — published at TMLR",
+          "url": "https://arxiv.org/abs/2511.16883"
+        },
+        {
+          "source": "arXiv (2025)",
+          "type": "academic_paper",
+          "signal": "Dynamic LLM Routing and Selection based on User Preferences — balancing performance, cost, and ethics",
+          "url": "https://arxiv.org/abs/2502.16696"
+        },
+        {
+          "source": "AWS Blog",
+          "type": "industry_guide",
+          "signal": "AWS published multi-LLM routing strategies guide including per-tenant differentiation for SaaS",
+          "url": "https://aws.amazon.com/blogs/machine-learning/multi-llm-routing-strategies-for-generative-ai-applications-on-aws/"
+        },
+        {
+          "source": "LLMRouter library",
+          "type": "open_source",
+          "signal": "LLMRouter includes PersonalizedRouter as one of its 16+ router families — academic validation",
+          "url": "https://github.com/ulab-uiuc/LLMRouter"
+        }
+      ],
+      "demand_score": 7,
+      "demand_summary": "Strong academic interest with dedicated papers and framework support. AWS validates enterprise demand. However, LLMRouter already includes personalized routing, reducing the gap somewhat."
+    },
+    {
+      "id": "GAP-004",
+      "title": "Multi-Step Agentic Workflow Router",
+      "demand_signals": [
+        {
+          "source": "arXiv (2025)",
+          "type": "academic_paper",
+          "signal": "DAAO: Difficulty-Aware Agentic Orchestration framework for dynamic LLM routing in multi-step workflows",
+          "url": "https://arxiv.org/html/2509.11079v1"
+        },
+        {
+          "source": "arXiv (2026)",
+          "type": "academic_paper",
+          "signal": "Helium: workflow-aware serving layer that models agentic workflows as query plans with LLM as first-class operators",
+          "url": "https://arxiv.org/html/2603.16104v1"
+        },
+        {
+          "source": "Patronus AI",
+          "type": "industry_tutorial",
+          "signal": "Dedicated tutorial on 'AI Agent Routing: Tutorial & Best Practices' — confirms market demand",
+          "url": "https://www.patronus.ai/ai-agent-development/ai-agent-routing"
+        },
+        {
+          "source": "Anthropic",
+          "type": "industry_guide",
+          "signal": "Anthropic published 'Building Effective Agents' guide highlighting multi-step orchestration patterns",
+          "url": "https://www.anthropic.com/research/building-effective-agents"
+        },
+        {
+          "source": "Hacker News",
+          "type": "community",
+          "signal": "LLM Hub Show HN: multi-model AI orchestration that decomposes requests into sub-tasks and routes each to best model",
+          "url": "https://news.ycombinator.com/item?id=45654449"
+        }
+      ],
+      "demand_score": 9,
+      "demand_summary": "Explosive demand driven by the agentic AI wave. Multiple research frameworks (DAAO, Helium), industry guides (Anthropic, Patronus), and HN projects confirm this as one of the hottest gaps. 2026 will be the year of agentic routing."
+    },
+    {
+      "id": "GAP-005",
+      "title": "Domain-Specialized Routing (Code, Legal, Medical, etc.)",
+      "demand_signals": [
+        {
+          "source": "ACM Computing Surveys",
+          "type": "academic_survey",
+          "signal": "Major survey on 'Domain Specialization as the Key to Make Large Language Models Disruptive'",
+          "url": "https://dl.acm.org/doi/10.1145/3764579"
+        },
+        {
+          "source": "Industry data",
+          "type": "market_signal",
+          "signal": "45%+ of AmLaw 200 firms in 2025 exploring domain-tuned models for contract review and case prediction"
+        },
+        {
+          "source": "Brim Labs",
+          "type": "industry_blog",
+          "signal": "Article: 'The Future is Domain Specific: Finance, Healthcare, Legal LLMs' — confirms vertical specialization trend",
+          "url": "https://brimlabs.ai/blog/the-future-is-domain-specific-finance-healthcare-legal-llms/"
+        },
+        {
+          "source": "IBM",
+          "type": "industry_definition",
+          "signal": "IBM published dedicated explainer on domain-specific LLMs, confirming enterprise adoption trend",
+          "url": "https://www.ibm.com/think/topics/domain-specific-llm"
+        }
+      ],
+      "demand_score": 8,
+      "demand_summary": "Strong enterprise demand especially in legal (45% of top firms) and healthcare. Domain specialization is a major trend, but routing across domains (vs. fine-tuning per domain) is a less-explored angle with high potential."
+    },
+    {
+      "id": "GAP-006",
+      "title": "Open-Source Quality-Aware Router with Evaluation Loop",
+      "demand_signals": [
+        {
+          "source": "GitHub - LLMRouter",
+          "type": "open_source",
+          "signal": "LLMRouter crossed 1K GitHub stars, 16+ router architectures, unified CLI — but lacks integrated eval feedback loop",
+          "url": "https://github.com/ulab-uiuc/LLMRouter"
+        },
+        {
+          "source": "GitHub - RouteLLM",
+          "type": "open_source",
+          "signal": "RouteLLM reduces costs 85% while maintaining 95% GPT-4 quality — but no automatic feedback loop",
+          "url": "https://github.com/lm-sys/RouteLLM"
+        },
+        {
+          "source": "GitHub - NadirClaw",
+          "type": "open_source",
+          "signal": "NadirClaw open-source LLM router saves 40-70% — growing ecosystem confirms demand",
+          "url": "https://github.com/doramirdor/NadirClaw"
+        },
+        {
+          "source": "Hacker News",
+          "type": "community",
+          "signal": "Multiple Show HN posts on LLM routers in 2025 (PureRouter, Arch-Router, LLMRouter, Any-LLM) — high community interest",
+          "url": "https://news.ycombinator.com/item?id=46443861"
+        },
+        {
+          "source": "Hacker News",
+          "type": "community",
+          "signal": "'Lessons from building an intelligent LLM router' — practical experience-sharing post confirms active builder community",
+          "url": "https://news.ycombinator.com/item?id=45403275"
+        }
+      ],
+      "demand_score": 8,
+      "demand_summary": "Very active OSS ecosystem with multiple projects and HN traction. The gap has narrowed (LLMRouter is comprehensive) but the specific eval-feedback-loop integration remains unaddressed. The 'route -> evaluate -> update' closed loop is still missing."
+    },
+    {
+      "id": "GAP-007",
+      "title": "Budget-Constrained Adaptive Routing Optimizer",
+      "demand_signals": [
+        {
+          "source": "arXiv (2025)",
+          "type": "academic_paper",
+          "signal": "Dedicated paper: 'Adaptive LLM Routing under Budget Constraints' using contextual bandit approach",
+          "url": "https://arxiv.org/abs/2508.21141"
+        },
+        {
+          "source": "Hugging Face",
+          "type": "community",
+          "signal": "Paper featured on Hugging Face papers page — community interest validated",
+          "url": "https://huggingface.co/papers/2508.21141"
+        },
+        {
+          "source": "Portkey",
+          "type": "product_feature",
+          "signal": "Portkey published guide on implementing budget limits and alerts in LLM apps — confirms user demand",
+          "url": "https://portkey.ai/blog/budget-limits-and-alerts-in-llm-apps/"
+        },
+        {
+          "source": "DEV Community",
+          "type": "community",
+          "signal": "Developer blog post 'How I Cut My LLM Costs 60% With a Local Router' — confirms practitioners actively seeking budget optimization",
+          "url": "https://dev.to/dor_amir_dbb52baafff7ca5b/how-i-cut-my-llm-costs-60-with-a-local-router-open-source-56k0"
+        },
+        {
+          "source": "Industry guides",
+          "type": "industry_blog",
+          "signal": "Multiple 2026 cost optimization guides cite 60-85% savings potential — massive market interest in cost control"
+        }
+      ],
+      "demand_score": 8,
+      "demand_summary": "Strong demand from cost-conscious teams. Academic research exists but no product implements adaptive budget optimization (only hard caps). The gap between static budget caps and dynamic optimization is real and validated."
+    },
+    {
+      "id": "GAP-008",
+      "title": "Multi-Modal Routing (Text + Image + Audio + Video)",
+      "demand_signals": [
+        {
+          "source": "ICCV 2025 Workshop",
+          "type": "academic_paper",
+          "signal": "Paper on 'Smart Routing for Multimodal Video Retrieval: When to Search What' — modality-aware routing research",
+          "url": "https://openaccess.thecvf.com/content/ICCV2025W/MRR%202025/papers/Dela_Rosa_Smart_Routing_for_Multimodal_Video_Retrieval_When_to_Search_What_ICCVW_2025_paper.pdf"
+        },
+        {
+          "source": "LLMRouter",
+          "type": "open_source",
+          "signal": "LLMRouter v0.2 added multimodal routing support (Video/Image + Text) — confirms demand from OSS community",
+          "url": "https://github.com/ulab-uiuc/LLMRouter"
+        },
+        {
+          "source": "Runpod",
+          "type": "industry_guide",
+          "signal": "Guide on multimodal AI development for text, images, audio, video — market is ready for multimodal tools",
+          "url": "https://www.runpod.io/articles/guides/multimodal-ai-development-building-systems-that-process-text-images-audio-and-video"
+        }
+      ],
+      "demand_score": 6,
+      "demand_summary": "Moderate demand. LLMRouter already added multimodal support, reducing the gap. Research exists but multimodal routing is still nascent — the market is more focused on multimodal models than multimodal routing specifically."
+    },
+    {
+      "id": "GAP-009",
+      "title": "Compliance-Aware Routing (GDPR, HIPAA, Data Residency)",
+      "demand_signals": [
+        {
+          "source": "Requesty Blog",
+          "type": "product_feature",
+          "signal": "Security compliance checklist for LLM gateways covering SOC 2, HIPAA, GDPR — confirms enterprise need",
+          "url": "https://www.requesty.ai/blog/security-compliance-checklist-soc-2-hipaa-gdpr-for-llm-gateways-1751655071"
+        },
+        {
+          "source": "TrueFoundry",
+          "type": "product_comparison",
+          "signal": "TrueFoundry's '6 Best LLM Gateways in 2026' highlights compliance as key differentiator",
+          "url": "https://www.truefoundry.com/blog/best-llm-gateways"
+        },
+        {
+          "source": "PremAI Blog",
+          "type": "industry_guide",
+          "signal": "Comprehensive guide on AI data residency requirements by region — enterprise compliance demand is massive",
+          "url": "https://blog.premai.io/ai-data-residency-requirements-by-region-the-complete-enterprise-compliance-guide/"
+        },
+        {
+          "source": "AWS",
+          "type": "infrastructure",
+          "signal": "AWS European Sovereign Cloud launched January 2026 — infrastructure is catching up to compliance demand"
+        }
+      ],
+      "demand_score": 7,
+      "demand_summary": "Strong enterprise demand, especially in healthcare/finance/EU. Current solutions offer compliance features but not compliance-aware intelligent routing (combining quality optimization with compliance constraints). Niche but high-value."
+    },
+    {
+      "id": "GAP-010",
+      "title": "Real-Time Routing Benchmarks and Model Performance Tracker",
+      "demand_signals": [
+        {
+          "source": "LiveBench",
+          "type": "product",
+          "signal": "LiveBench provides live LLM benchmarks — but generic, not per-customer workload",
+          "url": "https://livebench.ai/"
+        },
+        {
+          "source": "LangChain/LangSmith",
+          "type": "product",
+          "signal": "LangSmith offers LLM evaluation platform for production — partial overlap but not routing-integrated",
+          "url": "https://www.langchain.com/langsmith/evaluation"
+        },
+        {
+          "source": "Label Studio",
+          "type": "industry_blog",
+          "signal": "Article on 'How to Build AI Benchmarks That Evolve' — confirms need for adaptive evaluation",
+          "url": "https://labelstud.io/blog/how-to-build-ai-benchmarks-that-evolve-with-your-models/"
+        },
+        {
+          "source": "Artificial Analysis",
+          "type": "product",
+          "signal": "Comparison dashboard of AI models across intelligence, performance, and price — generic benchmarking exists",
+          "url": "https://artificialanalysis.ai/models"
+        }
+      ],
+      "demand_score": 7,
+      "demand_summary": "Generic benchmarking tools exist (LiveBench, Artificial Analysis) and eval platforms exist (LangSmith), but none integrate continuous task-specific benchmarking with automatic routing policy updates. The closed-loop gap persists."
+    },
+    {
+      "id": "GAP-011",
+      "title": "Hybrid Local/Cloud Router with Privacy Preservation",
+      "demand_signals": [
+        {
+          "source": "DEV Community",
+          "type": "community",
+          "signal": "Tutorial: 'PII-aware routing: how to use cloud AI and keep your sensitive data local' — developer demand confirmed",
+          "url": "https://dev.to/micelclaw/pii-aware-routing-how-to-use-cloud-ai-and-keep-your-sensitive-data-local-1m40"
+        },
+        {
+          "source": "arXiv (2025)",
+          "type": "academic_paper",
+          "signal": "PrivateLoRA: partitions LLM with early layers on-device, compressed activations to cloud — research on privacy-preserving architecture",
+          "url": "https://arxiv.org/abs/2311.14030"
+        },
+        {
+          "source": "arXiv (2026)",
+          "type": "academic_paper",
+          "signal": "LLM-Driven Intent-Based Privacy-Aware Orchestration Across the Cloud-Edge Continuum",
+          "url": "https://arxiv.org/html/2602.16100"
+        },
+        {
+          "source": "GitHub",
+          "type": "open_source",
+          "signal": "llm-privacy-stack: curated list of privacy-preserving AI/LLM tools — community actively building in this space",
+          "url": "https://github.com/johnnyburnaway/llm-privacy-stack"
+        }
+      ],
+      "demand_score": 7,
+      "demand_summary": "Growing demand driven by enterprise privacy requirements. Research and developer community are actively exploring PII-aware routing and privacy-preserving architectures. Overlaps significantly with GAP-001 (edge routing) but focuses on the privacy angle."
+    },
+    {
+      "id": "GAP-012",
+      "title": "Routing-as-SDK for Framework Integration",
+      "demand_signals": [
+        {
+          "source": "Industry landscape",
+          "type": "market_signal",
+          "signal": "14+ AI agent frameworks exist (LangChain, CrewAI, AutoGen, LlamaIndex) — massive integration surface area"
+        },
+        {
+          "source": "Google ADK",
+          "type": "product",
+          "signal": "Google ADK (2025) integrates with LangChain, LlamaIndex, CrewAI through LiteLLM — partial solution emerging"
+        },
+        {
+          "source": "NVIDIA NeMo",
+          "type": "product",
+          "signal": "NVIDIA NeMo announced as framework-agnostic platform working with CrewAI, Haystack, LangChain, LlamaIndex"
+        },
+        {
+          "source": "AIMutiple",
+          "type": "industry_analysis",
+          "signal": "'LLM Orchestration in 2026: Top 22 frameworks and gateways' — confirms fragmented landscape needing unification",
+          "url": "https://aimultiple.com/llm-orchestration"
+        }
+      ],
+      "demand_score": 6,
+      "demand_summary": "Moderate demand. The gap is being partially addressed by Google ADK and NVIDIA NeMo providing framework integrations. LiteLLM already serves as a de facto routing SDK. The remaining gap is framework-aware intelligent routing (not just API abstraction)."
+    },
+    {
+      "id": "GAP-013",
+      "title": "Cost-Quality Pareto Frontier Visualization and Exploration",
+      "demand_signals": [
+        {
+          "source": "GitHub - Pareto Frontier",
+          "type": "open_source",
+          "signal": "Live visualization of LLM Pareto frontier showing optimal performance-to-cost ratio — open source project exists",
+          "url": "https://github.com/Paraplouis/llm-pareto-frontier"
+        },
+        {
+          "source": "LessWrong",
+          "type": "community",
+          "signal": "Post 'LLM Pareto Frontier But Live' — community interest in interactive cost-quality visualization",
+          "url": "https://www.lesswrong.com/posts/ysmAHNCi756RJ83Qi/llm-pareto-frontier-but-live"
+        },
+        {
+          "source": "Cognaptus",
+          "type": "industry_blog",
+          "signal": "'Beyond the Pareto Frontier: Pricing LLM Mistakes in the Real World' — evolving thinking beyond simple cost-quality",
+          "url": "https://cognaptus.com/blog/2025-07-08-beyond-the-pareto-frontier-pricing-llm-mistakes-in-the-real-world/"
+        },
+        {
+          "source": "Artificial Analysis",
+          "type": "product",
+          "signal": "Comparison dashboard of AI models across intelligence, performance, and price — basic version exists",
+          "url": "https://artificialanalysis.ai/models"
+        }
+      ],
+      "demand_score": 5,
+      "demand_summary": "Moderate interest but basic solutions already exist (Pareto frontier visualizers, Artificial Analysis). The gap for workload-specific Pareto exploration is real but niche. This is more of a feature for existing platforms than a standalone product."
+    },
+    {
+      "id": "GAP-014",
+      "title": "Streaming/Real-Time Routing with Mid-Response Escalation",
+      "demand_signals": [
+        {
+          "source": "Stream.io",
+          "type": "product",
+          "signal": "Multi-model AI chat app supporting model switching in real-time — but user-initiated, not automatic quality-based",
+          "url": "https://getstream.io/blog/multi-model-ai-chat/"
+        },
+        {
+          "source": "Google Research",
+          "type": "academic",
+          "signal": "Speculative Cascades research from Google hints at token-level model switching — internal research only"
+        },
+        {
+          "source": "General streaming landscape",
+          "type": "market_signal",
+          "signal": "All major LLM providers support streaming responses via SSE — infrastructure is ready for mid-stream switching"
+        }
+      ],
+      "demand_score": 5,
+      "demand_summary": "Technically fascinating but limited explicit demand signals. Mid-response escalation is research-grade (Google Speculative Cascades). The technical complexity is high and practical benefits over pre-generation routing are unclear for most use cases."
+    },
+    {
+      "id": "GAP-015",
+      "title": "Fine-Tuned SLM Router Trainer (AutoML for Routing)",
+      "demand_signals": [
+        {
+          "source": "NVIDIA",
+          "type": "product",
+          "signal": "NVIDIA LLM Router Blueprint: offers intent-based and auto-routing strategies with neural network training",
+          "url": "https://github.com/NVIDIA-AI-Blueprints/llm-router"
+        },
+        {
+          "source": "LLMRouter Library",
+          "type": "open_source",
+          "signal": "Includes complete data generation pipeline for training data from 11 benchmark datasets with automatic API calling",
+          "url": "https://github.com/ulab-uiuc/LLMRouter"
+        },
+        {
+          "source": "RouteLLM (ICLR 2025)",
+          "type": "academic_paper",
+          "signal": "Published as ICLR 2025 conference paper — training routers from preference data, reducing costs 85%",
+          "url": "https://arxiv.org/pdf/2406.18665"
+        },
+        {
+          "source": "Anyscale",
+          "type": "industry_blog",
+          "signal": "Blog post on 'Building an LLM Router for High-Quality and Cost-Effective Responses' — practical training guide",
+          "url": "https://www.anyscale.com/blog/building-an-llm-router-for-high-quality-and-cost-effective-responses"
+        }
+      ],
+      "demand_score": 6,
+      "demand_summary": "Demand exists but the gap is shrinking. LLMRouter and NVIDIA provide training pipelines. RouteLLM (ICLR 2025) popularized router training. The remaining gap is a true one-click AutoML experience for non-ML teams, but the bar is lower now."
+    }
+  ]
+}

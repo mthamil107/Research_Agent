@@ -1,0 +1,421 @@
+{
+  "metadata": {
+    "domain": "On-Device/Edge Reasoning SLM Deployment",
+    "generated_date": "2026-03-29",
+    "scoring_formula": "opportunity_score = (demand * competition_gap * feasibility) / 100",
+    "score_ranges": {
+      "demand": "0-10 (validated user/market demand)",
+      "competition_gap": "0-10 (10 = no competition, 0 = saturated)",
+      "feasibility": "0-10 (technical and business feasibility for a new entrant)",
+      "opportunity_score": "derived composite score, max = 10"
+    },
+    "market_context": {
+      "edge_ai_market_2026": "$30-48B (varies by analyst scope)",
+      "inference_chip_market_2026": "$50B+ (Deloitte)",
+      "rag_market_2026": "$1.94B growing at 38.4% CAGR",
+      "key_players": ["ExecuTorch (Meta)", "LiteRT/Gemini Nano (Google)", "Core ML (Apple)", "llama.cpp", "Cactus", "RunAnywhere", "MLC LLM", "ONNX Runtime", "TensorRT-Edge-LLM (NVIDIA)", "QNN (Qualcomm)"]
+    }
+  },
+  "ranked_gaps": [
+    {
+      "rank": 1,
+      "id": "GAP-018",
+      "title": "Developer-Friendly Model Conversion & Optimization Hub",
+      "category": "workflow_gap",
+      "demand": 9,
+      "competition_gap": 8,
+      "feasibility": 9,
+      "opportunity_score": 6.48,
+      "what_to_build": "A unified web service and CLI that takes any HuggingFace model and produces optimized, benchmarked artifacts for all major edge runtimes (GGUF, ONNX, Core ML, ExecuTorch .pte, TensorRT, QNN, LiteRT). Auto-selects optimal quantization per target device. Includes a hosted artifact registry with per-device performance metadata.",
+      "who_needs_it": "ML engineers and mobile developers deploying models across diverse edge targets. Anyone who has wrestled with 7+ incompatible model formats and broken conversion pipelines.",
+      "why_now": "Format proliferation is accelerating (GGUF, ONNX, Core ML, .pte, QNN, LiteRT, TensorRT). HuggingFace has models but few pre-optimized edge artifacts. Google AI Edge Gallery validates demand for curated edge models. Conversion pain is the #1 developer complaint in GitHub issues across ExecuTorch, LiteRT, and MediaPipe.",
+      "build_complexity": "Medium. Wraps existing converters (llama.cpp quantize, onnxmltools, coremltools, ExecuTorch export, TensorRT) behind a unified API. Hardest part is handling edge cases across formats and maintaining compatibility as runtimes evolve.",
+      "market_size_estimate": "$200-500M TAM (subset of edge AI software market; model-ops tooling for edge). Adjacent to HuggingFace model hub revenue.",
+      "rationale": {
+        "demand_reasoning": "Very high. Direct developer pain evidence from GitHub issues across LiteRT, ExecuTorch, MediaPipe. 7+ formats with no unified converter. Every edge LLM developer hits this wall.",
+        "competition_reasoning": "HuggingFace Optimum covers ONNX + some targets but not all. No tool covers GGUF + ONNX + Core ML + .pte + QNN + LiteRT + TensorRT in one pipeline. Google AI Edge Gallery is consumption-only, not a conversion tool.",
+        "feasibility_reasoning": "High. Each individual converter exists. The value is in unification, automation, and artifact hosting. Can start with top 3 formats and expand. SaaS model is natural."
+      }
+    },
+    {
+      "rank": 2,
+      "id": "GAP-002",
+      "title": "On-Device RAG Pipeline Framework",
+      "category": "feature_gap",
+      "demand": 9,
+      "competition_gap": 7,
+      "feasibility": 9,
+      "opportunity_score": 5.67,
+      "what_to_build": "An open-source, on-device RAG SDK that bundles local vector storage, document chunking, embedding model, and retrieval pipeline -- all running on-device with zero cloud dependency. Supports iOS, Android, and desktop. Ships with pre-optimized embedding models for mobile.",
+      "who_needs_it": "Enterprise mobile app developers needing private document Q&A (legal, healthcare, finance). Field workers who need offline knowledge retrieval. Any app adding 'chat with your documents' features locally.",
+      "why_now": "RAG market is $1.94B and growing at 38.4% CAGR. Cloud RAG frameworks are mature (LlamaIndex, LangChain) but none run on-device. ObjectBox is building on-device vector DB. deepsense-ai/edge-slm proves demand. Cactus has limited proprietary RAG. The building blocks (on-device LLMs, vector DBs) are finally available.",
+      "build_complexity": "Medium. Requires on-device vector DB (ObjectBox, SQLite-VSS), small embedding model (all-MiniLM-L6-v2 quantized), chunking logic, and retrieval pipeline. Integration with llama.cpp/ExecuTorch for generation. Hardest part is keeping memory footprint manageable on mobile.",
+      "market_size_estimate": "$300-800M TAM (on-device portion of RAG market, growing rapidly with enterprise privacy requirements).",
+      "rationale": {
+        "demand_reasoning": "Very high. Entire articles written about this unmet need. HuggingFace forum threads with no clear answers. deepsense-ai/edge-slm project created to address it. ObjectBox targeting this specifically.",
+        "competition_reasoning": "Cactus has proprietary 'auto RAG' but closed-source and limited. deepsense-ai/edge-slm is immature. No production-grade open-source solution exists. Large gap for an open, composable framework.",
+        "feasibility_reasoning": "High. All components exist individually (vector DBs, embedding models, LLM runtimes). Value is in integration and mobile optimization. Can build incrementally."
+      }
+    },
+    {
+      "rank": 3,
+      "id": "GAP-005",
+      "title": "Cross-Platform Mobile LLM SDK (React Native / Flutter / KMP)",
+      "category": "integration_gap",
+      "demand": 9,
+      "competition_gap": 6,
+      "feasibility": 9,
+      "opportunity_score": 4.86,
+      "what_to_build": "An open-source, cross-platform mobile LLM SDK with native bindings for React Native, Flutter, and Kotlin Multiplatform. Wraps llama.cpp/ExecuTorch with idiomatic APIs for each framework. Includes streaming, conversation management, and model download/caching.",
+      "who_needs_it": "Cross-platform mobile developers (60%+ of mobile dev workforce uses React Native or Flutter). Teams that want on-device LLM features without writing native C++/Swift/Kotlin.",
+      "why_now": "AI integration is now a first-order framework selection criterion in 2026. React Native + Flutter dominate mobile development. Cactus proved the market exists. RunAnywhere has entered with competing SDKs. But open-source alternatives remain fragile (community llama.cpp RN wrappers).",
+      "build_complexity": "Medium. Core inference via llama.cpp C++ bridge. Platform-specific bindings (JSI for RN, FFI for Flutter, JNI for Kotlin). Hardest part is maintaining bindings across llama.cpp updates and platform-specific quirks (threading, memory management).",
+      "market_size_estimate": "$150-400M TAM (developer tooling for on-device AI, cross-platform segment).",
+      "rationale": {
+        "demand_reasoning": "Very high. Cactus launch coverage on InfoQ highlighted cross-platform as KEY differentiator. HuggingFace community tutorial on RN LLM inference. 60%+ of mobile devs use cross-platform frameworks.",
+        "competition_reasoning": "Cactus (commercial, proprietary format) and RunAnywhere (commercial) exist. No open-source production-quality alternative. Community wrappers for llama.cpp are fragile. Competition score drops because Cactus/RunAnywhere are real products.",
+        "feasibility_reasoning": "High. llama.cpp is stable C++. JSI/FFI bridging is well-understood. Can ship MVP for React Native first, expand to Flutter/KMP."
+      }
+    },
+    {
+      "rank": 4,
+      "id": "GAP-008",
+      "title": "Hybrid Edge-Cloud Inference Orchestrator",
+      "category": "workflow_gap",
+      "demand": 9,
+      "competition_gap": 6,
+      "feasibility": 8,
+      "opportunity_score": 4.32,
+      "what_to_build": "An open-source SDK that intelligently routes LLM queries between on-device SLMs and cloud LLMs based on query complexity, latency budget, cost constraints, and connectivity status. Includes a confidence estimator, fallback logic, and a unified API that abstracts the routing decision.",
+      "who_needs_it": "Enterprise developers needing reliability guarantees. Any app where on-device SLMs handle 80% of queries but need cloud escalation for complex ones. Telecom, fintech, healthcare apps.",
+      "why_now": "Entire research subfield forming (survey papers, ACM workshops, arxiv papers). AWS describing the pattern for telecom. ECO-LLM, CE-CoLLM, HybridFlow all published in 2025-2026. Bosch AI Cockpit using TensorRT + cloud orchestration. The pattern is validated but no open turnkey SDK exists.",
+      "build_complexity": "Medium-High. Requires query complexity estimation (lightweight classifier or heuristic), routing logic, unified inference API wrapping both local and cloud backends, offline graceful degradation. Hardest part is accurate complexity estimation.",
+      "market_size_estimate": "$200-600M TAM (enterprise edge-cloud AI orchestration, growing with hybrid deployment patterns).",
+      "rationale": {
+        "demand_reasoning": "Very high. Comprehensive survey papers, AWS blog posts, ACM workshops all validate the pattern. Apple Private Cloud Compute proves the concept at scale.",
+        "competition_reasoning": "Cactus has basic cloud fallback. Apple Private Cloud Compute is Apple-only. Research papers (ECO-LLM, HybridFlow) are academic. No open-source production SDK. RunAnywhere has some routing but not open.",
+        "feasibility_reasoning": "Good. Unified API wrapping local + cloud is straightforward. Complexity estimation is the research challenge but heuristics work for MVP."
+      }
+    },
+    {
+      "rank": 5,
+      "id": "GAP-003",
+      "title": "Automated Hardware-Aware Model Selection & Optimization",
+      "category": "workflow_gap",
+      "demand": 8,
+      "competition_gap": 7,
+      "feasibility": 7,
+      "opportunity_score": 3.92,
+      "what_to_build": "A library/service that profiles target device hardware (RAM, NPU type, thermal budget, available storage) and automatically selects the optimal model + quantization + runtime configuration. Includes a device capability database covering 1000+ Android SKUs and a recommendation API.",
+      "who_needs_it": "Android developers targeting diverse device fleets. Any team deploying LLMs to millions of devices with wildly different hardware capabilities (from budget phones to flagships).",
+      "why_now": "1000+ Android SKUs with different NPUs, RAM, and thermal profiles. Manual benchmarking is unsustainable. Academic papers documenting massive performance variance across devices. LiteRT does auto-selection for Gemini Nano only -- nothing for open models.",
+      "build_complexity": "Medium-High. Requires device profiling library, hardware capability database, benchmark data collection infrastructure, and recommendation engine. Hardest part is building and maintaining the device database at scale.",
+      "market_size_estimate": "$100-300M TAM (DevOps/MLOps tooling for mobile AI, Android fragmentation segment).",
+      "rationale": {
+        "demand_reasoning": "High. Android fragmentation is a well-known problem. Papers on performance variance across devices. llama.cpp benchmark bugs show manual profiling fails.",
+        "competition_reasoning": "LiteRT-LM does auto-selection but only for Gemini Nano. No general-purpose tool for open models. Large gap in the market.",
+        "feasibility_reasoning": "Moderate. Device profiling is doable but building a comprehensive device database requires significant data collection effort. Can bootstrap with top 100 devices."
+      }
+    },
+    {
+      "rank": 6,
+      "id": "GAP-014",
+      "title": "On-Device Structured Output / JSON Mode Guarantees",
+      "category": "feature_gap",
+      "demand": 8,
+      "competition_gap": 7,
+      "feasibility": 7,
+      "opportunity_score": 3.92,
+      "what_to_build": "A constrained decoding library optimized for mobile/edge runtimes that guarantees valid JSON/structured output from on-device LLMs. Integrates with llama.cpp, ExecuTorch, and ONNX Runtime. Supports JSON Schema, grammar-based constraints, and enum enforcement.",
+      "who_needs_it": "Enterprise app developers needing reliable LLM output parsing on-device. Any app where LLM output feeds into structured workflows (form filling, data extraction, API calls).",
+      "why_now": "Cloud providers all offer guaranteed JSON output. Constrained decoding engines (XGrammar, llguidance) achieved near-zero overhead in 2025-2026. But none are integrated into mobile runtimes. The technique is proven -- it just needs mobile porting.",
+      "build_complexity": "Medium. XGrammar/Outlines provide the algorithmic foundation. Need to port constrained decoding to mobile-compatible C++ and integrate with llama.cpp/ExecuTorch token sampling. Hardest part is maintaining performance on constrained mobile hardware.",
+      "market_size_estimate": "$50-150M TAM (developer tooling for structured AI output, mobile/edge segment).",
+      "rationale": {
+        "demand_reasoning": "High. Every major cloud API has this. Enterprise apps need it. LMSYS blog on compressed FSM proves demand. super-json-mode project references MLX but no mobile.",
+        "competition_reasoning": "llama.cpp server has basic JSON mode but not mobile-optimized. WebLLM has basic support. No constrained decoding on NPU-accelerated paths or mobile runtimes like ExecuTorch/LiteRT.",
+        "feasibility_reasoning": "Moderate-High. Algorithmic solutions exist (XGrammar, Outlines). Porting to mobile C++ is engineering work, not research. Performance on mobile needs optimization."
+      }
+    },
+    {
+      "rank": 7,
+      "id": "GAP-007",
+      "title": "OTA Model Lifecycle Management Platform",
+      "category": "workflow_gap",
+      "demand": 8,
+      "competition_gap": 5,
+      "feasibility": 8,
+      "opportunity_score": 3.20,
+      "what_to_build": "An open-source platform for managing on-device LLM model versions: OTA model distribution, A/B testing, staged rollouts, automatic rollback on quality regression, fleet-wide performance monitoring, and delta updates to minimize bandwidth.",
+      "who_needs_it": "Mobile teams deploying LLMs to millions of devices. Any enterprise running on-device AI at scale that needs to iterate on models without app store releases.",
+      "why_now": "RunAnywhere has enterprise control plane with OTA. FoundriesFactory handles edge AI OTA. Cactus has proprietary OTA. But no open-source, LLM-specific lifecycle management platform exists. Edge AI fleet management is recognized as critical for 2026.",
+      "build_complexity": "Medium. CDN-based model distribution, versioning metadata, device-side update agent, rollback logic. Can leverage existing OTA infrastructure patterns (Mender, balena). Hardest part is delta updates for large model files and fleet telemetry at scale.",
+      "market_size_estimate": "$150-400M TAM (edge MLOps, model lifecycle management, overlaps with IoT fleet management).",
+      "rationale": {
+        "demand_reasoning": "High. Every enterprise deploying on-device AI needs this. ESL blog, Mender blog, multiple sources describe the need.",
+        "competition_reasoning": "RunAnywhere, FoundriesFactory, Cactus all have OTA capabilities (commercial). No open-source LLM-specific solution. Competition is real but market is large enough.",
+        "feasibility_reasoning": "High. OTA update patterns are well-understood from IoT/mobile. Adapt existing infrastructure for LLM-specific needs (large model files, quality metrics)."
+      }
+    },
+    {
+      "rank": 8,
+      "id": "GAP-001",
+      "title": "Universal NPU Abstraction Layer",
+      "category": "feature_gap",
+      "demand": 8,
+      "competition_gap": 5,
+      "feasibility": 6,
+      "opportunity_score": 2.40,
+      "what_to_build": "A hardware abstraction layer that provides a single API for NPU-accelerated LLM inference across Qualcomm Hexagon, Apple Neural Engine, MediaTek APU, Samsung Exynos NPU, and Google Tensor TPU. Write once, deploy to any NPU with zero vendor-specific configuration.",
+      "who_needs_it": "Mobile app developers deploying LLMs across Android + iOS who don't want to maintain separate backend configurations per chipset.",
+      "why_now": "NPU hardware is proliferating -- every 2026 flagship has a dedicated NPU. But each vendor's SDK is siloed. Google LiteRT is making progress on Qualcomm NPU abstraction specifically. Khronos Group pursuing standardization. The problem is getting worse as more NPU vendors enter.",
+      "build_complexity": "High. Requires deep integration with vendor-specific SDKs (QNN, Core ML, NeuroPilot, Samsung ONE). Each NPU has different capabilities, precision support, and memory models. Maintaining compatibility across SDK updates is ongoing burden.",
+      "market_size_estimate": "$100-300M TAM (subset of edge AI SDK market; NPU middleware).",
+      "rationale": {
+        "demand_reasoning": "High. ACM survey identifies hardware heterogeneity as top challenge. Samsung vs Qualcomm vs Apple requires triple development effort.",
+        "competition_reasoning": "Google LiteRT is the closest -- abstracts Qualcomm NPU via unified API. ExecuTorch has 12+ backends. But neither provides true zero-config universal NPU abstraction. Google has resources to close this gap.",
+        "feasibility_reasoning": "Moderate. Deep vendor integration is hard and requires ongoing maintenance. Apple Neural Engine is particularly opaque. Vendor cooperation is uncertain."
+      }
+    },
+    {
+      "rank": 9,
+      "id": "GAP-010",
+      "title": "On-Device Multi-Agent Orchestration",
+      "category": "feature_gap",
+      "demand": 8,
+      "competition_gap": 6,
+      "feasibility": 5,
+      "opportunity_score": 2.40,
+      "what_to_build": "A lightweight on-device agent orchestration framework that can run multiple specialized SLMs concurrently (reasoning agent, retrieval agent, tool-use agent) with inter-agent communication, shared memory, and task routing -- all locally without cloud dependency.",
+      "who_needs_it": "Developers building complex on-device AI assistants, smart home controllers, or autonomous edge systems that need multiple specialized models working together.",
+      "why_now": "NXP unveiled eIQ Agentic AI Framework at CES 2026 for edge. AWS describing on-device agentic orchestration for telecom. Agent orchestration exploded in 2026 (OpenAI Agents SDK, LangGraph). But all consumer frameworks are cloud-centric. Edge agents are the next frontier.",
+      "build_complexity": "High. Running multiple models concurrently on mobile requires careful memory management, model swapping strategies, and lightweight inter-agent protocols. Memory constraints on mobile make concurrent model loading very challenging.",
+      "market_size_estimate": "$100-300M TAM (on-device agent infrastructure, emerging segment).",
+      "rationale": {
+        "demand_reasoning": "High. NXP eIQ framework validates the concept. AWS and Microsoft describing the pattern. Academic papers forming the theoretical foundation.",
+        "competition_reasoning": "NXP eIQ targets embedded/IoT, not smartphones. No smartphone-focused on-device agent framework exists. LangChain/CrewAI are cloud-only.",
+        "feasibility_reasoning": "Moderate-Low. Memory constraints make running multiple models concurrently on phones very hard today. May need model-switching rather than true concurrency. RAM improvements in 2026-2027 flagships will help."
+      }
+    },
+    {
+      "rank": 10,
+      "id": "GAP-006",
+      "title": "On-Device Model Fine-Tuning / Personalization",
+      "category": "feature_gap",
+      "demand": 9,
+      "competition_gap": 4,
+      "feasibility": 6,
+      "opportunity_score": 2.16,
+      "what_to_build": "A production-grade SDK for LoRA fine-tuning and personalization of SLMs directly on mobile devices. Supports incremental learning from user interactions, privacy-preserving (data never leaves device), and efficient enough to run during device idle time.",
+      "who_needs_it": "Privacy-focused enterprises building personalized AI assistants. Health/fitness apps learning user patterns. Any app where model personalization improves UX but data can't leave the device.",
+      "why_now": "QVAC Fabric LLM launched as first production-ready framework for mobile fine-tuning. MobileFineTuner and MobiLLM published as academic frameworks. On-device personalization identified as key 2026 trend. High-quality public training data approaching exhaustion drives need for private data utilization.",
+      "build_complexity": "High. Mobile fine-tuning requires extreme memory efficiency (4x reduction via MobiLLM techniques), thermal management during training, battery-aware scheduling, and LoRA weight management. Active research area with rapidly improving solutions.",
+      "market_size_estimate": "$200-500M TAM (personalized AI, privacy-preserving ML, overlaps with federated learning market).",
+      "rationale": {
+        "demand_reasoning": "Very high. Multiple research papers, QVAC Fabric commercial launch, Edge AI Vision Alliance identifies it as key 2026 trend.",
+        "competition_reasoning": "QVAC Fabric LLM is production-ready (commercial). MobileFineTuner is open-source but academic. MobiLLM from research. Competition is forming rapidly, reducing the gap.",
+        "feasibility_reasoning": "Moderate. Mobile fine-tuning is technically demonstrated but still pushing hardware limits. Battery/thermal constraints are real. Best suited for idle-time background personalization."
+      }
+    },
+    {
+      "rank": 11,
+      "id": "GAP-011",
+      "title": "Standardized Edge LLM Benchmarking Suite",
+      "category": "workflow_gap",
+      "demand": 7,
+      "competition_gap": 6,
+      "feasibility": 7,
+      "opportunity_score": 2.94,
+      "what_to_build": "A comprehensive, reproducible benchmarking suite for on-device LLM inference. Tests across devices, runtimes, models, and quantization levels. Measures tokens/sec, time-to-first-token, memory usage, thermal throttling, battery impact, and output quality. Published leaderboard.",
+      "who_needs_it": "All edge LLM developers and decision-makers. Hardware vendors wanting standardized comparisons. Runtime developers proving performance claims.",
+      "why_now": "MLPerf added Llama 3.1 8B in v5.1 but still focused on datacenter/edge server, not mobile. LEAF framework proposed. ELIB benchmarking framework published. Academic community creating ad-hoc benchmarks. No single standard has emerged.",
+      "build_complexity": "Medium. Device automation framework, standardized test harness, benchmark definitions, results database, and leaderboard UI. Hardest part is physical device access for testing at scale.",
+      "market_size_estimate": "$20-50M TAM (developer tooling/benchmarking; monetize via sponsored benchmarks, consulting, and premium device-specific reports).",
+      "rationale": {
+        "demand_reasoning": "Medium-High. GitHub discussions, academic papers, and Edge-LLM Challenge all show demand for standardization.",
+        "competition_reasoning": "MLPerf added small LLM support but not mobile-specific. LEAF and ELIB are academic. No production-grade, community-standard suite.",
+        "feasibility_reasoning": "Moderate-High. Technically straightforward but requires physical device farm or partnerships. Community-driven approach (like MLPerf) could bootstrap."
+      }
+    },
+    {
+      "rank": 12,
+      "id": "GAP-015",
+      "title": "Edge LLM Monitoring & Observability Platform",
+      "category": "workflow_gap",
+      "demand": 7,
+      "competition_gap": 6,
+      "feasibility": 7,
+      "opportunity_score": 2.94,
+      "what_to_build": "An observability platform for on-device LLM inference in production: latency percentiles, token throughput, error rates, model quality metrics, thermal throttling detection, battery impact, and fleet-wide dashboards. Lightweight on-device SDK with cloud dashboard.",
+      "who_needs_it": "Mobile ops teams managing LLM-powered apps at scale. Any team that needs to know if their on-device models are performing well across their user base.",
+      "why_now": "Cloud LLM observability is booming (Langfuse, LangSmith, Arize, Datadog). LangSmith Fleet just launched for agent fleet management. But zero tools target on-device inference specifically. The gap between cloud observability maturity and edge observability is growing.",
+      "build_complexity": "Medium. Lightweight on-device telemetry SDK (latency, throughput, errors), batched upload to cloud, dashboard with fleet-wide views. Hardest part is keeping on-device overhead minimal while capturing useful telemetry.",
+      "market_size_estimate": "$50-200M TAM (subset of LLM observability market applied to edge; rapidly growing).",
+      "rationale": {
+        "demand_reasoning": "Medium-High. 9+ cloud observability tools but zero for on-device. As edge LLM deployments scale, observability becomes critical.",
+        "competition_reasoning": "RunAnywhere has analytics in its control plane. LangSmith Fleet is cloud-focused. No dedicated edge LLM observability platform.",
+        "feasibility_reasoning": "Moderate-High. Standard observability patterns applied to a new domain. On-device SDK must be very lightweight to avoid impacting inference performance."
+      }
+    },
+    {
+      "rank": 13,
+      "id": "GAP-009",
+      "title": "Edge-Optimized Reasoning Model Distillation Toolkit",
+      "category": "workflow_gap",
+      "demand": 7,
+      "competition_gap": 6,
+      "feasibility": 6,
+      "opportunity_score": 2.52,
+      "what_to_build": "A turnkey toolkit for distilling reasoning capabilities from frontier models (GPT-4, Claude, Gemini) into edge-deployable SLMs. Includes teacher-student pipeline configuration, reasoning quality validation, domain-specific distillation templates, and edge optimization.",
+      "who_needs_it": "ML engineers building domain-specific reasoning SLMs for edge deployment. Companies wanting custom reasoning models without frontier-model-scale infrastructure.",
+      "why_now": "DeepSeek, Qwen, Microsoft (Phi) all do reasoning distillation internally but haven't released toolkits. Edge AI Vision Alliance identifies reasoning distillation as key 2026 trend. The gap between frontier reasoning and edge SLM reasoning is the core bottleneck.",
+      "build_complexity": "High. Distillation pipeline design, teacher API integration, training infrastructure, reasoning quality evaluation, and edge optimization. Requires ML expertise and compute resources for training.",
+      "market_size_estimate": "$100-300M TAM (model customization and distillation tooling for enterprises).",
+      "rationale": {
+        "demand_reasoning": "Medium-High. Key 2026 trend. Every company wanting custom edge AI needs this. But audience is ML engineers, not mainstream developers.",
+        "competition_reasoning": "No turnkey toolkit exists. DeepSeek/Qwen/Microsoft do it internally. Apple and Google have internal pipelines. Open-source gap is clear.",
+        "feasibility_reasoning": "Moderate. Distillation is well-understood technically but requires significant compute for training and deep ML expertise to get right."
+      }
+    },
+    {
+      "rank": 14,
+      "id": "GAP-004",
+      "title": "On-Device Reasoning Chain Debugger/Visualizer",
+      "category": "feature_gap",
+      "demand": 6,
+      "competition_gap": 8,
+      "feasibility": 5,
+      "opportunity_score": 2.40,
+      "what_to_build": "A developer tool that provides visibility into on-device SLM reasoning: chain-of-thought visualization, token attribution/attention maps, inference path tracing, confidence scores, and reasoning quality metrics. Desktop GUI + on-device instrumentation SDK.",
+      "who_needs_it": "Safety-critical edge AI developers (automotive, medical, industrial). Any team that needs to understand and validate why an on-device model produced a specific output.",
+      "why_now": "Cloud LLM observability tools (Langfuse, LangSmith) are mature. Automotive (TensorRT-Edge-LLM + Bosch) and medical edge AI deployments are growing. Regulatory requirements for AI explainability are increasing. But zero tools exist for on-device reasoning introspection.",
+      "build_complexity": "High. Requires instrumentation of inference runtimes to capture attention/attribution data. On-device overhead must be minimal. Visualization of reasoning chains is non-trivial. Safety-critical certification adds complexity.",
+      "market_size_estimate": "$30-100M TAM (niche but high-value: safety-critical AI tooling).",
+      "rationale": {
+        "demand_reasoning": "Medium. Safety-critical deployments need this but the market is still small. Broader developer tooling demand is moderate.",
+        "competition_reasoning": "Zero competition. No tool exists for on-device reasoning debugging. Wide open space but also indicates market may be early.",
+        "feasibility_reasoning": "Moderate-Low. Instrumenting optimized inference runtimes without significant overhead is technically challenging. Quantized models lose much of the interpretability signal."
+      }
+    },
+    {
+      "rank": 15,
+      "id": "GAP-016",
+      "title": "Offline-First Conversational AI SDK",
+      "category": "segment_gap",
+      "demand": 7,
+      "competition_gap": 6,
+      "feasibility": 6,
+      "opportunity_score": 2.52,
+      "what_to_build": "An end-to-end SDK for building conversational AI that works 100% offline: persistent multi-turn context, local knowledge base with RAG, conversation history management, voice I/O, and graceful sync when connectivity returns. Optimized for field deployments.",
+      "who_needs_it": "Military, field service workers, disaster response teams, rural healthcare workers, maritime, mining -- anyone who needs AI assistance without connectivity.",
+      "why_now": "On-device LLMs are finally capable enough for useful conversations. Multiple articles cite offline operation as key benefit. Defense and field service are well-funded segments. But no SDK optimizes for offline-first end-to-end.",
+      "build_complexity": "Medium-High. Combines on-device LLM, local RAG, persistent storage, voice pipeline, and sync logic. Each component exists but integration and offline robustness testing is significant.",
+      "market_size_estimate": "$100-300M TAM (defense/field service AI, offline-first applications).",
+      "rationale": {
+        "demand_reasoning": "Medium. Defense and field service are well-funded but niche. Consumer offline use cases are growing but secondary to connected scenarios.",
+        "competition_reasoning": "No integrated offline-first conversational AI SDK. Can cobble together with llama.cpp + manual persistence but no turnkey solution.",
+        "feasibility_reasoning": "Moderate. All components exist. Integration complexity is manageable. Voice pipeline on-device is the most challenging component."
+      }
+    },
+    {
+      "rank": 16,
+      "id": "GAP-013",
+      "title": "Privacy-Certified On-Device Inference Framework",
+      "category": "segment_gap",
+      "demand": 7,
+      "competition_gap": 6,
+      "feasibility": 5,
+      "opportunity_score": 2.10,
+      "what_to_build": "An on-device LLM inference framework with formal privacy guarantees: HIPAA compliance documentation, SOC2 certification process, GDPR compliance controls, audit logging, data isolation, and model output sanitization. Built on top of existing runtimes with a compliance wrapper.",
+      "who_needs_it": "Healthcare AI developers (HIPAA), fintech app developers (SOC2/PCI), government contractors (FedRAMP), and EU developers (GDPR). Regulated industries that want on-device AI but need formal compliance.",
+      "why_now": "Healthcare and finance are top cited use cases for on-device LLMs. EU AI Act enforcement increasing. Apple touts privacy but no formal certification. No framework has compliance documentation.",
+      "build_complexity": "High. Certification processes are slow and expensive (SOC2 audit, HIPAA compliance assessment). Technical controls (audit logging, data isolation) are moderate. The business/legal overhead is the real challenge.",
+      "market_size_estimate": "$100-400M TAM (regulated industry AI compliance, high willingness to pay).",
+      "rationale": {
+        "demand_reasoning": "Medium-High. Regulated industries are large and willing to pay premium. But actual demand for on-device specifically (vs. cloud compliance) is still forming.",
+        "competition_reasoning": "Apple Private Cloud Compute is Apple-only. No third-party framework has compliance certifications. Gap is clear but also reflects difficulty of certification.",
+        "feasibility_reasoning": "Moderate-Low. Technical controls are buildable. But SOC2/HIPAA certification process takes 6-12 months and significant investment. Barrier to entry is high but also a moat."
+      }
+    },
+    {
+      "rank": 17,
+      "id": "GAP-020",
+      "title": "Free/Open Model Marketplace with Edge-Optimized Artifacts",
+      "category": "pricing_gap",
+      "demand": 7,
+      "competition_gap": 4,
+      "feasibility": 7,
+      "opportunity_score": 1.96,
+      "what_to_build": "A model marketplace with pre-quantized, pre-compiled, benchmarked model artifacts for each runtime+device combination. One-click deployment to ExecuTorch, LiteRT, QNN, Core ML, GGUF. Per-device performance guarantees and community ratings.",
+      "who_needs_it": "All edge LLM developers who want to skip the conversion/optimization step and deploy a proven model artifact directly.",
+      "why_now": "HuggingFace has GGUF models but few other edge formats. Google AI Edge Gallery launched on Play Store. Ollama has a model library but only GGUF. The edge ecosystem needs a multi-format artifact registry.",
+      "build_complexity": "Medium. Build on top of the conversion hub (GAP-018). Hosting, benchmarking infrastructure, and community features. Hardest part is generating and maintaining artifacts across runtime updates.",
+      "market_size_estimate": "$50-200M TAM (model marketplace, freemium with enterprise tiers).",
+      "rationale": {
+        "demand_reasoning": "Medium-High. Google AI Edge Gallery validates demand. Every developer wants pre-optimized models.",
+        "competition_reasoning": "HuggingFace is a partial competitor (GGUF section). Google AI Edge Gallery for LiteRT. Ollama model library. Competition is moderate and growing.",
+        "feasibility_reasoning": "Moderate-High. Natural extension of conversion hub. Marketplace mechanics are well-understood. Requires ongoing maintenance of artifact freshness."
+      }
+    },
+    {
+      "rank": 18,
+      "id": "GAP-019",
+      "title": "Automotive/Robotics Edge LLM Integration SDK",
+      "category": "segment_gap",
+      "demand": 7,
+      "competition_gap": 4,
+      "feasibility": 5,
+      "opportunity_score": 1.40,
+      "what_to_build": "A framework-agnostic SDK for integrating LLMs into automotive (AUTOSAR, ROS2) and robotics (ROS2) middleware. Supports real-time safety guarantees, deterministic latency, sensor fusion integration, and works across NVIDIA Jetson, Qualcomm, and ARM-based platforms.",
+      "who_needs_it": "Automotive OEMs, robotics companies, Tier 1 suppliers building next-gen in-cabin AI or robot reasoning systems.",
+      "why_now": "TensorRT-Edge-LLM launched for NVIDIA automotive. Bosch AI Cockpit in production. Hailo-10H targeting automotive edge LLM. But all solutions are vendor-locked (NVIDIA-only). Non-NVIDIA automotive platforms have nothing.",
+      "build_complexity": "Very High. Automotive safety certification (ISO 26262), real-time constraints, ROS2 integration, multi-vendor hardware support. Long development cycles, specialized domain expertise required.",
+      "market_size_estimate": "$200-500M TAM (automotive AI middleware, growing rapidly but long sales cycles).",
+      "rationale": {
+        "demand_reasoning": "Medium-High. Bosch and NVIDIA validate production demand. Hailo entering. Automotive AI is a major growth area.",
+        "competition_reasoning": "TensorRT-Edge-LLM is NVIDIA-only but well-funded. Bosch is using it. Non-NVIDIA gap exists but NVIDIA may expand. Competing with NVIDIA is hard.",
+        "feasibility_reasoning": "Low-Moderate. Automotive certification is expensive and slow. Real-time guarantees for LLM inference are technically very challenging. Long time to revenue."
+      }
+    },
+    {
+      "rank": 19,
+      "id": "GAP-012",
+      "title": "Wearable/IoT LLM Deployment (Ultra-Constrained)",
+      "category": "segment_gap",
+      "demand": 6,
+      "competition_gap": 5,
+      "feasibility": 4,
+      "opportunity_score": 1.20,
+      "what_to_build": "A turnkey SDK for deploying SLMs on ultra-constrained devices (smartwatches, earbuds, AR glasses) with 256MB-1GB RAM. Includes extreme model compression, memory-efficient inference, and wearable-specific UX patterns.",
+      "who_needs_it": "Wearable device makers (smartwatch OEMs, AR/VR companies, hearable manufacturers). Consumer electronics companies adding AI features to small devices.",
+      "why_now": "Google deployed Gemini Nano on Pixel Watch. Cactus claims wearable support. ExecuTorch's 50KB footprint targets MCUs. But no turnkey SDK for wearable LLM deployment exists outside Google's ecosystem.",
+      "build_complexity": "Very High. Ultra-constrained hardware requires extreme optimization. Sub-1B parameter models with aggressive quantization. Thermal management on tiny devices. Very limited development/debugging tooling for wearables.",
+      "market_size_estimate": "$50-150M TAM (wearable AI, growing with AR glasses market expansion).",
+      "rationale": {
+        "demand_reasoning": "Medium. Google Pixel Watch validates the concept. AR glasses are growing. But wearable LLM use cases are still limited.",
+        "competition_reasoning": "Google has internal tooling for Pixel Watch. ExecuTorch can target MCUs. Cactus claims support. Market is early and hardware-constrained.",
+        "feasibility_reasoning": "Low. Extreme hardware constraints make useful LLM deployment very difficult. Model quality at sub-1B parameters is still limited for reasoning tasks."
+      }
+    },
+    {
+      "rank": 20,
+      "id": "GAP-017",
+      "title": "Cross-Device Model Sharing & Federated Edge Inference",
+      "category": "feature_gap",
+      "demand": 5,
+      "competition_gap": 7,
+      "feasibility": 3,
+      "opportunity_score": 1.05,
+      "what_to_build": "A framework for splitting LLM inference across multiple edge devices (phone + laptop + smart speaker) or federated learning across edge devices. Enables collaborative inference where no single device has enough resources alone.",
+      "who_needs_it": "Smart home developers, enterprise campus deployments, research labs exploring distributed inference.",
+      "why_now": "Research papers on split inference (DSSD, PartInfer) and federated LoRA published. But all are academic with no production-ready implementation for consumer devices.",
+      "build_complexity": "Very High. Requires low-latency device-to-device communication, model partitioning, synchronization protocols, and fault tolerance. Network latency between devices often exceeds inference time, negating benefits.",
+      "market_size_estimate": "$20-80M TAM (very early market, primarily research-driven).",
+      "rationale": {
+        "demand_reasoning": "Low-Medium. Primarily academic interest. Real-world benefits are questionable when single-device inference is improving rapidly.",
+        "competition_reasoning": "No competition because no one has built it. But this may indicate the problem isn't worth solving commercially yet.",
+        "feasibility_reasoning": "Low. Network latency between consumer devices typically exceeds the benefit of distributed computation. Research-stage technology."
+      }
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "domain": "Model Routing, Cascading & Orchestration for SLMs",
+  "generated": "2026-03-29",
+  "stage": "scoring_and_ranking",
+  "scoring_formula": "opportunity = demand * competition_gap * feasibility / 100",
+  "scoring_notes": {
+    "demand": "0-10: How many people want this? Based on search signals, community activity, research volume.",
+    "competition_gap": "0-10: How underserved is this? 10 = no solution exists, 0 = fully solved by existing tools.",
+    "feasibility": "0-10: How buildable is this as a startup/OSS project? Considers technical complexity, data requirements, go-to-market."
+  },
+  "gaps": [
+    {
+      "rank": 1,
+      "id": "GAP-001",
+      "title": "Edge-Native SLM Cascading Router",
+      "demand": 9,
+      "competition_gap": 9,
+      "feasibility": 7,
+      "opportunity_score": 5.67,
+      "rationale": "Demand: Massive research activity, Gartner forecast, Dell/AWS/telco use cases. Competition: Zero production tools — all cloud-first. Only vLLM mentions edge. Feasibility: Technically challenging (on-device runtime, heterogeneous hardware) but frameworks like Ollama/llama.cpp provide building blocks."
+    },
+    {
+      "rank": 2,
+      "id": "GAP-004",
+      "title": "Multi-Step Agentic Workflow Router",
+      "demand": 9,
+      "competition_gap": 8,
+      "feasibility": 8,
+      "opportunity_score": 5.76,
+      "rationale": "Demand: Agentic AI is the hottest trend in 2026. DAAO, Helium, Anthropic guides all point here. Competition: Research frameworks exist (DAAO, Helium) but no production-ready tool. LLMRouter mentions agentic but early. Feasibility: High — can build on existing agent frameworks (LangGraph, CrewAI) as plugins."
+    },
+    {
+      "rank": 3,
+      "id": "GAP-002",
+      "title": "Confidence-Calibrated Cascading Framework",
+      "demand": 9,
+      "competition_gap": 8,
+      "feasibility": 7,
+      "opportunity_score": 5.04,
+      "rationale": "Demand: Dedicated 2026 survey, ICLR papers, 16x efficiency gains demonstrated. Competition: Only research implementations — no production tool. RouteLLM does binary routing, not calibrated multi-step cascading. Feasibility: Requires confidence calibration research implementation; moderate ML expertise needed."
+    },
+    {
+      "rank": 4,
+      "id": "GAP-007",
+      "title": "Budget-Constrained Adaptive Routing Optimizer",
+      "demand": 8,
+      "competition_gap": 8,
+      "feasibility": 8,
+      "opportunity_score": 5.12,
+      "rationale": "Demand: Universal pain point — every team has a budget. Dedicated arXiv paper, multiple cost guides. Competition: Tools offer hard caps (Portkey, Helicone) but none optimize quality within budget dynamically. Feasibility: High — contextual bandit approach is well-understood; can integrate with existing gateways."
+    },
+    {
+      "rank": 5,
+      "id": "GAP-005",
+      "title": "Domain-Specialized Routing (Code, Legal, Medical, etc.)",
+      "demand": 8,
+      "competition_gap": 8,
+      "feasibility": 7,
+      "opportunity_score": 4.48,
+      "rationale": "Demand: 45% of top law firms exploring domain models, IBM/ACM validating trend. Competition: No router offers domain-specific profiles. LiteLLM requires manual config. Feasibility: Needs domain-specific eval benchmarks and model profiling; doable but domain expertise required."
+    },
+    {
+      "rank": 6,
+      "id": "GAP-006",
+      "title": "Open-Source Quality-Aware Router with Evaluation Loop",
+      "demand": 8,
+      "competition_gap": 6,
+      "feasibility": 8,
+      "opportunity_score": 3.84,
+      "rationale": "Demand: Massive OSS community interest (LLMRouter 1K+ stars, multiple HN Show HNs). Competition: Gap narrowed — LLMRouter is comprehensive, RouteLLM is quality-aware. The eval feedback loop remains missing. Feasibility: High — combine existing OSS routers with eval frameworks (DeepEval, LangSmith)."
+    },
+    {
+      "rank": 7,
+      "id": "GAP-009",
+      "title": "Compliance-Aware Routing (GDPR, HIPAA, Data Residency)",
+      "demand": 7,
+      "competition_gap": 8,
+      "feasibility": 6,
+      "opportunity_score": 3.36,
+      "rationale": "Demand: Strong in regulated industries (healthcare, finance, EU). Competition: Only TrueFoundry offers geo-aware routing. No tool combines compliance rules with quality optimization. Feasibility: Requires deep compliance knowledge and certification processes; longer GTM."
+    },
+    {
+      "rank": 8,
+      "id": "GAP-011",
+      "title": "Hybrid Local/Cloud Router with Privacy Preservation",
+      "demand": 7,
+      "competition_gap": 7,
+      "feasibility": 6,
+      "opportunity_score": 2.94,
+      "rationale": "Demand: Privacy-sensitive industries need this. PII-aware routing tutorials and research papers confirm interest. Competition: PII detection exists (Requesty), PrivateLoRA is research. No integrated local-router-first product. Feasibility: Moderate — requires on-device runtime, adds complexity. Overlaps with GAP-001."
+    },
+    {
+      "rank": 9,
+      "id": "GAP-010",
+      "title": "Real-Time Routing Benchmarks and Model Performance Tracker",
+      "demand": 7,
+      "competition_gap": 6,
+      "feasibility": 7,
+      "opportunity_score": 2.94,
+      "rationale": "Demand: Model regression is a real pain point. LiveBench/Artificial Analysis show generic demand. Competition: Generic benchmarks exist. LangSmith evaluates but does not auto-adjust routing. The closed loop is missing. Feasibility: Can build on existing eval infrastructure; requires continuous running costs."
+    },
+    {
+      "rank": 10,
+      "id": "GAP-003",
+      "title": "Per-User Personalized Routing",
+      "demand": 7,
+      "competition_gap": 5,
+      "feasibility": 7,
+      "opportunity_score": 2.45,
+      "rationale": "Demand: PersonalizedRouter paper (TMLR), AWS guide, VC interest. Competition: LLMRouter already includes PersonalizedRouter — gap is shrinking. AWS provides guidance. Feasibility: Needs user interaction data collection; cold-start problem."
+    },
+    {
+      "rank": 11,
+      "id": "GAP-015",
+      "title": "Fine-Tuned SLM Router Trainer (AutoML for Routing)",
+      "demand": 6,
+      "competition_gap": 5,
+      "feasibility": 7,
+      "opportunity_score": 2.10,
+      "rationale": "Demand: Teams want easy router training. Competition: NVIDIA Blueprint, LLMRouter pipeline, and RouteLLM all provide training tools now. The gap for true one-click AutoML is smaller. Feasibility: Data pipeline exists; UX layer is the main challenge."
+    },
+    {
+      "rank": 12,
+      "id": "GAP-012",
+      "title": "Routing-as-SDK for Framework Integration",
+      "demand": 6,
+      "competition_gap": 5,
+      "feasibility": 7,
+      "opportunity_score": 2.10,
+      "rationale": "Demand: 14+ agent frameworks need routing. Competition: Google ADK, NVIDIA NeMo, and LiteLLM partially solve this. Feasibility: Straightforward engineering but requires maintaining integrations across fast-moving frameworks."
+    },
+    {
+      "rank": 13,
+      "id": "GAP-008",
+      "title": "Multi-Modal Routing (Text + Image + Audio + Video)",
+      "demand": 6,
+      "competition_gap": 5,
+      "feasibility": 6,
+      "opportunity_score": 1.80,
+      "rationale": "Demand: Multimodal AI is growing but routing across modalities is nascent. Competition: LLMRouter added multimodal support. ICCV workshop paper exists. Feasibility: Requires benchmarks across modalities; evaluation is harder than text-only."
+    },
+    {
+      "rank": 14,
+      "id": "GAP-013",
+      "title": "Cost-Quality Pareto Frontier Visualization and Exploration",
+      "demand": 5,
+      "competition_gap": 4,
+      "feasibility": 8,
+      "opportunity_score": 1.60,
+      "rationale": "Demand: Moderate — useful but not critical. Competition: Pareto frontier visualizers already exist (GitHub project, Artificial Analysis). Feasibility: Easy to build but hard to differentiate. Better as a feature than a product."
+    },
+    {
+      "rank": 15,
+      "id": "GAP-014",
+      "title": "Streaming/Real-Time Routing with Mid-Response Escalation",
+      "demand": 5,
+      "competition_gap": 9,
+      "feasibility": 4,
+      "opportunity_score": 1.80,
+      "rationale": "Demand: Low explicit demand despite being technically interesting. Competition: Almost no one is doing this — high novelty. Feasibility: Very challenging technically (mid-stream switching, context handoff, latency management). Research-grade for now."
+    }
+  ]
+}
