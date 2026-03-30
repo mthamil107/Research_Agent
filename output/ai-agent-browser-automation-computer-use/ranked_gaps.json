@@ -1,0 +1,349 @@
+{
+  "domain": "AI Agent Browser Automation & Computer Use",
+  "generated": "2026-03-29",
+  "stage": "scoring_and_ranking",
+  "scoring_formula": "opportunity = demand * competition_gap * feasibility / 100",
+  "scale": "all scores 0-10, higher is better (competition_gap: 10 = no competitors, 0 = saturated)",
+  "ranked_gaps": [
+    {
+      "rank": 1,
+      "id": "GAP-003",
+      "title": "Human-in-the-Loop Orchestration for Browser Agents",
+      "category": "workflow_gap",
+      "scores": {
+        "demand": 9,
+        "competition_gap": 9,
+        "feasibility": 8,
+        "opportunity_score": 6.48
+      },
+      "what_to_build": "A middleware SDK and dashboard that wraps any browser agent (Browser Use, Stagehand, Skyvern) with: automatic failure/uncertainty detection, human takeover UI showing live browser state, approval workflows for sensitive actions (purchases, PII forms), manual correction capture that feeds back into agent learning, and escalation policies (timeout, confidence threshold, action type).",
+      "who_needs_it": "Engineering teams deploying browser agents in production where failures have real consequences: e-commerce ops teams, financial services automating compliance workflows, HR teams automating recruiting pipelines, and any team where agent errors cost money or trust.",
+      "why_now": "Browser agents fail ~25% on complex tasks. Three separate GitHub issues on browser-use requesting HITL (issues #221, #3341, #462). Enterprise adoption is blocked without human oversight. No dedicated solution exists despite Gartner recommending HITL as a guardrail.",
+      "build_complexity": "Medium. Core requires WebSocket-based browser state streaming, a web UI for human operators, and hooks into popular agent frameworks. 2-4 week MVP for single-framework support.",
+      "market_size_estimate": "TAM: $2-5B (subset of RPA market moving to AI agents). SAM: $200-500M (teams actively using browser agents in production). SOM: $10-30M (early adopters needing production reliability)."
+    },
+    {
+      "rank": 2,
+      "id": "GAP-005",
+      "title": "Browser Agent Security & Sandboxing Layer",
+      "category": "feature_gap",
+      "scores": {
+        "demand": 9,
+        "competition_gap": 8,
+        "feasibility": 8,
+        "opportunity_score": 5.76
+      },
+      "what_to_build": "A security middleware that wraps any browser agent with: domain allowlists/blocklists, action type restrictions (no purchases without approval), PII detection/redaction in agent context, credential vault integration (1Password, HashiCorp Vault), prompt injection detection, comprehensive audit trails, and configurable security policies.",
+      "who_needs_it": "Any enterprise deploying browser agents. Security teams evaluating agent adoption. Compliance officers in regulated industries. Development teams building agent-powered products for end users.",
+      "why_now": "Gartner recommended CISOs block AI browsers (Dec 2025). OpenAI admitted prompt injection may never be solved. Multiple high-profile attacks in 2025 (HashJack, Comet hijack). Security is THE enterprise adoption blocker.",
+      "build_complexity": "Medium-High. Requires deep understanding of browser agent architectures, prompt injection detection, and security best practices. Policy engine + audit logging is 3-4 weeks. Prompt injection defense is ongoing research.",
+      "market_size_estimate": "TAM: $5-10B (browser security market). SAM: $500M-1B (AI agent security). SOM: $20-50M (teams actively blocked by security concerns)."
+    },
+    {
+      "rank": 3,
+      "id": "GAP-002",
+      "title": "Mobile App Agent Automation Framework",
+      "category": "segment_gap",
+      "scores": {
+        "demand": 9,
+        "competition_gap": 7,
+        "feasibility": 7,
+        "opportunity_score": 4.41
+      },
+      "what_to_build": "An open-source, AI-native mobile app automation framework (the 'Browser Use for mobile') supporting iOS and Android. Vision-based UI understanding, natural language task descriptions, element interaction without accessibility IDs, and session recording for debugging.",
+      "who_needs_it": "QA teams testing mobile apps, growth teams automating mobile workflows, developers building mobile-first agent products, enterprises automating internal mobile app workflows.",
+      "why_now": "DroidRun got 900+ signups in 24 hours and 3.8k GitHub stars showing massive developer interest. Google building Android agent framework for Android 17. mobile-use achieved 100% on AndroidWorld benchmark. The ecosystem is ready.",
+      "build_complexity": "High. iOS automation is notoriously difficult (6+ hour setup). Android is easier with accessibility APIs. Cross-platform abstraction layer adds complexity. 4-8 week MVP for Android-first.",
+      "market_size_estimate": "TAM: $10-20B (mobile testing + mobile automation). SAM: $1-3B (AI-powered mobile automation). SOM: $30-100M (developer tools for mobile agents)."
+    },
+    {
+      "rank": 4,
+      "id": "GAP-012",
+      "title": "Browser Agent Cost Optimization & Token Efficiency",
+      "category": "pricing_gap",
+      "scores": {
+        "demand": 8,
+        "competition_gap": 7,
+        "feasibility": 8,
+        "opportunity_score": 4.48
+      },
+      "what_to_build": "A cross-framework middleware that reduces LLM costs for any browser agent: intelligent page understanding cache (don't re-analyze unchanged pages), DOM diffing (send only changes between steps), action replay for known workflows (skip LLM entirely), automatic model routing (use cheap models for simple steps), and cost tracking dashboard.",
+      "who_needs_it": "Any team running browser agents at scale. Startups with limited budgets. Enterprises optimizing per-automation unit economics. Infrastructure teams managing agent costs.",
+      "why_now": "Agents make 3-10x more LLM calls than chatbots. Single tasks cost $5-8. Token optimization can save 70-90%. Stagehand caching is framework-locked. No universal solution exists. Browser-use issue #191 about cost control.",
+      "build_complexity": "Medium. DOM diffing and caching are well-understood techniques. Model routing APIs available. Integration with multiple frameworks adds scope. 3-5 week MVP.",
+      "market_size_estimate": "TAM: $2-5B (AI cost optimization). SAM: $300-800M (browser agent infrastructure). SOM: $15-40M (teams spending $1K+/month on browser agent LLM costs)."
+    },
+    {
+      "rank": 5,
+      "id": "GAP-019",
+      "title": "Cross-Platform Agent (Browser + Desktop + Mobile Unified)",
+      "category": "integration_gap",
+      "scores": {
+        "demand": 8,
+        "competition_gap": 8,
+        "feasibility": 5,
+        "opportunity_score": 3.20
+      },
+      "what_to_build": "A unified agent framework that operates seamlessly across browser, desktop, and mobile within a single workflow. Shared context across platforms, platform-specific action translators, and a workflow orchestrator that routes steps to the right platform agent.",
+      "who_needs_it": "Enterprise automation teams with workflows spanning web apps, desktop software, and mobile apps. IT departments automating cross-platform employee onboarding. Operations teams managing multi-platform processes.",
+      "why_now": "GUI-Owl-1.5 achieved SOTA on 20+ benchmarks across platforms. UI-TARS open-sourced (Apache 2.0) with desktop+browser support. Mobile-Agent-v3.5 paper on multi-platform agents. Research is ready for productization.",
+      "build_complexity": "Very High. Requires expertise in browser, desktop (OS-level), and mobile automation. Each platform has different APIs, permissions, and challenges. 8-16 week MVP.",
+      "market_size_estimate": "TAM: $20-50B (enterprise automation). SAM: $2-5B (cross-platform automation). SOM: $20-80M (teams with cross-platform workflow needs)."
+    },
+    {
+      "rank": 6,
+      "id": "GAP-011",
+      "title": "Natural Language Browser Automation for Non-Technical Users",
+      "category": "segment_gap",
+      "scores": {
+        "demand": 8,
+        "competition_gap": 6,
+        "feasibility": 6,
+        "opportunity_score": 2.88
+      },
+      "what_to_build": "A platform where non-technical users describe browser tasks in plain English and get production-grade, scheduled automations. Features: natural language task builder, automatic error recovery, scheduling, monitoring alerts, and a library of common task templates.",
+      "who_needs_it": "Business analysts, marketing teams, operations managers, small business owners who currently rely on manual browser work or expensive consultants. The 88% of orgs using AI but not browser agents yet.",
+      "why_now": "AI Browser Market projected $4.5B to $76.8B by 2034. Current NL tools have only 40% success rate (Airtop). The shift from scripts to prompts is a megatrend. 79% of leaders expect AI to improve automation 25%+.",
+      "build_complexity": "High. Reliability is the key challenge -- going from 40% to 90%+ success rate requires sophisticated error handling, self-healing, and fallback strategies. 6-10 week MVP.",
+      "market_size_estimate": "TAM: $10-30B (business process automation). SAM: $2-5B (non-technical automation users). SOM: $20-60M (early adopters willing to pay for reliable NL automation)."
+    },
+    {
+      "rank": 7,
+      "id": "GAP-001",
+      "title": "Browser Agent Observability & Debugging Platform",
+      "category": "feature_gap",
+      "scores": {
+        "demand": 8,
+        "competition_gap": 6,
+        "feasibility": 8,
+        "opportunity_score": 3.84
+      },
+      "what_to_build": "A browser-agent-specific observability platform with: step-by-step visual replay with DOM snapshots, screenshot diffs between steps, selector resolution failure tracking, cost-per-step breakdown, success rate dashboards, and integration with Browser Use/Stagehand/Skyvern.",
+      "who_needs_it": "Developer teams building and maintaining browser agent workflows. DevOps teams monitoring agent reliability. Product teams tracking automation success rates and costs.",
+      "why_now": "89% of orgs have agent observability but it is generic (LLM traces). Laminar raised $3M seed for agent debugging. Browser-specific observability (DOM state, visual replay) is not addressed by LangSmith/Langfuse.",
+      "build_complexity": "Medium. Browser extension/proxy for capturing DOM + screenshots is straightforward. Dashboard and analytics are standard. Framework integrations add scope. 3-5 week MVP.",
+      "market_size_estimate": "TAM: $3-8B (observability market). SAM: $200-500M (AI agent observability). SOM: $10-30M (browser-agent-specific observability)."
+    },
+    {
+      "rank": 8,
+      "id": "GAP-016",
+      "title": "Browser Agent for Regulated Industries (HIPAA/SOC2/GDPR)",
+      "category": "segment_gap",
+      "scores": {
+        "demand": 7,
+        "competition_gap": 8,
+        "feasibility": 5,
+        "opportunity_score": 2.80
+      },
+      "what_to_build": "A compliance-ready browser agent platform with: audit logging, data residency controls, encryption at rest/transit, BAA agreements, SOC2/HIPAA/GDPR certifications. Built on top of existing agent frameworks but with compliance wrapper.",
+      "who_needs_it": "Mid-market healthcare companies, financial services firms, government contractors, and legal firms that need browser automation but can't use uncertified tools.",
+      "why_now": "UiPath/Automation Anywhere serve this at enterprise prices ($100K+/year). No mid-market compliant browser agent exists. Compliance automation platforms (Drata, Vanta) prove there's a market for certification-as-differentiator.",
+      "build_complexity": "Very High. Certifications (SOC2, HIPAA) require $100K+ investment and 6-12 months. Technical build is medium but compliance process is the real bottleneck.",
+      "market_size_estimate": "TAM: $15-30B (regulated industry automation). SAM: $1-3B (compliance-ready mid-market automation). SOM: $10-30M (first movers in compliant browser agents)."
+    },
+    {
+      "rank": 9,
+      "id": "GAP-010",
+      "title": "Browser Agent for Accessibility Testing",
+      "category": "segment_gap",
+      "scores": {
+        "demand": 7,
+        "competition_gap": 6,
+        "feasibility": 7,
+        "opportunity_score": 2.94
+      },
+      "what_to_build": "An AI browser agent that performs behavioral accessibility testing: navigate as a screen reader user, test keyboard-only navigation, verify ARIA labels through interaction, identify usability barriers that static analyzers miss, and generate WCAG compliance reports.",
+      "who_needs_it": "Web development teams, QA teams, accessibility consultants, enterprises under regulatory pressure (EAA 2025, Section 508, ADA). E-commerce sites, government agencies, educational institutions.",
+      "why_now": "BrowserStack launched AI accessibility agent (Oct 2025) validating the approach. Current tools catch only 57-60% of issues. European Accessibility Act creating compliance urgency. Hybrid testing (AI + manual) is the recommended approach.",
+      "build_complexity": "Medium. Leverage existing browser agent frameworks for navigation. Accessibility rules (axe-core) are well-documented. Behavioral testing patterns are novel but tractable. 4-6 week MVP.",
+      "market_size_estimate": "TAM: $2-5B (accessibility testing market). SAM: $300-800M (AI-powered accessibility). SOM: $10-25M (teams seeking behavioral testing beyond static analysis)."
+    },
+    {
+      "rank": 10,
+      "id": "GAP-008",
+      "title": "Browser Agent + Enterprise System Integration Layer",
+      "category": "integration_gap",
+      "scores": {
+        "demand": 7,
+        "competition_gap": 6,
+        "feasibility": 7,
+        "opportunity_score": 2.94
+      },
+      "what_to_build": "A lightweight integration platform connecting browser agents to enterprise systems: pre-built connectors for Salesforce, SAP, Jira, Slack, databases. Data mapping between agent outputs and enterprise schemas. Error handling, retries, and dead-letter queues.",
+      "who_needs_it": "Enterprise teams that have browser agents producing data/actions that need to flow into CRM, ERP, ticketing, or data warehouse systems. Mid-market companies that can't afford MuleSoft.",
+      "why_now": "Average enterprise runs 12 agents (projected 67% growth by 2027). Salesforce repositioned MuleSoft as 'agentic infrastructure' but it's expensive. n8n has some capability but no browser-agent-specific connectors.",
+      "build_complexity": "Medium. Standard integration patterns (webhooks, REST APIs, event queues). Browser agent SDK integration is the novel part. 4-6 week MVP with 3-5 connectors.",
+      "market_size_estimate": "TAM: $10-20B (enterprise integration). SAM: $500M-1B (agent-to-enterprise integration). SOM: $15-40M (mid-market teams needing browser agent connectors)."
+    },
+    {
+      "rank": 11,
+      "id": "GAP-017",
+      "title": "Anti-Bot Evasion as a Service for Browser Agents",
+      "category": "feature_gap",
+      "scores": {
+        "demand": 7,
+        "competition_gap": 5,
+        "feasibility": 6,
+        "opportunity_score": 2.10
+      },
+      "what_to_build": "An API service for browser agents providing stealth browser sessions with adaptive fingerprinting, behavioral mimicry, CAPTCHA solving, and residential proxy rotation. Plug into any agent framework via SDK.",
+      "who_needs_it": "Teams building browser agents that interact with sites protected by Cloudflare, Akamai, DataDome. Data collection teams, competitive intelligence, price monitoring.",
+      "why_now": "Each browser agent reinvents anti-detection. Average evasion rates only ~50% against modern anti-bot. ZenRows claims 99% but is expensive. Anti-detect frameworks evolving rapidly.",
+      "build_complexity": "High. Arms race with anti-bot providers. Requires constant updates. Ethical and legal concerns. 6-10 week MVP.",
+      "market_size_estimate": "TAM: $3-8B (web scraping/data collection). SAM: $500M-1B (anti-bot solutions). SOM: $10-25M (browser-agent-specific anti-detection)."
+    },
+    {
+      "rank": 12,
+      "id": "GAP-006",
+      "title": "Affordable Self-Hosted Browser Agent Cloud",
+      "category": "pricing_gap",
+      "scores": {
+        "demand": 7,
+        "competition_gap": 6,
+        "feasibility": 7,
+        "opportunity_score": 2.94
+      },
+      "what_to_build": "A Docker-compose / Helm chart that deploys a complete browser agent stack: browser pool (Chromium instances), agent framework (Browser Use/Stagehand), proxy rotation, CAPTCHA solving, monitoring dashboard, and job scheduler. One command to deploy.",
+      "who_needs_it": "Teams running 100+ daily automations where cloud costs become prohibitive. Privacy-conscious organizations. DevOps teams comfortable with self-hosting. Cost-sensitive startups.",
+      "why_now": "Cloud browser infrastructure costs $150-500/day for 1000 tasks. Steel exists but requires DevOps expertise. n8n self-hosted shows demand for self-hosted automation. Docker/Helm are mature deployment targets.",
+      "build_complexity": "Medium. Packaging existing open-source tools (Steel, Browser Use, n8n) into a coherent stack. 3-5 week MVP.",
+      "market_size_estimate": "TAM: $2-5B (cloud browser infrastructure). SAM: $200-500M (self-hosted segment). SOM: $5-15M (teams actively seeking self-hosted alternatives)."
+    },
+    {
+      "rank": 13,
+      "id": "GAP-013",
+      "title": "Unified MCP Server for All Browser Agent Frameworks",
+      "category": "integration_gap",
+      "scores": {
+        "demand": 7,
+        "competition_gap": 6,
+        "feasibility": 7,
+        "opportunity_score": 2.94
+      },
+      "what_to_build": "A single MCP server that provides access to multiple browser agent backends (Playwright, Browser Use, Skyvern) through one consistent interface. Automatic backend selection based on task type. Unified session management.",
+      "who_needs_it": "LLM application developers who want browser capabilities via MCP without committing to one framework. AI coding assistants needing browser access. Teams using Claude, GPT, or other LLMs.",
+      "why_now": "MCP rapidly becoming the standard. 550+ MCP clients exist. AWS AgentCore Gateway unifying MCP servers. But no browser-agent-specific unified MCP server yet.",
+      "build_complexity": "Medium. MCP server implementation is well-documented. Backend integrations require framework-specific adapters. 3-4 week MVP.",
+      "market_size_estimate": "TAM: $1-3B (AI tool integration). SAM: $100-300M (MCP server ecosystem). SOM: $5-15M (browser MCP users)."
+    },
+    {
+      "rank": 14,
+      "id": "GAP-004",
+      "title": "Cross-Browser-Agent Testing & Evaluation Framework",
+      "category": "feature_gap",
+      "scores": {
+        "demand": 7,
+        "competition_gap": 5,
+        "feasibility": 7,
+        "opportunity_score": 2.45
+      },
+      "what_to_build": "A test harness where teams define custom browser automation tasks, run them across multiple agent frameworks (Browser Use, Stagehand, Skyvern), and get comparative metrics: success rate, cost, latency, token usage. CI/CD integration for continuous evaluation.",
+      "who_needs_it": "Engineering teams evaluating which browser agent framework to adopt. Teams already using agents who want to benchmark performance on their specific workflows.",
+      "why_now": "Multiple frameworks competing. BrowserGym exists but academic. BU Bench V1 has 100 tasks. Teams need practical, not academic, evaluation tools.",
+      "build_complexity": "Medium. Test runner + framework adapters + metrics dashboard. BrowserGym provides foundation. 3-5 week MVP.",
+      "market_size_estimate": "TAM: $1-3B (software testing tools). SAM: $100-300M (AI agent evaluation). SOM: $5-10M (browser agent benchmarking)."
+    },
+    {
+      "rank": 15,
+      "id": "GAP-009",
+      "title": "Multi-Tab / Multi-Window Agent Orchestration",
+      "category": "feature_gap",
+      "scores": {
+        "demand": 6,
+        "competition_gap": 6,
+        "feasibility": 7,
+        "opportunity_score": 2.52
+      },
+      "what_to_build": "A multi-tab orchestration layer where agents coordinate across browser tabs/windows with shared context. Support for cross-site workflows: comparison shopping, data sync, multi-source research.",
+      "who_needs_it": "Teams building complex workflows that span multiple websites. Price comparison, competitive intelligence, multi-source data aggregation.",
+      "why_now": "O-Mega differentiates on multi-agent orchestration. Google Mariner handles 10 concurrent tasks. But no standalone orchestration layer for existing frameworks.",
+      "build_complexity": "Medium. Browser session management, context sharing between tabs, and coordination logic. 3-5 week MVP.",
+      "market_size_estimate": "TAM: $1-3B (workflow orchestration). SAM: $100-300M (browser workflow orchestration). SOM: $5-10M (multi-tab automation users)."
+    },
+    {
+      "rank": 16,
+      "id": "GAP-014",
+      "title": "Browser Agent Training Data & Fine-Tuning Platform",
+      "category": "feature_gap",
+      "scores": {
+        "demand": 6,
+        "competition_gap": 6,
+        "feasibility": 6,
+        "opportunity_score": 2.16
+      },
+      "what_to_build": "A platform for recording successful browser agent interactions, creating training datasets, and fine-tuning smaller/faster models for specific automation domains (e-commerce, government, SaaS).",
+      "who_needs_it": "Teams running high-volume, domain-specific automations who want to reduce costs by using smaller fine-tuned models instead of GPT-4/Claude.",
+      "why_now": "Go-Browse showed 7B model can beat GPT-4o mini on WebArena with proper training data. Together AI expanding fine-tuning capabilities. Cost pressure is real.",
+      "build_complexity": "High. Requires trajectory recording, data curation pipeline, fine-tuning infrastructure, and model evaluation. 6-10 week MVP.",
+      "market_size_estimate": "TAM: $2-5B (AI fine-tuning). SAM: $200-500M (agent-specific fine-tuning). SOM: $5-15M (browser agent fine-tuning niche)."
+    },
+    {
+      "rank": 17,
+      "id": "GAP-020",
+      "title": "Browser Agent Marketplace & Monetization Platform",
+      "category": "segment_gap",
+      "scores": {
+        "demand": 6,
+        "competition_gap": 6,
+        "feasibility": 6,
+        "opportunity_score": 2.16
+      },
+      "what_to_build": "A marketplace for publishing, sharing, and selling browser agent workflows with licensing, usage metering, and revenue sharing. Think 'Apify marketplace but for AI browser agents.'",
+      "who_needs_it": "Developers building browser agent workflows who want to monetize. Teams seeking pre-built, tested automations they can buy rather than build.",
+      "why_now": "AWS launched AI agent marketplace. Fellou Agent Studio enables monetization. AI agent market projected $50.31B by 2030. But no dedicated browser agent marketplace.",
+      "build_complexity": "Medium-High. Marketplace infrastructure (payments, licensing, metering) is well-understood. Quality assurance for agent workflows is the hard part. 6-8 week MVP.",
+      "market_size_estimate": "TAM: $5-10B (automation marketplace). SAM: $200-500M (AI agent marketplace). SOM: $5-15M (browser agent workflow commerce)."
+    },
+    {
+      "rank": 18,
+      "id": "GAP-007",
+      "title": "Domain-Specific Browser Agent Templates/Recipes",
+      "category": "workflow_gap",
+      "scores": {
+        "demand": 6,
+        "competition_gap": 5,
+        "feasibility": 7,
+        "opportunity_score": 2.10
+      },
+      "what_to_build": "A curated registry of tested browser agent workflows for specific verticals (HR/recruiting, procurement, compliance, sales intelligence) that work across multiple agent frameworks.",
+      "who_needs_it": "Teams wanting to automate common workflows without building from scratch. Vertical SaaS companies adding agent capabilities. Consultants implementing automations for clients.",
+      "why_now": "n8n has 8968 templates, Make has 7000+ -- but none are AI-agent-native. Common workflows are rebuilt thousands of times. Templates reduce time-to-value.",
+      "build_complexity": "Low-Medium. Building individual templates is straightforward. Maintaining them as target sites change is the ongoing challenge. 2-4 week MVP.",
+      "market_size_estimate": "TAM: $1-3B (automation templates). SAM: $50-200M (AI agent templates). SOM: $3-10M (browser agent template users)."
+    },
+    {
+      "rank": 19,
+      "id": "GAP-015",
+      "title": "Real-Time Collaborative Browser Agent Workspace",
+      "category": "workflow_gap",
+      "scores": {
+        "demand": 5,
+        "competition_gap": 5,
+        "feasibility": 6,
+        "opportunity_score": 1.50
+      },
+      "what_to_build": "A team workspace for browser agents: shared workflow library, live monitoring dashboard, collaborative debugging, RBAC, and cost allocation across team members.",
+      "who_needs_it": "Teams of 5+ people operating browser agents at scale. Enterprise automation centers of excellence.",
+      "why_now": "Google Workspace Studio and Microsoft Copilot Dashboard are entering this space within their ecosystems. Open-source agent teams lack collaboration tools.",
+      "build_complexity": "Medium-High. Real-time collaboration is complex. RBAC, multi-tenancy, and shared state add scope. 6-8 week MVP.",
+      "market_size_estimate": "TAM: $3-8B (team collaboration tools). SAM: $100-300M (agent team management). SOM: $3-8M (browser agent team workspaces)."
+    },
+    {
+      "rank": 20,
+      "id": "GAP-018",
+      "title": "Browser Agent Workflow Version Control & CI/CD",
+      "category": "workflow_gap",
+      "scores": {
+        "demand": 5,
+        "competition_gap": 5,
+        "feasibility": 6,
+        "opportunity_score": 1.50
+      },
+      "what_to_build": "A CI/CD system for browser agent workflows: site change detection, automatic regression testing, rollback capabilities, and canary deployments for agent updates.",
+      "who_needs_it": "Teams running production browser agents that break when target sites change. DevOps teams managing agent deployment lifecycles.",
+      "why_now": "Self-healing selectors are baseline in 2025. Percy reduces visual review 3x. But agent-specific CI/CD doesn't exist. May be premature as the ecosystem matures.",
+      "build_complexity": "Medium. Site change detection + regression test runner + deployment pipeline. Standard DevOps patterns applied to agents. 4-6 week MVP.",
+      "market_size_estimate": "TAM: $2-5B (CI/CD tools). SAM: $50-200M (agent DevOps). SOM: $2-5M (browser agent CI/CD early adopters)."
+    }
+  ]
+}

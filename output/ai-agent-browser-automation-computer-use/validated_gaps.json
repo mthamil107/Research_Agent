@@ -1,0 +1,288 @@
+{
+  "domain": "AI Agent Browser Automation & Computer Use",
+  "generated": "2026-03-29",
+  "stage": "demand_validation",
+  "total_gaps": 20,
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Browser Agent Observability & Debugging Platform",
+      "category": "feature_gap",
+      "demand_signals": {
+        "reddit": "Developers express frustration with non-deterministic agent failures and lack of visibility into why agents act certain ways. Debugging described as 'guesswork' without proper traces.",
+        "hacker_news": "Laminar raised $3M seed (March 2026) specifically for agent debugging, already has Browser Use and OpenHands as customers. Active discussion around observability gap in AI agents.",
+        "github": "Browserbase docs show observability features; LangSmith added 'deep agent' debugging in Dec 2025 with AI-powered trace analysis (Polly). Langfuse gained traction with 50+ integrations.",
+        "industry": "89% of orgs have implemented agent observability. Quality issues are the #1 production barrier at 32%. Laminar, Braintrust, Langfuse, AgentOps all competing but none browser-specific.",
+        "search_volume": "Multiple '2026 guide' articles for agent observability platforms. 5+ dedicated comparison articles published in Q1 2026."
+      },
+      "demand_score": 8,
+      "demand_summary": "Strong demand. General AI observability is crowded but browser-specific observability (DOM snapshots, visual replay, selector failures) remains a clear gap. Laminar is closest but still general-purpose."
+    },
+    {
+      "id": "GAP-002",
+      "title": "Mobile App Agent Automation Framework",
+      "category": "segment_gap",
+      "demand_signals": {
+        "reddit": "Mobile automation discussed as significantly harder than web. iOS setup taking 6+ hours is a common complaint.",
+        "hacker_news": "DroidRun gained 900+ developer signups in 24 hours and 3.8k GitHub stars. mobile-use achieved 100% on AndroidWorld benchmark.",
+        "github": "agent-device from Callstack (iOS + Android), Arbigent for testing, mobile-use (minitap-ai). Multiple nascent projects showing developer interest.",
+        "industry": "Google developing UI automation framework for AI agents in Android 17. Mobile test suites fail 20-30% more than web. Market rapidly heating up.",
+        "search_volume": "Dedicated articles on mobile AI agents tested across 65 real-world tasks. Google blog posts about intelligent OS for agents."
+      },
+      "demand_score": 9,
+      "demand_summary": "Very strong demand. Mobile is the clear next frontier after web browser agents. Multiple early-stage projects but no dominant player yet. Google platform investment validates the opportunity."
+    },
+    {
+      "id": "GAP-003",
+      "title": "Human-in-the-Loop Orchestration for Browser Agents",
+      "category": "workflow_gap",
+      "demand_signals": {
+        "reddit": "Active discussions about agent failure rates (~25%) and need for human takeover. Swiss cheese model analogy used for handoff failures.",
+        "hacker_news": "HITL architecture cited as reducing hallucination errors by 96% and achieving 99.8% accuracy.",
+        "github": "Browser-use issue #221, #3341, #462 all request HITL support. Users cite safety (banking), quality control, and compliance as drivers. High engagement on these issues.",
+        "industry": "AutoGen framework includes HITL tutorial. Auth0 published about secure HITL interactions. Salesforce emphasizes HITL for Agentforce. Gartner recommends it.",
+        "search_volume": "Multiple enterprise guides published in 2026. Dedicated comparison articles (agent vs human-in-the-loop)."
+      },
+      "demand_score": 9,
+      "demand_summary": "Very strong demand validated by multiple GitHub feature requests on browser-use itself. Enterprise adoption requires HITL. No dedicated orchestration layer exists yet -- huge gap."
+    },
+    {
+      "id": "GAP-004",
+      "title": "Cross-Browser-Agent Testing & Evaluation Framework",
+      "category": "feature_gap",
+      "demand_signals": {
+        "reddit": "Teams want to compare Browser Use vs Stagehand vs Skyvern on their own tasks. No easy way to do this currently.",
+        "hacker_news": "WebArena benchmark reached 61.7% completion. BrowseComp from OpenAI, MM-BrowseComp, WebTestBench all launched. Academic interest is strong.",
+        "github": "BrowserGym framework provides universal simulation environment. BU Bench V1 has 100 tasks. WebChoreArena introduces 532 challenging tasks.",
+        "industry": "Multiple new benchmarks in 2025-2026 (CUB, GAIA, BrowseComp). Still no easy way for teams to run custom evaluations across frameworks.",
+        "search_volume": "Browser Use published their own benchmark page. Multiple comparison guides exist."
+      },
+      "demand_score": 7,
+      "demand_summary": "Moderate-strong demand. Academic benchmarks proliferating but practical team-level A/B testing across frameworks is still painful. The gap is narrowing as BrowserGym and benchmarks mature."
+    },
+    {
+      "id": "GAP-005",
+      "title": "Browser Agent Security & Sandboxing Layer",
+      "category": "feature_gap",
+      "demand_signals": {
+        "reddit": "Security concerns discussed extensively. Prompt injection via web content seen as existential risk for browser agents.",
+        "hacker_news": "OpenAI admitted prompt injection 'may never be solved' for browser agents (Dec 2025). Multiple attack disclosures throughout 2025 (HashJack, Comet hijack).",
+        "github": "CELLMATE paper (UCSD) on sandboxing browser agents. Anthropic published prompt injection defense research. Browser-use issue #905 about sensitive data.",
+        "industry": "Gartner recommended CISOs block AI browsers (Dec 2025). Wiz published year-end review of agentic browser security. Malwarebytes flagged Atlas privacy risks. Fortune, CyberScoop covered the issue.",
+        "search_volume": "Very high. Dedicated security guides, research papers, and industry warnings. Multiple major publications covered the topic."
+      },
+      "demand_score": 9,
+      "demand_summary": "Critical demand. Security is THE blocker for enterprise adoption. Gartner told CISOs to block AI browsers. OpenAI says prompt injection may never be solved. Massive need for a dedicated security layer."
+    },
+    {
+      "id": "GAP-006",
+      "title": "Affordable Self-Hosted Browser Agent Cloud",
+      "category": "pricing_gap",
+      "demand_signals": {
+        "reddit": "Self-hosting discussions are popular. Teams frustrated with cloud browser costs at scale ($150-500/day for 1000 tasks).",
+        "hacker_news": "Steel open-source project gaining traction. Dev blog posts about building self-hosted AI automation stacks.",
+        "github": "Steel (Docker-based), n8n self-hosted (8968 workflow templates). Multiple open-source web agent projects (30+ listed).",
+        "industry": "7+ Browserbase alternatives listed. Top 10 self-hosted browser automation tools guides published. Docker/Helm deployment is a known need.",
+        "search_volume": "High. Multiple comparison articles for self-hosted alternatives. Cost reduction is a primary driver."
+      },
+      "demand_score": 7,
+      "demand_summary": "Solid demand driven by cost concerns. Steel partially addresses this but requires DevOps expertise. The gap is for a turnkey, all-in-one self-hosted stack. Competition emerging."
+    },
+    {
+      "id": "GAP-007",
+      "title": "Domain-Specific Browser Agent Templates/Recipes",
+      "category": "workflow_gap",
+      "demand_signals": {
+        "reddit": "Users repeatedly ask for pre-built workflows for specific use cases (competitor monitoring, job applications, government forms).",
+        "hacker_news": "n8n community has 8968 templates. Make has 7000+. Zapier has extensive templates. But none are AI-agent-native.",
+        "github": "Skyvern, Browser Use have example scripts but no curated marketplace. Apify has scraping actors but not agent workflows.",
+        "industry": "No-code/low-code automation platforms growing. Axiom, Bardeen offer visual builders. But gap exists for production-ready agent-native workflows.",
+        "search_volume": "Moderate. Template marketplaces are well-established concept but not yet applied to AI browser agents."
+      },
+      "demand_score": 6,
+      "demand_summary": "Moderate demand. Template marketplaces exist for traditional automation (n8n, Zapier) but not for AI browser agents. The need is real but the ecosystem may need to mature first."
+    },
+    {
+      "id": "GAP-008",
+      "title": "Browser Agent + Enterprise System Integration Layer",
+      "category": "integration_gap",
+      "demand_signals": {
+        "reddit": "Enterprise teams discuss the challenge of connecting agent outputs to CRM/ERP systems.",
+        "hacker_news": "Salesforce Agentforce, MuleSoft Agent Fabric emerging. 83% of orgs using AI agents (avg 12 agents per enterprise).",
+        "github": "n8n provides some integration capability. No dedicated browser-agent-to-enterprise connector platform.",
+        "industry": "Salesforce repositioned MuleSoft as 'agentic infrastructure.' Average enterprise runs 12 agents, projected 67% growth by 2027. Integration is the bottleneck.",
+        "search_volume": "High enterprise interest. Multiple guides on AI browser agents in enterprise published in 2026."
+      },
+      "demand_score": 7,
+      "demand_summary": "Strong enterprise demand. Salesforce/MuleSoft moving into this space from the CRM side. Gap is for a lightweight mid-market solution connecting browser agents to enterprise systems."
+    },
+    {
+      "id": "GAP-009",
+      "title": "Multi-Tab / Multi-Window Agent Orchestration",
+      "category": "feature_gap",
+      "demand_signals": {
+        "reddit": "Users describe needing cross-tab coordination for comparison shopping, data sync, multi-source research.",
+        "hacker_news": "O-Mega differentiates on multi-agent orchestration. Perplexity Comet handles multi-step tasks across sites.",
+        "github": "Browser Use supports parallel execution but not coordinated multi-tab. Google Mariner handles 10 concurrent tasks.",
+        "industry": "By 2026, 40% of enterprise apps will feature task-specific agents. Multi-agent orchestration becoming standard pattern.",
+        "search_volume": "Moderate. Multi-agent orchestration articles proliferating but mostly generic, not browser-specific."
+      },
+      "demand_score": 6,
+      "demand_summary": "Moderate demand. Multi-tab is a real user need but increasingly being addressed by platforms (O-Mega, Mariner). The standalone opportunity may be limited as frameworks add this natively."
+    },
+    {
+      "id": "GAP-010",
+      "title": "Browser Agent for Accessibility Testing",
+      "category": "segment_gap",
+      "demand_signals": {
+        "reddit": "Accessibility testing discussed as an underserved area. Manual testing expensive and time-consuming.",
+        "hacker_news": "BrowserStack launched AI-powered Issue Detection Agent (Oct 2025). Test-Lab built accessibility agent combining automated + behavioral testing.",
+        "github": "axe-core widely used but limited to static analysis (catches 57% of issues at best). AI agent approach could close the gap.",
+        "industry": "BrowserStack's AI agent catches issues static tools miss. Existing automated tools cover only 60% of web issues, 30% of mobile. Regulatory pressure increasing (EAA, WCAG 2.2).",
+        "search_volume": "High. 21+ automated accessibility testing tools listed. Multiple 2026 guides published. Regulatory compliance driving demand."
+      },
+      "demand_score": 7,
+      "demand_summary": "Strong niche demand. BrowserStack entering this space validates it. Current tools catch only 57-60% of issues. Regulatory pressure (EAA 2025) creates urgency. But BrowserStack is a formidable incumbent."
+    },
+    {
+      "id": "GAP-011",
+      "title": "Natural Language Browser Automation for Non-Technical Users",
+      "category": "segment_gap",
+      "demand_signals": {
+        "reddit": "Business users want 'set and forget' automations described in plain English. Current no-code tools lack AI sophistication.",
+        "hacker_news": "AI Browser Market projected $4.5B (2026) to $76.8B (2034) at 32.8% CAGR. 79% of leaders believe generative AI will improve automation by 25%+.",
+        "github": "Browser Use, Stagehand require code. Axiom/Bardeen are visual builders but not AI-native. Airtop has NL but 40% success rate.",
+        "industry": "McKinsey: 88% of orgs use AI regularly, 62% experimenting with agents. Shift from scripts to prompts is a megatrend. No reliable NL-to-automation platform exists.",
+        "search_volume": "Very high. No-code automation guides proliferating. AI browser market projections in billions."
+      },
+      "demand_score": 8,
+      "demand_summary": "Strong demand from the massive non-technical user base. Market is projected at $76.8B by 2034. Current tools either require code or have low success rates. Reliability is the key challenge."
+    },
+    {
+      "id": "GAP-012",
+      "title": "Browser Agent Cost Optimization & Token Efficiency",
+      "category": "pricing_gap",
+      "demand_signals": {
+        "reddit": "Cost is a top complaint. Agents make 3-10x more LLM calls than chatbots. Single tasks can cost $5-8 in API fees.",
+        "hacker_news": "Token optimization can save 70-80% costs. Redis LangCache achieves 73% cost reduction. Agentic Plan Caching (APC) paper published.",
+        "github": "Browser-use issue #191 about endless loop detection to avoid high LLM costs. Stagehand v3 action caching is framework-specific.",
+        "industry": "Smart optimization reduces costs 70-90%. Model routing now standard (GPT-5 routes between fast/deep models). Output-to-input cost ratio is 4x median.",
+        "search_volume": "Very high. Multiple dedicated guides on AI agent token cost optimization in 2026. Redis, Zylos, Fast.io all published guides."
+      },
+      "demand_score": 8,
+      "demand_summary": "Strong demand. Cost is a universal pain point. Browser agents are 10-100x more expensive than chat. A cross-framework optimization middleware has clear value but generic caching solutions are emerging."
+    },
+    {
+      "id": "GAP-013",
+      "title": "Unified MCP Server for All Browser Agent Frameworks",
+      "category": "integration_gap",
+      "demand_signals": {
+        "reddit": "MCP adoption growing rapidly. Developers want unified access to tools without framework lock-in.",
+        "hacker_news": "AWS launched AgentCore Gateway to unify MCP servers. MCP Registry being developed as 'app store' for MCP servers. 550+ MCP clients listed.",
+        "github": "mcp-gateway-registry project on GitHub. Playwright MCP, Stagehand MCP exist separately. mcp-browser-agent integrates with Claude Desktop.",
+        "industry": "Full enterprise stack in 2026 uses MCP (tool access) + A2A (agent coordination) + ACP/UCP (commerce). Four protocols with meaningful adoption.",
+        "search_volume": "High. MCP benchmark articles comparing servers for web access. Multiple protocol ecosystem maps published."
+      },
+      "demand_score": 7,
+      "demand_summary": "Solid demand as MCP becomes standard. AWS AgentCore Gateway and MCP Registry are emerging solutions. The specific browser-agent-unified-MCP gap may be closing as gateways mature."
+    },
+    {
+      "id": "GAP-014",
+      "title": "Browser Agent Training Data & Fine-Tuning Platform",
+      "category": "feature_gap",
+      "demand_signals": {
+        "reddit": "Interest in domain-specific browser agent models. General LLMs wasteful for simple browser tasks.",
+        "hacker_news": "Go-Browse paper: 10K successful trajectories, 7B model beats GPT-4o mini on WebArena. BrowserAgent uses two-stage fine-tuning.",
+        "github": "Go-Browse, BrowserAgent research projects. Together AI expanding fine-tuning platform. SiliconFlow, Hugging Face, Axolotl available.",
+        "industry": "Domain-specific agents (legal, medical billing) gaining traction. Fine-tuning smaller models for specific tasks is cost-effective. Academic research active.",
+        "search_volume": "Moderate. Academic papers leading, commercial platforms following. Fine-tuning platforms exist but not browser-agent-specific."
+      },
+      "demand_score": 6,
+      "demand_summary": "Moderate demand. Academic research validates the approach (7B model beating GPT-4o mini). But general fine-tuning platforms exist. Browser-agent-specific platform is niche."
+    },
+    {
+      "id": "GAP-015",
+      "title": "Real-Time Collaborative Browser Agent Workspace",
+      "category": "workflow_gap",
+      "demand_signals": {
+        "reddit": "Teams managing multiple agents want shared dashboards and collaboration features.",
+        "hacker_news": "Google Workspace Studio launched for creating/sharing AI agents. Microsoft Copilot Agent Dashboard introduced at Ignite 2025.",
+        "github": "No dedicated open-source collaborative browser agent workspace exists.",
+        "industry": "Google Agentspace includes Agent Gallery and Agent Designer. Microsoft provides centralized agent analytics. Both are platform-locked.",
+        "search_volume": "Moderate. Enterprise workspace collaboration well-covered. Agent-specific collaboration is emerging via Google/Microsoft."
+      },
+      "demand_score": 5,
+      "demand_summary": "Moderate demand but Google and Microsoft are rapidly filling this gap within their ecosystems. Standalone opportunity limited unless targeting teams using open-source agent frameworks."
+    },
+    {
+      "id": "GAP-016",
+      "title": "Browser Agent for Regulated Industries (HIPAA/SOC2/GDPR)",
+      "category": "segment_gap",
+      "demand_signals": {
+        "reddit": "Healthcare and finance teams want automation but compliance requirements block adoption of current tools.",
+        "hacker_news": "Compliance automation platforms (Drata, Vanta) rapidly growing. SOC2 essential for B2B SaaS enterprise deals.",
+        "github": "No open-source compliant browser agent platform. Compliance automation tools exist but for audit/monitoring, not browser agents.",
+        "industry": "UiPath/Automation Anywhere serve this market at enterprise prices. Drata, Vanta automate compliance certification. No mid-market browser agent with certifications.",
+        "search_volume": "High for compliance automation generally. Specific browser agent compliance content is sparse -- indicating market gap."
+      },
+      "demand_score": 7,
+      "demand_summary": "Strong latent demand. Regulated industries are massive markets locked out of browser agent innovation. High barrier to entry (certifications cost $100K+) but also high moat."
+    },
+    {
+      "id": "GAP-017",
+      "title": "Anti-Bot Evasion as a Service for Browser Agents",
+      "category": "feature_gap",
+      "demand_signals": {
+        "reddit": "Anti-bot evasion is a constant pain point. Arms race between detection and evasion discussed frequently.",
+        "hacker_news": "Anti-detect frameworks evolved from Puppeteer stealth to Nodriver. Average evasion rate only 52.93% against DataDome. Credential stuffing up 40% in H1 2025.",
+        "github": "browser-fingerprinting repo tracks countermeasures. Camoufox stealth browser. Multiple anti-detect browser projects (10+ listed).",
+        "industry": "ZenRows claims 99% success rate. Bright Data, ScraperAPI provide API services. Each browser agent reinvents anti-detection. Average evasion rates are still only ~50%.",
+        "search_volume": "High. Anti-detect browser comparison articles, stealth guide for AI agents published in 2026."
+      },
+      "demand_score": 7,
+      "demand_summary": "Strong demand but ethically fraught. Existing services (ZenRows, Bright Data) partially serve this. The gap is for a browser-agent-native anti-detection API. Risk of enabling abuse."
+    },
+    {
+      "id": "GAP-018",
+      "title": "Browser Agent Workflow Version Control & CI/CD",
+      "category": "workflow_gap",
+      "demand_signals": {
+        "reddit": "Developers complain about agent workflows breaking when target sites change. No regression testing for agents.",
+        "hacker_news": "Self-healing selectors becoming baseline expectation in 2025. Percy by BrowserStack reduces visual review time 3x with AI.",
+        "github": "Version control integrating real-time observability. Self-healing capabilities in commit history. No agent-workflow-specific CI/CD.",
+        "industry": "UI regressions are most common production bugs. Automated web testing standard in CI/CD. But agent workflows are treated differently from code.",
+        "search_volume": "Moderate. CI/CD tools well-covered. Agent-workflow-specific CI/CD barely discussed -- gap or lack of demand?"
+      },
+      "demand_score": 5,
+      "demand_summary": "Moderate demand. The problem is real but existing CI/CD tools plus self-healing browser automation may be 'good enough.' Dedicated agent CI/CD may be premature."
+    },
+    {
+      "id": "GAP-019",
+      "title": "Cross-Platform Agent (Browser + Desktop + Mobile Unified)",
+      "category": "integration_gap",
+      "demand_signals": {
+        "reddit": "Users describe workflows spanning browser, desktop apps, and mobile. No single tool handles all three.",
+        "hacker_news": "Mobile-Agent-v3.5 paper on multi-platform GUI agents. GUI-Owl-1.5 supports desktop, mobile, browser with SOTA results on 20+ benchmarks.",
+        "github": "UI-TARS from ByteDance (desktop agent, Apache 2.0). Agent TARS for browser+terminal. Multiple research projects active.",
+        "industry": "Perplexity Comet now cross-platform (desktop Jul 2025, Android Nov 2025, iOS Mar 2026). Research labs actively pursuing unified agents.",
+        "search_volume": "High. Multiple research papers and product launches. Cross-platform is an active research frontier."
+      },
+      "demand_score": 8,
+      "demand_summary": "Strong demand. Academic research highly active (GUI-Owl, Mobile-Agent-v3.5, UI-TARS). Products going cross-platform. But no open-source unified framework exists yet."
+    },
+    {
+      "id": "GAP-020",
+      "title": "Browser Agent Marketplace & Monetization Platform",
+      "category": "segment_gap",
+      "demand_signals": {
+        "reddit": "Developers interested in monetizing automation workflows. 'How to earn money from AI agents' is a popular topic.",
+        "hacker_news": "AWS launched AI agent marketplace with Anthropic. Fellou Agent Studio enables building/sharing/monetizing specialized agents.",
+        "github": "garylab/MakeMoneyWithAI project. No dedicated browser agent workflow marketplace exists yet.",
+        "industry": "AI agent market projected at $50.31B by 2030 (45.8% CAGR). n8n workflows being sold on third-party marketplaces. GPT Store, Salesforce AppExchange are analogues.",
+        "search_volume": "Moderate. Monetization guides exist. But marketplace infrastructure specifically for browser agents is sparse."
+      },
+      "demand_score": 6,
+      "demand_summary": "Moderate demand. AWS marketplace and Fellou Agent Studio are early entries. The ecosystem may not be mature enough yet for a standalone browser agent marketplace."
+    }
+  ]
+}
