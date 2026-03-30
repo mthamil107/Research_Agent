@@ -1,0 +1,255 @@
+{
+  "domain": "Model Routing, Cascading & Orchestration for SLMs",
+  "scan_date": "2026-03-29",
+  "total_tools_found": 20,
+  "categories": {
+    "intelligent_routers": "Tools that analyze prompts and select the best model per-request based on quality, cost, latency",
+    "ai_gateways": "Unified API layers with routing, failover, load balancing, and observability",
+    "open_source_frameworks": "Self-hosted routing/cascading libraries and frameworks",
+    "research_frameworks": "Academic and research-oriented routing/cascading systems",
+    "cascading_systems": "Sequential small-to-large model escalation systems"
+  },
+  "tools": [
+    {
+      "name": "Not Diamond",
+      "url": "https://www.notdiamond.ai",
+      "category": "intelligent_routers",
+      "type": "commercial",
+      "description": "AI model router that predicts the best-suited foundation model per-request. Recommender-only architecture (not a proxy). Includes prompt optimization and agent optimization (beta).",
+      "key_features": ["Per-prompt intelligent routing", "Prompt optimization via RL", "Agent optimization (beta)", "Privacy-preserving (recommender, not proxy)", "10-100ms routing latency", "AWS Marketplace integration"],
+      "models_supported": "GPT-4o, Claude 3.5 Sonnet, Llama 3.1, Gemini, etc.",
+      "pricing": "Custom/contact-based",
+      "funding": "NT$75.4M (Taiwan-based founder)",
+      "strengths": "Up to 25% accuracy improvement over individual LLMs, up to 10x cost reduction",
+      "weaknesses": "Custom pricing only, limited transparency on methodology"
+    },
+    {
+      "name": "OpenRouter",
+      "url": "https://openrouter.ai",
+      "category": "ai_gateways",
+      "type": "commercial",
+      "description": "Unified API providing access to 500+ models from 60+ providers through a single OpenAI-compatible endpoint. Automatic failover and intelligent routing.",
+      "key_features": ["500+ models, 60+ providers", "Automatic failover", ":nitro (speed), :floor (cost), :exacto (tool-calling) routing variants", "Free model router", "OpenAI-compatible API", "Cost transparency"],
+      "pricing": "Pay-per-token (pass-through + margin)",
+      "funding": "$40M (Seed + Series A, a16z + Menlo Ventures, June 2025)",
+      "run_rate": "$100M+ ARR as of May 2025",
+      "strengths": "Largest model catalog, strong developer adoption, well-funded",
+      "weaknesses": "Primarily a proxy/aggregator rather than intelligent quality-based router"
+    },
+    {
+      "name": "RouteLLM",
+      "url": "https://github.com/lm-sys/RouteLLM",
+      "category": "open_source_frameworks",
+      "type": "open_source",
+      "description": "Framework from LMSYS for serving and evaluating LLM routers. Routes simpler queries to cheaper models using trained classifiers on human preference data.",
+      "key_features": ["Drop-in OpenAI client replacement", "Trained routers on human preference data", "Up to 85% cost reduction", "95% GPT-4 performance on MT Bench", "Data augmentation for training", "Multiple router architectures"],
+      "pricing": "Free (open source)",
+      "strengths": "Strong academic backing, proven cost savings, self-hosted",
+      "weaknesses": "Requires training your own routers, limited to strong vs weak binary routing"
+    },
+    {
+      "name": "LLMRouter (ulab-uiuc)",
+      "url": "https://github.com/ulab-uiuc/LLMRouter",
+      "category": "open_source_frameworks",
+      "type": "open_source",
+      "description": "Open-source library with 16+ routing models across four categories: single-round, multi-round, agentic, and personalized routers. Unified CLI and plugin system.",
+      "key_features": ["16+ routing models", "Single-round, multi-round, agentic, personalized routers", "Unified CLI (llmrouter)", "Plugin workflow for custom routers", "ComfyUI interface (Feb 2026)", "1K+ GitHub stars"],
+      "pricing": "Free (open source)",
+      "released": "December 2025",
+      "strengths": "Most comprehensive open-source router library, multiple routing paradigms",
+      "weaknesses": "Relatively new, smaller community than RouteLLM"
+    },
+    {
+      "name": "Martian",
+      "url": "https://withmartian.com",
+      "category": "intelligent_routers",
+      "type": "commercial",
+      "description": "Decision engine that sits on top of multiple providers and chooses models automatically per-prompt. Uses internal model behavior analysis for routing decisions.",
+      "key_features": ["Per-prompt model selection", "Internal model behavior analysis", "Multi-provider support", "Cost optimization", "Decision engine architecture"],
+      "pricing": "Commercial (contact-based)",
+      "strengths": "Deep model behavior understanding, prompt-aware routing",
+      "weaknesses": "Less transparent methodology, smaller ecosystem"
+    },
+    {
+      "name": "Unify.ai",
+      "url": "https://unify.ai",
+      "category": "intelligent_routers",
+      "type": "commercial",
+      "description": "Customizable LLMOps platform using live benchmarks and dynamic policies to optimize for cost/speed/quality routing.",
+      "key_features": ["Live benchmark-based routing", "Dynamic routing policies", "Cost/speed/quality optimization", "Customizable interfaces", "Logging and evaluations"],
+      "pricing": "Managed service",
+      "strengths": "Data-driven routing with live benchmarks, highly customizable",
+      "weaknesses": "Managed service dependency, less control over routing logic"
+    },
+    {
+      "name": "Portkey AI",
+      "url": "https://portkey.ai",
+      "category": "ai_gateways",
+      "type": "commercial_with_oss",
+      "description": "Enterprise-grade AI gateway with routing to 1600+ LLMs. Supports fallback, load balancing, conditional routing, canary deployments, and circuit breakers.",
+      "key_features": ["1600+ LLM support", "Fallback & failover", "Load balancing with weights", "Conditional routing (latency/cost-based)", "Canary deployments", "Circuit breakers", "Guardrails (50+)", "Multi-modal support", "Observability"],
+      "pricing": "Free tier + paid plans",
+      "strengths": "Broadest provider support, enterprise governance, open-source gateway",
+      "weaknesses": "Gateway overhead, complexity for simple use cases"
+    },
+    {
+      "name": "LiteLLM",
+      "url": "https://github.com/BerriAI/litellm",
+      "category": "ai_gateways",
+      "type": "open_source",
+      "description": "Python SDK and proxy server (AI Gateway) to call 100+ LLM APIs in OpenAI format. Auto routing with embedding-based utterance matching.",
+      "key_features": ["100+ LLM APIs", "Auto routing via utterance matching", "Simple-shuffle, least-busy, usage-based, latency-based routing", "Virtual keys & spend tracking", "Guardrails", "Auto-sync pricing", "OpenAI-compatible"],
+      "pricing": "Free (open source) + hosted option",
+      "strengths": "Widely adopted, simple setup, comprehensive provider support",
+      "weaknesses": "Auto routing is basic (utterance matching), not quality-aware"
+    },
+    {
+      "name": "Helicone",
+      "url": "https://www.helicone.ai",
+      "category": "ai_gateways",
+      "type": "open_source",
+      "description": "Open-source LLM observability platform with AI Gateway. Cost-based routing, BYOK priority, semantic caching, and load balancing.",
+      "key_features": ["Cost-based routing", "BYOK priority routing", "Semantic caching (up to 95% cost savings)", "PeakEWMA load balancing", "100+ model support", "LLM cost comparison tool (300+ models)"],
+      "pricing": "Free tier + paid",
+      "strengths": "Best-in-class observability, cost transparency, open source",
+      "weaknesses": "Routing is primarily cost/latency-based, not quality-aware"
+    },
+    {
+      "name": "NVIDIA LLM Router",
+      "url": "https://github.com/NVIDIA-AI-Blueprints/llm-router",
+      "category": "open_source_frameworks",
+      "type": "open_source",
+      "description": "NVIDIA blueprint for routing LLM requests to the best model. Uses CLIP embeddings and trained neural networks to predict optimal models based on quality, latency, and cost.",
+      "key_features": ["CLIP embedding-based routing", "Neural network model prediction", "Quality + latency + cost optimization", "NVIDIA ecosystem integration"],
+      "pricing": "Free (open source)",
+      "strengths": "NVIDIA backing, embedding-based approach, multi-objective optimization",
+      "weaknesses": "Tightly coupled to NVIDIA ecosystem, blueprint (not production-ready)"
+    },
+    {
+      "name": "vLLM Semantic Router",
+      "url": "https://github.com/vllm-project/semantic-router",
+      "category": "open_source_frameworks",
+      "type": "open_source",
+      "description": "System-level intelligent router for Mixture-of-Models (MoM). Extracts signals from requests for routing, safety, caching, and hallucination detection. Envoy External Processor architecture.",
+      "key_features": ["Signal-Decision Plugin Chain", "BERT/LoRA-based classification", "HaluGate (hallucination detection)", "Semantic caching", "PII detection", "Jailbreak detection", "Cloud/datacenter/edge support", "Envoy integration"],
+      "versions": {"v0.1": "Iris (Jan 2026)", "v0.2": "Athena"},
+      "pricing": "Free (open source)",
+      "strengths": "Most architecturally advanced OSS router, safety features, vLLM ecosystem",
+      "weaknesses": "Complex setup, early-stage project"
+    },
+    {
+      "name": "NadirClaw",
+      "url": "https://github.com/doramirdor/NadirClaw",
+      "category": "open_source_frameworks",
+      "type": "open_source",
+      "description": "Open-source LLM router and AI cost optimizer. Routes simple prompts to cheap/local models and complex ones to premium models.",
+      "key_features": ["Complexity-based routing", "Local model support", "40-70% cost savings", "Simple/premium model split"],
+      "pricing": "Free (open source)",
+      "strengths": "Simple concept, local model support",
+      "weaknesses": "Less sophisticated routing, smaller community"
+    },
+    {
+      "name": "ClawRouter",
+      "url": "https://github.com/BlockRunAI/ClawRouter",
+      "category": "open_source_frameworks",
+      "type": "open_source",
+      "description": "Agent-native LLM router. 41+ models, <1ms routing, USDC payments on Base & Solana.",
+      "key_features": ["41+ models", "<1ms local routing", "15-dimension request analysis", "Up to 92% cost reduction", "Crypto payments (USDC)"],
+      "pricing": "Free (open source)",
+      "strengths": "Ultra-fast routing, multi-dimensional analysis",
+      "weaknesses": "Crypto-focused niche, smaller adoption"
+    },
+    {
+      "name": "Requesty",
+      "url": "https://www.requesty.ai",
+      "category": "ai_gateways",
+      "type": "commercial",
+      "description": "Unified LLM gateway with intelligent routing that auto-selects the cheapest viable model meeting quality bars. Enterprise governance with PII detection, RBAC, and budget controls.",
+      "key_features": ["Smart complexity-aware routing", "300+ LLM access", "PII auto-redaction", "RBAC with team budgets", "99.99% uptime SLA", "<20ms failover", "Drop-in base URL replacement"],
+      "pricing": "Up to 80% cost savings claimed",
+      "strengths": "Enterprise-ready, strong governance, fast failover",
+      "weaknesses": "Managed service lock-in, newer entrant"
+    },
+    {
+      "name": "Bifrost (Maxim AI)",
+      "url": "https://github.com/getmaxim/bifrost",
+      "category": "ai_gateways",
+      "type": "open_source",
+      "description": "High-performance open-source LLM gateway built in Go. 11 microsecond gateway overhead at 5000 RPS. OpenAI-compatible API for 20+ providers.",
+      "key_features": ["11μs gateway overhead", "20+ providers", "Prometheus metrics", "Distributed tracing", "Semantic caching", "Budget controls", "RBAC & audit trails"],
+      "pricing": "Free (open source) + Maxim platform",
+      "strengths": "Fastest gateway (11μs overhead), Go performance, enterprise governance",
+      "weaknesses": "Limited intelligent routing (primarily load balancing)"
+    },
+    {
+      "name": "TrueFoundry AI Gateway",
+      "url": "https://www.truefoundry.com/ai-gateway",
+      "category": "ai_gateways",
+      "type": "commercial",
+      "description": "Enterprise AI gateway with weight-based and latency-based routing. Real-time health monitoring with automatic unhealthy model exclusion.",
+      "key_features": ["Weight-based routing", "Latency-based routing", "Geo-aware routing", "Real-time health monitoring", "3-4ms latency", "350+ RPS on 1 vCPU", "Semantic caching", "Custom pricing per model"],
+      "pricing": "Commercial",
+      "strengths": "Enterprise-grade, geo-aware routing, strong monitoring",
+      "weaknesses": "Less focus on quality-based intelligent routing"
+    },
+    {
+      "name": "Anyscale LLM Router",
+      "url": "https://github.com/anyscale/llm-router",
+      "category": "research_frameworks",
+      "type": "open_source",
+      "description": "Tutorial and reference implementation for building LLM routers. Demonstrates building high-quality, cost-effective routing systems.",
+      "key_features": ["Reference implementation", "Cost-quality optimization tutorial", "Ray ecosystem integration"],
+      "pricing": "Free (open source)",
+      "strengths": "Educational, well-documented approach",
+      "weaknesses": "Tutorial only, not production-ready"
+    },
+    {
+      "name": "MixLLM",
+      "url": "https://aclanthology.org/2025.naacl-long.545.pdf",
+      "category": "research_frameworks",
+      "type": "research",
+      "description": "Dynamic routing in mixed large language models. Research paper from NAACL 2025 on optimal model mixing strategies.",
+      "key_features": ["Dynamic model mixing", "Theoretical optimal strategies"],
+      "pricing": "Research paper",
+      "strengths": "Theoretical foundations for optimal routing",
+      "weaknesses": "Academic only, no production implementation"
+    },
+    {
+      "name": "Speculative Cascades (Google Research)",
+      "url": "https://research.google/blog/speculative-cascades-a-hybrid-approach-for-smarter-faster-llm-inference/",
+      "category": "cascading_systems",
+      "type": "research",
+      "description": "Hybrid approach combining cascading and speculative decoding. Small model decides if it can handle query or needs to defer to larger model.",
+      "key_features": ["Speculative decoding + cascading hybrid", "Deferral rule from small to large", "Better quality at lower compute cost"],
+      "pricing": "Research (Google internal)",
+      "strengths": "Best of cascading + speculative decoding, Google backing",
+      "weaknesses": "Not publicly available, Google-internal"
+    },
+    {
+      "name": "Amazon Bedrock Intelligent Prompt Routing",
+      "url": "https://aws.amazon.com/bedrock/",
+      "category": "intelligent_routers",
+      "type": "commercial",
+      "description": "AWS's built-in prompt routing within Bedrock that routes between models in the same family based on complexity.",
+      "key_features": ["Intra-family model routing", "Complexity-based selection", "AWS ecosystem integration", "Pay-per-use"],
+      "pricing": "AWS pay-per-use",
+      "strengths": "Native AWS integration, no extra infrastructure",
+      "weaknesses": "Limited to Bedrock model families, not cross-provider"
+    }
+  ],
+  "market_overview": {
+    "total_funding_tracked": "$40M+ (OpenRouter alone)",
+    "market_trend": "Rapid consolidation around gateway + routing pattern. Moving from simple load-balancing to quality-aware intelligent routing.",
+    "key_research_papers": [
+      "RouteLLM (LMSYS, 2024)",
+      "MixLLM (NAACL 2025)",
+      "Speculative Cascades (Google Research)",
+      "Dynamic Model Routing and Cascading Survey (2026, arXiv:2603.04445)",
+      "Unified Approach to Routing and Cascading (OpenReview)",
+      "Context-Aware Model Switching (arXiv:2602.22261)",
+      "Cascade-Aware Training (2024)",
+      "vLLM Semantic Router paper (arXiv:2603.04444)"
+    ],
+    "energy_efficiency_note": "Context-aware model switching can reduce energy consumption by up to 67.5% while maintaining 93.6% response quality"
+  }
+}

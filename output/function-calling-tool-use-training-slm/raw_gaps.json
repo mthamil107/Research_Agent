@@ -1,0 +1,159 @@
+{
+  "domain": "Function Calling & Tool Use Training for SLMs",
+  "generated": "2026-03-29",
+  "gap_categories": ["feature_gap", "segment_gap", "workflow_gap", "integration_gap", "pricing_gap"],
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "End-to-End SLM Function Calling Toolkit (Data Gen → Train → Eval → Deploy)",
+      "category": "workflow_gap",
+      "description": "No single tool covers the full pipeline: synthetic data generation for custom APIs, fine-tuning with LoRA/QLoRA, evaluation on BFCL/ToolBench, and export to ONNX/GGUF for edge deployment. Users must stitch together APIGen + LlamaFactory + BFCL + llama.cpp manually.",
+      "evidence": "Landscape shows 4+ separate tools needed. Microsoft guide for Phi-3 function calling requires Azure ML + custom scripts + manual evaluation.",
+      "existing_partial_solutions": ["APIGen (data only)", "LlamaFactory (training only)", "BFCL (eval only)", "llama.cpp (deploy only)"],
+      "target_users": "ML engineers building on-device/edge AI agents"
+    },
+    {
+      "id": "GAP-002",
+      "title": "Sub-1B Function Calling Models with Multi-Turn + Parallel Calling",
+      "category": "feature_gap",
+      "description": "xLAM-1b exists but lacks multi-turn support. Octopus-2B is on-device but only supports single Android API calls. No sub-1B model handles multi-turn conversations with parallel function calling — critical for IoT, wearables, mobile agents.",
+      "evidence": "Feature matrix shows no tool with sub_3B + multi_turn + parallel_function_calling all true. xLAM-1b only does single-turn. Octopus is Android-only.",
+      "existing_partial_solutions": ["xLAM-1b-fc-r (single-turn only)", "Octopus V2 (2B, Android-only, no parallel)"],
+      "target_users": "Edge AI developers, mobile app developers, IoT companies"
+    },
+    {
+      "id": "GAP-003",
+      "title": "Custom Enterprise API Dataset Generator (No-Code)",
+      "category": "segment_gap",
+      "description": "APIGen requires coding expertise and custom API implementations. No tool lets enterprise teams upload OpenAPI/Swagger specs and auto-generate function calling training datasets with verification. Enterprises need this to fine-tune SLMs on their internal APIs.",
+      "evidence": "APIGen pipeline requires Python, executable APIs, and ML expertise. Microsoft guide requires 80-100 manual examples. No no-code solution exists.",
+      "existing_partial_solutions": ["APIGen (code-heavy)", "Glaive (proprietary platform, not self-hosted)", "OpenAI fine-tuning (requires manual data prep)"],
+      "target_users": "Enterprise ML teams, DevOps teams, product managers"
+    },
+    {
+      "id": "GAP-004",
+      "title": "RL/GRPO-Based Training for Function Calling SLMs",
+      "category": "feature_gap",
+      "description": "Current function calling training is almost entirely SFT-based. No open-source tool applies GRPO, PPO, or reward model-based RL specifically to function calling quality in SLMs. OpenAI offers RFT but only for their models. Fireworks offers it but as a managed service.",
+      "evidence": "All open-source models (xLAM, Hammer, ToolACE, NexusRaven) use SFT only. ToolRM paper exists but no open implementation for SLMs. ToolSample paper proposes curriculum RL but is research-only.",
+      "existing_partial_solutions": ["OpenAI RFT (closed, proprietary models)", "Fireworks RFT (managed service)", "ToolRM paper (no OSS implementation)"],
+      "target_users": "ML researchers, teams needing higher accuracy than SFT provides"
+    },
+    {
+      "id": "GAP-005",
+      "title": "Domain-Specific Function Calling Benchmarks (Healthcare, Finance, Legal, Auto)",
+      "category": "segment_gap",
+      "description": "BFCL and ToolBench evaluate generic API calling. No benchmark exists for domain-specific function calling (EHR/FHIR APIs, financial trading APIs, legal document APIs, automotive CAN bus). The automotive paper is isolated research.",
+      "evidence": "BFCL V4 covers generic Python/JS/Java/REST. Automotive paper exists but no reusable benchmark. No healthcare, finance, or legal function calling benchmark.",
+      "existing_partial_solutions": ["BFCL V4 (generic only)", "Automotive paper (one-off research)"],
+      "target_users": "Regulated industry ML teams, vertical SaaS companies"
+    },
+    {
+      "id": "GAP-006",
+      "title": "Function Calling with Reasoning/CoT for SLMs",
+      "category": "feature_gap",
+      "description": "Only NexusRaven and ToolLLaMA include chain-of-thought reasoning before function calls. No sub-7B model combines reasoning with function calling. This is critical for complex multi-step tool use where the model must plan which tools to call and in what order.",
+      "evidence": "Feature matrix: reasoning_chain_of_thought is rare. DeepSeek-R1 has reasoning but no function calling focus. No reasoning + function calling dataset for SLMs.",
+      "existing_partial_solutions": ["NexusRaven V2 (13B, too large for edge)", "ToolLLaMA (7B, reasoning via DFSDT)"],
+      "target_users": "Developers building complex multi-step agent workflows on edge"
+    },
+    {
+      "id": "GAP-007",
+      "title": "Cross-Platform On-Device Function Calling (iOS + Android + Web + Desktop)",
+      "category": "segment_gap",
+      "description": "Octopus is Android-only. No SLM is trained for cross-platform function calling covering iOS (Shortcuts/Intents), Android (Intents), Web (Browser APIs), and Desktop (OS APIs). Google's on-device SLM work is Gemini Nano-specific.",
+      "evidence": "Octopus V2 trained specifically on Android APIs. Google Edge AI blog covers Gemini Nano only. No cross-platform training data or model.",
+      "existing_partial_solutions": ["Octopus V2 (Android only)", "Google Gemini Nano (Google ecosystem only)"],
+      "target_users": "Cross-platform app developers, companies with multi-platform products"
+    },
+    {
+      "id": "GAP-008",
+      "title": "Streaming/Incremental Function Call Generation for SLMs",
+      "category": "feature_gap",
+      "description": "No SLM training approach addresses streaming function calls — generating partial JSON that can be validated and executed incrementally. This is needed for low-latency UX where users see tool call progress in real-time.",
+      "evidence": "All current training produces complete function calls. OpenAI supports streaming tool calls at inference but no training methodology exists for optimizing this.",
+      "existing_partial_solutions": ["OpenAI streaming tool calls (inference only, no training method)"],
+      "target_users": "Real-time application developers, chatbot builders"
+    },
+    {
+      "id": "GAP-009",
+      "title": "Distillation-Free Training Pipeline (No GPT-4 Dependency)",
+      "category": "workflow_gap",
+      "description": "Most datasets (ToolBench, Glaive, ToolACE) use GPT-4 for data generation, creating legal/licensing risks. Only NexusRaven avoids this. No turnkey pipeline generates high-quality function calling data using only open-source models.",
+      "evidence": "NexusRaven is the only commercial-permissive, GPT-4-free approach. APIGen uses GPT-4 for generation. ToolBench uses ChatGPT for annotations.",
+      "existing_partial_solutions": ["NexusRaven (GPT-4-free but 13B, custom pipeline)", "Code-mining approach (NexusRaven, not reusable)"],
+      "target_users": "Companies with strict IP/licensing requirements, open-source purists"
+    },
+    {
+      "id": "GAP-010",
+      "title": "Visual/GUI Function Calling Training for SLMs",
+      "category": "feature_gap",
+      "description": "Fara-7B explores computer use but at 7B. No sub-3B model is trained for visual/GUI function calling — clicking buttons, filling forms, navigating UIs. This is needed for RPA and browser automation on edge.",
+      "evidence": "Fara-7B is Microsoft research, 7B params. Octopus is text-only API calling. No multimodal + function calling training for sub-3B.",
+      "existing_partial_solutions": ["Fara-7B (7B, research)", "Octopus V3 (multimodal but limited)"],
+      "target_users": "RPA developers, browser automation companies"
+    },
+    {
+      "id": "GAP-011",
+      "title": "Continual Learning / Online Adaptation for Function Calling",
+      "category": "feature_gap",
+      "description": "APIs change frequently (new endpoints, deprecated params). No approach supports continual learning or online fine-tuning for function calling SLMs without catastrophic forgetting. Models must be retrained from scratch.",
+      "evidence": "Gorilla mentions adapting to document changes via retrieval but no continual learning. All models are static post-training.",
+      "existing_partial_solutions": ["Gorilla RAT (retrieval, not learning)", "LoRA merging (manual, not automatic)"],
+      "target_users": "Platform teams maintaining evolving APIs"
+    },
+    {
+      "id": "GAP-012",
+      "title": "Function Calling Safety & Guardrails Training",
+      "category": "feature_gap",
+      "description": "No training approach specifically addresses safety guardrails for function calling — preventing dangerous API calls (delete operations, financial transactions, PII exposure) without explicit user confirmation.",
+      "evidence": "No dataset or training method includes safety-aware function calling. All models optimize for accuracy, not safety.",
+      "existing_partial_solutions": ["When2Call paper (when not to call, but not safety-focused)"],
+      "target_users": "Enterprise security teams, regulated industries"
+    },
+    {
+      "id": "GAP-013",
+      "title": "Unified HuggingFace-Compatible Function Calling Data Format",
+      "category": "integration_gap",
+      "description": "Every dataset uses a different format: xLAM uses JSON with 'query/answers', Glaive uses system/user/assistant turns, ToolBench uses instruction/solution paths, ToolACE uses its own multi-agent format. No standardized format exists.",
+      "evidence": "Axolotl GitHub discussion #1353 asks 'How to use Function Calling datasets' — users struggle with format conversion. LlamaFactory has FunctionFormatter but it's framework-specific.",
+      "existing_partial_solutions": ["LlamaFactory FunctionFormatter (framework-locked)", "hiyouga glaive-v2-sharegpt (one conversion)"],
+      "target_users": "ML engineers who want to combine datasets"
+    },
+    {
+      "id": "GAP-014",
+      "title": "Cost-Effective Function Calling Fine-Tuning for Startups",
+      "category": "pricing_gap",
+      "description": "OpenAI fine-tuning is pay-per-token. Fireworks is managed. Self-hosting requires GPUs. No solution offers affordable, serverless function calling fine-tuning specifically optimized for SLMs on free/cheap compute (Colab, Kaggle, CPU-only).",
+      "evidence": "Microsoft guide uses Azure ML. Unsloth reduces memory but still needs GPU. No optimized pipeline for Colab free tier or CPU-only environments.",
+      "existing_partial_solutions": ["Unsloth (2x faster but still needs GPU)", "QLoRA (reduces memory)", "Google Colab free tier (limited GPU time)"],
+      "target_users": "Solo developers, bootstrapped startups, students"
+    },
+    {
+      "id": "GAP-015",
+      "title": "Multi-Agent Tool Coordination Training for SLMs",
+      "category": "feature_gap",
+      "description": "Current training focuses on single-agent tool use. No dataset or training method addresses multi-agent scenarios where multiple SLMs coordinate tool calls, handle conflicts, and share tool state.",
+      "evidence": "ToolMind uses multi-agent for data generation but trains single-agent models. No multi-agent tool coordination training exists.",
+      "existing_partial_solutions": ["ToolMind (multi-agent data gen, single-agent training)"],
+      "target_users": "Multi-agent system developers"
+    }
+  ],
+  "summary": {
+    "total_gaps": 15,
+    "by_category": {
+      "feature_gap": 7,
+      "segment_gap": 3,
+      "workflow_gap": 2,
+      "integration_gap": 1,
+      "pricing_gap": 1
+    },
+    "key_themes": [
+      "End-to-end tooling is fragmented — no unified pipeline",
+      "Sub-3B models lack advanced capabilities (multi-turn, parallel, reasoning)",
+      "On-device/edge deployment is underserved beyond Octopus/Hammer",
+      "Domain-specific and enterprise use cases have no dedicated solutions",
+      "Safety, continual learning, and multi-agent coordination are unexplored"
+    ]
+  }
+}

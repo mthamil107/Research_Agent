@@ -1,0 +1,149 @@
+{
+  "domain": "Synthetic Reasoning Data Generation Tools",
+  "scan_date": "2026-03-29",
+  "total_gaps_found": 15,
+  "gap_categories": {
+    "feature_gaps": "Missing capabilities across existing tools",
+    "segment_gaps": "Underserved user segments or domains",
+    "workflow_gaps": "Missing end-to-end workflow support",
+    "integration_gaps": "Missing connections between tools/ecosystems",
+    "pricing_gaps": "Underserved pricing tiers or business models"
+  },
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Domain-Specific Reasoning Data Generation Platform",
+      "category": "segment_gap",
+      "description": "No tool specializes in generating reasoning data for regulated/vertical domains like legal, medical, finance, or accounting. GPT-4 achieves only 16.58% on accounting reasoning tasks. Enterprise teams in regulated industries need domain-specific CoT traces with compliance-aware generation, but current tools are domain-agnostic.",
+      "evidence": "Feature matrix shows only 8/16 tools support domain customization, and none are specialized for regulated domains. Research confirms LLM accuracy drops significantly on domain-specific reasoning tasks.",
+      "affected_users": ["enterprise AI teams in finance/legal/healthcare", "compliance officers", "domain-specific model trainers"],
+      "existing_partial_solutions": ["Distilabel (generic pipeline)", "IBM LAB (taxonomy-driven but not domain-specialized)", "Gretel (privacy focus but not reasoning-domain-specific)"]
+    },
+    {
+      "id": "GAP-002",
+      "title": "Automated Reasoning Trace Verification & Quality Assurance Platform",
+      "category": "feature_gap",
+      "description": "No dedicated tool exists for automatically verifying the correctness of generated reasoning traces. Current quality assurance is largely 'spot-checking' or 'eyeballing'. Need formal verification (math proof checkers, code execution, logic validators) integrated into the generation pipeline with contamination detection.",
+      "evidence": "Only 5/16 tools support verifiable reasoning. Research confirms 'quality assurance practitioners struggle to define what makes synthetic data useful and trustworthy' with validation amounting to 'informal spot-checking'.",
+      "affected_users": ["ML engineers building reasoning models", "AI safety researchers", "benchmark creators"],
+      "existing_partial_solutions": ["SWiRL (process filtering)", "Open-R1 (RLVR)", "HardGen (closed-loop evaluation)"]
+    },
+    {
+      "id": "GAP-003",
+      "title": "Multi-Provider Reasoning Data Generation Orchestrator",
+      "category": "integration_gap",
+      "description": "Only 3/16 tools support multiple LLM providers. Teams want to generate reasoning traces from multiple models (GPT-4o, Claude, DeepSeek-R1, Llama) simultaneously, compare quality, and blend the best outputs. No tool makes this easy with unified APIs, cost tracking, and quality comparison dashboards.",
+      "evidence": "Feature matrix shows multi_llm_provider coverage at only 3/16. Most tools are locked to single providers (DeepSeek tools to DeepSeek, Nemotron to NVIDIA, etc.).",
+      "affected_users": ["AI research teams", "startups without vendor lock-in tolerance", "model comparison researchers"],
+      "existing_partial_solutions": ["Distilabel (multi-provider but no comparison)", "DataDreamer (multi-provider but no reasoning focus)"]
+    },
+    {
+      "id": "GAP-004",
+      "title": "Visual/No-Code Reasoning Data Pipeline Builder",
+      "category": "workflow_gap",
+      "description": "Only 3/16 tools have any UI, and none provide a visual pipeline builder for reasoning data workflows. Non-ML-engineer stakeholders (domain experts, curriculum designers, educators) cannot participate in reasoning data creation without writing Python code.",
+      "evidence": "Feature matrix shows ui_interface at only 3/16. Argilla's Synthetic Data Generator is closest but lacks reasoning-specific features. Most tools require significant Python expertise.",
+      "affected_users": ["domain experts without ML backgrounds", "education/curriculum designers", "small teams without dedicated ML engineers"],
+      "existing_partial_solutions": ["Argilla SDG (basic UI)", "Gretel Navigator (UI but limited reasoning)", "IBM LAB (partial UI via InstructLab)"]
+    },
+    {
+      "id": "GAP-005",
+      "title": "Tool-Use & Agentic Reasoning Data Generator",
+      "category": "feature_gap",
+      "description": "Only 3/16 tools support generating tool-use/API-calling reasoning data. As agentic AI explodes, there is massive demand for multi-step tool-use training data with reasoning traces, but almost no tooling exists to create this at scale.",
+      "evidence": "Feature matrix shows tool_use_data at 3/16 (SWiRL, Nemotron, HardGen). NVIDIA highlights 'synthetic data generation for agentic AI' as a top use case. HardGen specifically targets this but is research-only.",
+      "affected_users": ["agentic AI developers", "tool-augmented LLM trainers", "API integration teams"],
+      "existing_partial_solutions": ["SWiRL (research only)", "HardGen (research only)", "NVIDIA Nemotron (requires NVIDIA ecosystem)"]
+    },
+    {
+      "id": "GAP-006",
+      "title": "Reasoning Data Contamination & Deduplication Detection",
+      "category": "feature_gap",
+      "description": "No tool specifically detects benchmark contamination or near-duplicates in synthetic reasoning datasets. Model collapse from training on AI-generated data is a documented risk, and benchmark contamination undermines evaluation integrity.",
+      "evidence": "Research confirms 'data pollution becomes insidious when synthetic datasets contaminate training pipelines, creating feedback loops'. Benchmark contamination identified as significant issue but no dedicated tooling exists.",
+      "affected_users": ["benchmark maintainers", "model evaluators", "training data curators"],
+      "existing_partial_solutions": ["Generic deduplication tools (MinHash)", "Manual benchmark leak checking"]
+    },
+    {
+      "id": "GAP-007",
+      "title": "Human-in-the-Loop Reasoning Data Curation Platform",
+      "category": "workflow_gap",
+      "description": "Only 2/16 tools support human-in-the-loop workflows. Generating reasoning data at scale is only half the battle - expert review, correction, and curation of reasoning traces is critical but tooling is absent. Need annotation interfaces specifically designed for reviewing multi-step reasoning chains.",
+      "evidence": "Feature matrix shows human_in_the_loop at only 2/16. Research emphasizes need for specialized quality oversight that 'current AI governance frameworks aren't equipped to handle'.",
+      "affected_users": ["annotation teams", "domain experts reviewing reasoning traces", "AI safety teams"],
+      "existing_partial_solutions": ["Argilla (annotation platform but not reasoning-specific)", "IBM LAB (some HITL support)"]
+    },
+    {
+      "id": "GAP-008",
+      "title": "End-to-End Reasoning Data to RL Training Pipeline",
+      "category": "workflow_gap",
+      "description": "Generation and training are separate worlds. Only 4/16 tools integrate with RL training. Teams need a unified pipeline from 'define reasoning task' -> 'generate data' -> 'verify quality' -> 'train with RL' -> 'evaluate' -> 'iterate', without stitching together 5+ different tools.",
+      "evidence": "Feature matrix shows rl_training_integration at 4/16. Open-R1 and SWiRL are closest but still require manual pipeline assembly. No single tool covers the full loop.",
+      "affected_users": ["ML engineers training reasoning models", "research labs", "startups building reasoning-capable products"],
+      "existing_partial_solutions": ["Open-R1 (generation + RLVR but manual)", "SWiRL (generation + step-wise RL)", "NVIDIA NeMo (training framework, not generation)"]
+    },
+    {
+      "id": "GAP-009",
+      "title": "Difficulty-Calibrated Reasoning Curriculum Generator",
+      "category": "feature_gap",
+      "description": "Only 8/16 tools offer any difficulty control, and none provide automatic difficulty calibration based on model capabilities. Need tools that assess a model's current reasoning level, then generate progressively harder training examples (curriculum learning for reasoning).",
+      "evidence": "Feature matrix shows difficulty_control at 8/16 but all are manual controls. No tool dynamically calibrates difficulty. Research on Evol-Instruct shows value of complexity scaling but it is static, not adaptive.",
+      "affected_users": ["researchers doing curriculum learning", "teams fine-tuning models progressively", "education technology developers"],
+      "existing_partial_solutions": ["Evol-Instruct (static complexity scaling)", "Simula (controllable but not adaptive)", "Gretel (manual difficulty settings)"]
+    },
+    {
+      "id": "GAP-010",
+      "title": "Multimodal Reasoning Data Generation (Vision + Text + Code)",
+      "category": "feature_gap",
+      "description": "Almost all tools focus on text-only reasoning. No tool generates multimodal reasoning traces (e.g., interpreting a chart, reasoning about an image, combining visual + textual + code reasoning in a single trace). Multimodal reasoning is critical for next-gen models.",
+      "evidence": "ToolVQA targets multimodal reasoning datasets but is a static dataset, not a generation tool. None of the 16 tools in the matrix generate visual reasoning data as a feature.",
+      "affected_users": ["multimodal model developers", "vision-language model trainers", "document understanding teams"],
+      "existing_partial_solutions": ["ToolVQA (static dataset only)", "Multimodal Self-Instruct (research methodology only)"]
+    },
+    {
+      "id": "GAP-011",
+      "title": "Reasoning Data Marketplace / Sharing Hub",
+      "category": "pricing_gap",
+      "description": "No marketplace exists specifically for buying/selling/sharing curated reasoning datasets. Hugging Face hosts datasets but has no quality curation, pricing, or licensing framework specific to reasoning data. Teams duplicate effort generating similar reasoning data.",
+      "evidence": "Each team independently generates reasoning data. DeepSeek released 800K traces, Open-R1 released 350K, but no aggregation/marketplace exists. No way to discover what reasoning data already exists for your domain.",
+      "affected_users": ["small teams without GPU budgets for generation", "enterprises wanting pre-built domain reasoning data", "data sellers with unique domain expertise"],
+      "existing_partial_solutions": ["Hugging Face Hub (generic dataset hosting)", "Scale AI (human-labeled data marketplace, not synthetic reasoning)"]
+    },
+    {
+      "id": "GAP-012",
+      "title": "Reasoning Trace Diversity & Coverage Analyzer",
+      "category": "feature_gap",
+      "description": "No tool analyzes the diversity, coverage, and distribution of reasoning patterns within a generated dataset. Teams cannot answer: 'Does my dataset cover all reasoning types? Are there blind spots? Is it over-represented in easy arithmetic but lacking in causal reasoning?'",
+      "evidence": "Simula uses taxonomies for global coverage but no standalone tool provides reasoning coverage analytics. Research identifies 'insufficient long-tail knowledge coverage' as a key challenge.",
+      "affected_users": ["dataset curators", "training data quality teams", "researchers studying reasoning capabilities"],
+      "existing_partial_solutions": ["Simula (internal taxonomy coverage, not standalone)", "MOSTLY AI (quality reports but for tabular, not reasoning)"]
+    },
+    {
+      "id": "GAP-013",
+      "title": "Privacy-Preserving Reasoning Data Generation for Enterprises",
+      "category": "integration_gap",
+      "description": "Only 2/16 tools support privacy-preserving generation, and neither specializes in reasoning data. Enterprises need to generate reasoning training data from proprietary documents (contracts, medical records, financial reports) without leaking sensitive information into the training data.",
+      "evidence": "Feature matrix shows privacy_preserving at 2/16 (Gretel, MOSTLY AI). Neither specializes in reasoning traces. Enterprises in regulated industries have massive unmet need here.",
+      "affected_users": ["enterprise data teams", "healthcare AI developers", "financial services AI teams"],
+      "existing_partial_solutions": ["Gretel (privacy-focused but weak on reasoning)", "MOSTLY AI (privacy-focused but tabular-only)"]
+    },
+    {
+      "id": "GAP-014",
+      "title": "Real-Time Reasoning Data Flywheel (Production -> Training Loop)",
+      "category": "workflow_gap",
+      "description": "No tool creates a feedback loop from production model failures back to targeted synthetic reasoning data generation. When a deployed model fails at a specific reasoning pattern, there should be automated pipelines to generate training data addressing that exact weakness.",
+      "evidence": "The paper 'Learning from Reasoning Failures via Synthetic Data Generation' (2025) describes this concept but no productionized tool exists. HardGen uses failure cases as seeds but is research-only.",
+      "affected_users": ["production ML teams", "MLOps engineers", "model improvement teams"],
+      "existing_partial_solutions": ["HardGen (failure-driven but research only)", "Generic model monitoring tools (detect failures but don't generate fix data)"]
+    },
+    {
+      "id": "GAP-015",
+      "title": "Cost-Optimized Reasoning Data Generation (Small Model Bootstrapping)",
+      "category": "pricing_gap",
+      "description": "Most reasoning data generation requires expensive frontier models (GPT-4, Claude, R1). No tool optimizes the cost of generation by using cheaper models for easy examples and reserving expensive models for hard cases. No cost tracking, budget management, or quality-per-dollar optimization.",
+      "evidence": "Open-R1 reports 15-25 generations/hour/H100 for reasoning data. At scale, costs are enormous. No tool provides cost-aware generation strategies or quality-per-dollar metrics.",
+      "affected_users": ["budget-constrained startups", "academic researchers", "small teams"],
+      "existing_partial_solutions": ["Manual model selection", "Distilabel (supports multiple providers but no cost optimization)"]
+    }
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "domain": "Function Calling & Tool Use Training for SLMs",
+  "scan_date": "2026-03-29",
+  "total_tools_found": 32,
+  "categories": {
+    "specialized_models": [
+      {
+        "name": "xLAM (Salesforce)",
+        "url": "https://github.com/SalesforceAIResearch/xLAM",
+        "description": "Family of Large Action Models for function calling. xLAM-1b-fc-r achieves 78.94% accuracy on BFCL, outperforming GPT-3.5-Turbo with just 1B params.",
+        "sizes": ["1B", "7B", "8B"],
+        "approach": "APIGen pipeline with 3-stage verification (format, execution, semantic)",
+        "dataset": "xlam-function-calling-60k",
+        "license": "Apache 2.0",
+        "status": "Active"
+      },
+      {
+        "name": "Gorilla / OpenFunctions (UC Berkeley)",
+        "url": "https://gorilla.cs.berkeley.edu/",
+        "description": "LLM fine-tuned for API calling using Retriever Aware Training (RAT). Maintains the Berkeley Function Calling Leaderboard (BFCL).",
+        "sizes": ["7B", "13B"],
+        "approach": "Self-instruct fine-tuning + retrieval augmented training",
+        "dataset": "APIBench (HuggingFace, TorchHub, TensorHub APIs)",
+        "license": "Apache 2.0",
+        "status": "Active"
+      },
+      {
+        "name": "NexusRaven (Nexusflow)",
+        "url": "https://github.com/nexusflowai/NexusRaven-V2",
+        "description": "Function calling model based on CodeLLAMA-13B. V2 surpasses GPT-4 on single, nested, and parallel calls. No GPT-4 distillation used.",
+        "sizes": ["13B"],
+        "approach": "Multi-step refinement pipeline mining function calls from open-source corpora (The Stack)",
+        "dataset": "Custom (mined from open-source code)",
+        "license": "Commercial permissive",
+        "status": "Active"
+      },
+      {
+        "name": "ToolACE-8B (Team ACE)",
+        "url": "https://huggingface.co/Team-ACE/ToolACE-8B",
+        "description": "Fine-tuned LLaMA-3.1-8B-Instruct for tool usage. SOTA on BFCL. ICLR 2025 accepted.",
+        "sizes": ["0.5B", "1.8B", "8B"],
+        "approach": "Self-evolution synthesis with 26,507 APIs + dual-layer verification",
+        "dataset": "ToolACE (26,507 APIs, multi-agent dialog generation)",
+        "license": "Open source",
+        "status": "Active"
+      },
+      {
+        "name": "Hammer (MadeAgents)",
+        "url": "https://github.com/MadeAgents/Hammer",
+        "description": "On-device function calling model using function masking to reduce overfitting. ICLR 2025 Spotlight.",
+        "sizes": ["1.5B", "4B", "7B"],
+        "approach": "Function masking (replacing names with random strings) + augmented irrelevance detection dataset",
+        "dataset": "Augmented xLAM-60k + 7,500 irrelevance instances",
+        "license": "Open source",
+        "status": "Active"
+      },
+      {
+        "name": "Octopus V2 (Nexa AI)",
+        "url": "https://huggingface.co/NexaAI/Octopus-v2",
+        "description": "2B on-device model using functional tokens for Android APIs. Surpasses GPT-4 accuracy with 95% less context length.",
+        "sizes": ["2B"],
+        "approach": "Functional token strategy — tokenizes function names as special tokens",
+        "dataset": "Custom Android API dataset",
+        "license": "Open source",
+        "status": "Active (V2/V3/V4 released)"
+      },
+      {
+        "name": "Agent-FLAN-7B (InternLM)",
+        "url": "https://huggingface.co/internlm/Agent-FLAN-7b",
+        "description": "Mixed training on AgentInstruct, ToolBench, and ShareGPT. Llama2-7B outperforms prior works by 3.5%.",
+        "sizes": ["7B"],
+        "approach": "Mixed agent instruction tuning",
+        "dataset": "AgentInstruct + ToolBench + ShareGPT",
+        "license": "Open source",
+        "status": "Active"
+      },
+      {
+        "name": "ToolLLaMA (OpenBMB)",
+        "url": "https://github.com/OpenBMB/ToolBench",
+        "description": "LLaMA fine-tuned on ToolBench with DFSDT decision tree for planning. 16,464 real-world APIs.",
+        "sizes": ["7B"],
+        "approach": "SFT on ChatGPT-generated instruction-solution pairs + DFSDT",
+        "dataset": "ToolBench (126k+ instruction-solution pairs, 16,464 APIs)",
+        "license": "Apache 2.0",
+        "status": "Active"
+      },
+      {
+        "name": "Fara-7B (Microsoft)",
+        "url": "https://www.microsoft.com/en-us/research/",
+        "description": "Efficient agentic model for computer use, specialized for on-device agentic tasks.",
+        "sizes": ["7B"],
+        "approach": "Agentic training for computer use",
+        "dataset": "Proprietary",
+        "license": "Research",
+        "status": "Active"
+      },
+      {
+        "name": "Glaive Function Calling Model",
+        "url": "https://huggingface.co/datasets/glaiveai/glaive-function-calling-v2",
+        "description": "2.7B model trained on synthetic data with GPT-3.5/4-like function calling abilities. Multi-turn with intelligent function selection.",
+        "sizes": ["2.7B"],
+        "approach": "Synthetic data generation via Glaive platform",
+        "dataset": "glaive-function-calling-v2 (113k samples)",
+        "license": "Open source",
+        "status": "Active"
+      }
+    ],
+    "training_datasets": [
+      {
+        "name": "Salesforce xlam-function-calling-60k",
+        "url": "https://huggingface.co/datasets/Salesforce/xlam-function-calling-60k",
+        "description": "60k verified examples across 21 domains, 3,673 APIs. APIGen pipeline with 3-stage verification.",
+        "size": "60,000 examples",
+        "domains": 21,
+        "api_count": 3673,
+        "status": "Top-3 trending on HuggingFace"
+      },
+      {
+        "name": "ToolBench (OpenBMB)",
+        "url": "https://github.com/OpenBMB/ToolBench",
+        "description": "126k+ instruction-solution pairs with 16,464 real-world RESTful APIs across 49 categories from RapidAPI.",
+        "size": "126,000+ pairs",
+        "domains": 49,
+        "api_count": 16464,
+        "status": "ICLR 2024 Spotlight"
+      },
+      {
+        "name": "ToolACE Dataset",
+        "url": "https://huggingface.co/datasets/Team-ACE/ToolACE",
+        "description": "26,507 APIs with multi-agent dialog generation and dual-layer verification. ICLR 2025.",
+        "size": "26,507 APIs",
+        "status": "40+ models trained on it"
+      },
+      {
+        "name": "Glaive Function Calling v2",
+        "url": "https://huggingface.co/datasets/glaiveai/glaive-function-calling-v2",
+        "description": "113k synthetic function calling examples. Multi-turn conversations with function call/non-function-call scenarios.",
+        "size": "113,000 examples",
+        "status": "Widely used"
+      },
+      {
+        "name": "ToolMind",
+        "url": "https://huggingface.co/datasets/Nanbeige/ToolMind",
+        "description": "360k reasoning-enhanced tool-use samples. Multi-agent simulation with trajectory and turn-level quality checks.",
+        "size": "360,000 samples",
+        "status": "Released late 2025"
+      },
+      {
+        "name": "APIGen Pipeline",
+        "url": "https://apigen-pipeline.github.io/",
+        "description": "Automated pipeline for generating verifiable function-calling datasets. Format/execution/semantic verification.",
+        "size": "Generates datasets on demand",
+        "status": "NeurIPS 2024"
+      }
+    ],
+    "fine_tuning_frameworks": [
+      {
+        "name": "LlamaFactory",
+        "url": "https://github.com/hiyouga/LlamaFactory",
+        "description": "Unified fine-tuning of 100+ LLMs/VLMs. Explicit function calling support via FunctionFormatter and ToolFormatter. Supports glaive_toolcall_en dataset.",
+        "supports_function_calling": true,
+        "methods": ["LoRA", "QLoRA", "Full fine-tuning", "RLHF", "DPO"],
+        "models": "100+ including Llama, Mistral, Phi, Qwen",
+        "status": "ACL 2024, very active"
+      },
+      {
+        "name": "Unsloth",
+        "url": "https://github.com/unslothai/unsloth",
+        "description": "2x faster fine-tuning with 80% less memory. Web UI (Studio) for training. Supports Qwen, DeepSeek, Gemma.",
+        "supports_function_calling": false,
+        "methods": ["LoRA", "QLoRA"],
+        "models": "Llama, Mistral, Phi, Qwen, Gemma, DeepSeek",
+        "status": "Very active, popular"
+      },
+      {
+        "name": "Axolotl",
+        "url": "https://github.com/axolotl-ai-cloud/axolotl",
+        "description": "General-purpose fine-tuning tool. No explicit function calling formatters but can be configured for it.",
+        "supports_function_calling": false,
+        "methods": ["LoRA", "QLoRA", "Full fine-tuning", "DPO", "RLHF"],
+        "models": "Most HuggingFace models",
+        "status": "Active"
+      },
+      {
+        "name": "Hugging Face TRL",
+        "url": "https://huggingface.co/docs/trl/",
+        "description": "Transformer Reinforcement Learning library. Used for SFT, RLHF, DPO training.",
+        "supports_function_calling": false,
+        "methods": ["SFT", "RLHF", "DPO", "PPO"],
+        "models": "Any HuggingFace model",
+        "status": "Active"
+      }
+    ],
+    "cloud_fine_tuning_services": [
+      {
+        "name": "OpenAI Fine-tuning API",
+        "url": "https://platform.openai.com/docs/guides/supervised-fine-tuning",
+        "description": "SFT and RFT for function calling. Native tool_calls format. Min 10 examples, improvements from 50-100.",
+        "supports_function_calling": true,
+        "models": ["GPT-4o", "GPT-4o-mini", "GPT-3.5-Turbo"],
+        "pricing": "Per-token training costs",
+        "status": "Production"
+      },
+      {
+        "name": "Fireworks AI Fine-tuning",
+        "url": "https://fireworks.ai/blog/supervised-finetuning-v2",
+        "description": "SFT V2 with multi-turn function calling. RFT for advanced agentic tasks. 2x faster than V1. Multi-LoRA support.",
+        "supports_function_calling": true,
+        "models": ["Qwen 2/2.5/3", "Phi-4", "Gemma 3", "Llama family", "DeepSeek"],
+        "pricing": "$2/1M training examples (Mixtral)",
+        "status": "Production"
+      },
+      {
+        "name": "Azure OpenAI Fine-tuning",
+        "url": "https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/fine-tuning-functions",
+        "description": "Fine-tuning function calls in Azure OpenAI. Enterprise-grade with compliance features.",
+        "supports_function_calling": true,
+        "models": ["GPT-4o", "GPT-4o-mini"],
+        "status": "Production"
+      },
+      {
+        "name": "Microsoft Azure ML (Phi-3 Fine-tuning)",
+        "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/finetune-small-language-model-slm-phi-3-using-azure-machine-learning/4130399",
+        "description": "Fine-tune Phi-3/Phi-4 SLMs for function calling using Azure ML. Comprehensive guide available.",
+        "supports_function_calling": true,
+        "models": ["Phi-3-mini", "Phi-4-mini"],
+        "status": "Production"
+      }
+    ],
+    "benchmarks_and_evaluation": [
+      {
+        "name": "Berkeley Function Calling Leaderboard (BFCL) V4",
+        "url": "https://gorilla.cs.berkeley.edu/leaderboard.html",
+        "description": "2k+ question-function-answer pairs. AST evaluation. Covers simple, multiple, parallel, multi-turn, web search, memory categories.",
+        "status": "V4, active"
+      },
+      {
+        "name": "ToolBench / StableToolBench",
+        "url": "https://github.com/OpenBMB/ToolBench",
+        "description": "16,464 APIs evaluation. StableToolBench adds virtual API server + stable evaluation with GPT-4 auto-evaluator.",
+        "status": "Active"
+      },
+      {
+        "name": "AgentBench",
+        "url": "https://github.com/THUDM/AgentBench",
+        "description": "8 distinct environments to assess LLM-as-Agent reasoning and decision-making. ICLR 2024.",
+        "status": "Active"
+      },
+      {
+        "name": "tau-bench",
+        "url": "https://arxiv.org/",
+        "description": "Multi-turn tool use benchmark. ToolMind reported 14.22% gains on tau-bench.",
+        "status": "Active"
+      }
+    ],
+    "research_papers_key": [
+      {
+        "title": "Small Language Models for Efficient Agentic Tool Calling",
+        "url": "https://arxiv.org/abs/2512.15943",
+        "finding": "350M param SLM achieved 2.98x improvement over ChatGPT-CoT. 77.55% pass on ToolBench."
+      },
+      {
+        "title": "Small Models, Big Tasks: Empirical Study on SLMs for Function Calling",
+        "url": "https://dl.acm.org/doi/10.1145/3756681.3757001",
+        "finding": "Few-shot and fine-tuning dramatically improve SLM function calling."
+      },
+      {
+        "title": "Optimizing Small Language Models for In-Vehicle Function-Calling",
+        "url": "https://arxiv.org/html/2501.02342v1",
+        "finding": "Domain-specific SLM fine-tuning for automotive function calling."
+      }
+    ]
+  },
+  "market_summary": {
+    "total_specialized_models": 10,
+    "total_datasets": 6,
+    "total_frameworks": 4,
+    "total_cloud_services": 4,
+    "total_benchmarks": 4,
+    "key_trend": "SLMs (1-7B) achieving parity with GPT-4 on function calling through targeted fine-tuning. Key enablers: high-quality synthetic datasets (APIGen, ToolACE), efficient training (LoRA/QLoRA), and on-device deployment (Octopus, Hammer)."
+  }
+}

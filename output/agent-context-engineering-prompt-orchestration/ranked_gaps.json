@@ -1,0 +1,223 @@
+{
+  "domain": "Agent Context Engineering & Prompt Orchestration",
+  "generated": "2026-03-29",
+  "scoring_methodology": {
+    "formula": "opportunity = demand * competition_gap * feasibility / 100",
+    "demand": "0-10: How strongly do users want this? Based on community signals, GitHub issues, industry reports.",
+    "competition_gap": "0-10: How poorly served is this need? 10 = no solution exists, 0 = fully saturated market.",
+    "feasibility": "0-10: How buildable is this as a startup/tool? Considers technical complexity, go-to-market, team size needed.",
+    "max_score": 10.0
+  },
+  "ranked_gaps": [
+    {
+      "rank": 1,
+      "id": "GAP-001",
+      "title": "Unified Context Budget Manager with Real-Time Token Allocation",
+      "demand": 9,
+      "competition_gap": 9,
+      "feasibility": 8,
+      "opportunity_score": 6.48,
+      "rationale": {
+        "demand": "9 - Massive demand. Context overflow is the #1 production issue for agents. GitHub issues across major projects (OpenClaw 338k stars, Claude Code, Docker Agent). Gartner declares context engineering the new core discipline. Every agent developer faces this.",
+        "competition_gap": "9 - No dedicated solution exists. Frameworks offer basic strategies but no unified budget manager. Context-engineering-toolkit is very early. This is greenfield.",
+        "feasibility": "8 - Technically achievable as middleware/SDK. Requires token counting, policy engine, and integration hooks. Can start with LangChain/LangGraph integration. Solo dev or small team can build MVP in 2-4 weeks."
+      }
+    },
+    {
+      "rank": 2,
+      "id": "GAP-005",
+      "title": "Context Quality Scoring and Observability Dashboard",
+      "demand": 8,
+      "competition_gap": 9,
+      "feasibility": 7,
+      "opportunity_score": 5.04,
+      "rationale": {
+        "demand": "8 - Context failures cause most enterprise AI breakdowns (Moody's). 'Lost in the middle' is well-documented. Debugging context is the hardest part of agent development. Drew Breunig's 'context rot' concept widely resonated.",
+        "competition_gap": "9 - No tool measures context quality. LangSmith/Langfuse track cost and latency but not context precision, freshness, conflicts, or utilization. Complete whitespace.",
+        "feasibility": "7 - Requires building attention analysis, freshness scoring, conflict detection, and signal-to-noise metrics. Can build on top of existing observability infrastructure. Moderate technical complexity."
+      }
+    },
+    {
+      "rank": 3,
+      "id": "GAP-007",
+      "title": "Visual Context Window Debugger for Agent Development",
+      "demand": 8,
+      "competition_gap": 9,
+      "feasibility": 7,
+      "opportunity_score": 5.04,
+      "rationale": {
+        "demand": "8 - Developers 'fly blind' debugging context. BMAD agents unknowingly consuming 86% of context. Zed requesting token usage per tool call. JetBrains Research highlighting need for visibility. Universal developer pain.",
+        "competition_gap": "9 - Nothing exists. No commercial or open-source tool provides visual context window composition debugging. Complete whitespace opportunity.",
+        "feasibility": "7 - Requires building a trace-and-visualize layer that hooks into LLM API calls. Can be a browser extension, VS Code extension, or standalone UI. Needs integration points with major frameworks."
+      }
+    },
+    {
+      "rank": 4,
+      "id": "GAP-003",
+      "title": "Context Compression Middleware for Production Agent Pipelines",
+      "demand": 8,
+      "competition_gap": 7,
+      "feasibility": 8,
+      "opportunity_score": 4.48,
+      "rationale": {
+        "demand": "8 - Tool output bloat is the immediate pain point for every agent developer. LangChain dedicated a blog post to it. Multiple open-source attempts (Claw Compactor, Headroom) validate demand.",
+        "competition_gap": "7 - Early competitors exist (Claw Compactor, Headroom, context-engineering-toolkit) but none are middleware that plugs into agent frameworks. They are standalone tools. The 'middleware' gap remains.",
+        "feasibility": "8 - Well-understood problem. Summarization, dedup, and priority-aware compression are proven techniques. Can build as a pip-installable package with framework adapters. Small team can ship MVP quickly."
+      }
+    },
+    {
+      "rank": 5,
+      "id": "GAP-014",
+      "title": "Lightweight Context Engineering SDK for Small Teams",
+      "demand": 7,
+      "competition_gap": 8,
+      "feasibility": 8,
+      "opportunity_score": 4.48,
+      "rationale": {
+        "demand": "7 - 25+ LangChain alternatives listed. Recurring theme: developers want lighter tools. PydanticAI and Mirascope growing fast but lack context management. Solo devs and small teams are the underserved segment.",
+        "competition_gap": "8 - PydanticAI/Mirascope are lightweight but have no context management. LangChain has context features but is heavy. The 'lightweight + context-aware' intersection is empty.",
+        "feasibility": "8 - Can build a focused SDK: token budget manager + basic memory + prompt versioning in a single package. Python-first, pip-installable, zero-config. 1-2 person team, 4-6 week MVP."
+      }
+    },
+    {
+      "rank": 6,
+      "id": "GAP-011",
+      "title": "Context-Aware Cost Optimization Engine",
+      "demand": 7,
+      "competition_gap": 8,
+      "feasibility": 7,
+      "opportunity_score": 3.92,
+      "rationale": {
+        "demand": "7 - Cost is the #1 barrier to production agent deployment. Claw Compactor markets '97% cost reduction'. Users report 10x cost differences based on context management. Real money at stake.",
+        "competition_gap": "8 - Observability tools report cost but don't optimize. Compression tools reduce tokens but don't make intelligent cost-quality tradeoffs. No tool routes to cheaper models or caches based on task complexity.",
+        "feasibility": "7 - Requires model routing logic, cost models per provider, and quality estimation. Moderate complexity but clear value proposition. Can build on existing LLM gateway/proxy patterns."
+      }
+    },
+    {
+      "rank": 7,
+      "id": "GAP-004",
+      "title": "Cross-Framework Agent Memory Interoperability Layer",
+      "demand": 7,
+      "competition_gap": 8,
+      "feasibility": 6,
+      "opportunity_score": 3.36,
+      "rationale": {
+        "demand": "7 - Memory space compared to 'vector databases in 2022' -- fragmented. Every comparison article (5+ in 2026 alone) ends with 'but integration is painful'. 500+ lines of glue code reported.",
+        "competition_gap": "8 - MCP covers tools but not memory. No 'MCP for memory' exists. Every memory+framework combination requires custom integration.",
+        "feasibility": "6 - Building an interop standard requires ecosystem buy-in. Need adapters for Mem0, Zep, Letta, LangChain, CrewAI. Standards adoption is hard. May need to start as an adapter library, not a standard."
+      }
+    },
+    {
+      "rank": 8,
+      "id": "GAP-006",
+      "title": "Enterprise Context Engineering Platform",
+      "demand": 7,
+      "competition_gap": 7,
+      "feasibility": 5,
+      "opportunity_score": 2.45,
+      "rationale": {
+        "demand": "7 - 40% enterprise apps to include AI agents by 2026 (Gartner). 95% of enterprise AI pilots fail (MIT). Enterprise context governance is recognized need.",
+        "competition_gap": "7 - Rebase.ai is one of few attempts. Most enterprise AI platforms don't focus on context engineering specifically. But cloud providers (AWS, Azure, Google) could add this.",
+        "feasibility": "5 - Enterprise sales cycles are long. Requires compliance (SOC 2), multi-tenant architecture, role-based access. Needs significant funding and team. Not a solo-dev opportunity."
+      }
+    },
+    {
+      "rank": 9,
+      "id": "GAP-002",
+      "title": "Automated Prompt Optimization for Agent Systems",
+      "demand": 7,
+      "competition_gap": 6,
+      "feasibility": 6,
+      "opportunity_score": 2.52,
+      "rationale": {
+        "demand": "7 - DSPy's 23k+ stars prove demand for automated prompt optimization. Manual tuning takes weeks. Agent systems are the fastest-growing segment.",
+        "competition_gap": "6 - DSPy and Braintrust's Loop exist but lack agent context awareness. The specific gap (agent-aware optimization) is open, but adjacent solutions exist.",
+        "feasibility": "6 - Technically challenging: need to integrate DSPy-style optimization with agent state/memory awareness. Requires deep understanding of both optimization algorithms and agent architectures."
+      }
+    },
+    {
+      "rank": 10,
+      "id": "GAP-012",
+      "title": "Temporal Context Decay and Freshness Management",
+      "demand": 6,
+      "competition_gap": 8,
+      "feasibility": 7,
+      "opportunity_score": 3.36,
+      "rationale": {
+        "demand": "6 - 'Context rot' resonated on HN. Agents using outdated info is a real problem. But it's a subset of the broader context quality issue -- not everyone faces it as a primary pain.",
+        "competition_gap": "8 - Only Zep has temporal memory. No tool provides temporal decay policies, freshness scoring, or automated staleness detection. Wide open.",
+        "feasibility": "7 - Timestamp-based scoring, decay functions, and freshness policies are well-understood patterns. Can build as a library or memory layer add-on. Moderate complexity."
+      }
+    },
+    {
+      "rank": 11,
+      "id": "GAP-013",
+      "title": "Agent Context Replay and Testing Framework",
+      "demand": 6,
+      "competition_gap": 8,
+      "feasibility": 6,
+      "opportunity_score": 2.88,
+      "rationale": {
+        "demand": "6 - Reproducibility in agent systems is a recognized challenge. But teams prioritize building agents over testing them. Demand is growing as agents move to production.",
+        "competition_gap": "8 - No tool provides context-level replay and testing. Braintrust tests prompts, not context configurations. Complete whitespace.",
+        "feasibility": "6 - Requires capturing full context state at each step (potentially large), storage, and replay infrastructure. Needs framework integration hooks. Moderate-to-high complexity."
+      }
+    },
+    {
+      "rank": 12,
+      "id": "GAP-015",
+      "title": "MCP-Native Context Router for Multi-Tool Agent Workflows",
+      "demand": 6,
+      "competition_gap": 7,
+      "feasibility": 6,
+      "opportunity_score": 2.52,
+      "rationale": {
+        "demand": "6 - MCP ecosystem growing (10K+ servers) but routing isn't yet the bottleneck for most teams. Becomes more relevant as agent complexity increases.",
+        "competition_gap": "7 - Anthropic's Tool Search is an early step. No context-budget-aware MCP router exists. But this could become a first-party feature.",
+        "feasibility": "6 - Requires understanding MCP protocol, building routing logic, and token budget awareness. Risk of being absorbed by Anthropic/MCP ecosystem. Moderate technical challenge."
+      }
+    },
+    {
+      "rank": 13,
+      "id": "GAP-009",
+      "title": "Prompt Template Marketplace with Context-Aware Composition",
+      "demand": 6,
+      "competition_gap": 7,
+      "feasibility": 6,
+      "opportunity_score": 2.52,
+      "rationale": {
+        "demand": "6 - Prompt reuse is desired but not urgent. Blog posts with prompt collections get traffic but marketplace models for prompts have historically struggled.",
+        "competition_gap": "7 - PromptHub has versioning but not composition or marketplace. No tool enables context-aware prompt component reuse. Moderately open.",
+        "feasibility": "6 - Building a marketplace requires network effects, which are hard to bootstrap. Context-aware composition adds technical complexity. May work better as a feature within an existing platform."
+      }
+    },
+    {
+      "rank": 14,
+      "id": "GAP-010",
+      "title": "Multi-Modal Context Orchestration",
+      "demand": 6,
+      "competition_gap": 7,
+      "feasibility": 5,
+      "opportunity_score": 2.10,
+      "rationale": {
+        "demand": "6 - Multi-modal agents are growing but most production agents still deal primarily with text. Demand is forward-looking, not urgent today.",
+        "competition_gap": "7 - Graphlit handles multimodal memory but not context orchestration. No tool manages context budgets across modalities.",
+        "feasibility": "5 - Modality-specific compression and prioritization is technically challenging. Different token costs per modality. Image/audio context management is less mature than text."
+      }
+    },
+    {
+      "rank": 15,
+      "id": "GAP-008",
+      "title": "Intelligent Context Prefetch and Predictive Loading",
+      "demand": 5,
+      "competition_gap": 9,
+      "feasibility": 5,
+      "opportunity_score": 2.25,
+      "rationale": {
+        "demand": "5 - Latency is a concern but not the primary pain point. Prompt caching partially addresses this for static content. Predictive loading is a 'nice to have' for most teams.",
+        "competition_gap": "9 - Nothing exists. Complete whitespace. But this might be because demand isn't strong enough yet to warrant dedicated tooling.",
+        "feasibility": "5 - Requires building prediction models for conversation trajectory and task type. Cold start problem. High technical complexity relative to current demand. May be premature."
+      }
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "domain": "Reinforcement Learning for SLM Reasoning (GRPO/RLVR Tools)",
+  "scan_date": "2026-03-29",
+  "total_gaps_identified": 15,
+  "gap_categories": ["Feature Gap", "Segment Gap", "Workflow Gap", "Integration Gap", "Pricing Gap"],
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Reward Function Marketplace / Reusable Reward Library",
+      "category": "Feature Gap",
+      "description": "No centralized, plug-and-play library of verified reward functions for different reasoning domains. Every team writes reward functions from scratch for math, code, logic, science, etc. The Verifiers library exists but covers only basic patterns. No sharing/discovery mechanism for community-built reward functions.",
+      "evidence": [
+        "Each framework (TRL, OpenRLHF, veRL) has its own reward function format with no interoperability",
+        "Label Studio templates are the closest thing to reusable rewards but are annotation-focused, not training-focused",
+        "RLVR research shows reward design is the #1 challenge — yet no tool addresses this systematically",
+        "Reward hacking is a critical problem, and verified/tested reward functions could mitigate it"
+      ],
+      "affected_users": "ML engineers, researchers, startups building reasoning models",
+      "existing_partial_solutions": ["Verifiers library (basic)", "NeMo-Gym (environment builder, not a marketplace)", "Custom scripts per project"]
+    },
+    {
+      "id": "GAP-002",
+      "title": "Curriculum / Difficulty Scheduling for RL Training",
+      "category": "Feature Gap",
+      "description": "No tool provides automated curriculum learning for GRPO/RLVR training. Research (E2H Reasoner, VCRL) shows easy-to-hard scheduling dramatically improves sample efficiency and final performance, but no framework implements this as a built-in feature. Users must manually curate difficulty-sorted datasets.",
+      "evidence": [
+        "E2H Reasoner paper shows curriculum RL requires fewer total samples than direct RL",
+        "VCRL uses reward variance as difficulty proxy — implementable but not in any tool",
+        "Scaf-GRPO provides scaffolding but only at a coarse level, not fine-grained curriculum",
+        "No framework offers automatic difficulty estimation for training examples"
+      ],
+      "affected_users": "Anyone training reasoning models, especially with limited compute",
+      "existing_partial_solutions": ["Scaf-GRPO (coarse scaffolding)", "Manual dataset sorting", "Research code from papers"]
+    },
+    {
+      "id": "GAP-003",
+      "title": "One-Click GRPO Training for Non-ML Engineers",
+      "category": "Segment Gap",
+      "description": "Only Unsloth Studio offers a no-code UI, and it's limited to their ecosystem. No tool lets a product engineer or domain expert train a reasoning model without writing Python. The barrier to entry for GRPO/RLVR is still very high despite the algorithms being relatively simple.",
+      "evidence": [
+        "Unsloth Studio launched March 2026 but is single-vendor and single-GPU only",
+        "TRL, OpenRLHF, veRL all require significant Python/ML expertise",
+        "HuggingFace AutoTrain doesn't support GRPO/RLVR",
+        "Growing demand from domain experts (legal, medical, finance) who want custom reasoning models"
+      ],
+      "affected_users": "Domain experts, product engineers, non-ML teams at startups",
+      "existing_partial_solutions": ["Unsloth Studio (limited)", "HuggingFace AutoTrain (no GRPO)"]
+    },
+    {
+      "id": "GAP-004",
+      "title": "RL Training Observability / Debugging Dashboard",
+      "category": "Workflow Gap",
+      "description": "No dedicated tool for monitoring, debugging, and diagnosing RL training runs for reasoning models. Users rely on TensorBoard/W&B for basic loss curves but lack reward distribution analysis, reward hacking detection, response quality tracking, policy drift monitoring, and training stability diagnostics.",
+      "evidence": [
+        "Reward hacking is documented as a major problem but detection tools don't exist",
+        "GRPO-specific metrics (group reward variance, advantage estimation quality) not tracked by any dashboard",
+        "Homogeneous response problem (all correct or all incorrect in a group) causes null gradients — no tool flags this",
+        "Training instability with long CoT is common but difficult to diagnose"
+      ],
+      "affected_users": "ML engineers running RL training jobs",
+      "existing_partial_solutions": ["W&B (generic ML tracking)", "TensorBoard (basic curves)", "Custom logging scripts"]
+    },
+    {
+      "id": "GAP-005",
+      "title": "Cross-Domain Verifiable Reward Engine (Beyond Math/Code)",
+      "category": "Feature Gap",
+      "description": "RLVR has proven effective for math and code where verification is straightforward (string matching, code execution). But domains like science, medicine, law, and business reasoning lack standardized verification tools. No framework provides pluggable verifiers for these domains.",
+      "evidence": [
+        "Research extends RLVR to medical QA, psychology, dialogue but with custom one-off verifiers",
+        "K2V framework extends RLVR to knowledge-intensive domains but remains a paper",
+        "No tool provides domain-specific verification templates (e.g., legal citation checking, medical protocol adherence)",
+        "Guru dataset covers 6 domains but the verification infrastructure is minimal"
+      ],
+      "affected_users": "Domain-specific model builders (healthcare, legal, finance, science)",
+      "existing_partial_solutions": ["K2V framework (paper only)", "Guru dataset (data, not tools)", "LLM-as-judge (unreliable)"]
+    },
+    {
+      "id": "GAP-006",
+      "title": "Unified Small-Model RL Training Platform",
+      "category": "Segment Gap",
+      "description": "Small models (1B-7B) are the sweet spot for edge/on-device reasoning, but no platform optimizes the full RL pipeline for them. Unsloth optimizes VRAM but lacks algorithm breadth. DeepScaleR/SimpleRL are research code. Enterprise tools (NeMo-RL, ROLL) optimize for scale, not efficiency on consumer hardware.",
+      "evidence": [
+        "Unsloth: great VRAM efficiency but only GRPO, single-GPU (open source), no PPO/DAPO/REINFORCE++",
+        "Open-RS (AAAI 2026) studies RL for small LLMs but produces no tool",
+        "DeepScaleR achieves SOTA at 1.5B but codebase is research-quality",
+        "No tool provides small-model-specific hyperparameter presets or training recipes"
+      ],
+      "affected_users": "Edge AI companies, mobile ML engineers, resource-constrained researchers",
+      "existing_partial_solutions": ["Unsloth (VRAM only)", "DeepScaleR (research code)", "SimpleRL-Reason (basic recipes)"]
+    },
+    {
+      "id": "GAP-007",
+      "title": "RL Training Cost Estimator and Resource Planner",
+      "category": "Workflow Gap",
+      "description": "No tool estimates the compute cost, time, or GPU requirements for an RL training run before starting. Users guess at batch sizes, group sizes, generation lengths, and number of epochs with no guidance. This leads to wasted GPU hours and failed runs.",
+      "evidence": [
+        "RL training spends 80% of compute on generation — generation parameters dominate cost",
+        "GRPO group size, number of completions per prompt, and max generation length all interact unpredictably",
+        "Predictive scaling laws for GRPO exist (July 2025 paper) but no tool implements them",
+        "Cloud GPU costs make trial-and-error expensive for small teams"
+      ],
+      "affected_users": "Budget-constrained teams, startups, academic researchers",
+      "existing_partial_solutions": ["Manual calculation", "Scaling laws paper (not implemented in any tool)"]
+    },
+    {
+      "id": "GAP-008",
+      "title": "Multi-Domain / Multi-Task RL Training Orchestrator",
+      "category": "Workflow Gap",
+      "description": "Training a model to reason across multiple domains (math + code + logic + science) requires manual mixing of datasets and reward functions. No tool provides intelligent multi-task RL training with automatic balancing, curriculum mixing, and domain-specific reward routing.",
+      "evidence": [
+        "DeepSeek R1 trains on math, code, and logic simultaneously but their pipeline is proprietary",
+        "Guru dataset spans 6 domains but no tool leverages it for multi-domain training",
+        "Task interference in multi-domain RL is well-documented but no tool mitigates it",
+        "Domain experts want to add their domain to an existing reasoning model without full retraining"
+      ],
+      "affected_users": "Teams building general-purpose reasoning models",
+      "existing_partial_solutions": ["Manual dataset mixing", "Per-domain separate training runs"]
+    },
+    {
+      "id": "GAP-009",
+      "title": "RL Training Data Curation and Quality Pipeline",
+      "category": "Workflow Gap",
+      "description": "Curating high-quality training prompts with verifiable answers is a major bottleneck. No tool helps users discover, filter, generate, or validate RL training data for reasoning tasks. Users scrape datasets manually or use a handful of known benchmarks.",
+      "evidence": [
+        "SimpleRL shows 8K examples suffice for significant gains — but finding the RIGHT 8K is hard",
+        "Data quality and difficulty distribution dramatically impact RL outcomes",
+        "No tool for generating synthetic training prompts with verified solutions",
+        "No tool for estimating example difficulty before training"
+      ],
+      "affected_users": "Anyone starting GRPO/RLVR training from scratch",
+      "existing_partial_solutions": ["Open-R1 (data transparency effort)", "Guru dataset (curated but fixed)", "Manual curation"]
+    },
+    {
+      "id": "GAP-010",
+      "title": "Automated Reward Hacking Detection and Mitigation",
+      "category": "Feature Gap",
+      "description": "Reward hacking (models exploiting reward function flaws) is the biggest reliability issue in RL training. No tool automatically detects reward hacking patterns: unnecessary reasoning steps, correct answers via wrong logic, format gaming, or length exploitation.",
+      "evidence": [
+        "Research documents multiple reward hacking patterns in LLM RL training",
+        "Dr-GRPO and DAPO address specific biases (length, difficulty) but not general reward hacking",
+        "PRM Clip and Delta mechanisms exist in papers but not in production tools",
+        "Manual inspection of model outputs is the current primary detection method"
+      ],
+      "affected_users": "All RL practitioners",
+      "existing_partial_solutions": ["Dr-GRPO (length bias fix)", "DAPO (token-level loss)", "Manual output inspection"]
+    },
+    {
+      "id": "GAP-011",
+      "title": "RL-Specific Model Evaluation Suite for Reasoning",
+      "category": "Feature Gap",
+      "description": "Evaluating RL-trained reasoning models uses the same benchmarks as SFT models (AIME, MATH, GSM8K). No tool measures RL-specific qualities: reasoning chain quality, search efficiency improvement, generalization across difficulty levels, or capability expansion vs. search compression.",
+      "evidence": [
+        "Research debate: RLVR may improve search efficiency rather than reasoning capability",
+        "Current benchmarks fail to distinguish models that genuinely learned vs. overfit",
+        "No tool measures pass@k to pass@1 efficiency improvement separately from capability expansion",
+        "Counterfactual evaluation and difficulty-stratified testing not supported by any eval tool"
+      ],
+      "affected_users": "Researchers, teams needing to validate RL training actually improved reasoning",
+      "existing_partial_solutions": ["Standard benchmarks (AIME, MATH, GSM8K)", "Manual pass@k analysis"]
+    },
+    {
+      "id": "GAP-012",
+      "title": "Framework Interoperability / Model Portability Layer",
+      "category": "Integration Gap",
+      "description": "Models and training configurations are not portable across RL frameworks. A model fine-tuned with TRL cannot easily continue training on OpenRLHF. Reward functions written for one framework don't work on another. No standard format exists for RL training recipes.",
+      "evidence": [
+        "Each framework has its own reward function API, config format, and checkpoint format",
+        "Teams often switch frameworks mid-project as requirements change",
+        "HuggingFace model format provides base portability but RL-specific state (optimizer, training stats) is lost",
+        "No standard for describing RL training recipes that works across frameworks"
+      ],
+      "affected_users": "Teams evaluating or switching between frameworks",
+      "existing_partial_solutions": ["HF model format (partial)", "Manual conversion scripts"]
+    },
+    {
+      "id": "GAP-013",
+      "title": "Process Reward Model (PRM) Training and Serving Toolkit",
+      "category": "Feature Gap",
+      "description": "Outcome-based rewards (correct/incorrect) are limited. Process reward models that score intermediate reasoning steps are far more powerful but extremely difficult to train. No accessible tool helps train, evaluate, and serve PRMs for use in RL training loops.",
+      "evidence": [
+        "RM-R1 proposes chain-of-rubrics for reward modeling but remains a paper",
+        "PRM training requires step-level annotations which are expensive to create",
+        "TRL has RewardTrainer but it's outcome-level, not process-level",
+        "Process rewards significantly reduce reward hacking and improve reasoning quality"
+      ],
+      "affected_users": "Advanced RL practitioners seeking better-than-binary rewards",
+      "existing_partial_solutions": ["TRL RewardTrainer (outcome-level only)", "RM-R1 (paper)", "Manual annotation pipelines"]
+    },
+    {
+      "id": "GAP-014",
+      "title": "RL Training for Agentic Reasoning (Tool Use + Reasoning)",
+      "category": "Feature Gap",
+      "description": "Combining reasoning RL with tool-use/agentic capabilities is the next frontier but poorly tooled. Only OpenRLHF, ROLL, and AReaL have early agentic RL support. No tool provides a unified framework for training models that reason AND use tools/APIs in a verified manner.",
+      "evidence": [
+        "OpenRLHF async agent RLHF is new (0.8.0) and limited",
+        "ROLL ROME introduces agentic model training but is Alibaba-ecosystem-specific",
+        "NeMo-Gym aims at RL environments but lacks agentic reasoning focus",
+        "Growing demand as reasoning models are deployed in production with tool access"
+      ],
+      "affected_users": "Teams building production reasoning agents",
+      "existing_partial_solutions": ["OpenRLHF agentic RL (early)", "ROLL ROME (Alibaba)", "SkyRL (Berkeley, early)"]
+    },
+    {
+      "id": "GAP-015",
+      "title": "Consumer-Priced Cloud RL Training Service",
+      "category": "Pricing Gap",
+      "description": "No managed service offers affordable GRPO/RLVR training. Cloud GPU costs are high, RL training is compute-intensive, and setting up distributed training is complex. A service offering 'train your reasoning model for $X/hour' at consumer-accessible prices doesn't exist.",
+      "evidence": [
+        "RL training spends 80% of compute on generation, making it 3-5x more expensive than SFT",
+        "Together AI, Fireworks, etc. offer fine-tuning APIs but not GRPO/RLVR",
+        "Unsloth targets single-GPU users but cloud deployment still requires infrastructure expertise",
+        "Academic researchers often can't afford multi-GPU RL training runs"
+      ],
+      "affected_users": "Individual developers, small startups, academic researchers",
+      "existing_partial_solutions": ["Cloud GPU providers (raw compute)", "Unsloth (local efficiency)", "No managed GRPO service"]
+    }
+  ]
+}

@@ -1,0 +1,357 @@
+{
+  "domain": "Reinforcement Learning for SLM Reasoning (GRPO/RLVR Tools)",
+  "scan_date": "2026-03-29",
+  "validation_sources": ["Reddit", "Hacker News", "GitHub Issues", "Research Papers", "Technical Blogs"],
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Reward Function Marketplace / Reusable Reward Library",
+      "demand_signals": [
+        {
+          "source": "GitHub Issues (TRL)",
+          "signal": "TRL issue #2644 'GRPO reward func' — users confused about reward function implementation patterns",
+          "url": "https://github.com/huggingface/trl/issues/2644"
+        },
+        {
+          "source": "GitHub Issues (TRL)",
+          "signal": "TRL issue #2771 'Question about reward function in GRPO example' — docs unclear on reward design",
+          "url": "https://github.com/huggingface/trl/issues/2771"
+        },
+        {
+          "source": "HN Discussion",
+          "signal": "Users note 'designing verifiable reward functions can be tough, and so most examples are math or code' — domain-specific rewards are hard to design",
+          "url": "https://news.ycombinator.com/item?id=43124091"
+        },
+        {
+          "source": "Technical Blog (Cameron Wolfe)",
+          "signal": "GRPO++ article dedicates section to reward function design as the primary bottleneck for practitioners",
+          "url": "https://cameronrwolfe.substack.com/p/grpo-tricks"
+        },
+        {
+          "source": "Research Paper",
+          "signal": "arxiv:2602.09305 — 'Reward Modeling for RL-Based LLM Reasoning: Design, Challenges, and Evaluation' — entire paper dedicated to reward design challenges",
+          "url": "https://arxiv.org/abs/2602.09305"
+        }
+      ],
+      "demand_strength": "Very High",
+      "demand_score": 9
+    },
+    {
+      "id": "GAP-002",
+      "title": "Curriculum / Difficulty Scheduling for RL Training",
+      "demand_signals": [
+        {
+          "source": "GitHub Issues (TRL)",
+          "signal": "TRL issue #3668 'GRPOTrainer reward functions cannot access training progress' — users want dynamic rewards that change with training stage",
+          "url": "https://github.com/huggingface/trl/issues/3668"
+        },
+        {
+          "source": "Research Paper",
+          "signal": "E2H Reasoner (arxiv:2506.06632) shows curriculum RL requires fewer total samples — clear efficiency gap",
+          "url": "https://arxiv.org/abs/2506.06632"
+        },
+        {
+          "source": "Research Paper",
+          "signal": "VCRL (arxiv:2509.19803) proposes variance-based curriculum — reward variance as difficulty proxy, not implemented in tools",
+          "url": "https://arxiv.org/abs/2509.19803"
+        },
+        {
+          "source": "HN Discussion",
+          "signal": "Practitioner notes 'GRPO starts off slow, with super small loss because rewards on all observations are the same' — difficulty scheduling would help",
+          "url": "https://news.ycombinator.com/item?id=43124091"
+        }
+      ],
+      "demand_strength": "High",
+      "demand_score": 8
+    },
+    {
+      "id": "GAP-003",
+      "title": "One-Click GRPO Training for Non-ML Engineers",
+      "demand_signals": [
+        {
+          "source": "HN Discussion",
+          "signal": "Users ask 'is GRPO practical?' and question whether it's easier to just use frontier models — accessibility is a concern",
+          "url": "https://news.ycombinator.com/item?id=43124091"
+        },
+        {
+          "source": "Market Signal",
+          "signal": "Unsloth Studio launched March 2026 targeting no-code fine-tuning — validates demand for accessible RL training",
+          "url": "https://www.marktechpost.com/2026/03/17/unsloth-ai-releases-studio-a-local-no-code-interface-for-high-performance-llm-fine-tuning-with-70-less-vram-usage/"
+        },
+        {
+          "source": "Technical Blog",
+          "signal": "Multiple 'how to train your reasoning model' tutorials indicate high interest from non-experts wanting step-by-step guidance",
+          "url": "https://huggingface.co/learn/llm-course/chapter12/6"
+        }
+      ],
+      "demand_strength": "High",
+      "demand_score": 8
+    },
+    {
+      "id": "GAP-004",
+      "title": "RL Training Observability / Debugging Dashboard",
+      "demand_signals": [
+        {
+          "source": "GitHub Issues (TRL)",
+          "signal": "TRL issue #2731 'Latest TRL code = significantly worse rewards for GRPO training' — users can't diagnose what changed",
+          "url": "https://github.com/huggingface/trl/issues/2731"
+        },
+        {
+          "source": "Research Paper",
+          "signal": "Entropy collapse identified as 'silent killer of RLVR generalization' — no tool detects this automatically",
+          "url": "https://limit-of-rlvr.github.io/"
+        },
+        {
+          "source": "Research Paper",
+          "signal": "GRPO homogeneous response problem causes null gradients — no tool flags this during training",
+          "url": "https://aipapersacademy.com/dapo/"
+        },
+        {
+          "source": "Technical Blog",
+          "signal": "GRPO++ article lists multiple training stability tricks that must be manually monitored",
+          "url": "https://cameronrwolfe.substack.com/p/grpo-tricks"
+        }
+      ],
+      "demand_strength": "High",
+      "demand_score": 8
+    },
+    {
+      "id": "GAP-005",
+      "title": "Cross-Domain Verifiable Reward Engine (Beyond Math/Code)",
+      "demand_signals": [
+        {
+          "source": "Research Paper",
+          "signal": "K2V framework (Knowledge-to-Verification) extends RLVR to knowledge-intensive domains — research validates the need",
+          "url": "https://openreview.net/forum?id=EVS7SeKBqI"
+        },
+        {
+          "source": "Research Paper",
+          "signal": "RLVR shown effective for medical QA (MedQA-USMLE) and science — demand exists but tooling doesn't",
+          "url": "https://arxiv.org/abs/2506.14245"
+        },
+        {
+          "source": "Market Signal",
+          "signal": "Label Studio created RLVR templates for annotation but not for training — market adjacent demand",
+          "url": "https://labelstud.io/blog/generative-ai-templates-for-reinforcement-learning-with-verifiable-rewards/"
+        }
+      ],
+      "demand_strength": "Medium-High",
+      "demand_score": 7
+    },
+    {
+      "id": "GAP-006",
+      "title": "Unified Small-Model RL Training Platform",
+      "demand_signals": [
+        {
+          "source": "Research Paper (AAAI 2026)",
+          "signal": "Open-RS paper: 'RL for Reasoning in Small LLMs: What Works and What Doesn't' — dedicated AAAI paper on this gap",
+          "url": "https://github.com/knoveleng/open-rs"
+        },
+        {
+          "source": "Market Signal",
+          "signal": "DeepScaleR 1.5B surpassing O1-Preview demonstrates small-model potential — but tooling is research-grade",
+          "url": "https://github.com/agentica-project/rllm/tree/deepscaler"
+        },
+        {
+          "source": "HN Discussion",
+          "signal": "Hardware resource dependency noted — practitioners want RL training on consumer GPUs",
+          "url": "https://news.ycombinator.com/item?id=43124091"
+        },
+        {
+          "source": "Market Signal",
+          "signal": "Unsloth focuses on VRAM efficiency for small models — 5GB VRAM for 1.5B — proving market demand",
+          "url": "https://unsloth.ai"
+        }
+      ],
+      "demand_strength": "High",
+      "demand_score": 8
+    },
+    {
+      "id": "GAP-007",
+      "title": "RL Training Cost Estimator and Resource Planner",
+      "demand_signals": [
+        {
+          "source": "Research Paper",
+          "signal": "Predictive Scaling Laws for GRPO (July 2025) exist as research but not implemented in any tool",
+          "url": "https://arxiv.org/html/2507.18014v1"
+        },
+        {
+          "source": "Industry Analysis",
+          "signal": "RL training spends 80% of compute on generation — generation parameters dominate cost unpredictably",
+          "url": "https://introl.com/blog/reinforcement-learning-infrastructure-rlhf-robotics-gpu-clusters-2025"
+        },
+        {
+          "source": "HN Discussion",
+          "signal": "Cost-benefit analysis is top concern — users question if GRPO is worth the compute vs. distillation",
+          "url": "https://news.ycombinator.com/item?id=43124091"
+        }
+      ],
+      "demand_strength": "Medium",
+      "demand_score": 6
+    },
+    {
+      "id": "GAP-008",
+      "title": "Multi-Domain / Multi-Task RL Training Orchestrator",
+      "demand_signals": [
+        {
+          "source": "Market Signal",
+          "signal": "ROLL from Alibaba supports multi-task RL but requires Alibaba ecosystem — demand exists but locked in",
+          "url": "https://github.com/alibaba/ROLL"
+        },
+        {
+          "source": "Research Paper",
+          "signal": "Guru dataset covers 6 reasoning domains — validates need for cross-domain training",
+          "url": "https://guru-reasoning.github.io/"
+        }
+      ],
+      "demand_strength": "Medium",
+      "demand_score": 6
+    },
+    {
+      "id": "GAP-009",
+      "title": "RL Training Data Curation and Quality Pipeline",
+      "demand_signals": [
+        {
+          "source": "HN Discussion",
+          "signal": "Practitioners must 'think about problem setting, generate data, choose base model, design reward functions' — data curation is manual",
+          "url": "https://news.ycombinator.com/item?id=43935867"
+        },
+        {
+          "source": "Research Paper",
+          "signal": "SimpleRL shows 8K examples suffice for 10-20 point gains — but finding the right 8K requires expertise",
+          "url": "https://github.com/hkust-nlp/simpleRL-reason"
+        },
+        {
+          "source": "Research Paper",
+          "signal": "Open-R1 focuses entirely on data transparency and curation for reasoning models",
+          "url": "https://huggingface.co/blog/open-r1"
+        }
+      ],
+      "demand_strength": "Medium-High",
+      "demand_score": 7
+    },
+    {
+      "id": "GAP-010",
+      "title": "Automated Reward Hacking Detection and Mitigation",
+      "demand_signals": [
+        {
+          "source": "Research Paper",
+          "signal": "Anthropic paper: 'Natural emergent misalignment from reward hacking in production RL' — major safety concern",
+          "url": "https://assets.anthropic.com/m/74342f2c96095771/original/Natural-emergent-misalignment-from-reward-hacking-paper.pdf"
+        },
+        {
+          "source": "Research Paper",
+          "signal": "arxiv:2602.18037 — 'Gradient Regularization Prevents Reward Hacking in RLHF and Verifiable Rewards' — active research area",
+          "url": "https://arxiv.org/abs/2602.18037"
+        },
+        {
+          "source": "Research Blog (Lil'Log)",
+          "signal": "Comprehensive reward hacking analysis notes 'not a ton of work on mitigations, especially for RLHF and LLMs'",
+          "url": "https://lilianweng.github.io/posts/2024-11-28-reward-hacking/"
+        }
+      ],
+      "demand_strength": "High",
+      "demand_score": 8
+    },
+    {
+      "id": "GAP-011",
+      "title": "RL-Specific Model Evaluation Suite for Reasoning",
+      "demand_signals": [
+        {
+          "source": "Research Paper",
+          "signal": "Promptfoo: 'RLVR Makes Models Faster, Not Smarter' — evaluation tools can't distinguish efficiency vs capability",
+          "url": "https://www.promptfoo.dev/blog/rlvr-explained/"
+        },
+        {
+          "source": "Research Paper",
+          "signal": "'Does RL Really Incentivize Reasoning Beyond Base Model?' — current benchmarks can't answer this",
+          "url": "https://openreview.net/forum?id=4OsgYD7em5"
+        },
+        {
+          "source": "Research Paper",
+          "signal": "arxiv:2510.10541 'Rethinking RL Evaluation: Can Benchmarks Truly Reveal Failures?' — systematic evaluation gap",
+          "url": "https://arxiv.org/abs/2510.10541"
+        }
+      ],
+      "demand_strength": "Medium-High",
+      "demand_score": 7
+    },
+    {
+      "id": "GAP-012",
+      "title": "Framework Interoperability / Model Portability Layer",
+      "demand_signals": [
+        {
+          "source": "Industry Analysis (Anyscale)",
+          "signal": "Blog comparing RL libraries notes each has different APIs, making switching costly",
+          "url": "https://www.anyscale.com/blog/open-source-rl-libraries-for-llms"
+        },
+        {
+          "source": "GitHub Issues (TRL)",
+          "signal": "TRL issue #3157 'GRPO with vLLM is blocked' — integration/compatibility issues frequent",
+          "url": "https://github.com/huggingface/trl/issues/3157"
+        }
+      ],
+      "demand_strength": "Medium",
+      "demand_score": 5
+    },
+    {
+      "id": "GAP-013",
+      "title": "Process Reward Model (PRM) Training and Serving Toolkit",
+      "demand_signals": [
+        {
+          "source": "Research Paper",
+          "signal": "RM-R1: Reward Modeling as Reasoning — proposes chain-of-rubrics but no accessible implementation",
+          "url": "https://arxiv.org/abs/2505.02387"
+        },
+        {
+          "source": "Research Paper",
+          "signal": "Process-supervised reward models shown to reduce reward hacking — but training them is prohibitively expensive",
+          "url": "https://insight.linnk.ai/machinelearning/on-effectively-designing-reinforcement-learning-rewards-for-llm-reasoning-at-training-time-addressing-reward-hacking-in-process-supervised-reward-models-Yul41hv-/"
+        }
+      ],
+      "demand_strength": "Medium",
+      "demand_score": 6
+    },
+    {
+      "id": "GAP-014",
+      "title": "RL Training for Agentic Reasoning (Tool Use + Reasoning)",
+      "demand_signals": [
+        {
+          "source": "GitHub (OpenRLHF)",
+          "signal": "OpenRLHF 0.8.0 added async agent RLHF — feature demand drove implementation",
+          "url": "https://github.com/OpenRLHF/OpenRLHF"
+        },
+        {
+          "source": "Market Signal",
+          "signal": "ROLL ROME from Alibaba introduced IPA algorithm for agentic model training",
+          "url": "https://github.com/alibaba/ROLL"
+        },
+        {
+          "source": "Market Signal",
+          "signal": "SkyRL from Berkeley targets multi-turn agentic training — new project indicating demand",
+          "url": "https://www.anyscale.com/blog/open-source-rl-libraries-for-llms"
+        }
+      ],
+      "demand_strength": "High",
+      "demand_score": 8
+    },
+    {
+      "id": "GAP-015",
+      "title": "Consumer-Priced Cloud RL Training Service",
+      "demand_signals": [
+        {
+          "source": "HN Discussion",
+          "signal": "Cost-benefit analysis is primary concern — users ask if GRPO worth the compute",
+          "url": "https://news.ycombinator.com/item?id=43124091"
+        },
+        {
+          "source": "Market Signal",
+          "signal": "No fine-tuning API from Together/Fireworks/Anyscale supports GRPO — market gap",
+          "url": "https://fireworks.ai/blog/reinforcement-learning-with-verifiable-reward"
+        }
+      ],
+      "demand_strength": "Medium-High",
+      "demand_score": 7
+    }
+  ]
+}

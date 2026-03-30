@@ -1,0 +1,127 @@
+{
+  "domain": "Agent Context Engineering & Prompt Orchestration",
+  "generated": "2026-03-29",
+  "gap_types": ["feature_gap", "segment_gap", "workflow_gap", "integration_gap", "pricing_gap"],
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Unified Context Budget Manager with Real-Time Token Allocation",
+      "type": "feature_gap",
+      "description": "No tool provides real-time, policy-driven token budget allocation across context window zones (system prompt, memory, RAG results, tool outputs, conversation history). Teams manually manage this zero-sum game. Need: a middleware that dynamically allocates token budgets per zone, tracks consumption step-by-step, and auto-triggers compression/eviction before overflow.",
+      "evidence": "Context allocation is a zero-sum game without explicit allocation policies. Tool outputs can balloon context, and agents fail with 'prompt is too long' errors. 0/18 tools in the matrix provide dedicated prompt caching or token budget management.",
+      "affected_tools": "All orchestration frameworks lack this as a first-class feature"
+    },
+    {
+      "id": "GAP-002",
+      "title": "Automated Prompt Optimization for Agent Systems (beyond DSPy)",
+      "type": "feature_gap",
+      "description": "Only DSPy and Braintrust offer automated prompt optimization, but DSPy lacks agent memory/multi-agent support, and Braintrust lacks context management. No tool combines automated prompt tuning WITH agent context awareness -- optimizing prompts while considering what's in the context window, tool outputs, and memory state.",
+      "evidence": "Only 2/18 tools (11%) support automated prompt optimization. DSPy optimizes prompts in isolation; agent frameworks rely on manual prompt engineering. The gap is an agent-aware prompt optimizer.",
+      "affected_tools": "DSPy (no agent awareness), Braintrust (no context management)"
+    },
+    {
+      "id": "GAP-003",
+      "title": "Context Compression Middleware for Production Agent Pipelines",
+      "type": "feature_gap",
+      "description": "While context compression is discussed widely, no standalone tool provides plug-and-play compression middleware that sits between agent frameworks and LLM APIs. Teams need: automatic summarization of tool outputs, semantic deduplication, priority-aware compression, and cost tracking -- as a drop-in library, not a full framework replacement.",
+      "evidence": "Context compression can reduce tokens 50-80% while preserving accuracy. LangGraph mentions it but lacks dedicated tooling. The context-engineering-toolkit on GitHub is early-stage. Production teams are building custom solutions.",
+      "affected_tools": "Context Engineering Toolkit (early/limited), LangGraph (basic), most tools lack this entirely"
+    },
+    {
+      "id": "GAP-004",
+      "title": "Cross-Framework Agent Memory Interoperability Layer",
+      "type": "integration_gap",
+      "description": "Memory systems (Mem0, Zep, Letta) are siloed and don't interoperate with prompt management tools (PromptLayer, Vellum) or orchestration frameworks (LangChain, CrewAI) in a standardized way. No 'MCP for memory' standard exists. Teams building with CrewAI + Mem0 + PromptLayer must write custom glue code.",
+      "evidence": "The memory space is compared to 'vector databases in 2022' -- fragmented with consolidation approaching. MCP covers tool integration but not memory/context standards. No memory tool supports prompt versioning; no prompt tool supports persistent memory.",
+      "affected_tools": "All memory and prompt tools operate in silos"
+    },
+    {
+      "id": "GAP-005",
+      "title": "Context Quality Scoring and Observability Dashboard",
+      "type": "feature_gap",
+      "description": "No tool provides context-specific observability: measuring context precision (signal-to-noise), context freshness (stale data detection), context conflicts (contradictory sources), and context utilization (which parts the model actually attends to). Existing observability tools track latency/cost but not context quality.",
+      "evidence": "Context failures -- missing, stale, conflicting, or irrelevant -- cause most enterprise AI breakdowns. Models show 'lost in the middle' degradation. Attention is non-uniform across long contexts. No observability tool measures context quality specifically.",
+      "affected_tools": "LangSmith, Langfuse, Braintrust (track cost/latency, not context quality)"
+    },
+    {
+      "id": "GAP-006",
+      "title": "Enterprise Context Engineering Platform (beyond artisanal per-app)",
+      "type": "segment_gap",
+      "description": "Current context engineering is 'artisanal and bespoke' per application. Enterprises running dozens of agents need: shared context policies, cross-agent context governance, centralized memory management, consistent context quality standards, and compliance-aware context handling. No platform serves this enterprise orchestration layer.",
+      "evidence": "Context engineering doesn't scale across organizations -- it ends up being artisanal. Well-crafted prompts can't solve systemic challenges of running agents across an enterprise. DataHub calls context management 'the missing piece for agentic AI'.",
+      "affected_tools": "No tool addresses enterprise-wide context governance"
+    },
+    {
+      "id": "GAP-007",
+      "title": "Visual Context Window Debugger for Agent Development",
+      "type": "workflow_gap",
+      "description": "Developers building agents cannot visualize what's in their context window at each step: how much space is used by system prompt vs memory vs RAG vs tool outputs vs conversation. No tool provides a visual debugger showing context composition, token allocation, and attention patterns in real-time during agent development.",
+      "evidence": "Developers debug context issues blindly. Tool outputs can balloon context unexpectedly. No visual tool shows context window composition in real-time. JetBrains research highlights the need for smarter context management visibility.",
+      "affected_tools": "No existing tool provides this capability"
+    },
+    {
+      "id": "GAP-008",
+      "title": "Intelligent Context Prefetch and Predictive Loading for Agents",
+      "type": "feature_gap",
+      "description": "Agents reactively fetch context (RAG retrieval after user query). No tool provides predictive context loading: anticipating what context an agent will need based on conversation trajectory, task type, and historical patterns, then pre-loading it to reduce latency.",
+      "evidence": "Context retrieval adds latency to every agent step. Prompt caching helps for static prefixes but not dynamic context. No tool (0/18) addresses predictive context loading. This mirrors CPU cache prefetching patterns.",
+      "affected_tools": "All RAG tools are reactive, not predictive"
+    },
+    {
+      "id": "GAP-009",
+      "title": "Prompt Template Marketplace with Context-Aware Composition",
+      "type": "workflow_gap",
+      "description": "Prompt management tools (PromptHub, PromptLayer) treat prompts as isolated templates. No marketplace lets teams share, compose, and version prompt COMPONENTS (not just full prompts) that are context-aware: adapting based on available memory, RAG results, and user state.",
+      "evidence": "PromptHub has Git-style versioning for full prompts. No tool supports modular prompt components that compose based on runtime context. Teams copy-paste and adapt prompts across projects without reusable building blocks.",
+      "affected_tools": "PromptHub (full prompts only), PromptLayer (no composition)"
+    },
+    {
+      "id": "GAP-010",
+      "title": "Multi-Modal Context Orchestration (text + code + images + structured data)",
+      "type": "feature_gap",
+      "description": "Most context engineering tools handle text context only. As agents process images, code, structured data, and audio, no tool provides unified multi-modal context management: prioritizing, compressing, and orchestrating different modality types within the same context window.",
+      "evidence": "Graphlit offers multimodal semantic memory but lacks context window management. LLMs increasingly support multi-modal inputs but tooling hasn't caught up. Agents processing code + text + images need modality-aware context allocation.",
+      "affected_tools": "Graphlit (memory only, no orchestration), all others are text-focused"
+    },
+    {
+      "id": "GAP-011",
+      "title": "Context-Aware Cost Optimization Engine",
+      "type": "pricing_gap",
+      "description": "LLM costs scale linearly with context length, but no tool optimizes cost vs quality tradeoffs in real-time: routing simpler sub-tasks to smaller/cheaper models, compressing context for cost-sensitive steps, and caching aggressively for repeated patterns. Current tools track cost but don't actively optimize it.",
+      "evidence": "Long inputs are expensive even with prefix caching. Attention complexity scales quadratically. No tool dynamically optimizes the cost-quality tradeoff for context. Teams overpay by stuffing full context into every call.",
+      "affected_tools": "Observability tools report cost but don't optimize it"
+    },
+    {
+      "id": "GAP-012",
+      "title": "Temporal Context Decay and Freshness Management",
+      "type": "feature_gap",
+      "description": "Only Zep tracks how facts change over time. No tool provides temporal decay policies: automatically deprioritizing or evicting stale context, flagging contradictions between old and new information, and ensuring agents always work with the freshest relevant context.",
+      "evidence": "Only 1/18 tools (6%) supports temporal memory. Enterprises find AI using stale data from old reports mixed with current data. Context freshness is a top pain point but almost entirely unaddressed.",
+      "affected_tools": "Zep (partial), all others ignore temporal aspects"
+    },
+    {
+      "id": "GAP-013",
+      "title": "Agent Context Replay and Testing Framework",
+      "type": "workflow_gap",
+      "description": "No tool lets developers replay agent sessions with different context configurations to debug and optimize. Teams need: capture context snapshots at each step, replay with modified context, A/B test context strategies (e.g., more memory vs more RAG), and measure impact on task completion.",
+      "evidence": "Braintrust offers prompt A/B testing but not context configuration testing. Evaluation tools test prompts in isolation, not context strategies. Debugging context issues requires reproducing entire agent sessions.",
+      "affected_tools": "Braintrust (prompt-level only), no tool supports context-level replay"
+    },
+    {
+      "id": "GAP-014",
+      "title": "Lightweight Context Engineering SDK for Small Teams",
+      "type": "pricing_gap",
+      "description": "Current solutions require either full framework adoption (LangChain/LangGraph) or expensive SaaS platforms (Vellum, Humanloop). Small teams and solo developers need a lightweight, open-source SDK that provides context window management, basic memory, and prompt versioning without the overhead of a full framework.",
+      "evidence": "LangChain has a steep learning curve with heavy abstractions. SaaS tools start at $25-49/mo but lock in. The context-engineering-toolkit on GitHub shows demand but is early-stage. PydanticAI and Mirascope are lightweight but lack context management.",
+      "affected_tools": "Context Engineering Toolkit (too early), PydanticAI/Mirascope (no context management)"
+    },
+    {
+      "id": "GAP-015",
+      "title": "MCP-Native Context Router for Multi-Tool Agent Workflows",
+      "type": "integration_gap",
+      "description": "MCP standardizes tool connections (10K+ servers) but provides no intelligence about WHICH tools/context to fetch and WHEN. Need: an MCP-native router that dynamically selects which MCP servers to query based on the current task, user intent, and available context budget, rather than the agent making all decisions.",
+      "evidence": "MCP has 10K+ servers and 75+ connectors but no routing intelligence. Anthropic's Tool Search helps but is API-specific. Agent frameworks implement their own tool selection logic without MCP-aware context routing.",
+      "affected_tools": "MCP (protocol only, no routing), LangChain/CrewAI (custom tool selection)"
+    }
+  ]
+}

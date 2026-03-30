@@ -1,0 +1,256 @@
+{
+  "domain": "Synthetic Reasoning Data Generation Tools",
+  "scan_date": "2026-03-29",
+  "total_tools_found": 22,
+  "tools": [
+    {
+      "name": "Distilabel",
+      "vendor": "Argilla / Hugging Face",
+      "url": "https://github.com/argilla-io/distilabel",
+      "type": "open_source",
+      "description": "Python framework for synthetic data and AI feedback pipelines based on verified research papers. Supports complex multi-step data processing with LLMs, including instruction generation, reasoning trace distillation, and AI feedback loops.",
+      "key_features": ["pipeline-based architecture", "multi-LLM provider support", "AI feedback integration", "reasoning trace generation", "Hugging Face ecosystem integration"],
+      "reasoning_specific": true,
+      "maturity": "production",
+      "github_stars": "~5k+"
+    },
+    {
+      "name": "Gretel Navigator",
+      "vendor": "Gretel AI",
+      "url": "https://gretel.ai/navigator/data-designer",
+      "type": "commercial_with_free_tier",
+      "description": "Synthetic data platform with Data Designer for generating datasets with embedded reasoning traces. Supports step-by-step explanation generation and reflection-guided reasoning.",
+      "key_features": ["reasoning trace generation", "tabular + text data", "privacy-preserving", "Azure AI Foundry integration", "data designer UI"],
+      "reasoning_specific": true,
+      "maturity": "production",
+      "github_stars": "N/A (commercial)"
+    },
+    {
+      "name": "SWiRL (Step-Wise Reinforcement Learning)",
+      "vendor": "Stanford / Google DeepMind",
+      "url": "https://arxiv.org/abs/2504.04736",
+      "type": "research",
+      "description": "Two-stage methodology: generates multi-step reasoning and tool-use synthetic data, then applies step-wise RL to optimize LLMs. Breaks trajectories into sub-trajectories for fine-grained learning.",
+      "key_features": ["multi-step trajectory generation", "process filtering", "step-wise RL", "tool-use data", "cross-task generalization"],
+      "reasoning_specific": true,
+      "maturity": "research_prototype",
+      "github_stars": "N/A (research paper)"
+    },
+    {
+      "name": "Simula",
+      "vendor": "Google Research",
+      "url": "https://research.google/pubs/orchestrating-synthetic-datasets-with-reasoning/",
+      "type": "research",
+      "description": "Seedless framework that balances global and local reasoning to generate synthetic datasets. Uses taxonomies for global coverage and agentic refinements for local diversity/complexity, with double-critic rejection sampling.",
+      "key_features": ["seedless generation", "taxonomy-driven coverage", "agentic refinements", "double-critic rejection sampling", "controllable generation"],
+      "reasoning_specific": true,
+      "maturity": "research_prototype",
+      "github_stars": "N/A (research paper)"
+    },
+    {
+      "name": "NVIDIA Nemotron Pipeline",
+      "vendor": "NVIDIA",
+      "url": "https://developer.nvidia.com/nemotron",
+      "type": "open_source",
+      "description": "Family of models (340B Instruct + Reward) forming a synthetic data generation pipeline. Includes 10T+ tokens of multilingual reasoning, coding, and safety data. NeMo Gym for multi-step agentic RL training.",
+      "key_features": ["instruct + reward model pipeline", "10T+ token datasets", "NeMo Gym for RL", "multi-step reasoning data", "open weights and datasets"],
+      "reasoning_specific": true,
+      "maturity": "production",
+      "github_stars": "~2k+"
+    },
+    {
+      "name": "Microsoft Phi Synthetic Data Pipeline",
+      "vendor": "Microsoft Research",
+      "url": "https://huggingface.co/microsoft/phi-4",
+      "type": "proprietary_methodology",
+      "description": "Pioneered 'textbook-quality' synthetic data generation for reasoning. Uses 50+ seed types, multi-agent prompting, self-revision workflows, and instruction reversal to create ~400B tokens of reasoning-focused training data.",
+      "key_features": ["textbook-quality generation", "multi-agent prompting", "self-revision workflows", "instruction reversal", "50+ dataset seed types"],
+      "reasoning_specific": true,
+      "maturity": "production",
+      "github_stars": "N/A (proprietary)"
+    },
+    {
+      "name": "DeepSeek R1 Distillation Pipeline",
+      "vendor": "DeepSeek",
+      "url": "https://github.com/deepseek-ai/DeepSeek-R1",
+      "type": "open_source",
+      "description": "Generated 800K high-quality reasoning samples using R1 model, then distilled into smaller models (1.5B-70B). MIT licensed, supports commercial use and further distillation.",
+      "key_features": ["800K reasoning traces", "multi-scale distillation", "CoT trace generation", "MIT license", "6 distilled model variants"],
+      "reasoning_specific": true,
+      "maturity": "production",
+      "github_stars": "~50k+"
+    },
+    {
+      "name": "Open-R1 (Hugging Face)",
+      "vendor": "Hugging Face",
+      "url": "https://github.com/huggingface/open-r1",
+      "type": "open_source",
+      "description": "Fully open reproduction of DeepSeek-R1 training. Includes generate.py script using Distilabel for synthetic reasoning data at scale. Released Mixture-of-Thoughts dataset (350K verified reasoning traces).",
+      "key_features": ["distilabel-based generation", "vLLM/SGLang inference", "RLVR training", "350K verified traces", "math/code/science coverage"],
+      "reasoning_specific": true,
+      "maturity": "active_development",
+      "github_stars": "~10k+"
+    },
+    {
+      "name": "Magpie",
+      "vendor": "ICLR 2025 Research",
+      "url": "https://github.com/magpie-align/magpie",
+      "type": "open_source",
+      "description": "Self-synthesis method for alignment data generation. Prompts aligned LLMs with nothing (just template) to generate both queries and responses. Magpie Reasoning V2 includes 250K CoT examples.",
+      "key_features": ["seedless synthesis", "no prompt engineering needed", "250K reasoning examples", "alignment-focused", "multi-model support"],
+      "reasoning_specific": true,
+      "maturity": "production",
+      "github_stars": "~2k+"
+    },
+    {
+      "name": "Evol-Instruct / WizardLM",
+      "vendor": "Microsoft Research / WizardLM Team",
+      "url": "https://github.com/nlpxucan/WizardLM",
+      "type": "open_source",
+      "description": "Evolves simple instructions into increasingly complex ones using LLMs. Creates large-scale instruction datasets with varying complexity levels for math, code, and reasoning tasks.",
+      "key_features": ["evolutionary complexity scaling", "automated instruction rewriting", "math/code specialization", "196K instruction dataset", "difficulty-graded outputs"],
+      "reasoning_specific": true,
+      "maturity": "production",
+      "github_stars": "~10k+"
+    },
+    {
+      "name": "DataDreamer",
+      "vendor": "CMU / Open Source",
+      "url": "https://github.com/datadreamer-dev/DataDreamer",
+      "type": "open_source",
+      "description": "Python library for synthetic data generation and reproducible LLM workflows. Simplifies creation of instruction-tuning and alignment datasets with emphasis on reproducibility and best practices.",
+      "key_features": ["reproducible workflows", "multi-provider LLM support", "caching and checkpointing", "open science focus", "ACL 2024 paper"],
+      "reasoning_specific": false,
+      "maturity": "production",
+      "github_stars": "~2k+"
+    },
+    {
+      "name": "Cosmopedia",
+      "vendor": "Hugging Face",
+      "url": "https://github.com/huggingface/cosmopedia",
+      "type": "open_source",
+      "description": "Largest open synthetic dataset (30M files, 25B tokens) of textbooks, blog posts, stories. Generated using Mixtral. Demonstrates scalable pre-training data synthesis methodology.",
+      "key_features": ["25B token scale", "textbook-style generation", "topic clustering pipeline", "seed data conditioning", "llm-swarm parallelization"],
+      "reasoning_specific": false,
+      "maturity": "production",
+      "github_stars": "~1k+"
+    },
+    {
+      "name": "CoT-Self-Instruct",
+      "vendor": "Academic Research",
+      "url": "https://arxiv.org/abs/2507.23751",
+      "type": "research",
+      "description": "Method that instructs LLMs to reason via CoT based on seed tasks, then generate new synthetic examples of similar quality/complexity. Includes automatic filtering for quality control.",
+      "key_features": ["CoT-guided generation", "seed-task extrapolation", "automatic quality filtering", "reasoning + non-reasoning tasks", "complexity preservation"],
+      "reasoning_specific": true,
+      "maturity": "research_prototype",
+      "github_stars": "N/A"
+    },
+    {
+      "name": "HardGen Pipeline",
+      "vendor": "Academic Research",
+      "url": "https://arxiv.org/abs/2601.01498",
+      "type": "research",
+      "description": "Automatic agentic pipeline for generating hard tool-use training samples with verifiable reasoning. Uses dynamic API Graph from agent failure cases and closed-loop evaluation feedback.",
+      "key_features": ["failure-driven generation", "dynamic API graph", "verifiable CoT", "closed-loop evaluation", "hard sample targeting"],
+      "reasoning_specific": true,
+      "maturity": "research_prototype",
+      "github_stars": "N/A"
+    },
+    {
+      "name": "Anthropic Constitutional AI (CAI)",
+      "vendor": "Anthropic",
+      "url": "https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback",
+      "type": "proprietary_methodology",
+      "description": "Earliest large-scale use of synthetic data for RLHF. Uses self-critique and revision against constitutional principles to generate alignment training data. Both SL and RL phases.",
+      "key_features": ["self-critique generation", "constitutional principles", "two-phase (SL + RL)", "automated alignment data", "scalable safety training"],
+      "reasoning_specific": false,
+      "maturity": "production",
+      "github_stars": "N/A (proprietary)"
+    },
+    {
+      "name": "MOSTLY AI",
+      "vendor": "MOSTLY AI",
+      "url": "https://mostly.ai/",
+      "type": "commercial_with_free_tier",
+      "description": "Synthetic data platform powered by TabularARGN architecture. Focuses on tabular/text data with differential privacy. Primarily for data privacy and testing, not reasoning-specific.",
+      "key_features": ["differential privacy", "tabular data focus", "text synthesis (Mistral/Viking)", "quality assurance reports", "conditional generation"],
+      "reasoning_specific": false,
+      "maturity": "production",
+      "github_stars": "~1k+"
+    },
+    {
+      "name": "IBM LAB (Large-scale Alignment for chatBots)",
+      "vendor": "IBM Research",
+      "url": "https://research.ibm.com/blog/LLM-generated-data",
+      "type": "open_source",
+      "description": "Taxonomy-driven synthetic data generation for knowledge, foundational skills, and compositional skills. Guides teacher models to generate instruction data that fills identified gaps in LLM capabilities.",
+      "key_features": ["taxonomy-driven", "gap identification", "compositional skill synthesis", "teacher-student pipeline", "InstructLab integration"],
+      "reasoning_specific": true,
+      "maturity": "production",
+      "github_stars": "~5k+ (InstructLab)"
+    },
+    {
+      "name": "Bonito",
+      "vendor": "Academic Research",
+      "url": "https://github.com/pengr/LLM-Synthetic-Data",
+      "type": "open_source",
+      "description": "Open source model that transforms regular text into specialized training exercises for language models. Converts unstructured content into structured instruction-response pairs.",
+      "key_features": ["text-to-exercise conversion", "no seed questions needed", "domain adaptation", "instruction generation", "lightweight"],
+      "reasoning_specific": false,
+      "maturity": "early_stage",
+      "github_stars": "~500+"
+    },
+    {
+      "name": "Synthetic Data Generator (Argilla)",
+      "vendor": "Argilla",
+      "url": "https://github.com/argilla-io/synthetic-data-generator",
+      "type": "open_source",
+      "description": "UI-based tool built on Distilabel for building datasets using natural language. Allows non-technical users to create fine-tuning datasets through a guided interface.",
+      "key_features": ["natural language interface", "distilabel backend", "guided dataset creation", "Hugging Face integration", "no-code approach"],
+      "reasoning_specific": false,
+      "maturity": "production",
+      "github_stars": "~2k+"
+    },
+    {
+      "name": "LlamaFactory",
+      "vendor": "Open Source Community",
+      "url": "https://github.com/hiyouga/LlamaFactory",
+      "type": "open_source",
+      "description": "Unified fine-tuning framework for 100+ LLMs. Includes data processing pipeline supporting synthetic data ingestion, with integrations to Easy Dataset, DataFlow, and GraphGen for synthetic data creation.",
+      "key_features": ["100+ model support", "data processing pipeline", "synthetic data integrations", "pre-training to alignment", "web UI"],
+      "reasoning_specific": false,
+      "maturity": "production",
+      "github_stars": "~40k+"
+    },
+    {
+      "name": "Unsloth",
+      "vendor": "Unsloth AI",
+      "url": "https://unsloth.ai/",
+      "type": "open_source",
+      "description": "Fast fine-tuning library with synthetic data generation notebooks. Includes document-to-QA conversion pipeline and auto-cleaning for creating reasoning datasets from documents.",
+      "key_features": ["10x faster fine-tuning", "synthetic data notebooks", "document-to-QA pipeline", "auto data cleaning", "memory efficient"],
+      "reasoning_specific": false,
+      "maturity": "production",
+      "github_stars": "~25k+"
+    },
+    {
+      "name": "K2view Synthetic Data",
+      "vendor": "K2view",
+      "url": "https://www.k2view.com/solutions/synthetic-data-generation-tools/",
+      "type": "commercial",
+      "description": "Enterprise synthetic data platform combining generation with test data management and data masking. Gartner-recognized. Primarily for enterprise data testing, not LLM reasoning.",
+      "key_features": ["enterprise-grade", "data masking", "test data management", "Gartner recognized", "GenAI-powered"],
+      "reasoning_specific": false,
+      "maturity": "production",
+      "github_stars": "N/A (commercial)"
+    }
+  ],
+  "categories": {
+    "reasoning_specific_tools": ["Distilabel", "Gretel Navigator", "SWiRL", "Simula", "NVIDIA Nemotron", "Microsoft Phi Pipeline", "DeepSeek R1 Pipeline", "Open-R1", "Magpie", "Evol-Instruct", "CoT-Self-Instruct", "HardGen", "IBM LAB"],
+    "general_synthetic_data_tools": ["DataDreamer", "Cosmopedia", "CAI", "MOSTLY AI", "Bonito", "Argilla SDG", "LlamaFactory", "Unsloth", "K2view"],
+    "open_source": ["Distilabel", "SWiRL", "NVIDIA Nemotron", "DeepSeek R1", "Open-R1", "Magpie", "Evol-Instruct", "DataDreamer", "Cosmopedia", "IBM LAB", "Bonito", "Argilla SDG", "LlamaFactory", "Unsloth"],
+    "commercial": ["Gretel Navigator", "MOSTLY AI", "K2view"],
+    "research_only": ["SWiRL", "Simula", "CoT-Self-Instruct", "HardGen"]
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "domain": "Reinforcement Learning for SLM Reasoning (GRPO/RLVR Tools)",
+  "scan_date": "2026-03-29",
+  "total_tools_found": 18,
+  "tools": [
+    {
+      "name": "TRL (Transformers Reinforcement Learning)",
+      "provider": "Hugging Face",
+      "url": "https://github.com/huggingface/trl",
+      "description": "Full-stack library for post-training transformer LMs with RL methods including SFT, GRPO, DPO, PPO, reward modeling. Built on HF Transformers ecosystem.",
+      "key_features": ["GRPOTrainer", "SFT", "DPO", "PPO", "RewardTrainer", "vLLM integration", "OpenEnv support"],
+      "algorithms": ["GRPO", "PPO", "DPO", "REINFORCE++", "RLOO"],
+      "model_scale": "All sizes",
+      "license": "Apache 2.0",
+      "maturity": "Production",
+      "lines_of_code": 19071
+    },
+    {
+      "name": "Unsloth",
+      "provider": "Unsloth AI",
+      "url": "https://unsloth.ai",
+      "description": "Memory-efficient fine-tuning and RL training framework. Enables GRPO training with as low as 5GB VRAM for 1.5B models. Supports QLoRA/LoRA for GRPO.",
+      "key_features": ["70% VRAM reduction", "GRPO with QLoRA/LoRA", "Unsloth Studio (no-code UI)", "Ultra long context RL (380K)", "FP8 precision RL"],
+      "algorithms": ["GRPO"],
+      "model_scale": "1B-70B+ (optimized for small models)",
+      "license": "Apache 2.0 / Proprietary (Studio)",
+      "maturity": "Production"
+    },
+    {
+      "name": "OpenRLHF",
+      "provider": "OpenRLHF Community",
+      "url": "https://github.com/OpenRLHF/OpenRLHF",
+      "description": "Scalable and high-performance agentic RL framework based on Ray, vLLM, DeepSpeed. Only 8,523 LOC. Adopted by Google, ByteDance, NVIDIA, Tencent, etc.",
+      "key_features": ["Ray-based distributed training", "vLLM integration", "Async RL training", "Agentic RL", "Multi-GPU model placement"],
+      "algorithms": ["PPO", "DAPO", "REINFORCE++", "TIS", "GRPO"],
+      "model_scale": "Up to 70B+",
+      "license": "Apache 2.0",
+      "maturity": "Production",
+      "lines_of_code": 8523
+    },
+    {
+      "name": "veRL (Volcano Engine RL)",
+      "provider": "ByteDance / Volcano Engine",
+      "url": "https://github.com/verl-project/verl",
+      "description": "Flexible multi-backend RL framework for LLMs. Supports FSDP + vLLM combinations. Large community, actively developed.",
+      "key_features": ["Multi-backend architecture", "FSDP + vLLM", "Reward model support", "Fine-grained parallelism"],
+      "algorithms": ["PPO", "GRPO", "DPO", "REINFORCE"],
+      "model_scale": "All sizes",
+      "license": "Apache 2.0",
+      "maturity": "Production",
+      "lines_of_code": 32325
+    },
+    {
+      "name": "NeMo-RL",
+      "provider": "NVIDIA",
+      "url": "https://github.com/NVIDIA-NeMo/RL",
+      "description": "Scalable post-training library under NVIDIA NeMo Framework. Ray-based orchestration, vLLM/TensorRT-LLM generation, Megatron-Core support.",
+      "key_features": ["Megatron-Core integration", "Ray orchestration", "vLLM/TensorRT-LLM", "HF model support", "Multi-GPU to multi-node scaling"],
+      "algorithms": ["GRPO", "DPO", "DAPO"],
+      "model_scale": "All sizes (optimized for enterprise scale)",
+      "license": "Apache 2.0",
+      "maturity": "Production"
+    },
+    {
+      "name": "NeMo-Gym",
+      "provider": "NVIDIA",
+      "url": "https://github.com/NVIDIA-NeMo/Gym",
+      "description": "Build RL environments for LLM training. Companion to NeMo-RL for defining reward functions and training environments.",
+      "key_features": ["RL environment builder", "Custom reward functions", "Integration with NeMo-RL"],
+      "algorithms": ["Environment framework (algorithm-agnostic)"],
+      "model_scale": "All sizes",
+      "license": "Apache 2.0",
+      "maturity": "Early"
+    },
+    {
+      "name": "ROLL",
+      "provider": "Alibaba",
+      "url": "https://github.com/alibaba/ROLL",
+      "description": "Efficient RL library for LLMs with large-scale GPU support. Multi-role distributed architecture with Ray. Integrates Megatron-Core, SGLang, vLLM.",
+      "key_features": ["Multi-role distributed architecture", "Megatron-Core + SGLang + vLLM", "FSDP2 strategy", "LoRA with Megatron", "Async training (ROLL Flash)"],
+      "algorithms": ["PPO", "GRPO", "REINFORCE++", "TOPR", "RAFT++", "GSPO"],
+      "model_scale": "All sizes",
+      "license": "Apache 2.0",
+      "maturity": "Production"
+    },
+    {
+      "name": "AReaL",
+      "provider": "Ant Group / Tsinghua",
+      "url": "https://github.com/inclusionAI/AReaL",
+      "description": "Fully asynchronous RL training system for large reasoning and agentic models. Focus on lightning-fast RL with simplicity and flexibility.",
+      "key_features": ["Fully async RL", "Reasoning + agentic model support", "Simple API"],
+      "algorithms": ["PPO", "GRPO", "REINFORCE++"],
+      "model_scale": "All sizes",
+      "license": "Apache 2.0",
+      "maturity": "Research/Early Production"
+    },
+    {
+      "name": "Open-R1",
+      "provider": "Hugging Face",
+      "url": "https://huggingface.co/blog/open-r1",
+      "description": "Open reproduction of DeepSeek-R1 training pipeline. Focus on data and training transparency for reasoning model development.",
+      "key_features": ["R1 pipeline reproduction", "Data curation", "Training transparency"],
+      "algorithms": ["GRPO"],
+      "model_scale": "7B-70B",
+      "license": "Apache 2.0",
+      "maturity": "Research"
+    },
+    {
+      "name": "DeepScaleR",
+      "provider": "Agentica Project",
+      "url": "https://github.com/agentica-project/rllm/tree/deepscaler",
+      "description": "Open-source project to democratize RL for LLMs. DeepScaleR-1.5B-Preview surpasses O1-Preview with 43.1% on AIME.",
+      "key_features": ["Small model optimization", "AIME benchmark performance", "Scalable RL recipes"],
+      "algorithms": ["GRPO"],
+      "model_scale": "1.5B-7B (focus on small models)",
+      "license": "Apache 2.0",
+      "maturity": "Research"
+    },
+    {
+      "name": "Open-Reasoner-Zero (ORZ)",
+      "provider": "StepFun",
+      "url": "https://github.com/Open-Reasoner-Zero/Open-Reasoner-Zero",
+      "description": "First open-source implementation of large-scale reasoning-oriented RL on base models. Achieves superior performance with 1/10 training steps vs DeepSeek-R1-Zero.",
+      "key_features": ["Base model RL training", "Rule-based rewards only", "No KL regularization", "Extreme sample efficiency"],
+      "algorithms": ["PPO with GAE"],
+      "model_scale": "7B-32B",
+      "license": "Apache 2.0",
+      "maturity": "Research"
+    },
+    {
+      "name": "SimpleRL-Reason",
+      "provider": "HKUST NLP",
+      "url": "https://github.com/hkust-nlp/simpleRL-reason",
+      "description": "Simple RL recipe for reasoning using only rule-based rewards and GSM8K/Math datasets. Trains 10 diverse base models with 8K examples achieving 10-20+ point gains.",
+      "key_features": ["Minimal data requirement (8K examples)", "Rule-based rewards only", "Multi-model support", "Simple recipe"],
+      "algorithms": ["GRPO", "PPO"],
+      "model_scale": "1.5B-24B",
+      "license": "MIT",
+      "maturity": "Research"
+    },
+    {
+      "name": "Open-RS",
+      "provider": "Knovel Engineering",
+      "url": "https://github.com/knoveleng/open-rs",
+      "description": "Study on RL for reasoning in small LLMs. Explores enhancing reasoning under resource-constrained conditions. AAAI 2026 paper.",
+      "key_features": ["Small LLM focus", "Resource-constrained RL", "Systematic study"],
+      "algorithms": ["GRPO", "PPO", "REINFORCE++"],
+      "model_scale": "1B-7B",
+      "license": "Apache 2.0",
+      "maturity": "Research"
+    },
+    {
+      "name": "DAPO (algorithm/system)",
+      "provider": "ByteDance Seed",
+      "url": "https://arxiv.org/abs/2503.14476",
+      "description": "Decoupled Clip and Dynamic Sampling Policy Optimization. Achieves 50 points on AIME 2024 with Qwen2.5-32B. Introduces Clip-Higher, Dynamic Sampling, Token-Level Loss, KL removal.",
+      "key_features": ["Clip-Higher technique", "Dynamic sampling", "Token-level gradient loss", "No KL divergence"],
+      "algorithms": ["DAPO (GRPO variant)"],
+      "model_scale": "7B-32B",
+      "license": "Open (paper + code)",
+      "maturity": "Research"
+    },
+    {
+      "name": "Dr-GRPO",
+      "provider": "Research community",
+      "url": "https://arxiv.org/abs/2503.20783",
+      "description": "Removes reward scaling and length bias from GRPO. Recommends not scaling by standard deviation to eliminate question-level difficulty bias.",
+      "key_features": ["No reward scaling", "Length bias elimination", "Global constant normalization"],
+      "algorithms": ["Dr-GRPO (GRPO variant)"],
+      "model_scale": "All sizes",
+      "license": "Open (paper)",
+      "maturity": "Research"
+    },
+    {
+      "name": "Scaf-GRPO",
+      "provider": "Research community",
+      "url": "https://arxiv.org/abs/2510.19807",
+      "description": "Scaffolded GRPO that provides minimal guidance only when model's independent learning plateaus. Progressive training framework.",
+      "key_features": ["Progressive training", "Adaptive scaffolding", "Plateau detection"],
+      "algorithms": ["Scaf-GRPO (GRPO variant)"],
+      "model_scale": "All sizes",
+      "license": "Open (paper)",
+      "maturity": "Research"
+    },
+    {
+      "name": "Guru Dataset",
+      "provider": "Research community",
+      "url": "https://guru-reasoning.github.io/",
+      "description": "Curated RL reasoning corpus of 92K verifiable examples spanning 6 reasoning domains: Math, Code, Science, Logic, Simulation, Tabular.",
+      "key_features": ["92K verifiable examples", "6 reasoning domains", "Cross-domain evaluation"],
+      "algorithms": ["Dataset (algorithm-agnostic)"],
+      "model_scale": "All sizes",
+      "license": "Open",
+      "maturity": "Research"
+    },
+    {
+      "name": "RM-R1",
+      "provider": "Research community",
+      "url": "https://arxiv.org/abs/2505.02387",
+      "description": "Reward Modeling as Reasoning. Chain-of-rubrics (CoR) mechanism for self-generating sample-level rubrics. Two-stage training: distillation + RLVR.",
+      "key_features": ["Chain-of-rubrics", "Self-generating rubrics", "Distillation + RLVR pipeline"],
+      "algorithms": ["RLVR", "Reward modeling"],
+      "model_scale": "All sizes",
+      "license": "Open (paper)",
+      "maturity": "Research"
+    }
+  ],
+  "algorithm_taxonomy": {
+    "core_algorithms": {
+      "GRPO": "Group Relative Policy Optimization - removes critic/value model from PPO, uses group statistics. DeepSeek R1 foundation.",
+      "PPO": "Proximal Policy Optimization - classic RL algorithm with critic model, more memory intensive.",
+      "DPO": "Direct Preference Optimization - offline, no reward model needed, preference-based.",
+      "REINFORCE++": "Single-sample variant, more token-efficient than GRPO, more stable training."
+    },
+    "grpo_variants": {
+      "DAPO": "Decoupled clipping, dynamic sampling, token-level loss, no KL",
+      "Dr-GRPO": "Removes reward scaling and length bias",
+      "Scaf-GRPO": "Scaffolded progressive training with plateau detection",
+      "NGRPO": "Negative-enhanced GRPO",
+      "Training-Free GRPO": "No parameter updates, few-dozen samples"
+    },
+    "reward_approaches": {
+      "Verifiable Rewards (RLVR)": "Binary correct/wrong from deterministic verifiers - math, code, logic",
+      "Rule-based Rewards": "Custom reward functions for format compliance, correctness",
+      "Reward Models": "Trained neural networks scoring outputs (traditional RLHF)",
+      "LLM-as-Judge": "Using another LLM to score outputs"
+    }
+  },
+  "market_segments": {
+    "enterprise_scale": ["NeMo-RL", "OpenRLHF", "veRL", "ROLL"],
+    "consumer_friendly": ["Unsloth", "TRL"],
+    "research_focused": ["Open-R1", "DeepScaleR", "Open-Reasoner-Zero", "SimpleRL-Reason", "Open-RS"],
+    "small_model_specialists": ["Unsloth", "DeepScaleR", "SimpleRL-Reason", "Open-RS"]
+  }
+}

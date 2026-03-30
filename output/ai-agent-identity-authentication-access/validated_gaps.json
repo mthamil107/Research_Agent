@@ -1,0 +1,504 @@
+{
+  "domain": "AI Agent Identity, Authentication & Access Control",
+  "generated_date": "2026-03-29",
+  "validation_sources": [
+    "Hacker News discussions and Show HN posts",
+    "GitHub repositories and trending projects",
+    "Reddit/community discussions",
+    "Industry reports (Bessemer, Gartner, IAPP, CSA)",
+    "RSAC 2026 conference themes",
+    "Developer blog posts and tutorials",
+    "CVE reports and security incident data"
+  ],
+  "validated_gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Unified Agent Identity Lifecycle Platform (Create-to-Revoke)",
+      "demand_signals": [
+        {
+          "source": "HN: How are you handling identities for AI agents?",
+          "url": "https://news.ycombinator.com/item?id=45781723",
+          "signal_type": "discussion",
+          "signal_strength": "high",
+          "quote_summary": "Active HN discussion asking how teams manage agent identities, indicating widespread confusion"
+        },
+        {
+          "source": "Strata Research: AI Agent Identity Crisis 2026",
+          "url": "https://www.strata.io/blog/agentic-identity/the-ai-agent-identity-crisis-new-research-reveals-a-governance-gap/",
+          "signal_type": "research",
+          "signal_strength": "high",
+          "quote_summary": "40% of orgs can't discover/register agents; 12% don't know how agents authenticate"
+        },
+        {
+          "source": "The Hacker News: AI Agents as Identity Dark Matter",
+          "url": "https://thehackernews.com/2026/03/ai-agents-next-wave-identity-dark.html",
+          "signal_type": "article",
+          "signal_strength": "high",
+          "quote_summary": "Agents described as 'powerful, invisible, and unmanaged' identity dark matter"
+        },
+        {
+          "source": "GitHub: 9 agent identity projects, only 2 with real users",
+          "url": "https://dev.to/thenexusguard/i-found-9-agent-identity-projects-on-github-only-2-have-real-users-3aed",
+          "signal_type": "analysis",
+          "signal_strength": "medium",
+          "quote_summary": "Market is nascent — lots of attempts but no clear winner"
+        }
+      ],
+      "demand_validation": "STRONG — Top-of-mind concern at RSAC 2026, multiple HN discussions, clear enterprise pain"
+    },
+    {
+      "id": "GAP-002",
+      "title": "Runtime Least-Privilege Enforcement for AI Agents",
+      "demand_signals": [
+        {
+          "source": "The Hacker News: AI Agents Becoming Authorization Bypass Paths",
+          "url": "https://thehackernews.com/2026/01/ai-agents-are-becoming-privilege.html",
+          "signal_type": "article",
+          "signal_strength": "high",
+          "quote_summary": "Agents bypass user-level restrictions because IAM evaluates agent identity, not requester"
+        },
+        {
+          "source": "Okta: Why AI Agents Must Be Treated as Privileged Users",
+          "url": "https://www.okta.com/newsroom/articles/why-ai-agents-must-be-treated-as-privileged-users/",
+          "signal_type": "vendor_insight",
+          "signal_strength": "high",
+          "quote_summary": "68% of orgs lack security controls for AI; 82% know AI creates sensitive access risks"
+        },
+        {
+          "source": "AWS Well-Architected: Least Privilege for Agentic Workflows",
+          "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec05-bp01.html",
+          "signal_type": "best_practice",
+          "signal_strength": "high",
+          "quote_summary": "AWS publishes specific guidance — signal that customers are asking"
+        },
+        {
+          "source": "InfoQ: Building Least-Privilege AI Agent Gateway",
+          "url": "https://www.infoq.com/articles/building-ai-agent-gateway-mcp/",
+          "signal_type": "tutorial",
+          "signal_strength": "medium",
+          "quote_summary": "Developers building custom solutions from MCP + OPA + ephemeral runners"
+        }
+      ],
+      "demand_validation": "STRONG — Active security incident reports, vendor publications, AWS best practices"
+    },
+    {
+      "id": "GAP-003",
+      "title": "Agent-to-Agent Delegation Chain Security",
+      "demand_signals": [
+        {
+          "source": "GitHub A2A Project Issue #1575",
+          "url": "https://github.com/a2aproject/A2A/issues/1575",
+          "signal_type": "github_issue",
+          "signal_strength": "high",
+          "quote_summary": "Active implementation discussion for agent identity, delegation, and enforcement in A2A protocol"
+        },
+        {
+          "source": "ArXiv: AIP: Agent Identity Protocol for Verifiable Delegation",
+          "url": "https://arxiv.org/html/2603.24775",
+          "signal_type": "research",
+          "signal_strength": "medium",
+          "quote_summary": "Academic paper published March 2026 proposing formal delegation protocol"
+        },
+        {
+          "source": "Okta Blog: Control the Chain, Secure the System",
+          "url": "https://www.okta.com/blog/ai/agent-security-delegation-chain/",
+          "signal_type": "vendor_insight",
+          "signal_strength": "high",
+          "quote_summary": "Okta publishing about delegation chain security indicates enterprise demand"
+        },
+        {
+          "source": "HN: The Problem with AI Agents Isn't Identity, It's Authorization",
+          "url": "https://news.ycombinator.com/item?id=47105639",
+          "signal_type": "discussion",
+          "signal_strength": "high",
+          "quote_summary": "Hot debate on HN about whether identity or authorization is the core problem"
+        }
+      ],
+      "demand_validation": "STRONG — Active protocol development (A2A), academic research, vendor investment"
+    },
+    {
+      "id": "GAP-004",
+      "title": "MCP Server Security & Authentication Gateway",
+      "demand_signals": [
+        {
+          "source": "CVE-2025-6514: mcp-remote vulnerability",
+          "url": "https://composio.dev/content/mcp-vulnerabilities-every-developer-should-know",
+          "signal_type": "cve",
+          "signal_strength": "critical",
+          "quote_summary": "437K+ dev environments compromised via OAuth proxy vulnerability in MCP"
+        },
+        {
+          "source": "Obsidian Security: MCP + OAuth One-Click Account Takeover",
+          "url": "https://www.obsidiansecurity.com/blog/when-mcp-meets-oauth-common-pitfalls-leading-to-one-click-account-takeover",
+          "signal_type": "vulnerability_research",
+          "signal_strength": "critical",
+          "quote_summary": "Common OAuth pitfalls in MCP implementations lead to account takeover"
+        },
+        {
+          "source": "HN: OAuth's Role in MCP Security",
+          "url": "https://news.ycombinator.com/item?id=43744116",
+          "signal_type": "discussion",
+          "signal_strength": "high",
+          "quote_summary": "Active HN discussion about OAuth implementation challenges in MCP"
+        },
+        {
+          "source": "Palo Alto Networks: MCP Security Exposed",
+          "url": "https://live.paloaltonetworks.com/t5/community-blogs/mcp-security-exposed-what-you-need-to-know-now/ba-p/1227143",
+          "signal_type": "vendor_insight",
+          "signal_strength": "high",
+          "quote_summary": "Major security vendor publishing about MCP risks"
+        },
+        {
+          "source": "GitHub: MCP Gateway Registry OSS project",
+          "url": "https://github.com/agentic-community/mcp-gateway-registry",
+          "signal_type": "github_project",
+          "signal_strength": "medium",
+          "quote_summary": "Community building enterprise MCP gateway with Keycloak/Entra integration"
+        }
+      ],
+      "demand_validation": "CRITICAL — Active CVEs, multiple security vendor reports, community building solutions"
+    },
+    {
+      "id": "GAP-005",
+      "title": "Shadow AI Agent Discovery & Inventory",
+      "demand_signals": [
+        {
+          "source": "Fast Company: Agentic AI is Having an Identity Crisis",
+          "url": "https://www.fastcompany.com/91503772/agentic-ai-is-having-an-identity-crisis",
+          "signal_type": "mainstream_press",
+          "signal_strength": "high",
+          "quote_summary": "Shadow AI problem reaching mainstream business press"
+        },
+        {
+          "source": "MSSP Alert: Security Teams Wrestling with NHI in 2026",
+          "url": "https://www.msspalert.com/news/security-teams-mssps-will-wrestle-with-agentic-ai-non-human-identities-in-2026",
+          "signal_type": "industry_report",
+          "signal_strength": "high",
+          "quote_summary": "MSSPs flagging agent discovery as top 2026 challenge"
+        },
+        {
+          "source": "SiliconANGLE: AI Agent Identity Top Enterprise Priority at RSAC 2026",
+          "url": "https://siliconangle.com/2026/03/27/ai-agent-identity-becomes-top-enterprise-security-priority-rsac26/",
+          "signal_type": "conference",
+          "signal_strength": "high",
+          "quote_summary": "RSAC 2026 (March 2026) dominated by agent identity discussion"
+        }
+      ],
+      "demand_validation": "STRONG — Mainstream press coverage, RSAC theme, MSSP flagging"
+    },
+    {
+      "id": "GAP-006",
+      "title": "Agent Compliance & Audit Layer (SOC2/HIPAA/GDPR)",
+      "demand_signals": [
+        {
+          "source": "PinkLime: The AI Coding Compliance Gap",
+          "url": "https://pinklime.io/blog/ai-coding-compliance-gdpr-soc2-hipaa",
+          "signal_type": "article",
+          "signal_strength": "medium",
+          "quote_summary": "Clear gap identified between agent actions and compliance framework mapping"
+        },
+        {
+          "source": "AgentComplianceLayer.com",
+          "url": "https://www.agentcompliancelayer.com/",
+          "signal_type": "new_product",
+          "signal_strength": "medium",
+          "quote_summary": "New startup forming to address this exact gap"
+        },
+        {
+          "source": "MindStudio: AI Agent Compliance Guide",
+          "url": "https://www.mindstudio.ai/blog/ai-agent-compliance",
+          "signal_type": "guide",
+          "signal_strength": "medium",
+          "quote_summary": "Platforms writing compliance guides indicates customer demand"
+        }
+      ],
+      "demand_validation": "MODERATE — Emerging concern, early-stage startups forming, not yet urgent for most"
+    },
+    {
+      "id": "GAP-007",
+      "title": "Cross-Platform Agent Identity Federation",
+      "demand_signals": [
+        {
+          "source": "HashiCorp: Unifying Human and Machine Identity Through Identity Fabric",
+          "url": "https://www.hashicorp.com/en/blog/how-to-unify-human-and-machine-identity-management-through-an-identity-fabric",
+          "signal_type": "vendor_insight",
+          "signal_strength": "medium",
+          "quote_summary": "HashiCorp publishing about identity fabric for unified identity management"
+        },
+        {
+          "source": "HN: OIDC-A Proposal for OpenID Connect for AI Agents",
+          "url": "https://news.ycombinator.com/item?id=43828119",
+          "signal_type": "discussion",
+          "signal_strength": "medium",
+          "quote_summary": "Proposal to extend OIDC standard for agent identity federation"
+        }
+      ],
+      "demand_validation": "MODERATE — Enterprise need but not urgent pain point yet; early standards work"
+    },
+    {
+      "id": "GAP-008",
+      "title": "Developer-Friendly Agent Auth SDK/Framework",
+      "demand_signals": [
+        {
+          "source": "Auth0: Built for AI Agents Because Developers Said Auth Was the Hard Part",
+          "url": "https://auth0.com/blog/auth0-for-ai-agents-generally-available/",
+          "signal_type": "vendor_insight",
+          "signal_strength": "high",
+          "quote_summary": "Auth0 says devs told them auth (not LLM integration) was the hard part"
+        },
+        {
+          "source": "GitHub: agent-auth (jacobgadek) — Open source SDK for AI Agent identity",
+          "url": "https://github.com/jacobgadek/agent-auth",
+          "signal_type": "github_project",
+          "signal_strength": "medium",
+          "quote_summary": "Individual developer building agent auth SDK from scratch"
+        },
+        {
+          "source": "GitHub: DeepSecure — Easy identity for AI developers",
+          "url": "https://github.com/DeepTrail/deepsecure",
+          "signal_type": "github_project",
+          "signal_strength": "medium",
+          "quote_summary": "Startup building 'easy identity' specifically for AI developers"
+        },
+        {
+          "source": "GitHub: auth0/auth-for-genai",
+          "url": "https://github.com/auth0/auth-for-genai",
+          "signal_type": "github_project",
+          "signal_strength": "high",
+          "quote_summary": "Auth0 open-sourcing their GenAI auth framework"
+        },
+        {
+          "source": "DEV.to: 4 Best AI Agent Authentication Platforms 2026",
+          "url": "https://dev.to/composiodev/4-best-ai-agent-authentication-platforms-to-consider-in-2026-32o8",
+          "signal_type": "comparison_article",
+          "signal_strength": "medium",
+          "quote_summary": "Developers actively comparing agent auth options"
+        }
+      ],
+      "demand_validation": "STRONG — Auth0 confirms dev demand, multiple OSS SDKs emerging, active comparison articles"
+    },
+    {
+      "id": "GAP-009",
+      "title": "Agent Behavior Anomaly Detection & Response",
+      "demand_signals": [
+        {
+          "source": "Bessemer: Securing AI Agents: Defining Cybersecurity Challenge of 2026",
+          "url": "https://www.bvp.com/atlas/securing-ai-agents-the-defining-cybersecurity-challenge-of-2026",
+          "signal_type": "vc_thesis",
+          "signal_strength": "high",
+          "quote_summary": "Top VC firm identifying agent security as defining challenge — investment signal"
+        },
+        {
+          "source": "CyberArk: AI Agents and Identity Risks 2026",
+          "url": "https://www.cyberark.com/resources/blog/ai-agents-and-identity-risks-how-security-will-shift-in-2026",
+          "signal_type": "vendor_insight",
+          "signal_strength": "high",
+          "quote_summary": "CyberArk flagging agent behavior monitoring as critical gap"
+        }
+      ],
+      "demand_validation": "STRONG — VC thesis papers, major security vendor flagging, RSAC theme"
+    },
+    {
+      "id": "GAP-010",
+      "title": "Agent Secret Zero-Trust Bootstrap Problem",
+      "demand_signals": [
+        {
+          "source": "HN: Show HN: Agent Passport — OAuth-like identity verification",
+          "url": "https://news.ycombinator.com/item?id=47096131",
+          "signal_type": "show_hn",
+          "signal_strength": "high",
+          "quote_summary": "Developer built Agent Passport to solve the bootstrap identity problem"
+        },
+        {
+          "source": "HN: Show HN: AIP — Open protocol for verifying agent permissions",
+          "url": "https://news.ycombinator.com/item?id=47050216",
+          "signal_type": "show_hn",
+          "signal_strength": "high",
+          "quote_summary": "Another Show HN solving the same bootstrap/verification problem"
+        },
+        {
+          "source": "GitHub: AGNTCY Identity — Onboard, create, verify agent identities",
+          "url": "https://github.com/agntcy/identity",
+          "signal_type": "github_project",
+          "signal_strength": "medium",
+          "quote_summary": "OSS project specifically for agent identity bootstrapping"
+        }
+      ],
+      "demand_validation": "STRONG — Multiple Show HN posts, OSS projects, clear developer pain"
+    },
+    {
+      "id": "GAP-011",
+      "title": "Open-Source Agent Identity Standard/Protocol",
+      "demand_signals": [
+        {
+          "source": "HN: AIP — Decentralized identity protocol for agents",
+          "url": "https://news.ycombinator.com/item?id=47075461",
+          "signal_type": "show_hn",
+          "signal_strength": "high",
+          "quote_summary": "Active development of decentralized agent identity protocol"
+        },
+        {
+          "source": "GitHub: better-auth/agent-auth-protocol",
+          "url": "https://github.com/better-auth/agent-auth-protocol",
+          "signal_type": "github_project",
+          "signal_strength": "high",
+          "quote_summary": "Protocol specification with official implementations by Better Auth team"
+        },
+        {
+          "source": "GitHub: alibaba/open-agent-auth",
+          "url": "https://github.com/alibaba/open-agent-auth",
+          "signal_type": "github_project",
+          "signal_strength": "high",
+          "quote_summary": "Alibaba publishing enterprise agent auth framework — major company signal"
+        },
+        {
+          "source": "CSA: Agentic AI Identity & Access Management paper",
+          "url": "https://cloudsecurityalliance.org/artifacts/agentic-ai-identity-and-access-management-a-new-approach",
+          "signal_type": "standards_body",
+          "signal_strength": "high",
+          "quote_summary": "Cloud Security Alliance publishing formal guidance"
+        },
+        {
+          "source": "GitHub: Microsoft Agent Governance Toolkit",
+          "url": "https://github.com/microsoft/agent-governance-toolkit",
+          "signal_type": "github_project",
+          "signal_strength": "high",
+          "quote_summary": "Microsoft open-sourcing governance toolkit covering OWASP Agentic Top 10"
+        }
+      ],
+      "demand_validation": "CRITICAL — Multiple companies and standards bodies publishing protocols; fragmented but intense activity"
+    },
+    {
+      "id": "GAP-012",
+      "title": "SMB/Startup Agent Security (Affordable Tier)",
+      "demand_signals": [
+        {
+          "source": "Nango Blog: Best AI Agent Auth Platforms 2026",
+          "url": "https://nango.dev/blog/best-ai-agent-authentication",
+          "signal_type": "comparison",
+          "signal_strength": "medium",
+          "quote_summary": "Comparisons focus on developer-first tools suggesting startup market demand"
+        },
+        {
+          "source": "GitHub: DeepSecure for fast-moving AI developers",
+          "url": "https://github.com/DeepTrail/deepsecure",
+          "signal_type": "github_project",
+          "signal_strength": "medium",
+          "quote_summary": "Targeting 'fast-moving AI developers' = startup segment"
+        }
+      ],
+      "demand_validation": "MODERATE — Implicit demand from startup ecosystem; not loudly articulated yet"
+    },
+    {
+      "id": "GAP-013",
+      "title": "Agent-Aware API Gateway",
+      "demand_signals": [
+        {
+          "source": "Gravitee: Rise of AI Agent Management Platforms",
+          "url": "https://www.gravitee.io/blog/the-rise-of-ai-agent-management-platforms-the-foundation-for-enterprise-ai",
+          "signal_type": "vendor_insight",
+          "signal_strength": "medium",
+          "quote_summary": "API management vendor pivoting to agent management — market signal"
+        },
+        {
+          "source": "InfoQ: Building Least-Privilege AI Agent Gateway",
+          "url": "https://www.infoq.com/articles/building-ai-agent-gateway-mcp/",
+          "signal_type": "tutorial",
+          "signal_strength": "medium",
+          "quote_summary": "Engineers building custom agent gateways from scratch — unmet need"
+        }
+      ],
+      "demand_validation": "MODERATE — Vendors pivoting, engineers building custom solutions"
+    },
+    {
+      "id": "GAP-014",
+      "title": "Human-in-the-Loop Approval Workflows for Agent Actions",
+      "demand_signals": [
+        {
+          "source": "IAPP: Understanding AI Agents: New Risks and Practical Safeguards",
+          "url": "https://iapp.org/news/a/understanding-ai-agents-new-risks-and-practical-safeguards",
+          "signal_type": "standards_body",
+          "signal_strength": "medium",
+          "quote_summary": "Privacy body calling for human oversight mechanisms"
+        },
+        {
+          "source": "Scalekit: On-Behalf-Of Authentication for AI Agents",
+          "url": "https://www.scalekit.com/blog/delegated-agent-access",
+          "signal_type": "vendor_guide",
+          "signal_strength": "medium",
+          "quote_summary": "Companies publishing about delegation workflows with approval gates"
+        }
+      ],
+      "demand_validation": "MODERATE — Regulatory push more than developer demand currently"
+    },
+    {
+      "id": "GAP-015",
+      "title": "Agent Identity for Edge/IoT/Embedded Deployments",
+      "demand_signals": [
+        {
+          "source": "General market observation",
+          "url": null,
+          "signal_type": "analysis",
+          "signal_strength": "low",
+          "quote_summary": "No specific demand signals found — too early for this niche"
+        }
+      ],
+      "demand_validation": "WEAK — Theoretical need; no active demand signals found"
+    },
+    {
+      "id": "GAP-016",
+      "title": "Multi-Tenant Agent Isolation & Boundaries",
+      "demand_signals": [
+        {
+          "source": "Oso: Best Practices of Authorizing AI Agents",
+          "url": "https://www.osohq.com/learn/best-practices-of-authorizing-ai-agents",
+          "signal_type": "vendor_guide",
+          "signal_strength": "medium",
+          "quote_summary": "Authorization vendors discussing multi-tenancy for agents"
+        }
+      ],
+      "demand_validation": "MODERATE — SaaS builders will need this but not loudly demanding it yet"
+    },
+    {
+      "id": "GAP-017",
+      "title": "Agent Credential Forensics & Incident Response",
+      "demand_signals": [
+        {
+          "source": "Bessemer: Securing AI Agents report",
+          "url": "https://www.bvp.com/atlas/securing-ai-agents-the-defining-cybersecurity-challenge-of-2026",
+          "signal_type": "vc_thesis",
+          "signal_strength": "medium",
+          "quote_summary": "Bessemer thesis includes incident response for agent credentials"
+        },
+        {
+          "source": "RSAC 2026: Nobody Owns the Defense",
+          "url": "https://www.luizneto.ai/rsac-2026-every-attack-involves-ai-and-nobody-owns-the-defense/",
+          "signal_type": "conference",
+          "signal_strength": "medium",
+          "quote_summary": "No clear ownership of agent security incident response"
+        }
+      ],
+      "demand_validation": "MODERATE — Will become urgent after first major agent-credential breach"
+    },
+    {
+      "id": "GAP-018",
+      "title": "Cost Attribution & Budget Enforcement per Agent Identity",
+      "demand_signals": [
+        {
+          "source": "General market observation",
+          "url": null,
+          "signal_type": "analysis",
+          "signal_strength": "low",
+          "quote_summary": "No specific tools or demand signals found — adjacent to FinOps"
+        }
+      ],
+      "demand_validation": "WEAK — Useful feature but no dedicated demand signals found"
+    }
+  ],
+  "demand_summary": {
+    "critical_demand": ["GAP-004 (MCP Security Gateway)", "GAP-011 (Open-Source Agent Identity Standard)"],
+    "strong_demand": ["GAP-001 (Unified Lifecycle)", "GAP-002 (Runtime Least-Privilege)", "GAP-003 (Delegation Chains)", "GAP-005 (Shadow AI Discovery)", "GAP-008 (Developer SDK)", "GAP-009 (Behavior Anomaly Detection)", "GAP-010 (Bootstrap Problem)"],
+    "moderate_demand": ["GAP-006 (Compliance Layer)", "GAP-007 (Cross-Platform Federation)", "GAP-012 (SMB Pricing)", "GAP-013 (Agent-Aware Gateway)", "GAP-014 (Human-in-the-Loop)", "GAP-016 (Multi-Tenant Isolation)", "GAP-017 (Forensics/IR)"],
+    "weak_demand": ["GAP-015 (Edge/IoT)", "GAP-018 (Cost Attribution)"]
+  }
+}

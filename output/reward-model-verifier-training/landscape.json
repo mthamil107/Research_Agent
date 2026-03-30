@@ -1,0 +1,331 @@
+{
+  "domain": "Reward Model & Verifier Training Platforms for SLM Reasoning",
+  "scan_date": "2026-03-29",
+  "queries_executed": [
+    "reward model training platform tools 2025 2026",
+    "process reward model training framework open source PRM",
+    "outcome reward model ORM training tools small language models",
+    "verifier training math code reasoning LLM verification",
+    "RLHF reward model platforms custom domain verifier training",
+    "TRL reward model trainer HuggingFace RLHF training library",
+    "OpenRLHF reward model training open source framework",
+    "DeepSpeed RLHF reward model training chat",
+    "veRL vLLM reinforcement learning reward model training 2025",
+    "Math-Shepherd process supervision reward model verifier dataset",
+    "RLVR reinforcement learning verifiable rewards beyond math code",
+    "Skywork o1 reward model open source verifier training",
+    "LLaMA-Berry Monte Carlo tree search self-refine verifier reward model",
+    "RLHFlow reward modeling recipes GitHub open source",
+    "NeMo Aligner NVIDIA reward model training RLHF",
+    "LMFlow reward model training framework RLHF alignment",
+    "GenRM generative reward model verifier LLM as judge training",
+    "reward model training synthetic data generation automated labeling PRM ORM",
+    "AURORA automated training framework universal process reward model",
+    "VersaPRM multi-domain process reward model synthetic reasoning",
+    "Alibaba Qwen reward model verifier training reasoning GRPO",
+    "small language model reasoning training reward SLM phi qwen 2025 2026"
+  ],
+  "tools": [
+    {
+      "name": "HuggingFace TRL (Transformer Reinforcement Learning)",
+      "url": "https://github.com/huggingface/trl",
+      "type": "open_source_framework",
+      "description": "Full-stack library for training transformer LMs with RL methods. Includes RewardTrainer, PPOTrainer, GRPOTrainer, DPOTrainer, SFTTrainer. Supports ORM training natively. Built on HF Transformers/Accelerate/PEFT ecosystem.",
+      "reward_model_support": "RewardTrainer for ORM; no native PRM trainer yet",
+      "scale": "Single GPU to multi-node via DeepSpeed/Accelerate",
+      "license": "Apache 2.0",
+      "maturity": "production",
+      "slm_focus": false
+    },
+    {
+      "name": "OpenRLHF",
+      "url": "https://github.com/OpenRLHF/OpenRLHF",
+      "type": "open_source_framework",
+      "description": "High-performance RLHF framework built on Ray + vLLM + DeepSpeed. Supports PPO, REINFORCE++, GRPO, RLOO, DAPO. Used by Google, ByteDance, Alibaba. Supports 70B+ model training with distributed scheduling.",
+      "reward_model_support": "Multiple reward models, remote reward model API, custom reward functions",
+      "scale": "Multi-node, 70B+ models",
+      "license": "Apache 2.0",
+      "maturity": "production",
+      "slm_focus": false
+    },
+    {
+      "name": "veRL (Volcano Engine RL)",
+      "url": "https://github.com/verl-project/verl",
+      "type": "open_source_framework",
+      "description": "Flexible, efficient RL training framework for LLM post-training. Supports PPO, GRPO, GSPO, ReMax, REINFORCE++, RLOO, PRIME, DAPO. Integrates vLLM/SGLang for rollouts. FSDP2 backend.",
+      "reward_model_support": "Model-based reward and function-based (verifiable) reward for math/code",
+      "scale": "Multi-node, achieved O1-level performance on AIME",
+      "license": "Apache 2.0",
+      "maturity": "production",
+      "slm_focus": false
+    },
+    {
+      "name": "DeepSpeed-Chat",
+      "url": "https://github.com/microsoft/DeepSpeedExamples/tree/master/applications/DeepSpeed-Chat",
+      "type": "open_source_framework",
+      "description": "Microsoft's RLHF training system. 3-step pipeline: SFT, Reward Model training, RLHF/PPO. DeepSpeed Hybrid Engine for up to 15x speedup. Supports 350M to 175B parameters.",
+      "reward_model_support": "Dedicated Step 2 for reward model finetuning with comparison datasets",
+      "scale": "Single GPU to multi-node, 175B",
+      "license": "Apache 2.0",
+      "maturity": "stable",
+      "slm_focus": false
+    },
+    {
+      "name": "NVIDIA NeMo Aligner",
+      "url": "https://github.com/NVIDIA/NeMo-Aligner",
+      "type": "open_source_framework",
+      "description": "Scalable toolkit for model alignment. Supports SteerLM, DPO, RLHF/PPO. Built on Megatron-LM with 3D parallelism. TensorRT-LLM integration for inference acceleration.",
+      "reward_model_support": "SupervisedTrainer for reward modeling, CriticServerTrainer for RL critic",
+      "scale": "Multi-node, enterprise-grade",
+      "license": "Apache 2.0",
+      "maturity": "production",
+      "slm_focus": false
+    },
+    {
+      "name": "RLHFlow RLHF-Reward-Modeling",
+      "url": "https://github.com/RLHFlow/RLHF-Reward-Modeling",
+      "type": "open_source_recipes",
+      "description": "Collection of recipes for training reward/preference models. Top-3 8B reward models on RewardBench trained with this repo. Supports Bradley-Terry RM, Pairwise Preference Model, SSRM, Math-RM (PRM+ORM), Decision-tree RM.",
+      "reward_model_support": "Bradley-Terry RM, Pairwise PM, Math-RM (PRM+ORM), Decision-tree RM",
+      "scale": "Research to production",
+      "license": "Open source",
+      "maturity": "research-production",
+      "slm_focus": false
+    },
+    {
+      "name": "Axolotl",
+      "url": "https://github.com/axolotl-ai-cloud/axolotl",
+      "type": "open_source_framework",
+      "description": "Fine-tuning framework that added PRM training support. Trains on stepwise-supervision datasets where each reasoning step is labeled for correctness.",
+      "reward_model_support": "PRM fine-tuning with stepwise supervision datasets",
+      "scale": "Single to multi-GPU",
+      "license": "Apache 2.0",
+      "maturity": "production",
+      "slm_focus": false
+    },
+    {
+      "name": "OpenR (OpenReasoner)",
+      "url": "https://openreasoner.github.io/",
+      "type": "open_source_framework",
+      "description": "Infrastructure for integrating PRMs into offline and online RL pipelines. Provides recipes for PRM-guided training across reasoning benchmarks. Uses PRM800K, Math-Shepherd, MATH-APS datasets.",
+      "reward_model_support": "PRM training via supervised fine-tuning, offline and online RL integration",
+      "scale": "Research",
+      "license": "Open source",
+      "maturity": "research",
+      "slm_focus": true
+    },
+    {
+      "name": "PRIME (Process Reinforcement through Implicit Rewards)",
+      "url": "https://huggingface.co/blog/ganqu/prime",
+      "type": "open_source_method",
+      "description": "Open-source solution for online RL with process rewards. Advances reasoning abilities beyond imitation/distillation. Implicit process reward computation.",
+      "reward_model_support": "Implicit process rewards for online RL",
+      "scale": "Research",
+      "license": "Open source",
+      "maturity": "research",
+      "slm_focus": false
+    },
+    {
+      "name": "PRM Library (sdiehl/prm)",
+      "url": "https://github.com/sdiehl/prm",
+      "type": "open_source_library",
+      "description": "Dedicated library for process reward modeling. Built on HuggingFace Trainer. Includes tree search inference. ProcessRewardTrainer wrapper class.",
+      "reward_model_support": "Dedicated PRM training and tree search inference",
+      "scale": "Research, single GPU",
+      "license": "Open source",
+      "maturity": "early",
+      "slm_focus": false
+    },
+    {
+      "name": "LMFlow",
+      "url": "https://optimalscale.github.io/LMFlow/",
+      "type": "open_source_framework",
+      "description": "Framework for reward model training following InstructGPT procedure. Includes RAFT (Reward rAnked FineTuning) alignment algorithm.",
+      "reward_model_support": "InstructGPT-style reward model training, RAFT alignment",
+      "scale": "Research to production",
+      "license": "Open source",
+      "maturity": "stable",
+      "slm_focus": false
+    },
+    {
+      "name": "Unsloth",
+      "url": "https://unsloth.ai/",
+      "type": "open_source_framework",
+      "description": "Fast fine-tuning framework supporting SFT, DPO, and GRPO for RL training. Popular for SLM reasoning training with Qwen/Phi models.",
+      "reward_model_support": "GRPO with verifiable rewards, DPO",
+      "scale": "Consumer GPUs, optimized for speed",
+      "license": "Apache 2.0",
+      "maturity": "production",
+      "slm_focus": true
+    },
+    {
+      "name": "Swift (ModelScope)",
+      "url": "https://swift.readthedocs.io/",
+      "type": "open_source_framework",
+      "description": "Alibaba's training framework supporting SFT, DPO, GRPO for Qwen models. Integrated best practices for reasoning training.",
+      "reward_model_support": "GRPO, DPO, rule-based and model-based rewards",
+      "scale": "Single to multi-GPU",
+      "license": "Apache 2.0",
+      "maturity": "production",
+      "slm_focus": true
+    },
+    {
+      "name": "Llama-Factory",
+      "url": "https://github.com/hiyouga/LLaMA-Factory",
+      "type": "open_source_framework",
+      "description": "Unified fine-tuning framework supporting 100+ LLMs. Includes SFT, DPO, GRPO, reward model training.",
+      "reward_model_support": "Reward model training, DPO, GRPO",
+      "scale": "Single to multi-GPU",
+      "license": "Apache 2.0",
+      "maturity": "production",
+      "slm_focus": false
+    },
+    {
+      "name": "Argilla",
+      "url": "https://argilla.io/",
+      "type": "data_platform",
+      "description": "Data labeling and curation platform for RLHF. Supports preference data collection, reward model training data preparation.",
+      "reward_model_support": "Preference data annotation for reward model training",
+      "scale": "Enterprise",
+      "license": "Apache 2.0",
+      "maturity": "production",
+      "slm_focus": false
+    },
+    {
+      "name": "Label Studio",
+      "url": "https://labelstud.io/",
+      "type": "data_platform",
+      "description": "Open source data labeling platform with RLVR support. Guides for reinforcement learning from verifiable rewards.",
+      "reward_model_support": "Data labeling for verifiable rewards",
+      "scale": "Enterprise",
+      "license": "Apache 2.0",
+      "maturity": "production",
+      "slm_focus": false
+    }
+  ],
+  "pretrained_reward_models": [
+    {
+      "name": "Skywork-o1-Open-PRM-Qwen-2.5-7B",
+      "url": "https://huggingface.co/Skywork/Skywork-o1-Open-PRM-Qwen-2.5-7B",
+      "type": "PRM",
+      "base_model": "Qwen-2.5-7B",
+      "domain": "Math reasoning"
+    },
+    {
+      "name": "Skywork-o1-Open-PRM-Qwen-2.5-1.5B",
+      "url": "https://huggingface.co/Skywork/Skywork-o1-Open-PRM-Qwen-2.5-1.5B",
+      "type": "PRM",
+      "base_model": "Qwen-2.5-1.5B",
+      "domain": "Math reasoning"
+    },
+    {
+      "name": "Skywork-Reward-Llama-3.1-8B",
+      "url": "https://huggingface.co/Skywork/Skywork-Reward-Llama-3.1-8B",
+      "type": "ORM",
+      "base_model": "Llama-3.1-8B",
+      "domain": "General"
+    },
+    {
+      "name": "Math-Shepherd",
+      "url": "https://huggingface.co/peiyi9979/math-shepherd-mistral-7b-prm",
+      "type": "PRM",
+      "base_model": "Mistral-7B",
+      "domain": "Math reasoning"
+    },
+    {
+      "name": "Qwen2.5-Math-PRM",
+      "url": "https://huggingface.co/Qwen",
+      "type": "PRM",
+      "base_model": "Qwen-2.5",
+      "domain": "Math reasoning"
+    },
+    {
+      "name": "Universal-PRM-7B (AURORA)",
+      "url": "https://auroraprm.github.io/",
+      "type": "PRM",
+      "base_model": "7B",
+      "domain": "Universal/multi-domain"
+    },
+    {
+      "name": "VersaPRM",
+      "url": "https://arxiv.org/abs/2502.06737",
+      "type": "PRM",
+      "base_model": "Llama-3.1-8B",
+      "domain": "Multi-domain (Math + MMLU-Pro)"
+    }
+  ],
+  "research_methods": [
+    {
+      "name": "GenRM (Generative Reward Model / Generative Verifier)",
+      "url": "https://arxiv.org/abs/2408.15240",
+      "description": "Trains verifiers using next-token prediction. LLM answers 'Is the answer correct (Yes/No)?' via SFT. GenRM-CoT adds chain-of-thought before verification. Published at ICLR 2025 by Google DeepMind.",
+      "innovation": "Replaces discriminative classification with generative verification"
+    },
+    {
+      "name": "R-PRM (Reasoning-Driven PRM)",
+      "url": "https://github.com/NJUNLP/R-PRM",
+      "description": "Enhances step-by-step evaluation via supervised cold-start, meta-optimization, and inference-time scaling.",
+      "innovation": "Self-evolving PRM training"
+    },
+    {
+      "name": "OpenPRM",
+      "url": "https://openreview.net/forum?id=fGIqGfmgkW",
+      "description": "Integrates ORMs and PRMs under same pairwise ranking objectives. Scalable process-level supervision in open domains.",
+      "innovation": "Unified ORM+PRM training"
+    },
+    {
+      "name": "AURORA",
+      "url": "https://arxiv.org/abs/2502.11520",
+      "description": "Automated framework for training universal PRMs using ensemble prompting and reverse verification. Includes UniversalBench.",
+      "innovation": "Automated PRM annotation without human labels"
+    },
+    {
+      "name": "LLaMA-Berry (MCTS + PPRM)",
+      "url": "https://www.marktechpost.com/2024/11/03/llama-berry-elevating-ai-mathematical-reasoning-through-a-synergistic-approach-of-monte-carlo-tree-search-and-enhanced-solution-evaluation-models/",
+      "description": "Combines Monte Carlo Tree Search with Pairwise Preference Reward Model (PPRM) for math reasoning with small models.",
+      "innovation": "MCTS + pairwise verifier for solution search"
+    },
+    {
+      "name": "K2V (Knowledge-to-Verification)",
+      "url": "https://openreview.net/forum?id=EVS7SeKBqI",
+      "description": "Extends RLVR to knowledge-intensive domains beyond math/code. Enables verification of reasoning without human supervision.",
+      "innovation": "RLVR for knowledge-intensive domains"
+    },
+    {
+      "name": "HERMES",
+      "url": "https://arxiv.org/pdf/2511.18760",
+      "description": "Multi-modular agent that integrates formal verification into LLM reasoning using tool-calling for step verification.",
+      "innovation": "Formal verification integrated into inference"
+    }
+  ],
+  "key_datasets": [
+    {
+      "name": "PRM800K",
+      "source": "OpenAI",
+      "description": "800K step-level labels for math reasoning process supervision"
+    },
+    {
+      "name": "Math-Shepherd",
+      "source": "Microsoft",
+      "description": "Automatically generated process-wise supervision data for math"
+    },
+    {
+      "name": "MATH-APS",
+      "source": "Various",
+      "description": "Automatic process supervision for math"
+    },
+    {
+      "name": "UltraFeedback",
+      "source": "OpenBMB",
+      "description": "Large-scale preference dataset for reward model training"
+    },
+    {
+      "name": "HH-RLHF",
+      "source": "Anthropic",
+      "description": "Human preference data for helpfulness and harmlessness"
+    }
+  ],
+  "total_tools_found": 16,
+  "total_pretrained_models": 7,
+  "total_research_methods": 7
+}

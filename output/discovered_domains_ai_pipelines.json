@@ -1,0 +1,163 @@
+{
+  "seed_area": "AI pipeline tools to improve autonomous AI agent behavior",
+  "discovery_date": "2026-03-29",
+  "domains": [
+    {
+      "name": "AI Agent Memory & Context Persistence Systems",
+      "why_scan": "Memory is the single biggest bottleneck turning stateless LLMs into useful agents. The space is fragmenting fast with Mem0, Zep, Letta, Cognee, xMemory, and Supermemory all taking different architectural bets (vector, graph, tiered, episodic). ICLR 2026 has a dedicated MemAgents workshop. Research papers like MemRL and MemEvolve show the field is still unsettled, meaning there are real gaps between what research proposes and what tools deliver.",
+      "signals": [
+        "ICLR 2026 MemAgents workshop dedicated to agent memory",
+        "xMemory (King's College/Turing Institute) cuts token usage ~50% via 4-level semantic hierarchy",
+        "Hindsight (vectorize-io) trending on GitHub for learning agent memory",
+        "Anthropic, OpenAI both shipping native memory features, fragmenting the market",
+        "Memory cited as top-3 pain point in HN 'Sick of AI Agent Frameworks' thread"
+      ],
+      "estimated_tools": "15-25",
+      "heat": "hot"
+    },
+    {
+      "name": "AI Agent Evaluation & Benchmarking Platforms",
+      "why_scan": "With 50+ benchmarks (AgentBench, GAIA, WebArena, SWE-bench) and evaluation platforms like Confident AI, Langfuse, Truesight, and Maxim AI competing, the tooling is proliferating but no clear winner exists. Amazon, Anthropic, and Gartner all published major eval methodology papers in 2025-2026. Only 18% of teams use eval platforms today (Gartner) vs 60% projected by 2028 — massive adoption gap.",
+      "signals": [
+        "Gartner: only 18% of teams use AI eval platforms today, 60% projected by 2028",
+        "Amazon published real-world lessons from evaluating agentic systems",
+        "Anthropic published 'Demystifying evals for AI agents' guide",
+        "50+ benchmarks catalogued in philschmid/ai-agent-benchmark-compendium on GitHub",
+        "Step-level tracing eval (not just end-to-end) emerging as key differentiator"
+      ],
+      "estimated_tools": "20-30",
+      "heat": "hot"
+    },
+    {
+      "name": "AI Agent Observability & Tracing (AgentOps)",
+      "why_scan": "The shift from LLMOps to AgentOps is creating a new monitoring category. Tools like Arize, LangSmith, AgentOps.ai, Langfuse, and LangWatch compete but the space is immature — most teams still rely on print-statement debugging. OpenTelemetry-based agent tracing is emerging as a standard but tooling around multi-agent trace visualization, cost attribution per agent step, and hallucination detection at runtime are all gap-rich areas.",
+      "signals": [
+        "AgentOps.ai raised funding specifically for agent-native observability",
+        "Arize built on OpenTelemetry for vendor-agnostic agent tracing",
+        "HN thread 'Less capability, more reliability please' highlights debugging pain",
+        "15+ tools mapped in aimultiple.com agentic monitoring comparison",
+        "Cost-per-session and token-ratio dashboards becoming table stakes"
+      ],
+      "estimated_tools": "15-25",
+      "heat": "hot"
+    },
+    {
+      "name": "AI Agent Safety, Guardrails & Runtime Security",
+      "why_scan": "Only 20% of organizations have mature AI governance (Deloitte 2026). Guardrails AI, Patronus AI, Straiker, AWS Bedrock Guardrails, and Galileo all compete but the agentic-specific risks (tool misuse, cascading failures, unauthorized actions) are poorly covered by existing prompt-level guardrails. RSA 2026 revealed a major 'agentic AI governance gap'. The concept of 'governance agents' monitoring other agents is brand new.",
+      "signals": [
+        "RSA 2026 revealed major 'agentic AI governance gap'",
+        "Deloitte: only 20% of orgs have mature AI governance models",
+        "Patronus AI's Lynx model outperforms GPT-4 on hallucination detection",
+        "Straiker raised funding for runtime AI guardrails (Ascend + Defend products)",
+        "'Governance agents' monitoring other AI systems emerging as new pattern",
+        "HN thread about AI agent publishing hit pieces highlights safety risks"
+      ],
+      "estimated_tools": "15-20",
+      "heat": "hot"
+    },
+    {
+      "name": "Agent-to-Agent Communication & Multi-Agent Protocols",
+      "why_scan": "2026 is the year agent protocols go mainstream. Google's A2A protocol donated to Linux Foundation, IBM's ACP merged into A2A, Anthropic's MCP became standard for tool integration, and the Agentic AI Foundation (AAIF) was co-founded by OpenAI, Anthropic, Google, Microsoft, AWS, and Block. But tooling around protocol implementation, testing, debugging multi-agent communication, and agent discovery is still nascent.",
+      "signals": [
+        "A2A protocol donated to Linux Foundation, backed by all major AI labs",
+        "MCP + A2A emerging as complementary standards (tools vs collaboration)",
+        "AAIF co-founded Dec 2025 by OpenAI, Anthropic, Google, Microsoft, AWS, Block",
+        "Gartner: 40% of enterprise apps will feature AI agents by 2026 (up from 5%)",
+        "Multi-agent debugging and protocol testing tools virtually nonexistent"
+      ],
+      "estimated_tools": "10-20",
+      "heat": "hot"
+    },
+    {
+      "name": "AI Agent Sandbox & Secure Execution Environments",
+      "why_scan": "Letting agents execute code and take real-world actions requires sandboxing. E2B, Cloudflare Dynamic Workers, Northflank, Blaxel, Docker Sandboxes, and Browserbase all launched or expanded agent sandbox features in 2025-2026. The space splits between code execution sandboxes, browser sandboxes, and full environment sandboxes. MicroVM vs gVisor vs container isolation is still an unsettled architecture question.",
+      "signals": [
+        "Cloudflare, Vercel, Modal, Docker all shipped agent sandbox features in 2025-2026",
+        "E2B positions as 'Enterprise AI Agent Cloud' focused on sandboxing",
+        "Northflank processes 2M+ isolated agent workloads monthly",
+        "AISI (UK AI Safety Institute) open-sourced Inspect Sandboxing Toolkit",
+        "Browser Use hit 81K GitHub stars — browser sandbox demand is massive"
+      ],
+      "estimated_tools": "15-25",
+      "heat": "hot"
+    },
+    {
+      "name": "AI Agent Cost Optimization & Token Economics",
+      "why_scan": "As agents scale to production, token costs become the primary blocker. Multi-model routing, semantic caching, context compression, and prompt optimization can cut costs 60-80%. Tools like Redis (semantic caching), Kong AI Gateway (token rate limiting), xMemory (context compression), and MindStudio (multi-model routing) address pieces, but no unified 'agent cost management platform' dominates. This is the FinOps-for-agents moment.",
+      "signals": [
+        "VentureBeat covered xMemory cutting token costs nearly in half",
+        "Kong launched AI Gateway with token rate-limiting and tiered access",
+        "Multiple blog posts documenting 90% cost reductions with optimization",
+        "Frontier orchestrator + cheap sub-agents pattern cutting costs 40-60%",
+        "Redis positioning semantic caching as infrastructure for agent cost control"
+      ],
+      "estimated_tools": "10-20",
+      "heat": "warm"
+    },
+    {
+      "name": "AI Agent Self-Correction & Error Recovery Systems",
+      "why_scan": "Production agents fail constantly — API timeouts, hallucinated tool calls, infinite loops, corrupted state. Self-healing is moving from research to product. Salesforce Agentforce 3.0 shipped Self-Healing Workflows, Cohesity built agent rollback/recovery, and LangGraph offers checkpoint-based recovery. But most teams hand-roll retry logic. The gap between 'self-correcting multi-agent systems' in papers and actual tooling is enormous.",
+      "signals": [
+        "Salesforce Agentforce 3.0 shipped Self-Healing Workflows feature",
+        "Cohesity building agent rollback/recovery tools (The Register coverage)",
+        "Medium posts on 'Self-Correcting Multi-Agent AI Systems' getting traction",
+        "LangGraph checkpoint recovery is framework-specific, not universal",
+        "HN 'Less capability, more reliability' thread shows developer frustration"
+      ],
+      "estimated_tools": "10-15",
+      "heat": "emerging"
+    },
+    {
+      "name": "AI Agent Context Engineering & Prompt Orchestration",
+      "why_scan": "The field evolved from prompt engineering to context engineering in 2025-2026. Anthropic and Martin Fowler both published influential guides. Tools like Maxim AI, PromptLayer, PromptHub, and Mirascope handle prompt versioning, but the harder problem — managing runtime state, memory, tools, approvals, and recovery across long agent sessions — has few dedicated tools. The 'agent harness' concept is the new battleground.",
+      "signals": [
+        "Anthropic published 'Effective context engineering for AI agents'",
+        "Martin Fowler published 'Context Engineering for Coding Agents'",
+        "GitHub trending: 'Agent Harness War Heats Up' in March 2026 weekly",
+        "everything-claude-code (+21K stars/week) and superpowers (+19K stars/week) racing",
+        "Awesome-Context-Engineering repo aggregating hundreds of papers/frameworks"
+      ],
+      "estimated_tools": "15-25",
+      "heat": "hot"
+    },
+    {
+      "name": "AI Agent Browser Automation & Computer Use",
+      "why_scan": "Browser agents exploded in 2025-2026 — Browser Use went from 0 to 81K GitHub stars in months. Stagehand, Playwright MCP, Browserbase, Skyvern, and Firecrawl all compete. The market is projected to grow from $4.5B to $76.8B by 2034. But reliability on complex multi-step web tasks is still poor, accessibility/anti-bot challenges remain unsolved, and enterprise-grade browser agent infrastructure is immature.",
+      "signals": [
+        "Browser Use: 81K GitHub stars, among fastest-growing OSS projects ever",
+        "Playwright MCP already integrated into GitHub Copilot Agent",
+        "Market projected $4.5B to $76.8B by 2034 (32.8% CAGR)",
+        "Stagehand providing TypeScript SDK with act/extract/observe primitives",
+        "79% of companies have adopted some form of AI agent technology"
+      ],
+      "estimated_tools": "15-25",
+      "heat": "hot"
+    },
+    {
+      "name": "AI Agent Identity, Authentication & Access Control",
+      "why_scan": "HN discussion 'Did we solve AI agent identity in 2025?' concluded: no, identity models are still bolted on using user or service account models. As agents act autonomously (booking flights, sending emails, accessing APIs), identity/auth/permissions become critical. OAuth for agents, agent-specific API keys, capability-based permissions, and audit trails are all unsolved. This is a non-obvious but high-impact adjacent domain.",
+      "signals": [
+        "HN thread 'Did we solve AI agent identity in 2025?' — consensus: no",
+        "Auth0 publishing guides on MCP vs A2A with auth implications",
+        "Agent identity models described as 'bolted on' using user/service accounts",
+        "RSA 2026 flagged 'Agents Without Owners' governance gap",
+        "YC W26 batch: 41.5% building agent infrastructure, auth is a key layer"
+      ],
+      "estimated_tools": "8-15",
+      "heat": "emerging"
+    },
+    {
+      "name": "Multi-Agent Orchestration & Workflow Frameworks",
+      "why_scan": "Every major AI lab now has an agent framework (OpenAI Agents SDK, Google ADK, Anthropic Agent SDK, Microsoft AutoGen, HuggingFace Smolagents). LangGraph leads with 14K stars and 4.2M monthly downloads. CrewAI dominates role-based multi-agent setups. But the YC W26 batch shows the money moving to infrastructure — orchestration of heterogeneous agents across frameworks, with state management, human-in-the-loop, and fault tolerance, remains hard.",
+      "signals": [
+        "Every major AI lab shipped its own agent framework in 2025-2026",
+        "LangGraph: 14K stars, 4.2M monthly downloads, enterprise adoption",
+        "AutoGen: 45K GitHub stars, event-driven multi-agent architecture",
+        "YC W26: 41.5% of batch building agent infrastructure",
+        "BCG estimates $200B agentic AI opportunity for tech service providers"
+      ],
+      "estimated_tools": "25-35",
+      "heat": "hot"
+    }
+  ]
+}

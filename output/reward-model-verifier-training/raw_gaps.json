@@ -1,0 +1,128 @@
+{
+  "domain": "Reward Model & Verifier Training Platforms for SLM Reasoning",
+  "generated": "2026-03-29",
+  "gap_categories": ["feature_gap", "segment_gap", "workflow_gap", "integration_gap", "pricing_gap"],
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "No unified PRM+ORM+GenRM training platform",
+      "category": "feature_gap",
+      "description": "No single tool supports training all three reward model types (Process RM, Outcome RM, and Generative RM/verifiers) in one framework. Users must cobble together RLHFlow for PRM/ORM, TRL for ORM, and custom GenRM code separately. A unified platform would let users experiment with and compare all verification approaches.",
+      "current_state": "PRM training exists in RLHFlow/Axolotl/OpenR; ORM in TRL/OpenRLHF; GenRM only in research code (Google DeepMind paper). No single tool covers all three.",
+      "ideal_state": "One framework that supports PRM, ORM, GenRM, and hybrid verifier training with shared data pipelines and evaluation."
+    },
+    {
+      "id": "GAP-002",
+      "title": "No SLM-optimized reward model training toolkit",
+      "category": "segment_gap",
+      "description": "Existing frameworks (OpenRLHF, veRL, NeMo Aligner) target large-scale training on multi-GPU clusters. There is no purpose-built toolkit for training reward models and verifiers specifically for small language models (1B-7B) on consumer hardware (single 24GB GPU). Unsloth and Swift are SLM-friendly but lack dedicated RM training.",
+      "current_state": "OpenR is closest but limited in scope. Unsloth supports GRPO but not RM training. No tool specifically targets 'train a PRM for your 3B reasoning model on a single GPU.'",
+      "ideal_state": "A lightweight toolkit optimized for training PRMs/ORMs/verifiers on SLMs with LoRA/QLoRA, running on a single consumer GPU."
+    },
+    {
+      "id": "GAP-003",
+      "title": "Custom domain verifier training is extremely manual",
+      "category": "workflow_gap",
+      "description": "Training verifiers for domains beyond math and code (e.g., legal reasoning, medical diagnosis, scientific analysis, business logic) requires writing custom reward functions from scratch. There is no guided workflow or template system for creating domain-specific verifiers. The 'verifier problem' for RLVR beyond math/code is acknowledged but unsolved.",
+      "current_state": "Math verifiers exist (PRM800K, Math-Shepherd). Code verifiers use test execution. For all other domains, users start from zero with no tooling, templates, or data generation pipelines.",
+      "ideal_state": "A platform with domain verifier templates, automated data generation for new domains, and guided workflows for creating custom verifiable reward functions."
+    },
+    {
+      "id": "GAP-004",
+      "title": "No automated step-labeling pipeline for PRM data",
+      "category": "workflow_gap",
+      "description": "PRM training requires step-level labels (correct/incorrect for each reasoning step). Manual annotation is prohibitively expensive. Math-Shepherd and AURORA show automated approaches but there is no productized, easy-to-use pipeline for generating PRM training data automatically across domains.",
+      "current_state": "Math-Shepherd uses 'completers' to label math steps. AURORA uses ensemble prompting. VersaPRM uses weak/strong completer consistency. All are research prototypes, not tools.",
+      "ideal_state": "A production pipeline that takes a domain, sample problems, and a policy model, then automatically generates step-labeled PRM training data using configurable labeling strategies."
+    },
+    {
+      "id": "GAP-005",
+      "title": "No end-to-end verifier-guided reasoning training loop for SLMs",
+      "category": "workflow_gap",
+      "description": "The full loop of: (1) generate reasoning traces, (2) auto-label steps, (3) train PRM/verifier, (4) use verifier to guide RL training of the policy SLM, (5) evaluate, (6) iterate -- does not exist as a single integrated workflow. Users must manually orchestrate 3-5 different tools.",
+      "current_state": "veRL/OpenRLHF handle RL training with reward models but don't include PRM data generation or automated step labeling. PRIME offers implicit process rewards but is limited to math.",
+      "ideal_state": "An end-to-end platform: provide a base SLM + domain data, and it handles the full train-verify-retrain loop automatically."
+    },
+    {
+      "id": "GAP-006",
+      "title": "No visual/interactive tool for PRM data inspection and debugging",
+      "category": "feature_gap",
+      "description": "When training PRMs, there is no way to visually inspect step-level reward assignments, debug incorrect labels, or understand where the verifier fails. Argilla handles preference data but has no PRM-specific visualization (step-by-step reward overlay, error pattern analysis).",
+      "current_state": "Argilla provides general preference annotation UI. No tool visualizes step-level rewards on reasoning chains or helps debug PRM training data quality.",
+      "ideal_state": "An interactive UI for browsing reasoning traces with color-coded step rewards, filtering by error type, editing labels, and analyzing verifier accuracy per step type."
+    },
+    {
+      "id": "GAP-007",
+      "title": "No reward model benchmarking suite for SLM-specific evaluation",
+      "category": "feature_gap",
+      "description": "RewardBench evaluates general reward models, but there is no benchmark specifically designed to evaluate reward models and verifiers for small language model reasoning tasks. SLMs make different types of errors than large models, and verifiers need to be evaluated on SLM-specific failure modes.",
+      "current_state": "RewardBench and RewardBench 2 exist for general RM evaluation. ProcessBench exists for PRM evaluation. Neither focuses on SLM-specific reasoning patterns.",
+      "ideal_state": "A benchmark suite specifically testing verifier accuracy on SLM-generated reasoning traces across math, code, logic, and domain-specific tasks."
+    },
+    {
+      "id": "GAP-008",
+      "title": "No tree search + verifier inference toolkit for SLMs",
+      "category": "feature_gap",
+      "description": "Using PRMs/verifiers at inference time with tree search (MCTS, beam search) dramatically improves SLM reasoning, but there is no production-ready, easy-to-use toolkit for this. LLaMA-Berry and OpenR demonstrate the concept but are research code, not deployable tools.",
+      "current_state": "LLaMA-Berry (MCTS + PPRM), OpenR (PRM-guided search), sdiehl/prm (tree search) exist as research code. No production-ready API or library.",
+      "ideal_state": "A deployable inference library: plug in your SLM + verifier, configure search strategy (MCTS/beam/best-of-N), get verified reasoning outputs via API."
+    },
+    {
+      "id": "GAP-009",
+      "title": "No multi-domain PRM transfer learning toolkit",
+      "category": "feature_gap",
+      "description": "VersaPRM shows that PRMs can transfer across domains with synthetic data, but there is no toolkit that makes this easy. Users cannot take a math-trained PRM and efficiently adapt it to a new domain (e.g., legal reasoning) without re-implementing the VersaPRM pipeline from scratch.",
+      "current_state": "VersaPRM paper + code exist but are research artifacts. AURORA provides Universal-PRM-7B. No user-friendly tool for domain adaptation of PRMs.",
+      "ideal_state": "A toolkit where users can start from a pretrained PRM, provide domain-specific examples, and fine-tune a domain-adapted verifier with minimal effort."
+    },
+    {
+      "id": "GAP-010",
+      "title": "No synthetic reasoning trace generator for reward model training",
+      "category": "workflow_gap",
+      "description": "Training reward models requires large datasets of correct and incorrect reasoning traces. There is no dedicated tool for generating diverse, high-quality synthetic reasoning data with controlled error injection for reward model training. Users must manually prompt LLMs and hope for natural error distribution.",
+      "current_state": "Math-Shepherd generates math-specific traces. No general-purpose tool exists for generating diverse reasoning traces with controlled errors for any domain.",
+      "ideal_state": "A tool that generates synthetic reasoning traces for any domain, with configurable error types (arithmetic, logic, factual, procedural), difficulty levels, and step counts."
+    },
+    {
+      "id": "GAP-011",
+      "title": "No reward model distillation pipeline (large RM to small RM)",
+      "category": "feature_gap",
+      "description": "Large reward models (70B+) are more accurate but too expensive for inference-time verification of SLMs. There is no systematic pipeline for distilling a large RM into a small one (1-3B) that can run alongside an SLM on consumer hardware.",
+      "current_state": "Users can theoretically use knowledge distillation but no tool specifically supports RM-to-RM distillation with verification-specific loss functions.",
+      "ideal_state": "A distillation pipeline: take a large pretrained RM, distill it into a small verifier optimized for inference-time use alongside a specific SLM."
+    },
+    {
+      "id": "GAP-012",
+      "title": "No managed/cloud platform for reward model training",
+      "category": "pricing_gap",
+      "description": "All existing tools are open-source frameworks requiring significant ML engineering expertise. There is no SaaS/managed platform where users can upload preference data and get a trained reward model without managing infrastructure. The gap between 'I have preference data' and 'I have a working reward model' is huge.",
+      "current_state": "Every option requires setting up training infrastructure, configuring distributed training, managing GPUs. Closest is Labelbox/Argilla for data, but training requires separate tools.",
+      "ideal_state": "A managed platform: upload domain data, select base model, configure verifier type (PRM/ORM/GenRM), click train, get deployable verifier API endpoint."
+    },
+    {
+      "id": "GAP-013",
+      "title": "No code reasoning verifier training toolkit beyond test execution",
+      "category": "feature_gap",
+      "description": "Code verifiers currently rely on test case execution (pass/fail). There is no tool for training code reasoning verifiers that can evaluate code logic, identify bugs in reasoning steps, or verify partial code solutions without executing them. This limits code RLVR to problems with test suites.",
+      "current_state": "Code verification = run tests. No tool trains verifiers that understand code reasoning steps, detect logical errors in incomplete solutions, or verify pseudocode.",
+      "ideal_state": "A code verifier training toolkit that can evaluate code reasoning quality at the step level, not just final test-pass/fail."
+    },
+    {
+      "id": "GAP-014",
+      "title": "No reward model version control and experiment tracking",
+      "category": "integration_gap",
+      "description": "There is no integrated system for versioning reward models alongside policy models, tracking how RM changes affect downstream reasoning performance, or A/B testing different verifier strategies. Standard MLOps tools (MLflow, W&B) don't have RM-specific features.",
+      "current_state": "Users manually track RM experiments. No tool links RM versions to policy model performance or provides RM-specific experiment comparison.",
+      "ideal_state": "An experiment tracking system that manages the RM-policy co-evolution, tracks verifier accuracy alongside downstream task performance, and enables systematic ablation."
+    },
+    {
+      "id": "GAP-015",
+      "title": "No plug-and-play verifier marketplace/registry",
+      "category": "integration_gap",
+      "description": "There is no centralized registry of pretrained verifiers for different domains, model sizes, and verification strategies. Users cannot easily discover, compare, and deploy pretrained verifiers. HuggingFace has some models but no verifier-specific search, comparison, or compatibility information.",
+      "current_state": "Skywork, Math-Shepherd, AURORA PRMs exist on HuggingFace but there is no verifier-specific registry with compatibility info, benchmarks, or deployment guides.",
+      "ideal_state": "A registry where users can search for verifiers by domain, base model compatibility, size, accuracy on standard benchmarks, and deployment format."
+    }
+  ],
+  "total_gaps": 15
+}

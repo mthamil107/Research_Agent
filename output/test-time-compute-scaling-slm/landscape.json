@@ -1,0 +1,263 @@
+{
+  "domain": "Test-Time Compute Scaling and Inference-Time Reasoning for SLMs",
+  "scan_date": "2026-03-29",
+  "queries_used": [
+    "test-time compute scaling LLM tools frameworks 2025 2026",
+    "inference-time reasoning small language models SLM beam search self-consistency",
+    "MCTS Monte Carlo tree search LLM reasoning inference tools",
+    "test-time training TTA inference optimization framework open source",
+    "chain of thought reasoning scaling compute inference small models tools",
+    "vLLM SGLang test-time compute scaling inference reasoning library",
+    "process reward model outcome reward model verifier LLM reasoning tools open source",
+    "OpenAI o1 o3 DeepSeek R1 reasoning model inference compute scaling",
+    "tree of thoughts best first search reasoning LLM framework GitHub",
+    "speculative decoding small language model inference optimization framework 2025",
+    "OpenR open reasoner framework GitHub MCTS beam search reasoning LLM",
+    "Dynasor dynamic inference scaling orchestration reasoning LLM",
+    "s1 simple test-time scaling budget forcing reasoning 2025",
+    "Kiln AI reasoning chain of thought tool SLM small model",
+    "SLM-Mux orchestrating small language models reasoning framework",
+    "llm-reasoners library maitrix reasoning search algorithms GitHub",
+    "rStar self-play mutual reasoning small language model math",
+    "STILL-2 slow thinking small language model inference time scaling",
+    "Marco-o1 MCTS reasoning open source framework",
+    "QwQ Qwen reasoning model small parameter test time compute",
+    "NVIDIA Dynamo inference framework reasoning models distributed serving",
+    "Phi-4 Microsoft small model reasoning inference scaling",
+    "reward model verifier PRM800K Math-Shepherd inference scaling open source tools"
+  ],
+  "tools": [
+    {
+      "name": "OpenR (OpenReasoner)",
+      "url": "https://github.com/openreasoner/openr",
+      "type": "open-source framework",
+      "description": "Open-source framework for advanced reasoning with LLMs. Integrates test-time computation, RL, and process supervision. Supports Greedy Search, Best-of-N, Beam Search, MCTS, rStar, Critic-MCTS.",
+      "focus": "reasoning search algorithms + PRM training",
+      "maturity": "research",
+      "stars_approx": "2k+",
+      "last_updated": "2025"
+    },
+    {
+      "name": "LLM Reasoners (Maitrix)",
+      "url": "https://github.com/maitrix-org/llm-reasoners",
+      "type": "open-source library",
+      "description": "Library for advanced LLM reasoning. Abstracts reasoning into reward function, world model, and search algorithm. Supports MCTS, DFS/BFS, Beam Search, RAP-MCTS, Tree-of-Thoughts, Guided Decoding.",
+      "focus": "reasoning algorithm abstraction + search",
+      "maturity": "research",
+      "stars_approx": "1k+",
+      "last_updated": "2025"
+    },
+    {
+      "name": "Tree of Thoughts (Princeton NLP)",
+      "url": "https://github.com/princeton-nlp/tree-of-thought-llm",
+      "type": "open-source framework",
+      "description": "Official NeurIPS 2023 implementation. Maintains a tree of thoughts with BFS/DFS search. LM self-evaluates progress for deliberate reasoning.",
+      "focus": "tree search reasoning",
+      "maturity": "research/stable",
+      "stars_approx": "5k+",
+      "last_updated": "2024"
+    },
+    {
+      "name": "s1: Simple Test-Time Scaling",
+      "url": "https://github.com/simplescaling/s1",
+      "type": "open-source model + method",
+      "description": "Simplest approach to test-time scaling. Uses s1K dataset (1000 questions) + budget forcing (terminate/extend thinking with 'Wait' tokens). s1-32B exceeds o1-preview on MATH/AIME24.",
+      "focus": "budget forcing for test-time compute control",
+      "maturity": "research",
+      "stars_approx": "3k+",
+      "last_updated": "2025"
+    },
+    {
+      "name": "rStar / rStar-Math",
+      "url": "https://arxiv.org/abs/2501.04519",
+      "type": "research method + code",
+      "description": "Self-play mutual reasoning for SLMs. Uses MCTS with rich reasoning actions + discriminator SLM for verification. rStar-Math boosts Phi3-mini-3.8B from 41.4% to 86.4% on MATH, surpassing o1-preview.",
+      "focus": "MCTS + self-play for small models",
+      "maturity": "research",
+      "stars_approx": "1k+",
+      "last_updated": "2025"
+    },
+    {
+      "name": "Marco-o1",
+      "url": "https://github.com/AIDC-AI/Marco-o1",
+      "type": "open-source reasoning model",
+      "description": "Alibaba's open reasoning model. CoT fine-tuning + MCTS + reflection mechanisms. Explores different action granularities within MCTS. Multiple versions (v1-v3).",
+      "focus": "MCTS-enhanced reasoning model",
+      "maturity": "research/production-ready",
+      "stars_approx": "2k+",
+      "last_updated": "2025"
+    },
+    {
+      "name": "SLM-MUX",
+      "url": "https://arxiv.org/abs/2510.05077",
+      "type": "research framework",
+      "description": "Multi-model orchestration for SLMs. Avoids inter-model discussion; selects most reliable output via self-consistency. Model selection search for complementary combinations. 13.4% improvement on MATH.",
+      "focus": "SLM orchestration + self-consistency",
+      "maturity": "research",
+      "stars_approx": "new",
+      "last_updated": "2025"
+    },
+    {
+      "name": "STILL-2 (Slow Thinking with LLMs)",
+      "url": "https://github.com/RUCAIBox/Slow_Thinking_with_LLMs",
+      "type": "open-source model + framework",
+      "description": "SLM trained via imitate-explore-self-improve framework. Distilled long-form thought data enables slow-thinking mode. Iterative dataset refinement for self-improvement.",
+      "focus": "slow thinking distillation for SLMs",
+      "maturity": "research",
+      "stars_approx": "500+",
+      "last_updated": "2025"
+    },
+    {
+      "name": "Kiln AI",
+      "url": "https://github.com/Kiln-AI/Kiln",
+      "type": "open-source platform",
+      "description": "Build, evaluate, optimize AI systems. Reasoning/CoT support with separate thinking/answer storage. Enables distilling reasoning from large models to small, fast thinking models.",
+      "focus": "reasoning model building + distillation",
+      "maturity": "production",
+      "stars_approx": "3k+",
+      "last_updated": "2026"
+    },
+    {
+      "name": "Dynasor",
+      "url": "https://haoailab.com/blogs/dynasor-cot/",
+      "type": "research system",
+      "description": "Reasoning-aware serving system. Uses Certaindex to measure reasoning progress. Dynamically allocates compute per query difficulty. 50% compute savings, 3.3x throughput gains.",
+      "focus": "adaptive inference compute allocation",
+      "maturity": "research",
+      "stars_approx": "new",
+      "last_updated": "2025"
+    },
+    {
+      "name": "NVIDIA Dynamo",
+      "url": "https://github.com/ai-dynamo/dynamo",
+      "type": "open-source inference framework",
+      "description": "Datacenter-scale distributed inference serving. Disaggregated prefill/decode, intelligent routing, memory management. Supports SGLang, TensorRT-LLM, vLLM backends.",
+      "focus": "distributed inference serving for reasoning models",
+      "maturity": "production",
+      "stars_approx": "5k+",
+      "last_updated": "2026"
+    },
+    {
+      "name": "vLLM",
+      "url": "https://github.com/vllm-project/vllm",
+      "type": "open-source inference engine",
+      "description": "High-performance LLM inference and serving. PagedAttention, continuous batching, speculative decoding support. Industry standard for high-throughput inference.",
+      "focus": "inference serving engine",
+      "maturity": "production",
+      "stars_approx": "40k+",
+      "last_updated": "2026"
+    },
+    {
+      "name": "SGLang",
+      "url": "https://github.com/sgl-project/sglang",
+      "type": "open-source inference engine",
+      "description": "High-performance serving framework. Radix tree KV cache, structured output, multi-turn optimization. De facto standard with 400k+ GPU deployments.",
+      "focus": "inference serving with structured generation",
+      "maturity": "production",
+      "stars_approx": "20k+",
+      "last_updated": "2026"
+    },
+    {
+      "name": "DeepSeek-R1",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
+      "type": "open-weight reasoning model",
+      "description": "671B MoE (37B active). Matches o1 at 70% lower cost. Extended CoT reasoning with 10-100x more tokens per query. Distilled versions available (1.5B-70B).",
+      "focus": "large-scale reasoning model with distillation",
+      "maturity": "production",
+      "stars_approx": "N/A",
+      "last_updated": "2025"
+    },
+    {
+      "name": "QwQ-32B / Qwen3",
+      "url": "https://huggingface.co/Qwen/QwQ-32B",
+      "type": "open-weight reasoning model",
+      "description": "32B parameter reasoning model matching DeepSeek-R1. Test-time compute scaling with step-by-step reasoning. Qwen3-30B-A3B (MoE) outperforms QwQ-32B.",
+      "focus": "efficient reasoning model",
+      "maturity": "production",
+      "stars_approx": "N/A",
+      "last_updated": "2025"
+    },
+    {
+      "name": "Phi-4 Reasoning (Microsoft)",
+      "url": "https://huggingface.co/microsoft/Phi-4-mini-flash-reasoning",
+      "type": "open-weight reasoning model",
+      "description": "14B reasoning model rivaling much larger models. Phi-4-mini-reasoning (3.8B) outperforms models 2x its size. SFT on o3-mini demonstrations + RL for inference-time compute.",
+      "focus": "small reasoning model via distillation + RL",
+      "maturity": "production",
+      "stars_approx": "N/A",
+      "last_updated": "2025"
+    },
+    {
+      "name": "OpenAI o1/o3/o4-mini",
+      "url": "https://openai.com",
+      "type": "commercial API",
+      "description": "Pioneered test-time compute scaling. Internal chain-of-thought reasoning. o3-mini offers smaller/cheaper reasoning. Deliberative alignment + test-time search.",
+      "focus": "commercial reasoning models",
+      "maturity": "production",
+      "stars_approx": "N/A",
+      "last_updated": "2026"
+    },
+    {
+      "name": "Math-Shepherd",
+      "url": "https://arxiv.org/abs/2312.08935",
+      "type": "dataset + method",
+      "description": "Process reward model for step-by-step math verification. Auto-constructed process-wise supervision data. 4x larger than PRM800K. Used with axolotl for PRM training.",
+      "focus": "process reward model training data",
+      "maturity": "research",
+      "stars_approx": "500+",
+      "last_updated": "2024"
+    },
+    {
+      "name": "ThinkPRM / GenPRM",
+      "url": "https://arxiv.org/abs/2504.16828",
+      "type": "research method",
+      "description": "Process reward models that think - scaling verification compute. Generative PRMs that reason before scoring. Better performance with fewer process labels.",
+      "focus": "next-gen process reward models",
+      "maturity": "research",
+      "stars_approx": "new",
+      "last_updated": "2025"
+    },
+    {
+      "name": "Speculative Decoding (EAGLE-3, SparseSpec, OSD)",
+      "url": "https://developer.nvidia.com/blog/an-introduction-to-speculative-decoding-for-reducing-latency-in-ai-inference/",
+      "type": "inference optimization technique",
+      "description": "Draft-target approach using smaller models to propose tokens verified by larger models. 2-3x speedup. EAGLE-3 uses lightweight prediction head. Native support in vLLM/TensorRT-LLM.",
+      "focus": "inference speed optimization",
+      "maturity": "production",
+      "stars_approx": "varies",
+      "last_updated": "2025"
+    },
+    {
+      "name": "ReaLM",
+      "url": "https://arxiv.org/abs/2508.12387",
+      "type": "research framework",
+      "description": "Reflection-Enhanced Autonomous Reasoning with Small Language Models. Enables SLMs to self-reflect and improve reasoning at inference time.",
+      "focus": "reflection-based SLM reasoning",
+      "maturity": "research",
+      "stars_approx": "new",
+      "last_updated": "2025"
+    },
+    {
+      "name": "ThetaEvolve",
+      "url": "https://arxiv.org/abs/2511.23473",
+      "type": "open-source framework",
+      "description": "Simplifies and extends AlphaEvolve for test-time learning. Scales in-context learning and RL at test time. Models continually learn from experiences.",
+      "focus": "test-time learning + evolution",
+      "maturity": "research",
+      "stars_approx": "new",
+      "last_updated": "2025"
+    }
+  ],
+  "total_tools_found": 22,
+  "categories": {
+    "reasoning_search_frameworks": ["OpenR", "LLM Reasoners", "Tree of Thoughts", "Marco-o1"],
+    "test_time_scaling_methods": ["s1 (Budget Forcing)", "rStar/rStar-Math", "STILL-2", "ThetaEvolve"],
+    "slm_orchestration": ["SLM-MUX", "Kiln AI"],
+    "inference_serving": ["NVIDIA Dynamo", "vLLM", "SGLang", "Dynasor"],
+    "reasoning_models_slm": ["QwQ-32B", "Qwen3-30B-A3B", "Phi-4 Reasoning", "DeepSeek-R1-Distill"],
+    "reasoning_models_large": ["OpenAI o1/o3", "DeepSeek-R1"],
+    "reward_models_verifiers": ["Math-Shepherd", "ThinkPRM/GenPRM", "PRM800K"],
+    "inference_optimization": ["Speculative Decoding (EAGLE-3, SparseSpec)", "ReaLM"],
+    "reflection_self_improvement": ["ReaLM", "STILL-2", "Dynasor"]
+  }
+}

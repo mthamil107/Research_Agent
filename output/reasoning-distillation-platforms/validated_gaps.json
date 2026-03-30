@@ -1,0 +1,409 @@
+{
+  "domain": "Reasoning Distillation Platforms for Small Models",
+  "scan_date": "2026-03-29",
+  "validation_sources": ["Hacker News", "GitHub Issues", "Reddit/LocalLLaMA", "Medium/Blog posts", "Research papers", "Industry reports"],
+  "validated_gaps": [
+    {
+      "id": "GAP-001",
+      "title": "End-to-End Reasoning Distillation Pipeline (No-Code/Low-Code)",
+      "demand_signals": [
+        {
+          "source": "HN - OpenAI Distillation API thread",
+          "url": "https://news.ycombinator.com/item?id=42009039",
+          "signal": "serjester: alternatives force users into 'an incredibly fragmented ops stack' - highlights pain of stitching multiple tools together",
+          "strength": "strong"
+        },
+        {
+          "source": "Predibase LLM Distillation Playbook",
+          "url": "https://github.com/predibase/llm_distillation_playbook",
+          "signal": "Entire playbook exists because there is no integrated tool - documents 12 best practices people must manually implement",
+          "strength": "strong"
+        },
+        {
+          "source": "Medium - Model distillation in agent era",
+          "url": "https://medium.com/@milesk_33/model-distillation-in-the-agent-era-keeping-reasoning-while-shrinking-size-ebcde4e4179a",
+          "signal": "Documents multi-step fragmented workflow as primary pain point for practitioners",
+          "strength": "moderate"
+        },
+        {
+          "source": "GitHub - Unsloth #1675",
+          "url": "https://github.com/unslothai/unsloth/issues/1675",
+          "signal": "Users asking how to reproduce distillation models - indicates lack of clear end-to-end tooling",
+          "strength": "moderate"
+        }
+      ],
+      "demand_score": 9,
+      "validation_confidence": "high"
+    },
+    {
+      "id": "GAP-002",
+      "title": "Automated Reasoning Trace Quality Scoring & Filtering",
+      "demand_signals": [
+        {
+          "source": "Research - DC-CoT Benchmark",
+          "url": "https://arxiv.org/abs/2505.18759",
+          "signal": "Entire benchmark created to study data quality impact on CoT distillation - proves data quality is THE bottleneck",
+          "strength": "strong"
+        },
+        {
+          "source": "Research - Skill-Aware Data Selection",
+          "url": "https://arxiv.org/abs/2601.10109",
+          "signal": "Current pipelines treat all training examples equally, which overlooks latent structure - fine-tuning on full corpora can degrade performance",
+          "strength": "strong"
+        },
+        {
+          "source": "Snorkel AI Guide",
+          "url": "https://snorkel.ai/blog/llm-distillation-demystified-a-complete-guide/",
+          "signal": "Case study: basic distillation yielded F1 of 50, would not meet deployment bar - quality filtering is critical",
+          "strength": "strong"
+        },
+        {
+          "source": "Research - Local Naturalness for Teacher Data",
+          "url": "https://arxiv.org/abs/2510.03988",
+          "signal": "Local selection strategies significantly outperform global scoring methods - proves automated quality scoring is needed and feasible",
+          "strength": "strong"
+        },
+        {
+          "source": "Fireworks AI Blog",
+          "url": "https://fireworks.ai/blog/deepseek-r1-distillation-reasoning",
+          "signal": "Benchmark scores alone don't determine effective teacher model - data curation and selection matter more than scale",
+          "strength": "moderate"
+        }
+      ],
+      "demand_score": 9,
+      "validation_confidence": "high"
+    },
+    {
+      "id": "GAP-003",
+      "title": "Domain-Specific Reasoning Distillation Templates (Beyond Math/Code)",
+      "demand_signals": [
+        {
+          "source": "Research - MedAgentGym",
+          "url": "https://openreview.net/pdf?id=oZSofhtmIc",
+          "signal": "Coding-based medical reasoning is a unique capability not captured by specialization in either coding or medicine alone",
+          "strength": "strong"
+        },
+        {
+          "source": "Research - Clinical Reasoning Gaps",
+          "url": "https://arxiv.org/abs/2602.09945",
+          "signal": "Differential Reasoning Learning needed specifically for clinical agents - general distillation insufficient",
+          "strength": "strong"
+        },
+        {
+          "source": "Research - DeepSeek R1 Medical Evaluation",
+          "url": "https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2025.1616145/full",
+          "signal": "Generalisability of reward models from broad-domain to medical reasoning uncertain - domain-specific tooling needed",
+          "strength": "moderate"
+        },
+        {
+          "source": "Research - KD Challenges Survey",
+          "url": "https://link.springer.com/article/10.1007/s10462-025-11423-3",
+          "signal": "Current findings dominated by math/programming tasks. Applicability to open-ended domains remains open question",
+          "strength": "moderate"
+        }
+      ],
+      "demand_score": 8,
+      "validation_confidence": "high"
+    },
+    {
+      "id": "GAP-004",
+      "title": "Reasoning Distillation Evaluation Suite",
+      "demand_signals": [
+        {
+          "source": "GitHub - TRL #1222",
+          "url": "https://github.com/huggingface/trl/issues/1222",
+          "signal": "SFTTrainer does not support custom metrics for evaluation - hard to track fine-tuning quality",
+          "strength": "strong"
+        },
+        {
+          "source": "GitHub - TRL #4096",
+          "url": "https://github.com/huggingface/trl/issues/4096",
+          "signal": "SFTTrainer fails with DFT loss during evaluation - evaluation tooling is buggy/incomplete",
+          "strength": "moderate"
+        },
+        {
+          "source": "Research - CoTQS Framework",
+          "url": "https://arxiv.org/abs/2505.18759",
+          "signal": "CoT Quality Score proposed in research but not productized - 5-point scale across coherence/completeness/correctness",
+          "strength": "moderate"
+        },
+        {
+          "source": "Research - On-Policy Self-Distillation",
+          "url": "https://arxiv.org/abs/2603.05433",
+          "signal": "Establishing comprehensive evaluation protocols remains an open challenge",
+          "strength": "moderate"
+        }
+      ],
+      "demand_score": 8,
+      "validation_confidence": "high"
+    },
+    {
+      "id": "GAP-005",
+      "title": "Multi-Teacher Reasoning Distillation with Automatic Teacher Selection",
+      "demand_signals": [
+        {
+          "source": "GitHub - TRL #2179",
+          "url": "https://github.com/huggingface/trl/issues/2179",
+          "signal": "Feature request: support for closed-source models as teachers in GKD Trainer - users want multi-source distillation",
+          "strength": "strong"
+        },
+        {
+          "source": "Research - Local Naturalness",
+          "url": "https://arxiv.org/abs/2510.03988",
+          "signal": "When multiple teachers available, effective curation to select the most beneficial individual responses is critical",
+          "strength": "strong"
+        },
+        {
+          "source": "HN Discussion",
+          "url": "https://news.ycombinator.com/item?id=42009039",
+          "signal": "simonw: ToS restrictions prevent using OpenAI models to train competitor models - multi-teacher routing around restrictions is needed",
+          "strength": "moderate"
+        }
+      ],
+      "demand_score": 7,
+      "validation_confidence": "moderate"
+    },
+    {
+      "id": "GAP-006",
+      "title": "Reasoning Distillation for Sub-1B Models and On-Device Deployment",
+      "demand_signals": [
+        {
+          "source": "Research - Llamba",
+          "url": "https://arxiv.org/abs/2502.14458",
+          "signal": "Llamba-1B achieves comparable benchmark performance with 12x throughput - proves sub-1B reasoning distillation viable",
+          "strength": "strong"
+        },
+        {
+          "source": "Apple MLX Research",
+          "url": "https://machinelearning.apple.com/research/core-ml-on-device-llama",
+          "signal": "Apple investing heavily in on-device LLM inference - edge reasoning is a priority",
+          "strength": "strong"
+        },
+        {
+          "source": "GitHub - Ollama #11965",
+          "url": "https://github.com/ollama/ollama/issues/11965",
+          "signal": "Feature request for HRM architecture in Ollama - community wants efficient reasoning on-device",
+          "strength": "moderate"
+        },
+        {
+          "source": "Research - PRISM Robot Planning",
+          "url": "https://arxiv.org/abs/2506.17486",
+          "signal": "Distilling LLM reasoning into compact SLMs for robotics - domain demand for small reasoning models",
+          "strength": "moderate"
+        }
+      ],
+      "demand_score": 8,
+      "validation_confidence": "high"
+    },
+    {
+      "id": "GAP-007",
+      "title": "Reasoning Trace Data Marketplace / Hub",
+      "demand_signals": [
+        {
+          "source": "GitHub - OpenThoughts-114k",
+          "url": "https://github.com/modelscope/awesome-deep-reasoning",
+          "signal": "OpenThoughts-114k and Dolphin-R1 800k datasets created to fill void - proves demand for curated reasoning data",
+          "strength": "strong"
+        },
+        {
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2025/02/05/researchers-created-an-open-rival-to-openais-o1-reasoning-model-for-under-50/",
+          "signal": "Sky-T1 created for under $50 using just 5K carefully curated samples - data quality/selection more important than quantity",
+          "strength": "strong"
+        },
+        {
+          "source": "Research - OmniThought Dataset",
+          "url": "https://github.com/modelscope/easydistill",
+          "signal": "EasyDistill created OmniThought dataset with Reasoning Verbosity and Cognitive Difficulty scores - metadata is valued",
+          "strength": "moderate"
+        }
+      ],
+      "demand_score": 7,
+      "validation_confidence": "moderate"
+    },
+    {
+      "id": "GAP-008",
+      "title": "Continuous Distillation / Teacher Model Update Pipeline",
+      "demand_signals": [
+        {
+          "source": "Research - KD Survey",
+          "url": "https://link.springer.com/article/10.1007/s10462-025-11423-3",
+          "signal": "Enabling efficient adaptation to continually evolving teacher models and datasets remains an open challenge",
+          "strength": "moderate"
+        },
+        {
+          "source": "Industry - Enterprise Practice Guide",
+          "url": "https://www.zstack-cloud.com/blog/deep-understanding-of-deepseek-and-enterprise-practices-part-1-distillation-deployment-and-evaluation/",
+          "signal": "Enterprise deployment requires continuous updating as base models improve - no automated pipeline exists",
+          "strength": "moderate"
+        }
+      ],
+      "demand_score": 6,
+      "validation_confidence": "moderate"
+    },
+    {
+      "id": "GAP-009",
+      "title": "Reasoning Distillation Observability & Production Monitoring",
+      "demand_signals": [
+        {
+          "source": "LangChain Blog",
+          "url": "https://www.langchain.com/articles/llm-monitoring-observability",
+          "signal": "LLM observability needs evaluations beyond latency/cost - reasoning quality monitoring is gap in all observability tools",
+          "strength": "moderate"
+        },
+        {
+          "source": "Fiddler Docs",
+          "url": "https://docs.fiddler.ai/getting-started/agentic-monitoring",
+          "signal": "Agentic observability exists but no specific reasoning quality monitoring for distilled models",
+          "strength": "moderate"
+        }
+      ],
+      "demand_score": 6,
+      "validation_confidence": "moderate"
+    },
+    {
+      "id": "GAP-010",
+      "title": "Cost-Optimal Distillation Budget Calculator",
+      "demand_signals": [
+        {
+          "source": "TechCrunch - Sky-T1",
+          "url": "https://techcrunch.com/2025/02/05/researchers-created-an-open-rival-to-openais-o1-reasoning-model-for-under-50/",
+          "signal": "5K samples outperformed 100K+ sample approaches - massive cost savings possible with right guidance",
+          "strength": "strong"
+        },
+        {
+          "source": "Research - Data-Efficient Distillation",
+          "url": "https://arxiv.org/abs/2508.09883",
+          "signal": "Research paper title 'Beyond Scaling Law: Data-Efficient Distillation Framework' - data efficiency is active research area",
+          "strength": "moderate"
+        },
+        {
+          "source": "Label Your Data",
+          "url": "https://labelyourdata.com/articles/machine-learning/model-distillation",
+          "signal": "Budget and timeline are primary concerns cited by practitioners evaluating distillation",
+          "strength": "moderate"
+        }
+      ],
+      "demand_score": 7,
+      "validation_confidence": "moderate"
+    },
+    {
+      "id": "GAP-011",
+      "title": "Reasoning Style Transfer & Control",
+      "demand_signals": [
+        {
+          "source": "EasyDistill - OmniThought",
+          "url": "https://github.com/modelscope/easydistill",
+          "signal": "OmniThought dataset has Reasoning Verbosity scores - proves verbosity control is valued",
+          "strength": "moderate"
+        },
+        {
+          "source": "Research - DLCoT",
+          "url": "https://arxiv.org/abs/2503.16385",
+          "signal": "Simplification of reasoning chains shown to improve distillation - but no tool exposes this control",
+          "strength": "moderate"
+        }
+      ],
+      "demand_score": 6,
+      "validation_confidence": "moderate"
+    },
+    {
+      "id": "GAP-012",
+      "title": "Distillation-Aware Quantization for Reasoning Models",
+      "demand_signals": [
+        {
+          "source": "GitHub - Unsloth #3008",
+          "url": "https://github.com/unslothai/unsloth/issues/3008",
+          "signal": "Users requesting knowledge distillation with VRAM efficiency - joint distillation+quantization would address this",
+          "strength": "moderate"
+        },
+        {
+          "source": "NVIDIA Blog",
+          "url": "https://developer.nvidia.com/blog/pruning-and-distilling-llms-using-nvidia-tensorrt-model-optimizer/",
+          "signal": "NVIDIA combines pruning+distillation but not reasoning-aware quantization",
+          "strength": "moderate"
+        }
+      ],
+      "demand_score": 6,
+      "validation_confidence": "moderate"
+    },
+    {
+      "id": "GAP-013",
+      "title": "Open Source Alternative to OpenAI Distillation API",
+      "demand_signals": [
+        {
+          "source": "HN - OpenAI Distillation API thread",
+          "url": "https://news.ycombinator.com/item?id=42009039",
+          "signal": "janalsncm: 'unless I can download the weights it wouldn't replace my workflow' - users want OpenAI ease with open-source freedom",
+          "strength": "strong"
+        },
+        {
+          "source": "HN - Vendor lock-in concern",
+          "url": "https://news.ycombinator.com/item?id=42009039",
+          "signal": "msp26: storing datasets within OpenAI creates dependency - users want to own their data and models",
+          "strength": "strong"
+        },
+        {
+          "source": "Predibase Blog",
+          "url": "https://predibase.com/blog/graduate-from-openai-to-open-source-12-best-practices-for-distilling-smaller",
+          "signal": "Article titled 'Graduate from OpenAI to Open Source' - proves demand for migration path",
+          "strength": "strong"
+        },
+        {
+          "source": "HTEC Insights",
+          "url": "https://htec.com/insights/ai-model-distillation-evolution-and-strategic-imperatives-in-2025/",
+          "signal": "Strategic imperative for enterprises: avoid vendor lock-in while maintaining ease of use",
+          "strength": "moderate"
+        }
+      ],
+      "demand_score": 9,
+      "validation_confidence": "high"
+    },
+    {
+      "id": "GAP-014",
+      "title": "Reasoning Distillation for Agentic/Tool-Use Capabilities",
+      "demand_signals": [
+        {
+          "source": "Research - Agent Distillation",
+          "url": "https://arxiv.org/abs/2505.17612",
+          "signal": "Distilling LLM Agent into Small Models with Retrieval and Code Tools - paper addresses nascent area",
+          "strength": "moderate"
+        },
+        {
+          "source": "EasyDistill AgentKD",
+          "url": "https://github.com/modelscope/easydistill",
+          "signal": "AgentKD is early stage - only tool addressing this, proving both demand and immaturity",
+          "strength": "moderate"
+        },
+        {
+          "source": "Research - ToolBrain",
+          "url": "https://arxiv.org/abs/2510.00023",
+          "signal": "ToolBrain framework for agentic tool distillation using Unsloth/QLoRA - community building custom solutions",
+          "strength": "moderate"
+        }
+      ],
+      "demand_score": 7,
+      "validation_confidence": "moderate"
+    },
+    {
+      "id": "GAP-015",
+      "title": "Cross-Architecture Reasoning Distillation (Transformer -> Non-Transformer)",
+      "demand_signals": [
+        {
+          "source": "Research - Llamba",
+          "url": "https://arxiv.org/abs/2502.14458",
+          "signal": "Llamba proves viability with 12x throughput gains - but framework is architecture-specific, not general",
+          "strength": "moderate"
+        },
+        {
+          "source": "HN - Less is more: Recursive reasoning with tiny networks",
+          "url": "https://news.ycombinator.com/item?id=45506268",
+          "signal": "Interest in tiny efficient reasoning networks - non-transformer architectures getting attention",
+          "strength": "moderate"
+        }
+      ],
+      "demand_score": 5,
+      "validation_confidence": "low"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "domain": "SLM Reasoning Evaluation & Benchmarking Tools",
+  "generated_date": "2026-03-29",
+  "gap_categories": ["feature_gap", "segment_gap", "workflow_gap", "integration_gap", "pricing_gap"],
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "SLM-Specific Reasoning Evaluation Platform with Edge Deployment Metrics",
+      "category": "feature_gap",
+      "description": "No existing tool combines SLM-specific reasoning evaluation with edge deployment metrics (latency, memory, thermal, battery). ThinkSLM evaluates reasoning but ignores runtime constraints. SLM-Bench tracks efficiency but not reasoning depth. Nobody measures 'reasoning quality per watt' or 'reasoning accuracy at X ms latency budget' for edge devices.",
+      "evidence": "Only 2/22 tools focus on SLMs. Zero tools evaluate edge deployment reasoning quality. Research shows 85C thermal loads within 15 min of continuous inference on edge devices, yet no benchmark captures reasoning degradation under thermal throttling.",
+      "affected_users": ["edge ML engineers", "mobile AI developers", "IoT AI developers", "on-device AI product teams"]
+    },
+    {
+      "id": "GAP-002",
+      "title": "Contamination-Resistant Dynamic Reasoning Benchmark for SLMs",
+      "category": "feature_gap",
+      "description": "BeyondBench and LiveBench offer contamination resistance but are not calibrated for SLM capacity ranges. SLMs need difficulty-calibrated dynamic problems that test genuine reasoning within their parameter budget, not frontier-model-level challenges that conflate reasoning failure with capacity limitations.",
+      "evidence": "Only 2/22 tools have contamination resistance. Neither is SLM-specific. BeyondBench has 3 difficulty levels but no SLM-calibrated tier. Models below 3B fail most BeyondBench tasks, making results uninformative.",
+      "affected_users": ["SLM researchers", "model trainers", "benchmark creators", "fine-tuning engineers"]
+    },
+    {
+      "id": "GAP-003",
+      "title": "Process Reward Model Evaluation Toolkit for Small Models",
+      "category": "feature_gap",
+      "description": "PRM800K and ProcessBench evaluate PRMs but assume frontier-scale verifiers. No tool evaluates how well small PRMs (1B-7B) perform step-level verification, or provides labeled data specifically sized for training small process reward models.",
+      "evidence": "ThinkPRM uses 1% of PRM800K labels but still requires large verifiers. rStar-Math shows SLMs can use PRMs effectively but no standalone toolkit exists. ProcessBench has no SLM-specific evaluation track.",
+      "affected_users": ["RL researchers", "SLM alignment teams", "reasoning pipeline builders"]
+    },
+    {
+      "id": "GAP-004",
+      "title": "Multilingual Reasoning Evaluation for SLMs",
+      "category": "segment_gap",
+      "description": "Multilingual reasoning benchmarks exist (MultiNRC, MMLU-ProX) but none focus on SLMs specifically. Smaller models show dramatically larger gaps (35% point difference between English and Swahili in 7B models). No tool helps developers diagnose and fix multilingual reasoning failures in SLMs.",
+      "evidence": "DeepSeek-R1-7B shows 35.2% gap between English (46%) and Swahili (10.8%). No SLM-specific multilingual reasoning benchmark exists. MultiNRC does not break down results by model size.",
+      "affected_users": ["global AI product teams", "non-English market developers", "localization engineers"]
+    },
+    {
+      "id": "GAP-005",
+      "title": "Continuous Reasoning Regression Monitoring for Production SLMs",
+      "category": "workflow_gap",
+      "description": "LangChain and DeepEval offer production monitoring but none specialize in reasoning regression detection for SLMs. When an SLM is fine-tuned or quantized for production, reasoning capabilities can silently degrade. No tool provides continuous reasoning quality monitoring with automatic regression alerts.",
+      "evidence": "Only 1/22 tools (DeepEval) offers real-time monitoring. No tool tracks reasoning-specific regression over time. Quantization preserves 99% accuracy on simple tasks but can degrade complex reasoning chains silently.",
+      "affected_users": ["MLOps engineers", "production AI teams", "quality assurance engineers"]
+    },
+    {
+      "id": "GAP-006",
+      "title": "Domain-Specific Reasoning Benchmark Generator for SLMs",
+      "category": "segment_gap",
+      "description": "FLAME (finance), Meerkat (medical), and legal reasoning benchmarks exist in isolation. No unified tool lets developers generate domain-specific reasoning evaluation suites tailored to their vertical (legal, medical, financial, scientific) for SLMs.",
+      "evidence": "Medical SLMs improve by 22% with domain reasoning data. Financial NLP has FLAME but no SLM focus. Legal reasoning shows 36.4% performance variance. Each domain builds custom evals from scratch.",
+      "affected_users": ["domain-specific AI teams", "healthcare AI developers", "fintech AI teams", "legal tech developers"]
+    },
+    {
+      "id": "GAP-007",
+      "title": "Quantization-Aware Reasoning Evaluation Suite",
+      "category": "feature_gap",
+      "description": "ThinkSLM shows quantization preserves 99% accuracy on simple benchmarks, but no tool systematically evaluates reasoning quality across quantization levels (FP16, INT8, INT4, INT2) on diverse reasoning tasks, including edge cases where quantization silently breaks reasoning chains.",
+      "evidence": "Only 1/22 tools (ThinkSLM) evaluates quantization effects. ThinkSLM uses basic accuracy metrics. No tool tests quantization effects on multi-step reasoning chains, error propagation across steps, or calibration.",
+      "affected_users": ["model compression engineers", "edge deployment teams", "quantization researchers"]
+    },
+    {
+      "id": "GAP-008",
+      "title": "Reasoning Chain Visualization and Debugging Tool for SLMs",
+      "category": "workflow_gap",
+      "description": "No tool provides interactive visualization and debugging of SLM reasoning chains. Developers cannot easily inspect where reasoning goes wrong, compare reasoning paths across model sizes, or identify systematic failure modes in chain-of-thought outputs.",
+      "evidence": "6/22 tools evaluate CoT but none provide visualization. MR-GSM8K detects errors but doesn't visualize reasoning flow. No tool lets developers interactively explore reasoning step failures.",
+      "affected_users": ["model debuggers", "reasoning researchers", "AI developers", "prompt engineers"]
+    },
+    {
+      "id": "GAP-009",
+      "title": "SLM Reasoning Comparison Leaderboard with Efficiency Normalization",
+      "category": "feature_gap",
+      "description": "Existing leaderboards rank by raw accuracy without normalizing for model size, inference cost, or deployment constraints. No leaderboard shows 'reasoning per parameter' or 'reasoning per FLOP' comparisons to help developers pick the right SLM for their constraint envelope.",
+      "evidence": "6/22 tools have leaderboards but all rank by raw score. ThinkSLM leaderboard groups by family but doesn't normalize. HuggingFace Open LLM Leaderboard doesn't weight by efficiency.",
+      "affected_users": ["ML engineers selecting models", "product managers", "cost-conscious AI teams"]
+    },
+    {
+      "id": "GAP-010",
+      "title": "Adversarial Reasoning Robustness Toolkit for SLMs",
+      "category": "feature_gap",
+      "description": "PromptBench tests adversarial prompt robustness, MR-GSM8K tests meta-reasoning, and ThinkSLM evaluates adversarial perturbation effects. But no integrated toolkit combines adversarial attacks specifically targeting SLM reasoning chains (not just prompts) with automated remediation suggestions.",
+      "evidence": "Only 3/22 tools address adversarial robustness. PromptBench targets prompts, not reasoning chains. ThinkSLM shows 11-17% accuracy drops under adversarial perturbation but no tool automatically generates adversarial reasoning attacks.",
+      "affected_users": ["AI safety teams", "red teams", "security engineers", "model robustness researchers"]
+    },
+    {
+      "id": "GAP-011",
+      "title": "CI/CD-Native SLM Reasoning Evaluation Pipeline",
+      "category": "integration_gap",
+      "description": "While lm-eval-harness and DeepEval support CI/CD, no tool provides a turnkey CI/CD pipeline specifically for SLM reasoning evaluation with appropriate test budgets, rapid feedback (<5 min), and gating criteria calibrated for SLM reasoning benchmarks.",
+      "evidence": "5/22 tools support CI/CD but all require significant custom configuration for SLM reasoning. tinyBenchmarks offers 140x speedup but isn't integrated into a CI/CD reasoning pipeline. No GitHub Action or pre-built pipeline exists for SLM reasoning gates.",
+      "affected_users": ["DevOps/MLOps teams", "SLM development teams", "continuous integration engineers"]
+    },
+    {
+      "id": "GAP-012",
+      "title": "Cross-Framework Reasoning Evaluation Standardization",
+      "category": "integration_gap",
+      "description": "Each tool uses different metrics, scoring rubrics, and task formats. Results from OpenCompass, lm-eval-harness, HELM, and Inspect are not directly comparable. No standardized format or translation layer exists for cross-tool reasoning score comparison.",
+      "evidence": "22 tools identified with at least 5 different scoring methodologies. OpenCompass uses CascadeEvaluator, HELM uses 7 metrics, DeepEval uses 0-1 scores, BBH uses deterministic scoring. No interoperability standard exists.",
+      "affected_users": ["benchmark aggregators", "model selectors", "research teams comparing results"]
+    },
+    {
+      "id": "GAP-013",
+      "title": "Sustainability-Aware Reasoning Evaluation",
+      "category": "feature_gap",
+      "description": "SLM-Bench tracks sustainability but not reasoning. No tool simultaneously evaluates reasoning quality and environmental impact (energy consumption, carbon footprint) of the evaluation process itself and the models being evaluated.",
+      "evidence": "Only 1/22 tools tracks sustainability. Zero tools combine reasoning evaluation with environmental metrics. Growing regulatory pressure (EU AI Act) for sustainability reporting on AI systems.",
+      "affected_users": ["sustainability officers", "EU-regulated AI teams", "green AI researchers"]
+    },
+    {
+      "id": "GAP-014",
+      "title": "Reasoning Evaluation for SLM Ensembles and Multi-Agent Systems",
+      "category": "segment_gap",
+      "description": "SLM-MUX orchestrates SLMs for reasoning but evaluation tools treat models as isolated units. No tool evaluates how multiple small models reason together, measuring orchestration overhead, consensus quality, and collective reasoning accuracy.",
+      "evidence": "SLM-MUX shows multi-agent SLM reasoning works but uses ad-hoc evaluation. No benchmark for multi-agent SLM reasoning quality exists. Multi-agent evaluation is an emerging area with no SLM focus.",
+      "affected_users": ["multi-agent system builders", "orchestration framework developers", "distributed AI teams"]
+    },
+    {
+      "id": "GAP-015",
+      "title": "Low-Cost / Self-Hosted Reasoning Evaluation (No LLM Judge Required)",
+      "category": "pricing_gap",
+      "description": "Many evaluation tools rely on LLM-as-judge (GPT-4, Claude) which is expensive for continuous evaluation of SLMs. There is a need for self-hosted, low-cost reasoning evaluation that uses programmatic verification or small verifier models instead of expensive API calls.",
+      "evidence": "LiveBench avoids LLM judges but has limited task coverage. CompassVerifier offers lightweight verifiers but limited task types. Most frameworks default to GPT-4 as judge, costing $0.03-0.06 per eval. Running 1000 evals daily costs $900-1800/month.",
+      "affected_users": ["startups", "indie developers", "academic researchers", "budget-constrained teams"]
+    }
+  ]
+}

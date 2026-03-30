@@ -1,0 +1,213 @@
+{
+  "domain": "Reasoning Distillation Platforms for Small Models",
+  "scan_date": "2026-03-29",
+  "total_tools_found": 28,
+  "categories": {
+    "dedicated_distillation_toolkits": [
+      {
+        "name": "EasyDistill (ModelScope/Alibaba)",
+        "url": "https://github.com/modelscope/easydistill",
+        "type": "open_source_toolkit",
+        "description": "Comprehensive KD toolkit for LLMs supporting black-box and white-box distillation, CoT operators for reasoning, data synthesis, SFT, ranking optimization, and RL. Supports System 1 and System 2 cognitive models.",
+        "reasoning_specific": true,
+        "notable_models": ["DistilQwen-ThoughtX", "DistilQwen-ThoughtY"],
+        "integration": "Alibaba Cloud PAI"
+      },
+      {
+        "name": "NVIDIA TensorRT Model Optimizer",
+        "url": "https://github.com/NVIDIA/Model-Optimizer",
+        "type": "enterprise_toolkit",
+        "description": "Unified library for quantization, pruning, distillation, speculative decoding. Combines structured weight pruning with knowledge distillation. Outputs to TensorRT-LLM, vLLM, SGLang.",
+        "reasoning_specific": false,
+        "integration": "NeMo, HuggingFace, TensorRT-LLM"
+      },
+      {
+        "name": "HuggingFace TRL (GKD Trainer)",
+        "url": "https://github.com/huggingface/trl",
+        "type": "open_source_library",
+        "description": "Transformer Reinforcement Learning library with Generalized Knowledge Distillation (GKD) trainer, GRPO support, SFT, DPO. GKD integrates distillation with RL fine-tuning.",
+        "reasoning_specific": true,
+        "notable_features": ["GKDTrainer", "GRPO", "reasoning_accuracy_reward()", "SFT"]
+      },
+      {
+        "name": "OpenRLHF",
+        "url": "https://github.com/OpenRLHF/OpenRLHF",
+        "type": "open_source_framework",
+        "description": "High-performance RLHF framework built on Ray, vLLM, ZeRO-3. 3.1x faster than TRL. Supports PPO, DPO, GRPO for reasoning model training.",
+        "reasoning_specific": true,
+        "performance": "3.1x speedup over TRL"
+      }
+    ],
+    "fine_tuning_platforms_with_distillation": [
+      {
+        "name": "OpenAI Distillation API",
+        "url": "https://platform.openai.com/docs/guides/distillation",
+        "type": "commercial_api",
+        "description": "Distills from o1-preview/GPT-4o to GPT-4o-mini. Three components: Stored Completions, Evals, Fine-tuning. Closed ecosystem.",
+        "reasoning_specific": true,
+        "limitations": "Locked to OpenAI models only"
+      },
+      {
+        "name": "Predibase",
+        "url": "https://predibase.com/platform",
+        "type": "commercial_platform",
+        "description": "LoRA fine-tuning platform with Turbo LoRA (2-3x inference speedup), LoRAX multi-adapter serving, reinforcement fine-tuning (RFT) for reasoning models.",
+        "reasoning_specific": true,
+        "notable_features": ["Turbo LoRA", "LoRAX", "RFT", "LLM Distillation Playbook"]
+      },
+      {
+        "name": "Together AI Fine-Tuning",
+        "url": "https://www.together.ai/fine-tuning",
+        "type": "commercial_api",
+        "description": "Fine-tuning API for open-source models. Reasoning clusters for token-heavy workloads. Up to 110 tokens/sec on reasoning clusters.",
+        "reasoning_specific": false
+      },
+      {
+        "name": "Fireworks AI Fine-Tuning",
+        "url": "https://docs.fireworks.ai/fine-tuning/fine-tuning-models",
+        "type": "commercial_api",
+        "description": "Supervised fine-tuning with reasoning_content support in multi-turn conversations. Serverless and on-demand deployment.",
+        "reasoning_specific": true
+      },
+      {
+        "name": "Anyscale Fine-Tuning",
+        "url": "https://www.anyscale.com/use-case/llm-fine-tuning",
+        "type": "commercial_platform",
+        "description": "Supports causal LM, instruction tuning, DPO, continuous pre-training, and model distillation on Ray infrastructure.",
+        "reasoning_specific": false
+      }
+    ],
+    "open_source_training_frameworks": [
+      {
+        "name": "Unsloth",
+        "url": "https://github.com/unslothai/unsloth",
+        "type": "open_source_framework",
+        "description": "Memory-efficient training framework. GRPO with 80% less VRAM than HF+FA2. Train reasoning models with 5GB VRAM. QLoRA/LoRA GRPO support. Unsloth Studio web UI.",
+        "reasoning_specific": true,
+        "notable_features": ["GRPO with 5GB VRAM", "QLoRA GRPO", "Built-in loss tracking"]
+      },
+      {
+        "name": "Axolotl",
+        "url": "https://github.com/axolotl-ai-cloud/axolotl",
+        "type": "open_source_framework",
+        "description": "Streamlined post-training for LLMs. Supports full fine-tuning, LoRA, QLoRA, GPTQ, DPO, IPO, KTO, ORPO, GRPO, GDPO, Reward Modelling, PRM.",
+        "reasoning_specific": true,
+        "notable_features": ["GRPO", "GDPO", "Process Reward Modelling"]
+      },
+      {
+        "name": "LMFlow",
+        "url": "https://github.com/OptimalScale/LMFlow",
+        "type": "open_source_toolkit",
+        "description": "Extensible toolkit for finetuning and inference of large foundation models. LoRA, FlashAttention, Gradient Checkpointing, DeepSpeed Zero3.",
+        "reasoning_specific": false
+      },
+      {
+        "name": "LLaMA-Factory",
+        "url": "https://github.com/hiyouga/LLaMA-Factory",
+        "type": "open_source_framework",
+        "description": "Easy fine-tuning framework supporting 100+ LLMs with web UI. SFT, RLHF, DPO support.",
+        "reasoning_specific": false
+      }
+    ],
+    "research_frameworks_and_methods": [
+      {
+        "name": "DASD (Distribution-Aligned Sequence Distillation)",
+        "url": "https://arxiv.org/abs/2601.09088",
+        "type": "research_framework",
+        "description": "Fully open-source reasoning model achieving SOTA at 4B scale. Uses 448K training samples. Distribution-aligned approach for long-CoT reasoning.",
+        "reasoning_specific": true,
+        "notable_models": ["DASD-4B-Thinking"]
+      },
+      {
+        "name": "DLCoT (Deconstructing Long Chain-of-Thought)",
+        "url": "https://arxiv.org/abs/2503.16385",
+        "type": "research_framework",
+        "description": "Distillation data enhancement: data segmentation, simplification, optimization of intermediate error states for long CoT.",
+        "reasoning_specific": true
+      },
+      {
+        "name": "UniCoTT",
+        "url": "https://openreview.net/forum?id=3baOKeI2EU",
+        "type": "research_framework",
+        "description": "Unified teacher-student distillation framework for transferring diverse structural CoTs from LLMs to SLMs.",
+        "reasoning_specific": true
+      },
+      {
+        "name": "CoT-Evo (Evolutionary CoT Distillation)",
+        "url": "https://arxiv.org/abs/2510.13166",
+        "type": "research_framework",
+        "description": "Evolutionary framework that performs intra-chain aggregation to synthesize high-quality reasoning chains from multiple CoTs.",
+        "reasoning_specific": true
+      },
+      {
+        "name": "DC-CoT Benchmark",
+        "url": "https://arxiv.org/abs/2505.18759",
+        "type": "research_benchmark",
+        "description": "Data-centric benchmark for investigating how data augmentation, selection, and mixing influence CoT distillation efficacy.",
+        "reasoning_specific": true
+      },
+      {
+        "name": "REDI (Reinforcement Distillation)",
+        "url": "https://arxiv.org/abs/2505.24850",
+        "type": "research_framework",
+        "description": "Two-stage framework: Stage 1 learns from positive traces via SFT, Stage 2 refines using both positive and negative traces.",
+        "reasoning_specific": true
+      }
+    ],
+    "pre_distilled_model_families": [
+      {
+        "name": "DeepSeek-R1 Distilled Series",
+        "url": "https://github.com/deepseek-ai/DeepSeek-R1",
+        "type": "pre_distilled_models",
+        "description": "800K reasoning samples from R1 used to distill Qwen2.5 and Llama3 models at 1.5B, 7B, 8B, 14B, 32B, 70B sizes. SFT only, no RL stage needed.",
+        "models": ["R1-Distill-Qwen-1.5B", "R1-Distill-Qwen-7B", "R1-Distill-Qwen-14B", "R1-Distill-Qwen-32B", "R1-Distill-Llama-8B", "R1-Distill-Llama-70B"],
+        "license": "Commercial use allowed"
+      },
+      {
+        "name": "Sky-T1 (NovaSky/UC Berkeley)",
+        "url": "https://novasky-ai.github.io/posts/sky-t1-7B/",
+        "type": "pre_distilled_model",
+        "description": "Open-recipe 7B math reasoning model. 4-step SFT->RL->SFT->RL pipeline from Qwen2.5-Math-7B. Only 5K distilled samples from QwQ teacher. Cost <$450.",
+        "reasoning_specific": true
+      },
+      {
+        "name": "Llamba (Cartesia/Cornell)",
+        "url": "https://arxiv.org/abs/2502.14458",
+        "type": "pre_distilled_model",
+        "description": "Distills Llama-3.x into Mamba-2 recurrent architecture. 12x higher throughput. Optimized for Apple MLX and on-device deployment.",
+        "models": ["Llamba-1B", "Llamba-3B", "Llamba-8B"]
+      },
+      {
+        "name": "NVIDIA Nemotron-3-Nano",
+        "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+        "type": "pre_distilled_model",
+        "description": "Unified model for reasoning and non-reasoning tasks. Generates reasoning traces before final responses.",
+        "reasoning_specific": true
+      }
+    ],
+    "on_device_and_edge": [
+      {
+        "name": "Apple MLX + Core ML",
+        "url": "https://machinelearning.apple.com/research/core-ml-on-device-llama",
+        "type": "on_device_framework",
+        "description": "On-device LLM inference on Apple Silicon. Unified memory architecture. Supports quantized distilled models like Llamba.",
+        "reasoning_specific": false
+      },
+      {
+        "name": "PRISM (Robot Planning SLM Distillation)",
+        "url": "https://arxiv.org/abs/2506.17486",
+        "type": "research_framework",
+        "description": "Distills LLM-enabled robot planners into compact SLMs using synthetic task/environment data.",
+        "reasoning_specific": true,
+        "domain_specific": "robotics"
+      }
+    ]
+  },
+  "market_signals": {
+    "deepseek_r1_watershed": "January 2025 - proved small distilled models can match frontier reasoning",
+    "distillation_attacks": "Anthropic, Google reported industrial-scale distillation attacks from Chinese AI labs in 2025-2026",
+    "open_source_surge": "EasyDistill, Unsloth GRPO, TRL GKD all released/updated in 2025",
+    "cost_reduction": "Sky-T1 trained for <$450; TeichAI distilled frontier models for $52",
+    "vram_democratization": "Unsloth enables reasoning model training with 5GB VRAM"
+  }
+}

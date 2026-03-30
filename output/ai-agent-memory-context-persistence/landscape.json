@@ -1,0 +1,284 @@
+{
+  "domain": "AI Agent Memory & Context Persistence Systems",
+  "scan_date": "2026-03-29",
+  "total_tools_found": 18,
+  "tools": [
+    {
+      "name": "Mem0",
+      "url": "https://mem0.ai",
+      "github": "https://github.com/mem0ai/mem0",
+      "description": "Universal memory layer for AI agents. Extracts, stores, and retrieves memories automatically with graph + vector hybrid architecture.",
+      "type": "Dedicated Memory Layer",
+      "open_source": true,
+      "managed_service": true,
+      "pricing": {
+        "free": "10K memories, 1K retrieval/month",
+        "starter": "$19/month (50K memories)",
+        "pro": "$249/month (unlimited, graph memory, analytics)",
+        "enterprise": "Custom (on-prem, SSO, SLA)"
+      },
+      "key_features": ["Graph memory", "Auto-extraction", "Multi-model support", "Managed infrastructure", "26% higher accuracy vs OpenAI memory"],
+      "integrations": ["OpenAI", "LangGraph", "CrewAI", "Python", "JavaScript"],
+      "architecture": "Vector + Graph hybrid"
+    },
+    {
+      "name": "Zep",
+      "url": "https://www.getzep.com",
+      "github": "https://github.com/getzep/zep",
+      "description": "Context engineering and agent memory platform built on temporal knowledge graphs. Tracks entities, relationships, and temporal changes.",
+      "type": "Dedicated Memory Layer",
+      "open_source": true,
+      "managed_service": true,
+      "pricing": {
+        "free": "1,000 credits",
+        "flex": "$25/month (full features)",
+        "enterprise": "Custom (BYOK, BYOM, BYOC, HIPAA)"
+      },
+      "key_features": ["Temporal knowledge graph", "Graphiti engine", "Episode-based memory", "Entity resolution", "SOC 2 Type II"],
+      "integrations": ["LangChain", "LlamaIndex", "CrewAI", "Vercel AI SDK"],
+      "architecture": "Temporal Knowledge Graph"
+    },
+    {
+      "name": "Letta (formerly MemGPT)",
+      "url": "https://www.letta.com",
+      "github": "https://github.com/letta-ai/letta",
+      "description": "Agent runtime with OS-inspired memory management. Agents self-edit their memory blocks, managing what stays in-context vs archival storage.",
+      "type": "Agent Runtime + Memory",
+      "open_source": true,
+      "managed_service": true,
+      "pricing": {
+        "open_source": "Free",
+        "cloud": "Usage-based"
+      },
+      "key_features": ["Self-editing memory", "Agent Development Environment (ADE)", "Tiered memory (RAM/disk analogy)", "REST API", "Infinite context handling"],
+      "integrations": ["OpenAI", "Anthropic", "Custom models"],
+      "architecture": "OS-inspired virtual memory"
+    },
+    {
+      "name": "Cognee",
+      "url": "https://www.cognee.ai",
+      "github": "https://github.com/topoteretes/cognee",
+      "description": "AI memory engine that turns unstructured data into structured, retrievable knowledge using ECL (Extract, Cognify, Load) pipelines.",
+      "type": "Knowledge Engine / Memory Layer",
+      "open_source": true,
+      "managed_service": true,
+      "pricing": {
+        "open_source": "Free",
+        "managed": "Contact sales"
+      },
+      "key_features": ["ECL pipelines", "Graph + vector pairing", "Entity/relationship extraction", "Multi-modal (text, images, audio)", "Google ADK integration"],
+      "integrations": ["Google ADK", "LangChain", "Custom pipelines"],
+      "architecture": "Graph + Vector"
+    },
+    {
+      "name": "Supermemory",
+      "url": "https://supermemory.ai",
+      "description": "State-of-the-art agent memory with custom vector graph engine featuring ontology-aware edges that update, merge, contradict, and infer knowledge.",
+      "type": "Dedicated Memory Layer",
+      "open_source": true,
+      "managed_service": true,
+      "pricing": {
+        "details": "Not publicly listed"
+      },
+      "key_features": ["Vector graph engine", "Ontology-aware edges", "Sub-300ms latency", "Context-aware reranking", "Temporal awareness"],
+      "integrations": ["Multiple LLM providers"],
+      "architecture": "Custom Vector Graph"
+    },
+    {
+      "name": "Hindsight (by Vectorize)",
+      "url": "https://hindsight.vectorize.io",
+      "github": "https://github.com/vectorize-io/hindsight",
+      "description": "Agent memory system achieving 91.4% accuracy on LongMemEval. Organizes memory into four networks: world facts, experiences, entity summaries, and evolving beliefs.",
+      "type": "Dedicated Memory Layer",
+      "open_source": true,
+      "managed_service": false,
+      "pricing": {
+        "open_source": "Free"
+      },
+      "key_features": ["91.4% LongMemEval accuracy", "Four memory networks", "Retain/Recall/Reflect operations", "Belief evolution", "Local Ollama support"],
+      "integrations": ["Pydantic AI", "Microsoft Agent Framework", "Ollama"],
+      "architecture": "Multi-network memory"
+    },
+    {
+      "name": "LangMem SDK",
+      "url": "https://langchain-ai.github.io/langmem/",
+      "github": "https://github.com/langchain-ai/langmem",
+      "description": "LangChain's SDK for agent long-term memory. Supports episodic, procedural, and semantic memory types with background memory management.",
+      "type": "SDK / Library",
+      "open_source": true,
+      "managed_service": false,
+      "pricing": {
+        "open_source": "Free (requires LangGraph Platform for managed)"
+      },
+      "key_features": ["Episodic/procedural/semantic memory", "Background memory manager", "Prompt refinement from memory", "Any storage backend", "Native LangGraph integration"],
+      "integrations": ["LangGraph", "LangChain", "MongoDB"],
+      "architecture": "Modular memory types"
+    },
+    {
+      "name": "memU",
+      "url": "https://memu.pro",
+      "github": "https://github.com/NevaMind-AI/memU",
+      "description": "Memory framework for 24/7 proactive agents. Organizes memories like a file system with proactive behavior prediction and 92% Locomo benchmark accuracy.",
+      "type": "Memory Framework",
+      "open_source": true,
+      "managed_service": false,
+      "pricing": {
+        "open_source": "Free"
+      },
+      "key_features": ["File-system memory organization", "Proactive behavior prediction", "92% Locomo accuracy", "Emotional continuity", "12K+ GitHub stars"],
+      "integrations": ["Claude", "OpenAI", "Gemini", "DeepSeek", "Qwen", "Grok"],
+      "architecture": "Hierarchical file-system style"
+    },
+    {
+      "name": "Amazon Bedrock AgentCore Memory",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html",
+      "description": "Fully managed enterprise memory service within AWS. Provides short-term session memory and long-term cross-session memory with auto-extraction.",
+      "type": "Cloud Provider Managed Service",
+      "open_source": false,
+      "managed_service": true,
+      "pricing": {
+        "model": "AWS usage-based pricing"
+      },
+      "key_features": ["Fully managed", "Short-term + long-term memory", "Auto preference extraction", "AWS ecosystem integration", "Works with any framework"],
+      "integrations": ["CrewAI", "LangGraph", "LlamaIndex", "Strands Agents"],
+      "architecture": "Managed cloud service"
+    },
+    {
+      "name": "LangChain Memory (ConversationBufferMemory, etc.)",
+      "url": "https://python.langchain.com/docs/modules/memory/",
+      "description": "Built-in memory modules within LangChain framework. Multiple memory types including buffer, summary, entity, and knowledge graph memory.",
+      "type": "Framework Built-in",
+      "open_source": true,
+      "managed_service": false,
+      "pricing": {
+        "open_source": "Free"
+      },
+      "key_features": ["Multiple memory types", "Broad storage backends", "Buffer/summary/entity/KG memory", "Extensible", "Largest ecosystem"],
+      "integrations": ["LangChain ecosystem", "Multiple vector stores"],
+      "architecture": "Pluggable memory modules"
+    },
+    {
+      "name": "MemMachine (MemVerge)",
+      "url": "https://www.memmachine.ai",
+      "description": "Open source long-context AI memory layer enabling real-time personalization across major LLMs.",
+      "type": "Infrastructure Layer",
+      "open_source": true,
+      "managed_service": false,
+      "pricing": {
+        "open_source": "Free"
+      },
+      "key_features": ["Long-context memory", "Cross-LLM support", "Real-time personalization"],
+      "integrations": ["OpenAI", "Claude", "Gemini", "Grok", "Llama", "DeepSeek", "Qwen"],
+      "architecture": "Memory infrastructure layer"
+    },
+    {
+      "name": "CrewAI Memory",
+      "url": "https://crewai.com",
+      "description": "Built-in memory management within CrewAI multi-agent framework. Provides shared short-term, long-term, entity, and contextual memory.",
+      "type": "Framework Built-in",
+      "open_source": true,
+      "managed_service": true,
+      "pricing": {
+        "open_source": "Free",
+        "enterprise": "CrewAI Enterprise pricing"
+      },
+      "key_features": ["Shared agent memory", "Short/long-term/entity/contextual types", "Multi-agent coordination"],
+      "integrations": ["CrewAI ecosystem"],
+      "architecture": "Multi-type shared memory"
+    },
+    {
+      "name": "AI Context Flow",
+      "url": "https://plurality.network",
+      "description": "Browser plugin for persistent memory across ChatGPT, Claude, Gemini, Perplexity, and Grok with 'memory buckets' for organization.",
+      "type": "Browser Extension / Plugin",
+      "open_source": false,
+      "managed_service": true,
+      "pricing": {
+        "details": "Freemium browser extension"
+      },
+      "key_features": ["Cross-platform (ChatGPT, Claude, Gemini, etc.)", "Memory buckets", "User-controlled memory organization"],
+      "integrations": ["ChatGPT", "Claude", "Gemini", "Perplexity", "Grok"],
+      "architecture": "Browser-level memory layer"
+    },
+    {
+      "name": "Langroid",
+      "url": "https://langroid.github.io/langroid/",
+      "github": "https://github.com/langroid/langroid",
+      "description": "Multi-agent framework with RAG and vector store memory integrations (Qdrant, Chroma, LanceDB).",
+      "type": "Framework with Memory",
+      "open_source": true,
+      "managed_service": false,
+      "pricing": {
+        "open_source": "Free"
+      },
+      "key_features": ["Multi-agent orchestration", "RAG capabilities", "Multiple vector store backends"],
+      "integrations": ["Qdrant", "ChromaDB", "LanceDB"],
+      "architecture": "Vector store RAG"
+    },
+    {
+      "name": "MCP Memory Service",
+      "url": "https://github.com/doobidoo/mcp-memory-service",
+      "description": "Open-source persistent memory for AI agent pipelines via Model Context Protocol. REST API with knowledge graph and autonomous consolidation.",
+      "type": "Protocol-based Memory",
+      "open_source": true,
+      "managed_service": false,
+      "pricing": {
+        "open_source": "Free"
+      },
+      "key_features": ["MCP protocol", "Knowledge graph", "Autonomous consolidation", "REST API"],
+      "integrations": ["LangGraph", "CrewAI", "AutoGen", "Claude"],
+      "architecture": "MCP-based persistent memory"
+    },
+    {
+      "name": "ChromaDB MCP Server",
+      "url": "https://skywork.ai/skypage/en/chromadb-mcp-server-ai-memory/",
+      "description": "ChromaDB as a memory layer for AI agents via MCP, providing vector-based memory storage and retrieval.",
+      "type": "Vector Store as Memory",
+      "open_source": true,
+      "managed_service": false,
+      "pricing": {
+        "open_source": "Free"
+      },
+      "key_features": ["ChromaDB vector store", "MCP protocol support", "Simple setup"],
+      "integrations": ["MCP-compatible agents", "Claude"],
+      "architecture": "Vector store"
+    },
+    {
+      "name": "Azure AI Foundry Agents Memory",
+      "url": "https://learn.microsoft.com/en-us/azure/ai-foundry/",
+      "description": "Microsoft's managed agent memory capabilities within Azure ecosystem, integrated with Semantic Kernel.",
+      "type": "Cloud Provider Managed Service",
+      "open_source": false,
+      "managed_service": true,
+      "pricing": {
+        "model": "Azure usage-based pricing"
+      },
+      "key_features": ["Azure ecosystem integration", "Semantic Kernel support", "Enterprise grade"],
+      "integrations": ["Semantic Kernel", "Azure OpenAI", "Microsoft ecosystem"],
+      "architecture": "Managed cloud service"
+    },
+    {
+      "name": "Google Always-On Memory Agent",
+      "url": "https://venturebeat.com/orchestration/google-pm-open-sources-always-on-memory-agent-ditching-vector-databases-for/",
+      "description": "Open-source reference implementation for continuous memory ingestion and background consolidation without vector databases.",
+      "type": "Reference Implementation",
+      "open_source": true,
+      "managed_service": false,
+      "pricing": {
+        "open_source": "Free"
+      },
+      "key_features": ["No vector database required", "Continuous ingestion", "Background consolidation", "LLM-driven memory"],
+      "integrations": ["Google ecosystem"],
+      "architecture": "LLM-native memory (no vector DB)"
+    }
+  ],
+  "market_categories": {
+    "dedicated_memory_layers": ["Mem0", "Zep", "Supermemory", "Hindsight"],
+    "agent_runtimes_with_memory": ["Letta", "CrewAI", "Langroid"],
+    "sdks_and_libraries": ["LangMem SDK", "memU", "LangChain Memory"],
+    "cloud_provider_services": ["Amazon Bedrock AgentCore Memory", "Azure AI Foundry Agents"],
+    "infrastructure": ["MemMachine", "Cognee", "MCP Memory Service", "ChromaDB MCP"],
+    "end_user_tools": ["AI Context Flow"],
+    "reference_implementations": ["Google Always-On Memory Agent"]
+  }
+}

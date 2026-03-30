@@ -1,0 +1,358 @@
+{
+  "domain": "AI Agent Identity, Authentication & Access Control",
+  "scan_date": "2026-03-29",
+  "search_queries": [
+    "AI agent identity management tools platforms 2025 2026",
+    "non-human identity management NHI tools software",
+    "AI agent authentication authorization access control platforms",
+    "machine identity management platforms service accounts secrets",
+    "agentic AI security identity governance tools startups",
+    "OAuth for AI agents MCP protocol authentication tools 2026",
+    "secrets management vaults HashiCorp CyberArk comparison 2026",
+    "workload identity SPIFFE SPIRE service mesh zero trust",
+    "API key management rotation platform tools startups",
+    "Composio Nango AI agent third-party auth integration tools",
+    "Oso Permit.io Cerbos authorization as a service fine-grained permissions",
+    "GitGuardian Doppler Infisical secrets detection scanning tools",
+    "Veza Opal Indent access governance authorization graph"
+  ],
+  "market_size": {
+    "iam_market_2026": "$25.7 billion",
+    "iam_market_2032_projected": "$53.1 billion",
+    "cagr": "13.7%",
+    "agent_management_platform_2029": "$15 billion (from <$5M today, 3000x growth)",
+    "nhi_ratio": "50 non-human identities per human identity"
+  },
+  "categories": [
+    {
+      "name": "Agent-Native Identity & IAM",
+      "description": "Platforms built specifically for AI agent identity lifecycle, registration, delegated access, and runtime enforcement",
+      "tools": [
+        {
+          "name": "Okta (Auth for AI Agents)",
+          "url": "https://www.okta.com/solutions/secure-ai/",
+          "description": "Treats AI agents as first-class identities with strict authentication, authorization, and governance. Leader in Gartner Magic Quadrant for Access Management.",
+          "type": "enterprise",
+          "funding": "Public (OKTA)"
+        },
+        {
+          "name": "Auth0 (AI Agent Auth)",
+          "url": "https://auth0.com/ai",
+          "description": "Supports dedicated AI agent identities, persistent user memory, async authorization. Secures MCP servers with control over which agents connect and what they access.",
+          "type": "enterprise",
+          "parent": "Okta"
+        },
+        {
+          "name": "Strata Maverics",
+          "url": "https://www.strata.io/blog/agentic-identity/new-identity-playbook-ai-agents-not-nhi-8b/",
+          "description": "Agentic Identity platform addressing gaps in legacy IAM architectures for AI agents. Argues agents need their own identity class, not just NHI treatment.",
+          "type": "startup"
+        },
+        {
+          "name": "Ping Identity (Identity for AI)",
+          "url": "https://www.pingidentity.com/",
+          "description": "Launched Identity for AI platform for managing AI agents from registration and delegated access to runtime enforcement.",
+          "type": "enterprise"
+        },
+        {
+          "name": "Cisco (Identity Intelligence + Duo for Agents)",
+          "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m03/cisco-reimagines-security-for-the-agentic-workforce.html",
+          "description": "Extends Zero Trust to agents with agent discovery in Identity Intelligence, agentic IAM in Duo, and MCP policy enforcement.",
+          "type": "enterprise",
+          "funding": "Public (CSCO)"
+        },
+        {
+          "name": "Microsoft Agent 365",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/03/20/secure-agentic-ai-end-to-end/",
+          "description": "Control plane for agents giving IT, security, and business teams visibility to observe, secure, and govern agents at scale. GA May 2026.",
+          "type": "enterprise",
+          "funding": "Public (MSFT)"
+        }
+      ]
+    },
+    {
+      "name": "Non-Human Identity (NHI) Security",
+      "description": "Platforms focused on discovering, classifying, and securing all non-human identities including AI agents, service accounts, API keys",
+      "tools": [
+        {
+          "name": "Entro Security",
+          "url": "https://entro.security/",
+          "description": "First platform to unify security for AI agents, NHIs, and secrets. Full visibility, ownership attribution, real-time anomaly detection.",
+          "type": "startup"
+        },
+        {
+          "name": "Astrix Security",
+          "url": "https://astrix.security/",
+          "description": "Secures agent identities with governance, least-privilege access, and full audit trails.",
+          "type": "startup"
+        },
+        {
+          "name": "Clutch Security",
+          "url": "https://www.clutch.security/",
+          "description": "Universal NHI security platform that discovers, governs, and secures every NHI across environments.",
+          "type": "startup"
+        },
+        {
+          "name": "OASIS Security",
+          "url": "https://www.oasis.security/",
+          "description": "Secures AI agents and NHIs across IaaS, SaaS, PaaS, and on-prem environments.",
+          "type": "startup"
+        },
+        {
+          "name": "GitGuardian (NHI Governance)",
+          "url": "https://www.gitguardian.com/",
+          "description": "Secrets security and NHI governance. ML-powered scanning across SDLC for 350+ secret types. Expanding into NHI governance.",
+          "type": "startup"
+        }
+      ]
+    },
+    {
+      "name": "Agentic AI Security & Governance",
+      "description": "Platforms for comprehensive agent security: discovery, behavior monitoring, guardrails, and governance",
+      "tools": [
+        {
+          "name": "Zenity",
+          "url": "https://zenity.io/",
+          "description": "Connects signals across agent ecosystem for unified, intent-aware view of activity and risk. Knows which agents exist, who owns them, what they access.",
+          "type": "startup"
+        },
+        {
+          "name": "Teleport",
+          "url": "https://goteleport.com/use-cases/agentic-ai/",
+          "description": "Infrastructure Identity Platform unifying governance of human, machine, workload, device, and AI identities.",
+          "type": "startup"
+        },
+        {
+          "name": "Lakera",
+          "url": "https://www.lakera.ai/",
+          "description": "LLM attack surface management. Blocks prompt injection, data leaks, tool-abuse. $20M Series A.",
+          "type": "startup"
+        },
+        {
+          "name": "Obsidian Security",
+          "url": "https://www.obsidiansecurity.com/",
+          "description": "Security for AI agents, protecting intelligent systems in enterprise environments.",
+          "type": "startup"
+        }
+      ]
+    },
+    {
+      "name": "Workload Identity & Secretless Access",
+      "description": "Platforms providing cryptographic identity for workloads and secretless authentication",
+      "tools": [
+        {
+          "name": "Aembit",
+          "url": "https://aembit.io/",
+          "description": "IAM for agentic AI and workloads. Secretless access and real-time policy enforcement across any environment.",
+          "type": "startup"
+        },
+        {
+          "name": "SPIFFE/SPIRE",
+          "url": "https://spiffe.io/",
+          "description": "Open-source framework for cryptographic workload identity. Zero-trust identity issuance without secrets. CNCF graduated project.",
+          "type": "open_source"
+        },
+        {
+          "name": "Teleport (Workload Identity)",
+          "url": "https://goteleport.com/",
+          "description": "Infrastructure access platform with workload identity capabilities for zero-trust access.",
+          "type": "startup"
+        }
+      ]
+    },
+    {
+      "name": "Secrets Management & Vaults",
+      "description": "Centralized platforms for storing, rotating, and managing secrets, credentials, and keys",
+      "tools": [
+        {
+          "name": "HashiCorp Vault",
+          "url": "https://www.hashicorp.com/products/vault",
+          "description": "Industry-standard secrets management with dynamic secrets, leasing. Developer-friendly, cloud-agnostic. 6.8% mindshare.",
+          "type": "enterprise",
+          "funding": "Public (HCP / acquired by IBM)"
+        },
+        {
+          "name": "CyberArk",
+          "url": "https://www.cyberark.com/",
+          "description": "Enterprise PAM leader. Session recording, Central Policy Manager, Enterprise Password Vault.",
+          "type": "enterprise",
+          "funding": "Public (CYBR)"
+        },
+        {
+          "name": "Akeyless",
+          "url": "https://www.akeyless.io/",
+          "description": "Cloud-native SaaS vaultless secrets management and modern PAM. Reduces traditional vault complexity.",
+          "type": "startup"
+        },
+        {
+          "name": "Doppler",
+          "url": "https://www.doppler.com/",
+          "description": "Developer-friendly secrets management. Centralizes API keys and env variables, syncs to apps and infrastructure. From $3/user/month.",
+          "type": "startup"
+        },
+        {
+          "name": "Infisical",
+          "url": "https://infisical.com/",
+          "description": "Open-source secrets management. Cloud and self-hosted. Secrets vault + config sharing + code scanning.",
+          "type": "open_source"
+        },
+        {
+          "name": "AWS Secrets Manager",
+          "url": "https://aws.amazon.com/secrets-manager/",
+          "description": "Managed solution for securely storing and rotating API keys, database credentials, and other secrets.",
+          "type": "cloud_native"
+        },
+        {
+          "name": "1Password (Agentic AI)",
+          "url": "https://1password.com/solutions/agentic-ai",
+          "description": "TOTP support for AI agents, enabling MFA-compliant access without human intervention.",
+          "type": "enterprise"
+        }
+      ]
+    },
+    {
+      "name": "Fine-Grained Authorization (FGA)",
+      "description": "Authorization-as-a-service platforms for complex permission models (RBAC, ABAC, ReBAC)",
+      "tools": [
+        {
+          "name": "Oso",
+          "url": "https://www.osohq.com/",
+          "description": "Developer-first authorization framework with Polar policy language. Supports RBAC, ABAC, ReBAC. Now focused on agent security.",
+          "type": "startup"
+        },
+        {
+          "name": "WorkOS FGA",
+          "url": "https://workos.com/",
+          "description": "Enterprise authorization platform for B2B SaaS. Fine-grained authorization beyond traditional RBAC.",
+          "type": "startup"
+        },
+        {
+          "name": "Permit.io",
+          "url": "https://www.permit.io/",
+          "description": "Authorization platform built on OPA with visual UI, real-time updates, audit logs.",
+          "type": "startup"
+        },
+        {
+          "name": "Cerbos",
+          "url": "https://www.cerbos.dev/",
+          "description": "Open-source fine-grained access control. YAML-based policy definitions. Application-focused design patterns.",
+          "type": "open_source"
+        },
+        {
+          "name": "OpenFGA (Auth0)",
+          "url": "https://openfga.dev/",
+          "description": "Open-source fine-grained authorization engine inspired by Google Zanzibar.",
+          "type": "open_source"
+        }
+      ]
+    },
+    {
+      "name": "Agent Integration & Third-Party Auth",
+      "description": "Platforms enabling AI agents to authenticate with and use third-party services",
+      "tools": [
+        {
+          "name": "Composio",
+          "url": "https://composio.dev/",
+          "description": "AI-first, MCP-native integration platform. 500+ pre-built tools with managed auth, tracing, logging.",
+          "type": "startup"
+        },
+        {
+          "name": "Nango",
+          "url": "https://nango.dev/",
+          "description": "Unified API platform connecting 250+ SaaS apps. User-delegated OAuth flows, secure token storage and refresh.",
+          "type": "startup"
+        },
+        {
+          "name": "Stytch",
+          "url": "https://stytch.com/",
+          "description": "Agent-to-agent OAuth for secure AI agent connectivity with MCP.",
+          "type": "startup"
+        }
+      ]
+    },
+    {
+      "name": "Identity Governance & Administration (IGA)",
+      "description": "Platforms for identity lifecycle management, access reviews, compliance",
+      "tools": [
+        {
+          "name": "SailPoint",
+          "url": "https://www.sailpoint.com/",
+          "description": "Leading IGA platform. Identity lifecycle management, access certifications, compliance.",
+          "type": "enterprise",
+          "funding": "Acquired by Thoma Bravo"
+        },
+        {
+          "name": "Saviynt",
+          "url": "https://saviynt.com/",
+          "description": "AI-powered identity security. Unified platform for human and non-human identities. SaviAI for intelligent workflows.",
+          "type": "enterprise"
+        },
+        {
+          "name": "ConductorOne",
+          "url": "https://www.conductorone.com/",
+          "description": "AI-native identity governance. Autonomous agents for managing requests and reviews. Single platform for human and NHI.",
+          "type": "startup"
+        },
+        {
+          "name": "Veza",
+          "url": "https://veza.com/",
+          "description": "Identity security platform with Authorization Graph. Maps identities to effective permissions. Access AuthZ automation.",
+          "type": "startup"
+        }
+      ]
+    },
+    {
+      "name": "MCP & Protocol-Level Security",
+      "description": "Tools and standards for securing the Model Context Protocol and agent-to-tool communication",
+      "tools": [
+        {
+          "name": "Cloudflare Agents (MCP Auth)",
+          "url": "https://developers.cloudflare.com/agents/model-context-protocol/authorization/",
+          "description": "OAuth 2.1 authorization for MCP servers built on Cloudflare Workers. Built-in auth flow.",
+          "type": "enterprise"
+        },
+        {
+          "name": "MCP Gateway Registry",
+          "url": "https://github.com/agentic-community/mcp-gateway-registry",
+          "description": "Enterprise-ready MCP Gateway with OAuth auth, dynamic tool discovery, Keycloak/Entra integration. Open source.",
+          "type": "open_source"
+        },
+        {
+          "name": "Gravitee (Agent Management)",
+          "url": "https://www.gravitee.io/",
+          "description": "AI Agent Management Platform for API governance extending to agent-to-tool communication.",
+          "type": "startup"
+        }
+      ]
+    },
+    {
+      "name": "API Key Management",
+      "description": "Platforms for creating, rotating, and revoking API keys",
+      "tools": [
+        {
+          "name": "Unkey",
+          "url": "https://www.unkey.com/",
+          "description": "API key management with one-way hashed keys, audit logs, rate limiting. Developer-focused.",
+          "type": "startup"
+        },
+        {
+          "name": "Zuplo",
+          "url": "https://zuplo.com/",
+          "description": "API management with built-in key management, instant key rolling without downtime. Free tier available.",
+          "type": "startup"
+        }
+      ]
+    }
+  ],
+  "total_tools_identified": 42,
+  "key_trends": [
+    "AI agents being treated as first-class identities alongside humans and machines",
+    "Emergence of Agent Management Platform (AMP) as a new Gartner category",
+    "MCP OAuth 2.1 becoming the standard for agent-to-tool authentication",
+    "Secretless access and just-in-time credentials replacing static secrets",
+    "Convergence of NHI security and agentic AI security into unified platforms",
+    "Fine-grained authorization (FGA) replacing RBAC for agent permissions",
+    "Major enterprise vendors (Okta, Microsoft, Cisco) adding agent-specific features",
+    "3000x growth projected for agent management platforms by 2029"
+  ]
+}

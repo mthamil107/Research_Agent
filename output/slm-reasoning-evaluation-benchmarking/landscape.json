@@ -1,0 +1,211 @@
+{
+  "domain": "SLM Reasoning Evaluation & Benchmarking Tools",
+  "scan_date": "2026-03-29",
+  "total_tools_found": 22,
+  "tools": [
+    {
+      "name": "ThinkSLM",
+      "type": "benchmark",
+      "url": "https://ctrl-gaurav.github.io/thinkslm.github.io/",
+      "description": "First extensive benchmark to systematically evaluate reasoning abilities of SLMs. Evaluates 72 diverse SLMs from 6 model families across 17 reasoning benchmarks. Covers quantization, pruning, distillation effects on reasoning.",
+      "key_features": ["72 SLM evaluation", "17 reasoning benchmarks", "quantization/pruning analysis", "adversarial robustness testing", "public leaderboard"],
+      "origin": "EMNLP 2025",
+      "open_source": true
+    },
+    {
+      "name": "BeyondBench",
+      "type": "evaluation_framework",
+      "url": "https://github.com/ctrl-gaurav/BeyondBench",
+      "description": "Dynamic evaluation framework generating algorithmic problems to measure genuine reasoning. 44 tasks, 117 variations, 3 difficulty levels. Contamination-resistant by design.",
+      "key_features": ["dynamic problem generation", "contamination-resistant", "44 algorithmic tasks", "117 variations", "3 difficulty levels", "verifiable solutions"],
+      "origin": "ICLR 2026",
+      "open_source": true
+    },
+    {
+      "name": "CompassVerifier",
+      "type": "verifier_model",
+      "url": "https://github.com/open-compass/CompassVerifier",
+      "description": "Suite of lightweight verifier models (3B, 7B, 32B) for evaluation and outcome reward. Processes (question, reference, response) triples. Includes VerifierBench with 1.3M+ responses from 50+ models.",
+      "key_features": ["3B/7B/32B model variants", "multi-domain verification", "VerifierBench dataset", "SOTA accuracy >90%", "RL reward model capability"],
+      "origin": "EMNLP 2025 / OpenCompass",
+      "open_source": true
+    },
+    {
+      "name": "OpenCompass",
+      "type": "evaluation_platform",
+      "url": "https://github.com/open-compass/opencompass",
+      "description": "Comprehensive LLM evaluation platform supporting 100+ datasets. Includes MATHVerifyEvaluator, GenericLLMEvaluator, CascadeEvaluator for complex reasoning pipelines.",
+      "key_features": ["100+ datasets", "MATHVerifyEvaluator", "LLM-as-judge", "CascadeEvaluator", "SuperGPQA", "OlympiadBench"],
+      "origin": "Shanghai AI Lab",
+      "open_source": true
+    },
+    {
+      "name": "lm-evaluation-harness",
+      "type": "evaluation_framework",
+      "url": "https://github.com/EleutherAI/lm-evaluation-harness",
+      "description": "Unified framework for few-shot evaluation of language models. Backend for HuggingFace Open LLM Leaderboard. Supports reasoning tasks including SLR-Bench, BBH, math reasoning.",
+      "key_features": ["HuggingFace leaderboard backend", "tinyBenchmarks support", "think_end_token for reasoning models", "hundreds of tasks", "vllm/sglang backends"],
+      "origin": "EleutherAI",
+      "open_source": true
+    },
+    {
+      "name": "RewardBench",
+      "type": "benchmark",
+      "url": "https://github.com/allenai/reward-bench",
+      "description": "Benchmark for evaluating preference reward models across chat, reasoning, and safety. Includes Chat, Chat Hard, Safety, and Reasoning categories.",
+      "key_features": ["reward model evaluation", "reasoning category", "prompt-chosen-rejected trios", "RewardBench 2 with Ties domain"],
+      "origin": "Allen AI",
+      "open_source": true
+    },
+    {
+      "name": "LiveBench",
+      "type": "benchmark",
+      "url": "https://livebench.ai/",
+      "description": "Contamination-free LLM benchmark with monthly question updates from recent sources. Covers math, coding, reasoning, language, instruction following, data analysis.",
+      "key_features": ["monthly updates", "contamination-free", "objective ground-truth scoring", "no LLM judge needed", "6 categories"],
+      "origin": "Academic collaboration",
+      "open_source": true
+    },
+    {
+      "name": "HELM (Holistic Evaluation of Language Models)",
+      "type": "evaluation_framework",
+      "url": "https://crfm.stanford.edu/helm/",
+      "description": "Holistic evaluation framework measuring 7 metrics across 42 scenarios. Includes reasoning evaluation. Efficient-HELM variant for smaller models.",
+      "key_features": ["7 metrics", "42 scenarios", "Efficient-HELM for small models", "reproducible", "multi-metric approach"],
+      "origin": "Stanford CRFM",
+      "open_source": true
+    },
+    {
+      "name": "DeepEval",
+      "type": "evaluation_framework",
+      "url": "https://deepeval.com/",
+      "description": "Open-source LLM evaluation framework with 50+ metrics. Includes reasoning-specific metrics like PlanQualityMetric and G-Eval with CoT.",
+      "key_features": ["50+ metrics", "G-Eval with CoT", "PlanQualityMetric", "agent reasoning evaluation", "CI/CD integration"],
+      "origin": "Confident AI",
+      "open_source": true
+    },
+    {
+      "name": "Inspect AI",
+      "type": "evaluation_framework",
+      "url": "https://github.com/UKGovernmentBEIS/inspect_ai",
+      "description": "LLM evaluation framework by UK AI Safety Institute. 100+ pre-built evaluations including reasoning benchmarks (BBH, AIME, FrontierScience).",
+      "key_features": ["100+ evaluations", "AIME benchmarks", "FrontierScience", "tool calling support", "MCP integration"],
+      "origin": "UK AISI",
+      "open_source": true
+    },
+    {
+      "name": "BIG-Bench Hard (BBH)",
+      "type": "benchmark",
+      "url": "https://github.com/suzgunmirac/BIG-Bench-Hard",
+      "description": "27 challenging tasks requiring algorithmic, logical, linguistic, and commonsense reasoning. Supports zero-shot, few-shot, and chain-of-thought evaluation.",
+      "key_features": ["27 reasoning tasks", "6511 samples", "CoT evaluation", "deterministic scoring", "multiple prompting modes"],
+      "origin": "Google Research",
+      "open_source": true
+    },
+    {
+      "name": "SLM-Bench",
+      "type": "benchmark",
+      "url": "https://aclanthology.org/2025.findings-emnlp.1165/",
+      "description": "First benchmark specifically for SLMs measuring accuracy, computational efficiency, and sustainability. 15 SLMs, 9 NLP tasks, 23 datasets, 14 domains, 11 metrics.",
+      "key_features": ["SLM-specific", "sustainability metrics", "computational efficiency", "11 holistic metrics", "energy consumption tracking"],
+      "origin": "EMNLP 2025",
+      "open_source": true
+    },
+    {
+      "name": "MR-GSM8K",
+      "type": "benchmark",
+      "url": "https://github.com/JIA-Lab-research/MR-GSM8K",
+      "description": "Meta-reasoning benchmark evaluating models' ability to verify solution correctness, locate errors, and explain error reasons. Includes code solution and backward reasoning variants.",
+      "key_features": ["meta-reasoning evaluation", "error detection", "error explanation", "code solution variant", "backward reasoning"],
+      "origin": "Academic",
+      "open_source": true
+    },
+    {
+      "name": "rStar-Math",
+      "type": "training_and_evaluation",
+      "url": "https://arxiv.org/abs/2501.04519",
+      "description": "Framework demonstrating SLMs can master math reasoning via MCTS and process reward models. Includes evaluation on MATH and AIME benchmarks.",
+      "key_features": ["MCTS-based reasoning", "process reward model", "self-evolution", "SLM-focused", "AIME evaluation"],
+      "origin": "Microsoft Research",
+      "open_source": true
+    },
+    {
+      "name": "ProcessBench / PRM800K",
+      "type": "benchmark_and_dataset",
+      "url": "https://arxiv.org/abs/2305.20050",
+      "description": "Benchmark and dataset for process reward model evaluation. PRM800K contains 800K step-level human feedback labels. ProcessBench evaluates step-by-step verification.",
+      "key_features": ["800K step-level labels", "process supervision", "step-by-step verification", "F1-score evaluation"],
+      "origin": "OpenAI / Academic",
+      "open_source": true
+    },
+    {
+      "name": "ThinkPRM",
+      "type": "verifier_model",
+      "url": "https://arxiv.org/abs/2504.16828",
+      "description": "Long CoT verifier using only 1% of PRM800K labels, outperforming LLM-as-Judge and discriminative verifiers on ProcessBench, MATH-500, AIME.",
+      "key_features": ["1% label efficiency", "long CoT verification", "outperforms LLM-as-judge", "cross-benchmark generalization"],
+      "origin": "Academic",
+      "open_source": true
+    },
+    {
+      "name": "R-PRM (Reasoning-Driven Process Reward Model)",
+      "type": "verifier_model",
+      "url": "https://github.com/NJUNLP/R-PRM",
+      "description": "Reasoning-driven process reward modeling that improves step-level verification through explicit reasoning chains.",
+      "key_features": ["reasoning-driven verification", "process reward scoring", "step-level evaluation"],
+      "origin": "NJU NLP",
+      "open_source": true
+    },
+    {
+      "name": "tinyBenchmarks",
+      "type": "evaluation_toolkit",
+      "url": "https://github.com/felipemaiapolo/tinyBenchmarks",
+      "description": "Efficient evaluation using 100 curated examples instead of thousands. IRT-based selection. Tiny versions of Open LLM Leaderboard, MMLU, HELM, AlpacaEval.",
+      "key_features": ["140x cost reduction", "<2% estimation error", "IRT-based selection", "MMLU/HELM/AlpacaEval tiny versions"],
+      "origin": "IBM Research / Academic",
+      "open_source": true
+    },
+    {
+      "name": "Unitxt",
+      "type": "evaluation_toolkit",
+      "url": "https://github.com/IBM/unitxt",
+      "description": "Modular Python library for enterprise-grade AI evaluation. 400+ datasets, 200+ prompt templates, 80+ metrics. Integrates with HF, lm-eval-harness.",
+      "key_features": ["400+ datasets", "200+ templates", "80+ metrics", "modular pipeline", "enterprise-grade"],
+      "origin": "IBM Research",
+      "open_source": true
+    },
+    {
+      "name": "PromptBench",
+      "type": "evaluation_framework",
+      "url": "https://github.com/microsoft/promptbench",
+      "description": "Unified evaluation framework for LLMs with adversarial prompt robustness testing. 4 attack types across character, word, sentence, semantic levels.",
+      "key_features": ["adversarial prompt attacks", "4 attack levels", "robustness evaluation", "transferability analysis", "13 datasets"],
+      "origin": "Microsoft Research",
+      "open_source": true
+    },
+    {
+      "name": "GSM-Plus",
+      "type": "benchmark",
+      "url": "https://arxiv.org/abs/2402.19255",
+      "description": "Comprehensive benchmark for evaluating robustness of LLMs as mathematical problem solvers, extending GSM8K with perturbations.",
+      "key_features": ["robustness evaluation", "GSM8K extension", "mathematical perturbations"],
+      "origin": "Academic",
+      "open_source": true
+    },
+    {
+      "name": "SLM-MUX",
+      "type": "framework",
+      "url": "https://arxiv.org/abs/2510.05077",
+      "description": "Orchestration framework for small language models that evaluates discussion-based reasoning methods on SLMs using MATH and GPQA datasets.",
+      "key_features": ["multi-agent orchestration", "discussion-based reasoning", "MATH/GPQA evaluation", "SLM-focused"],
+      "origin": "Academic",
+      "open_source": true
+    }
+  ],
+  "key_benchmarks_datasets": [
+    "GSM8K", "GSM-Hard", "MATH", "SVAMP", "AIME", "GPQA", "GPQA-Diamond",
+    "MMLU", "ARC", "HellaSwag", "CommonsenseQA", "BBH", "SuperGPQA",
+    "OlympiadBench", "MR-GSM8K", "GSM-Plus", "PRM800K", "ProcessBench",
+    "VerifierBench", "HumanityLastExam", "LiveCodeBench"
+  ]
+}

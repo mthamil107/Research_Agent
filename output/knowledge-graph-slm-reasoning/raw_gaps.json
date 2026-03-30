@@ -1,0 +1,152 @@
+{
+  "domain": "Knowledge Graph Integration for SLM Reasoning",
+  "generated_date": "2026-03-29",
+  "total_gaps_identified": 15,
+  "gap_categories": {
+    "feature_gaps": [
+      {
+        "id": "GAP-001",
+        "title": "KG-to-SLM Knowledge Distillation Toolkit",
+        "category": "feature_gap",
+        "description": "No existing tool provides an end-to-end pipeline for distilling knowledge graph structure and relationships into compact SLM weights. Current distillation research (KG-MASD) is purely academic with no usable library. Developers must manually design teacher-student pipelines combining KG embeddings with model compression.",
+        "current_alternatives": ["Manual PyKEEN + HuggingFace pipeline", "KG-MASD (paper only)"],
+        "who_needs_it": "ML engineers deploying KG-augmented reasoning on edge devices",
+        "evidence": "0 out of 13 tools support knowledge distillation"
+      },
+      {
+        "id": "GAP-002",
+        "title": "GNN-Enhanced SLM Reasoning Framework",
+        "category": "feature_gap",
+        "description": "GNN-RAG demonstrated that GNNs can help 7B models match GPT-4 on KGQA, but there is no production-ready framework that integrates GNN subgraph reasoning with SLMs (<3B). Current GNN-RAG is research code only, not a reusable library.",
+        "current_alternatives": ["GNN-RAG (research code)", "Manual PyG + model integration"],
+        "who_needs_it": "Developers building knowledge-grounded chatbots with small models",
+        "evidence": "Only 1/13 tools has GNN integration, and it's research-only"
+      },
+      {
+        "id": "GAP-003",
+        "title": "Quantized KG-Augmented SLM Inference Engine",
+        "category": "feature_gap",
+        "description": "No tool combines quantized SLM inference (GGUF/GPTQ/AWQ) with knowledge graph retrieval in a single optimized pipeline. Users must manually wire llama.cpp or similar with a separate KG retrieval layer, losing optimization opportunities.",
+        "current_alternatives": ["nano-GraphRAG + manual quantized model setup", "llama.cpp + manual KG integration"],
+        "who_needs_it": "Developers building on-device or low-resource KG-augmented reasoning",
+        "evidence": "Only 1/13 tools mentions quantization support, none integrate it natively"
+      },
+      {
+        "id": "GAP-004",
+        "title": "Temporal Knowledge Graph Support for SLMs",
+        "category": "feature_gap",
+        "description": "Graphiti provides temporal KG but requires large LLMs. No temporal KG solution exists that works natively with SLMs. Edge-deployed models need to reason about time-evolving facts without cloud LLM calls.",
+        "current_alternatives": ["Graphiti (requires large LLMs)", "Manual temporal logic on top of MiniRAG"],
+        "who_needs_it": "IoT/edge applications needing temporal reasoning with constrained compute",
+        "evidence": "2/13 tools have temporal awareness, 0 combine it with SLM support"
+      }
+    ],
+    "segment_gaps": [
+      {
+        "id": "GAP-005",
+        "title": "Domain-Specific KG+SLM Vertical Solutions",
+        "category": "segment_gap",
+        "description": "No tool provides pre-built domain-specific knowledge graphs (medical, legal, financial) optimized for SLM consumption. Enterprises need turnkey KG+SLM solutions for specific verticals rather than general-purpose frameworks requiring extensive customization.",
+        "current_alternatives": ["Custom builds using Neo4j + fine-tuned models", "BioKGBench (academic only)"],
+        "who_needs_it": "Healthcare, legal, and financial companies with compliance constraints requiring on-premise SLMs",
+        "evidence": "All tools are general-purpose; no vertical-specific KG+SLM solution"
+      },
+      {
+        "id": "GAP-006",
+        "title": "Mobile/Embedded KG-Reasoning SDK",
+        "category": "segment_gap",
+        "description": "MiniRAG targets edge but focuses on retrieval, not deep graph reasoning. No SDK exists for mobile (iOS/Android) or embedded (ARM) deployment that combines compact KG storage with SLM inference in a single binary/library.",
+        "current_alternatives": ["MiniRAG (Python-only, no mobile SDK)", "SMART SLM (research only)"],
+        "who_needs_it": "Mobile app developers, robotics engineers, automotive AI teams",
+        "evidence": "Only 2/13 tools target edge deployment, none provide mobile SDKs"
+      },
+      {
+        "id": "GAP-007",
+        "title": "Educational/Tutoring KG-SLM Platform",
+        "category": "segment_gap",
+        "description": "No platform combines curriculum knowledge graphs with SLM-based tutoring that can run locally in schools/environments with limited connectivity. Educational KGs exist but are not integrated with efficient reasoning models.",
+        "current_alternatives": ["Custom builds", "General-purpose KG tools + separate LLM"],
+        "who_needs_it": "EdTech companies, schools in low-connectivity areas",
+        "evidence": "No tools in landscape target education vertical"
+      }
+    ],
+    "workflow_gaps": [
+      {
+        "id": "GAP-008",
+        "title": "End-to-End KG Construction + SLM Fine-Tuning Pipeline",
+        "category": "workflow_gap",
+        "description": "No tool provides a unified pipeline from raw documents -> KG construction -> training data generation -> SLM fine-tuning -> deployment. Users must stitch together 4-5 different tools (document parsers, KG builders, training frameworks, inference engines).",
+        "current_alternatives": ["Manual pipeline: LlamaIndex KG + HuggingFace training + llama.cpp deployment"],
+        "who_needs_it": "Teams building domain-specific KG-augmented SLMs",
+        "evidence": "No tool covers the full lifecycle from KG construction through model training to deployment"
+      },
+      {
+        "id": "GAP-009",
+        "title": "KG-Guided Prompt Optimization for SLMs",
+        "category": "workflow_gap",
+        "description": "KG Structure as Prompt is research-only. No production tool automatically converts KG topology (metapaths, neighbor structures, subgraph patterns) into optimized prompts specifically designed for SLM token budgets and attention patterns.",
+        "current_alternatives": ["KG Structure as Prompt (paper only)", "Manual prompt engineering"],
+        "who_needs_it": "Prompt engineers working with constrained-context SLMs",
+        "evidence": "Research shows KG structural prompts help SLMs, but no tool automates this"
+      },
+      {
+        "id": "GAP-010",
+        "title": "Automated KG Quality Evaluation for SLM Consumption",
+        "category": "workflow_gap",
+        "description": "No tool evaluates whether a knowledge graph is 'SLM-ready' - measuring properties like average path length, entity density, relationship clarity that impact SLM reasoning quality. Current KG quality tools don't account for SLM-specific constraints.",
+        "current_alternatives": ["Manual evaluation", "Generic graph metrics tools"],
+        "who_needs_it": "Data engineers preparing KGs for SLM integration",
+        "evidence": "No tool evaluates KG quality from SLM consumption perspective"
+      }
+    ],
+    "integration_gaps": [
+      {
+        "id": "GAP-011",
+        "title": "Unified Graph DB Adapter for SLM Frameworks",
+        "category": "integration_gap",
+        "description": "MiniRAG supports 10+ graph DBs but with basic integration. No adapter provides optimized, SLM-aware query planning across graph databases - translating SLM reasoning needs into efficient graph traversal patterns for different backends.",
+        "current_alternatives": ["MiniRAG basic adapters", "Manual Cypher/SPARQL writing"],
+        "who_needs_it": "Teams with existing graph infrastructure wanting to add SLM reasoning",
+        "evidence": "Graph DB support exists but without SLM-specific query optimization"
+      },
+      {
+        "id": "GAP-012",
+        "title": "KG-SLM Integration for Agentic Workflows",
+        "category": "integration_gap",
+        "description": "Agent frameworks (LangGraph, CrewAI, AutoGen) lack native KG-backed reasoning for SLMs. Graphiti serves agents but requires large LLMs. No solution provides persistent KG memory for SLM-powered agents.",
+        "current_alternatives": ["Graphiti (large LLM only)", "Cognee (not SLM-optimized)", "Manual integration"],
+        "who_needs_it": "Developers building cost-efficient autonomous agents",
+        "evidence": "Agent frameworks growing rapidly but KG+SLM agent integration is missing"
+      }
+    ],
+    "pricing_gaps": [
+      {
+        "id": "GAP-013",
+        "title": "Open-Source SLM+KG Managed Service",
+        "category": "pricing_gap",
+        "description": "Neo4j AuraDB and Zep Cloud exist but are priced for enterprise LLM use cases. No affordable managed service targets the SLM use case where inference costs are low but KG hosting/management is the bottleneck.",
+        "current_alternatives": ["Neo4j AuraDB (expensive)", "Self-hosted open source (ops burden)"],
+        "who_needs_it": "Startups and indie developers using SLMs to keep costs low",
+        "evidence": "SLM adoption driven by cost; KG hosting remains expensive barrier"
+      },
+      {
+        "id": "GAP-014",
+        "title": "Serverless KG-Augmented SLM Inference",
+        "category": "pricing_gap",
+        "description": "No serverless/pay-per-query option exists for KG-augmented SLM inference. Current solutions require persistent graph DB instances even for sporadic usage patterns.",
+        "current_alternatives": ["Always-on Neo4j/Memgraph instances", "Embedded SQLite-based KGs (limited)"],
+        "who_needs_it": "Developers with variable workloads who want KG reasoning without fixed infrastructure costs",
+        "evidence": "No serverless KG+SLM offering in market"
+      },
+      {
+        "id": "GAP-015",
+        "title": "Embedded KG File Format for Offline SLM Reasoning",
+        "category": "pricing_gap",
+        "description": "No standardized file format exists for packaging a knowledge graph in a compact, query-efficient format that can be loaded alongside a quantized SLM for fully offline reasoning. Like GGUF for models, but for KGs.",
+        "current_alternatives": ["SQLite exports", "JSON/RDF dumps", "Custom serialization"],
+        "who_needs_it": "Offline-first application developers, field workers, military/air-gapped environments",
+        "evidence": "GGUF standardized model distribution; no equivalent for KGs paired with SLMs"
+      }
+    ]
+  }
+}

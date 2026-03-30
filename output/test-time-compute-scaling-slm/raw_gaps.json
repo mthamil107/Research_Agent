@@ -1,0 +1,170 @@
+{
+  "domain": "Test-Time Compute Scaling and Inference-Time Reasoning for SLMs",
+  "generated_date": "2026-03-29",
+  "gap_categories": ["feature_gap", "segment_gap", "workflow_gap", "integration_gap", "pricing_gap"],
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Unified SLM Reasoning SDK: Search + PRM + Serving in One Package",
+      "category": "integration_gap",
+      "description": "No single tool combines reasoning search algorithms (MCTS, beam search, ToT) with process reward model training AND production-grade serving. OpenR has search+PRM but no serving. vLLM/SGLang have serving but no reasoning search. Developers must glue 3+ tools together.",
+      "affected_tools": ["OpenR", "vLLM", "SGLang", "LLM Reasoners"],
+      "target_users": "ML engineers building reasoning-enhanced SLM applications",
+      "severity": "high"
+    },
+    {
+      "id": "GAP-002",
+      "title": "On-Device / Edge Reasoning Search for SLMs",
+      "category": "segment_gap",
+      "description": "No framework optimizes MCTS/beam search/self-consistency for on-device SLM deployment (mobile, edge). Current reasoning search frameworks assume cloud GPUs. Phi-4-mini runs on device but without search algorithms. The 10-100ms latency budget on mobile is ignored by reasoning search tools.",
+      "affected_tools": ["Phi-4 Reasoning", "rStar", "OpenR"],
+      "target_users": "Mobile/embedded ML engineers, on-device AI teams",
+      "severity": "high"
+    },
+    {
+      "id": "GAP-003",
+      "title": "Adaptive Compute Budget Controller for SLM Reasoning",
+      "category": "feature_gap",
+      "description": "Only Dynasor and s1 offer any form of adaptive compute allocation. No tool dynamically adjusts search depth/breadth based on query difficulty specifically for SLMs with tight compute constraints. Need: detect easy vs hard queries, allocate 1-100x compute dynamically, respect latency SLOs.",
+      "affected_tools": ["Dynasor", "s1", "OpenR"],
+      "target_users": "Production teams serving reasoning SLMs at scale",
+      "severity": "high"
+    },
+    {
+      "id": "GAP-004",
+      "title": "SLM-Specific Process Reward Model Training Toolkit",
+      "category": "feature_gap",
+      "description": "PRM training tools (axolotl, Math-Shepherd) are designed for large models. No specialized toolkit for training compact PRMs that run alongside SLMs under tight memory budgets. Need: PRM quantization, shared backbone with SLM, efficient step-level data generation for SLMs.",
+      "affected_tools": ["Math-Shepherd", "ThinkPRM", "axolotl"],
+      "target_users": "Researchers and engineers building verifiers for small reasoning models",
+      "severity": "medium"
+    },
+    {
+      "id": "GAP-005",
+      "title": "Reasoning Distillation Pipeline: Large Reasoner -> Small Reasoner",
+      "category": "workflow_gap",
+      "description": "Distilling reasoning capability from o3/R1/QwQ into 1-7B models requires stitching together multiple tools manually. No end-to-end pipeline: generate reasoning traces from teacher -> filter/curate -> train student SLM -> evaluate -> iterate. Kiln AI has pieces but lacks search integration.",
+      "affected_tools": ["Kiln AI", "STILL-2", "s1"],
+      "target_users": "Teams building custom small reasoning models",
+      "severity": "high"
+    },
+    {
+      "id": "GAP-006",
+      "title": "Reasoning Quality Observability & Monitoring",
+      "category": "feature_gap",
+      "description": "No tool provides real-time monitoring of reasoning chain quality in production. Need: step-level correctness tracking, reasoning chain length analytics, compute-vs-accuracy dashboards, anomaly detection when reasoning degrades. Current tools are blind to reasoning quality after deployment.",
+      "affected_tools": ["vLLM", "SGLang", "NVIDIA Dynamo"],
+      "target_users": "MLOps teams operating reasoning models in production",
+      "severity": "medium"
+    },
+    {
+      "id": "GAP-007",
+      "title": "Multi-SLM Reasoning Ensemble with Routing",
+      "category": "feature_gap",
+      "description": "SLM-MUX shows ensembling SLMs works, but it's research-only. No production tool routes queries to the best reasoning strategy (single-pass CoT vs. MCTS vs. self-consistency) across multiple SLMs based on query type, difficulty, and latency budget.",
+      "affected_tools": ["SLM-MUX", "Dynasor"],
+      "target_users": "Production teams wanting best accuracy at lowest cost",
+      "severity": "medium"
+    },
+    {
+      "id": "GAP-008",
+      "title": "Domain-Specific Reasoning Enhancement for SLMs (Beyond Math)",
+      "category": "segment_gap",
+      "description": "Nearly all test-time compute research focuses on math/code benchmarks. No tool or framework specifically addresses reasoning for SLMs in domains like legal reasoning, medical diagnosis, financial analysis, or scientific reasoning. Domain-specific PRMs and search heuristics are missing.",
+      "affected_tools": ["rStar-Math", "Math-Shepherd", "OpenR"],
+      "target_users": "Vertical AI companies in legal, healthcare, finance",
+      "severity": "high"
+    },
+    {
+      "id": "GAP-009",
+      "title": "Open-Source Reasoning Benchmark Suite for SLMs",
+      "category": "workflow_gap",
+      "description": "Benchmarks (MATH, AIME, GPQA) test general reasoning but lack SLM-specific evaluation: compute-efficiency curves, latency-accuracy tradeoffs, memory-bounded performance, on-device feasibility scores. No standardized way to compare SLM reasoning approaches under realistic constraints.",
+      "affected_tools": ["all"],
+      "target_users": "Researchers comparing SLM reasoning methods",
+      "severity": "medium"
+    },
+    {
+      "id": "GAP-010",
+      "title": "Plug-and-Play Reasoning Enhancement Layer for Existing SLMs",
+      "category": "integration_gap",
+      "description": "No drop-in middleware that wraps ANY existing SLM (Phi, Qwen, Gemma, Llama-small) with reasoning search (MCTS, self-consistency, ToT) without model modification. Current tools require custom integration per model. Need: model-agnostic reasoning wrapper with simple API.",
+      "affected_tools": ["OpenR", "LLM Reasoners", "Tree of Thoughts"],
+      "target_users": "Application developers wanting better SLM reasoning without ML expertise",
+      "severity": "high"
+    },
+    {
+      "id": "GAP-011",
+      "title": "Cost-Optimal Reasoning Strategy Selector",
+      "category": "pricing_gap",
+      "description": "No tool helps users choose the cheapest reasoning approach for a target accuracy. Should I use a bigger model with greedy decoding or a smaller model with MCTS? What's the compute-cost curve? No tool provides this tradeoff analysis automatically.",
+      "affected_tools": ["none directly"],
+      "target_users": "Engineering managers, cost-conscious ML teams",
+      "severity": "medium"
+    },
+    {
+      "id": "GAP-012",
+      "title": "Streaming Reasoning Chains with Progressive Refinement",
+      "category": "feature_gap",
+      "description": "Current reasoning models either hide thinking (OpenAI) or dump full CoT at end. No tool streams intermediate reasoning steps to users with progressive answer refinement, allowing users to stop when 'good enough'. Useful for latency-sensitive applications.",
+      "affected_tools": ["OpenAI o1/o3", "DeepSeek-R1"],
+      "target_users": "Product teams building user-facing reasoning applications",
+      "severity": "medium"
+    },
+    {
+      "id": "GAP-013",
+      "title": "Hybrid Edge-Cloud Reasoning Orchestration",
+      "category": "integration_gap",
+      "description": "No system intelligently splits reasoning between edge SLM and cloud LLM. Edge SLM handles easy steps; only offloads to cloud when stuck. Reduces latency and cost vs. full cloud, improves quality vs. full edge. Research exists but no production tool.",
+      "affected_tools": ["none"],
+      "target_users": "Teams building AI for intermittent connectivity or privacy-sensitive domains",
+      "severity": "high"
+    },
+    {
+      "id": "GAP-014",
+      "title": "Reasoning-Aware Quantization and Pruning",
+      "category": "feature_gap",
+      "description": "Standard quantization/pruning degrades reasoning disproportionately. No tool specifically preserves reasoning capability during model compression. Need: reasoning-aware quantization that tests step-level accuracy, not just perplexity.",
+      "affected_tools": ["none specifically"],
+      "target_users": "Teams deploying reasoning SLMs on constrained hardware",
+      "severity": "medium"
+    },
+    {
+      "id": "GAP-015",
+      "title": "Interactive Reasoning Debugger for SLMs",
+      "category": "workflow_gap",
+      "description": "No visual tool lets developers inspect, replay, and debug reasoning search trees (MCTS nodes, beam candidates, verification scores). LLM Reasoners has basic visualization but not interactive debugging. Essential for improving reasoning quality.",
+      "affected_tools": ["LLM Reasoners", "OpenR"],
+      "target_users": "ML researchers and engineers developing reasoning systems",
+      "severity": "low"
+    },
+    {
+      "id": "GAP-016",
+      "title": "Self-Improving SLM Reasoning Loop (Online Learning)",
+      "category": "feature_gap",
+      "description": "No production system enables SLMs to continuously improve reasoning from deployment feedback. STILL-2 does offline self-improvement. Need: online collection of reasoning successes/failures, periodic PRM updates, automatic search strategy refinement.",
+      "affected_tools": ["STILL-2", "ThetaEvolve"],
+      "target_users": "Teams wanting reasoning models that get better over time without manual retraining",
+      "severity": "medium"
+    },
+    {
+      "id": "GAP-017",
+      "title": "Multi-Modal Reasoning at Test-Time for SLMs",
+      "category": "segment_gap",
+      "description": "Test-time compute scaling research is almost entirely text-only. No framework applies MCTS/beam search/self-consistency to multi-modal SLM reasoning (vision + language). Phi-4-reasoning-vision exists but without search enhancement.",
+      "affected_tools": ["Phi-4-reasoning-vision"],
+      "target_users": "Teams building multi-modal reasoning applications",
+      "severity": "medium"
+    },
+    {
+      "id": "GAP-018",
+      "title": "Reasoning Chain Compression / Efficient CoT for SLMs",
+      "category": "feature_gap",
+      "description": "Reasoning models generate 10-100x tokens. No tool compresses reasoning chains to reduce serving cost while preserving accuracy. Chain of Draft exists as research but no production tool. Critical for SLMs where every token costs proportionally more.",
+      "affected_tools": ["none"],
+      "target_users": "Cost-sensitive production teams",
+      "severity": "medium"
+    }
+  ],
+  "total_gaps": 18
+}

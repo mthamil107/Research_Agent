@@ -1,0 +1,142 @@
+{
+  "domain": "Model Routing, Cascading & Orchestration for SLMs",
+  "generated": "2026-03-29",
+  "gap_types": ["feature_gap", "segment_gap", "workflow_gap", "integration_gap", "pricing_gap"],
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Edge-Native SLM Cascading Router",
+      "type": "feature_gap",
+      "description": "No tool provides a production-ready, on-device cascading system that runs SLMs locally and only escalates to cloud LLMs when the local model's confidence is low. Current tools are cloud-first. The edge/SLM routing niche is almost entirely unaddressed despite strong research signals (ACL 2025, multiple surveys).",
+      "evidence": "Only 1/15 tools (vLLM Semantic Router) even mentions edge deployment. Zero tools offer a true on-device SLM-first cascade with confidence-based cloud escalation. Research papers from ACL 2025 and multiple surveys highlight this as a critical open challenge.",
+      "affected_segments": ["Mobile/IoT developers", "privacy-sensitive industries (healthcare, finance, defense)", "latency-critical applications"],
+      "current_workarounds": "Custom engineering: run Ollama locally + manual escalation logic. No turnkey solution exists."
+    },
+    {
+      "id": "GAP-002",
+      "title": "Confidence-Calibrated Cascading Framework",
+      "type": "feature_gap",
+      "description": "Only 1/15 tools supports true cascading (small-to-large model escalation). No production tool implements calibrated confidence scoring to decide when to escalate. Research shows 'Gatekeeper' loss functions and confidence tuning improve cascading, but no tool productizes this.",
+      "evidence": "LLMRouter is the only tool with cascading support. Research papers on 'Improving Model Cascades Through Confidence Tuning' (2025) and 'Gatekeeper' exist but have no production implementations. Google's Speculative Cascades remain internal.",
+      "affected_segments": ["Cost-conscious AI teams", "enterprises running millions of inference calls", "SaaS products with variable query complexity"],
+      "current_workarounds": "Binary strong/weak routing (RouteLLM) or manual threshold-based escalation. No calibrated multi-step cascade."
+    },
+    {
+      "id": "GAP-003",
+      "title": "Per-User Personalized Routing",
+      "type": "segment_gap",
+      "description": "Only LLMRouter offers personalized routing as a concept, and it's research-grade. No production tool learns per-user or per-tenant routing preferences over time. SaaS platforms serving diverse users need routing that adapts to each user's quality expectations and cost sensitivity.",
+      "evidence": "1/15 tools support personalized routing. Felicis VC blog post ('Routing the Future') highlights per-user routing as the end state. Contextual bandit approaches for adaptive routing exist in research but not in products.",
+      "affected_segments": ["Multi-tenant SaaS platforms", "consumer AI products", "enterprise platforms with diverse user roles"],
+      "current_workarounds": "Static routing rules per customer tier. No learning or adaptation."
+    },
+    {
+      "id": "GAP-004",
+      "title": "Multi-Step Agentic Workflow Router",
+      "type": "workflow_gap",
+      "description": "Agentic AI workflows involve multiple LLM calls in sequence (plan, execute, reflect, iterate). No tool optimizes model selection across a multi-step agent pipeline — e.g., use a cheap SLM for planning, expensive LLM for code generation, fast model for validation.",
+      "evidence": "Only LLMRouter and ClawRouter mention agentic routing. Not Diamond has agent optimization in beta. No tool provides step-aware routing within agent pipelines. vLLM Semantic Router v0.2 mentions multi-agent as future direction.",
+      "affected_segments": ["AI agent builders", "autonomous coding tools", "research automation platforms"],
+      "current_workarounds": "Hardcoded model per step in agent frameworks (LangChain, CrewAI). No dynamic optimization."
+    },
+    {
+      "id": "GAP-005",
+      "title": "Domain-Specialized Routing (Code, Legal, Medical, etc.)",
+      "type": "feature_gap",
+      "description": "Current routers make generic quality/cost decisions. None specialize in domain-specific routing — knowing that model X excels at SQL, model Y at legal contracts, model Z at medical summaries. Domain-aware routing could significantly improve quality for vertical SaaS.",
+      "evidence": "No tool in the landscape offers domain-specific routing profiles. LiteLLM's utterance matching is the closest but requires manual configuration. Research on MixLLM (NAACL 2025) shows model specialization varies dramatically by domain.",
+      "affected_segments": ["Legal tech", "healthcare AI", "fintech", "developer tools", "vertical SaaS"],
+      "current_workarounds": "Manual model selection per domain, or A/B testing to find best model per task."
+    },
+    {
+      "id": "GAP-006",
+      "title": "Open-Source Quality-Aware Router with Evaluation Loop",
+      "type": "feature_gap",
+      "description": "Most open-source routers (LiteLLM, Helicone, Bifrost) route on cost/latency only. Quality-aware routing exists only in commercial tools (Not Diamond, Martian) or research (RouteLLM). There is no OSS tool that combines quality estimation + routing + automatic evaluation feedback loop.",
+      "evidence": "Only 6/15 tools have quality-aware routing, and most are commercial or research-grade. No OSS tool closes the loop: route -> evaluate output quality -> update routing policy. This is the 'missing middle' between simple gateways and commercial routers.",
+      "affected_segments": ["Open-source AI community", "startups that can't afford commercial routers", "self-hosted enterprise deployments"],
+      "current_workarounds": "RouteLLM for basic quality routing (but no feedback loop). Manual A/B testing and model swaps."
+    },
+    {
+      "id": "GAP-007",
+      "title": "Budget-Constrained Adaptive Routing Optimizer",
+      "type": "pricing_gap",
+      "description": "Teams have a fixed monthly AI budget but no tool that dynamically adjusts routing strategy throughout the billing period to maximize quality while staying within budget. Current budget controls are hard caps, not optimizers.",
+      "evidence": "Several tools offer budget caps (Portkey, Helicone, Requesty), but none implement adaptive quality-budget tradeoff optimization. Research paper 'Adaptive LLM Routing under Budget Constraints' (arXiv:2508.21141) addresses this theoretically but no product implements it.",
+      "affected_segments": ["Startups with tight AI budgets", "enterprise teams with quarterly allocations", "education/non-profit"],
+      "current_workarounds": "Manual monitoring + model downgrades when budget runs low. Reactive, not proactive."
+    },
+    {
+      "id": "GAP-008",
+      "title": "Multi-Modal Routing (Text + Image + Audio + Video)",
+      "type": "feature_gap",
+      "description": "Current routers are text-centric. With the rise of multi-modal models (GPT-4o, Gemini, Claude), there's no router that optimizes across modalities — routing image tasks to vision-specialized models, audio to speech models, etc.",
+      "evidence": "Portkey mentions multi-modal support but only for passthrough, not intelligent routing. vLLM Semantic Router mentions 'mixture-of-modality models' in its paper but implementation is early. No tool routes based on modality-specific quality benchmarks.",
+      "affected_segments": ["Multi-modal AI applications", "content creation platforms", "accessibility tools", "video/image analysis"],
+      "current_workarounds": "Separate pipelines per modality with hardcoded model selection."
+    },
+    {
+      "id": "GAP-009",
+      "title": "Compliance-Aware Routing (GDPR, HIPAA, Data Residency)",
+      "type": "segment_gap",
+      "description": "Regulated industries need routing that considers compliance constraints — certain data cannot leave certain regions, certain models may not be HIPAA-compliant. Only TrueFoundry offers geo-aware routing. No tool combines compliance rules with quality/cost optimization.",
+      "evidence": "Only 1/15 tools (TrueFoundry) offers geo-aware routing. Requesty has PII detection but not compliance-aware routing. No tool lets you define 'for HIPAA data, only route to these models in these regions' as a first-class routing constraint.",
+      "affected_segments": ["Healthcare", "finance", "government", "EU-based companies", "any regulated industry"],
+      "current_workarounds": "Manual model allowlists per compliance zone. No dynamic optimization within constraints."
+    },
+    {
+      "id": "GAP-010",
+      "title": "Real-Time Routing Benchmarks and Model Performance Tracker",
+      "type": "workflow_gap",
+      "description": "Models are updated frequently (GPT-4o versions, Claude updates, Llama releases). No tool continuously benchmarks models on your specific tasks and auto-adjusts routing when a model improves or degrades. Unify.ai uses 'live benchmarks' but these are generic, not customized.",
+      "evidence": "Unify.ai's live benchmarks are the closest but are generic (not per-customer). No tool runs continuous, task-specific evaluations and feeds results back into routing decisions. Model performance changes with every provider update, making static routing suboptimal.",
+      "affected_segments": ["All production AI deployments", "teams sensitive to model regression"],
+      "current_workarounds": "Manual periodic evaluation, checking changelogs, running evals after updates."
+    },
+    {
+      "id": "GAP-011",
+      "title": "Hybrid Local/Cloud Router with Privacy Preservation",
+      "type": "feature_gap",
+      "description": "For privacy-sensitive use cases, the routing decision itself may leak information. Not Diamond addresses this (recommender, not proxy), but no tool provides a fully local routing engine that runs alongside local SLMs and only sends non-sensitive requests to cloud models.",
+      "evidence": "Not Diamond is 'recommender not proxy' but still receives context for routing decisions. No tool runs the router itself on-device alongside local SLMs. Privacy-preserving routing is highlighted in edge LLM surveys as a key challenge.",
+      "affected_segments": ["Healthcare with PHI", "legal with privileged communications", "defense/government", "financial services"],
+      "current_workarounds": "Air-gapped deployments using only local models (sacrificing quality) or trusting cloud routers with sensitive data."
+    },
+    {
+      "id": "GAP-012",
+      "title": "Routing-as-SDK for Framework Integration",
+      "type": "integration_gap",
+      "description": "Most routers are standalone services or proxies. There's no lightweight SDK that plugs directly into popular frameworks (LangChain, LlamaIndex, CrewAI, AutoGen) to add intelligent routing as a native capability without an external service.",
+      "evidence": "RouteLLM offers OpenAI client replacement but is framework-agnostic. LiteLLM integrates with some frameworks but routing is basic. No router offers native LangChain/CrewAI/AutoGen integration with framework-aware routing (e.g., knowing the agent step context).",
+      "affected_segments": ["Developers using LangChain/LlamaIndex", "agent framework users", "teams that don't want to manage a separate routing service"],
+      "current_workarounds": "Wrap router API calls manually in framework code."
+    },
+    {
+      "id": "GAP-013",
+      "title": "Cost-Quality Pareto Frontier Visualization and Exploration",
+      "type": "workflow_gap",
+      "description": "No tool provides an interactive visualization of the cost vs. quality tradeoff across available models for your specific workload. Teams need to see and explore the Pareto frontier to make informed routing decisions.",
+      "evidence": "Helicone offers cost comparison tools (300+ models) but this is static pricing, not workload-specific. No tool visualizes 'if you spend $X more, quality improves by Y%' based on actual production data.",
+      "affected_segments": ["Engineering managers", "ML engineers", "finance/procurement teams"],
+      "current_workarounds": "Spreadsheets and manual analysis of evaluation results."
+    },
+    {
+      "id": "GAP-014",
+      "title": "Streaming/Real-Time Routing with Mid-Response Escalation",
+      "type": "feature_gap",
+      "description": "All current routers make a one-shot decision before generation starts. No tool can monitor a streaming response mid-generation and escalate to a better model if quality degrades (e.g., the SLM starts hallucinating mid-response).",
+      "evidence": "Google's Speculative Cascades research hints at this direction but focuses on token-level speculation, not response-level quality monitoring. No production tool implements mid-stream model switching.",
+      "affected_segments": ["Chat applications", "real-time content generation", "coding assistants"],
+      "current_workarounds": "Regenerate entire response with a larger model if quality check fails post-generation."
+    },
+    {
+      "id": "GAP-015",
+      "title": "Fine-Tuned SLM Router Trainer (AutoML for Routing)",
+      "type": "workflow_gap",
+      "description": "Training custom routing models requires ML expertise. No tool provides an AutoML-like experience where you feed in your production logs and it automatically trains an optimal router for your workload distribution.",
+      "evidence": "RouteLLM requires manual training. LLMRouter provides 16+ router architectures but you must choose and configure. Not Diamond's prompt optimization is the closest but is prompt-focused, not router-focused. No 'one-click router training' exists.",
+      "affected_segments": ["Teams without ML expertise", "startups wanting quick optimization", "enterprises with production traffic data"],
+      "current_workarounds": "Hire ML engineers to train custom routers, or use generic commercial routing."
+    }
+  ]
+}

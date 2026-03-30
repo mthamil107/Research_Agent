@@ -1,0 +1,168 @@
+{
+  "domain": "AI Agent Browser Automation & Computer Use",
+  "generated": "2026-03-29",
+  "gap_categories": ["feature_gap", "segment_gap", "workflow_gap", "integration_gap", "pricing_gap"],
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Browser Agent Observability & Debugging Platform",
+      "category": "feature_gap",
+      "description": "No dedicated observability platform exists specifically for browser automation agents. General AI observability tools (Braintrust, Langfuse) track LLM calls but don't capture browser-specific traces: DOM state at each step, screenshot diffs, selector resolution failures, page load timing, anti-bot detection events. Teams debugging browser agents must cobble together generic logging with manual screenshot review.",
+      "current_solutions": "Generic AI observability (Braintrust, Langfuse, AgentOps). Manual screenshot logging. Browserbase debug mode (limited).",
+      "unmet_need": "Step-by-step visual replay of agent actions with DOM snapshots, failure classification, cost-per-step tracking, and success rate dashboards specific to browser automation workflows."
+    },
+    {
+      "id": "GAP-002",
+      "title": "Mobile App Agent Automation Framework",
+      "category": "segment_gap",
+      "description": "Browser agents handle web well but mobile app automation remains severely underserved. Mobile test suites fail 20-30% more than web equivalents. iOS setup takes 6+ hours vs minutes for web. Existing tools (AskUI, Arbigent, agent-device) are nascent. No equivalent of Browser Use or Stagehand exists for native iOS/Android apps.",
+      "current_solutions": "AskUI (94.8% pass rate but enterprise-priced), agent-device (early CLI), Arbigent (GitHub project), Appium (traditional, not AI-native).",
+      "unmet_need": "An open-source, AI-native mobile app automation framework that works like Browser Use but for iOS/Android native apps, with vision-based understanding of mobile UI elements."
+    },
+    {
+      "id": "GAP-003",
+      "title": "Human-in-the-Loop Orchestration for Browser Agents",
+      "category": "workflow_gap",
+      "description": "Agents fail ~25% of the time on complex tasks. When they fail, there's no smooth handoff to humans. Teams need: automatic failure detection, human takeover UI, agent resume after human intervention, escalation policies, and approval workflows for sensitive actions (purchases, form submissions with PII).",
+      "current_solutions": "Google Mariner has basic real-time intervention. OpenAI Operator pauses for confirmation. No dedicated orchestration layer exists.",
+      "unmet_need": "A middleware layer that detects agent uncertainty/failure, presents the browser state to a human operator, allows manual completion, and feeds the correction back for agent learning."
+    },
+    {
+      "id": "GAP-004",
+      "title": "Cross-Browser-Agent Testing & Evaluation Framework",
+      "category": "feature_gap",
+      "description": "No standardized way to evaluate and compare browser agents across real-world tasks. WebVoyager benchmark exists but is limited. Teams can't easily A/B test Browser Use vs Stagehand vs Skyvern on their specific workflows. No continuous evaluation pipeline exists.",
+      "current_solutions": "WebVoyager benchmark (academic). Steel.dev leaderboard (limited). Manual testing.",
+      "unmet_need": "A test harness that lets teams define their own browser automation tasks, run them across multiple agent frameworks, and get comparative metrics (success rate, cost, latency, token usage)."
+    },
+    {
+      "id": "GAP-005",
+      "title": "Browser Agent Security & Sandboxing Layer",
+      "category": "feature_gap",
+      "description": "Agents executing browser actions create security risks: prompt injection via web content, credential exposure, unintended purchases/actions, data exfiltration. OpenClaw's rapid growth highlighted these risks. No dedicated security layer exists that wraps any browser agent with permission boundaries, action whitelisting, and audit logging.",
+      "current_solutions": "Anthropic runs in Docker sandboxes. Seraphic Security writes about risks. Individual tools have basic safety measures. No universal solution.",
+      "unmet_need": "A security middleware for browser agents: domain allowlists, action type restrictions (no purchases without approval), PII detection/redaction in agent context, credential vault integration, and comprehensive audit trails."
+    },
+    {
+      "id": "GAP-006",
+      "title": "Affordable Self-Hosted Browser Agent Cloud",
+      "category": "pricing_gap",
+      "description": "Cloud browser infrastructure (Browserbase, Anchor, Airtop) is expensive for high-volume use. Skyvern charges $0.05/step. LLM costs add ~$0.10/screen analysis. Running 1000 daily automation tasks can cost $150-500/day. Self-hosting is possible with Steel but requires DevOps expertise. No turnkey self-hosted solution exists.",
+      "current_solutions": "Steel (open source, Docker, but requires setup). Browserbase/Anchor (managed but expensive). Raw Playwright (no agent layer).",
+      "unmet_need": "A Docker-compose or Helm chart that deploys a complete browser agent stack (browser pool, agent framework, proxy rotation, CAPTCHA solving, monitoring) on your own infrastructure with minimal configuration."
+    },
+    {
+      "id": "GAP-007",
+      "title": "Domain-Specific Browser Agent Templates/Recipes",
+      "category": "workflow_gap",
+      "description": "Every team builds browser automations from scratch. Common workflows (competitor monitoring, price tracking, form filling across government sites, job applications, procurement) are rebuilt thousands of times. No marketplace of validated, production-ready agent workflows exists for specific verticals.",
+      "current_solutions": "Apify marketplace (scraping actors, not agent workflows). Bardeen playbooks (limited). Individual GitHub repos with examples.",
+      "unmet_need": "A marketplace/registry of tested browser agent workflows for specific domains (HR/recruiting, procurement, compliance, sales intelligence) that work across multiple agent frameworks."
+    },
+    {
+      "id": "GAP-008",
+      "title": "Browser Agent + Enterprise System Integration Layer",
+      "category": "integration_gap",
+      "description": "Browser agents operate in isolation. Connecting agent outputs to enterprise systems (CRMs, ERPs, data warehouses, ticketing systems) requires custom integration work. No standardized way to trigger browser agents from enterprise workflows or feed results back.",
+      "current_solutions": "n8n/Zapier for simple triggers. Custom API integrations. UiPath (enterprise-priced). No mid-market solution.",
+      "unmet_need": "A lightweight integration platform that connects browser agents (Browser Use, Stagehand, Skyvern) to enterprise systems (Salesforce, SAP, Jira, Slack, databases) with pre-built connectors, data mapping, and error handling."
+    },
+    {
+      "id": "GAP-009",
+      "title": "Multi-Tab / Multi-Window Agent Orchestration",
+      "category": "feature_gap",
+      "description": "Most browser agents operate in a single tab sequentially. Real-world tasks often require cross-tab coordination: comparing prices across sites, copying data between applications, monitoring multiple dashboards. No framework handles multi-tab agent orchestration well.",
+      "current_solutions": "Google Mariner handles 10 concurrent tasks. Browser Use supports parallel execution but not coordinated multi-tab. Manual scripting.",
+      "unmet_need": "A multi-tab orchestration layer where agents can coordinate across browser tabs/windows, share context, and perform cross-site workflows like comparison shopping, data synchronization, or multi-source research."
+    },
+    {
+      "id": "GAP-010",
+      "title": "Browser Agent for Accessibility Testing",
+      "category": "segment_gap",
+      "description": "AI browser agents understand web pages visually and semantically, but no tool applies this capability to automated accessibility auditing. An agent could navigate like a screen reader user, test keyboard-only navigation, verify ARIA labels, and identify usability issues that static analyzers miss.",
+      "current_solutions": "axe-core (static analysis). Lighthouse (basic checks). Manual accessibility testing. No AI-agent-driven accessibility testing.",
+      "unmet_need": "An AI browser agent that performs accessibility testing by actually navigating sites as disabled users would, identifying interaction barriers, broken screen reader flows, and WCAG violations through behavioral testing."
+    },
+    {
+      "id": "GAP-011",
+      "title": "Natural Language Browser Automation for Non-Technical Users",
+      "category": "segment_gap",
+      "description": "Most AI browser tools target developers (Browser Use, Stagehand, Skyvern require code). No-code tools (Axiom, Bardeen) lack AI sophistication. Consumer AI browsers (Atlas, Comet) are general-purpose. A gap exists for business users who want to say 'monitor competitor X pricing daily and alert me' without writing code or using a visual builder.",
+      "current_solutions": "Axiom AI (visual builder). Bardeen (playbooks). ChatGPT Atlas (general purpose). Airtop (natural language but limited success rate at 40%).",
+      "unmet_need": "A reliable natural-language-to-browser-automation platform where non-technical users describe tasks in plain English and get production-grade, scheduled automations with monitoring."
+    },
+    {
+      "id": "GAP-012",
+      "title": "Browser Agent Cost Optimization & Token Efficiency",
+      "category": "pricing_gap",
+      "description": "Browser agents consume 10-100x more tokens than chat interactions. Each step requires screenshot analysis or DOM parsing by an LLM. Stagehand v3 introduced action caching but it's framework-specific. No universal token optimization layer exists that works across agent frameworks.",
+      "current_solutions": "Stagehand action caching (Stagehand-only). Notte hybrid approach (cuts costs 50%). Manual optimization. No cross-framework solution.",
+      "unmet_need": "A middleware that reduces LLM costs for any browser agent: intelligent caching of page understanding, DOM diffing to only send changes, action replay for known workflows, and automatic model downsizing for simple steps."
+    },
+    {
+      "id": "GAP-013",
+      "title": "Unified MCP Server for All Browser Agent Frameworks",
+      "category": "integration_gap",
+      "description": "MCP (Model Context Protocol) is becoming the standard for LLM-tool integration. Playwright MCP exists. Stagehand MCP exists. But each browser agent framework requires its own MCP integration. No unified MCP server provides access to multiple browser agent backends through a single interface.",
+      "current_solutions": "Playwright MCP (Microsoft). Stagehand MCP. Individual framework MCPs. No unified layer.",
+      "unmet_need": "A unified browser-agent MCP server that lets any LLM choose the best backend (Playwright for deterministic, Browser Use for autonomous, Skyvern for forms) based on the task, with a single consistent interface."
+    },
+    {
+      "id": "GAP-014",
+      "title": "Browser Agent Training Data & Fine-Tuning Platform",
+      "category": "feature_gap",
+      "description": "Browser agents use general-purpose LLMs. Domain-specific performance could improve dramatically with fine-tuned models for specific website categories (e-commerce, government forms, SaaS dashboards). No platform exists to collect browser interaction data and fine-tune models for improved task-specific performance.",
+      "current_solutions": "General LLMs (GPT-4, Claude, Gemini). No domain-specific browser agent models. Manual prompt engineering.",
+      "unmet_need": "A platform for recording successful browser agent interactions, creating training datasets, and fine-tuning smaller/faster models for specific automation domains."
+    },
+    {
+      "id": "GAP-015",
+      "title": "Real-Time Collaborative Browser Agent Workspace",
+      "category": "workflow_gap",
+      "description": "Browser agent operations are single-user. Teams can't collaborate on building, monitoring, or debugging agent workflows in real-time. No shared workspace exists for teams operating browser automation at scale.",
+      "current_solutions": "Individual agent frameworks with no collaboration features. Shared dashboards in enterprise RPA (UiPath). Nothing for the OSS agent ecosystem.",
+      "unmet_need": "A team workspace for browser agents: shared workflow library, live monitoring dashboard, collaborative debugging, role-based access control, and usage/cost allocation across team members."
+    },
+    {
+      "id": "GAP-016",
+      "title": "Browser Agent for Regulated Industries (HIPAA/SOC2/GDPR)",
+      "category": "segment_gap",
+      "description": "Healthcare, finance, and government have strict compliance requirements. No browser agent platform offers HIPAA-compliant, SOC2-certified, or GDPR-ready browser automation. These industries still rely on manual processes or expensive enterprise RPA.",
+      "current_solutions": "UiPath/Automation Anywhere (enterprise-priced, compliance-ready). No mid-market compliant browser agent.",
+      "unmet_need": "A compliance-ready browser agent platform with audit logging, data residency controls, encryption, BAA agreements, and SOC2/HIPAA/GDPR certifications, priced for mid-market companies."
+    },
+    {
+      "id": "GAP-017",
+      "title": "Anti-Bot Evasion as a Service for Browser Agents",
+      "category": "feature_gap",
+      "description": "Anti-bot detection is getting more sophisticated (behavioral telemetry, fingerprinting, continuous scoring). Individual tools partially solve this (Skyvern, Browserbase, Notte). No dedicated service exists that any browser agent can plug into for state-of-the-art anti-detection.",
+      "current_solutions": "Bright Data (95% success, enterprise pricing). Browserbase stealth mode. Notte built-in. Each tool reinvents the wheel.",
+      "unmet_need": "An anti-detection API service that any browser agent framework can call to get stealth browser sessions with adaptive fingerprinting, behavioral mimicry, and CAPTCHA solving."
+    },
+    {
+      "id": "GAP-018",
+      "title": "Browser Agent Workflow Version Control & CI/CD",
+      "category": "workflow_gap",
+      "description": "Browser agent workflows break when websites change. No system provides version control for agent workflows, automated regression testing when target sites change, or CI/CD pipelines for agent deployments.",
+      "current_solutions": "Git for code. No agent-workflow-specific CI/CD. Manual monitoring for site changes.",
+      "unmet_need": "A CI/CD system for browser agent workflows: automatic detection of target site changes, regression testing, rollback capabilities, and canary deployments for agent updates."
+    },
+    {
+      "id": "GAP-019",
+      "title": "Cross-Platform Agent (Browser + Desktop + Mobile Unified)",
+      "category": "integration_gap",
+      "description": "Browser agents, desktop agents (Anthropic computer use), and mobile agents are completely separate ecosystems. Real workflows often span all three: start in browser, continue in desktop app, verify on mobile. No unified agent can operate across all surfaces.",
+      "current_solutions": "Anthropic Computer Use (desktop). Browser Use (web). AskUI (mobile). OpenClaw (messaging/desktop). None unified.",
+      "unmet_need": "A cross-platform agent framework that seamlessly operates across browser, desktop applications, and mobile apps within a single workflow."
+    },
+    {
+      "id": "GAP-020",
+      "title": "Browser Agent Marketplace & Monetization Platform",
+      "category": "segment_gap",
+      "description": "Developers building browser agent workflows have no way to package, distribute, and monetize their automations. Unlike Zapier (connectors) or Apify (scraping actors), there's no marketplace for AI browser agent workflows.",
+      "current_solutions": "Apify marketplace (scraping-focused). No general browser agent marketplace.",
+      "unmet_need": "A marketplace where developers can publish, share, and sell browser agent workflows, with licensing, usage metering, and revenue sharing."
+    }
+  ],
+  "total_gaps": 20
+}

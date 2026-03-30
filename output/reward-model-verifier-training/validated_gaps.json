@@ -1,0 +1,339 @@
+{
+  "domain": "Reward Model & Verifier Training Platforms for SLM Reasoning",
+  "generated": "2026-03-29",
+  "validation_sources": [
+    "Reddit (r/LocalLLaMA, r/MachineLearning)",
+    "Hacker News",
+    "GitHub issues and repositories",
+    "Research papers (arxiv, ICLR 2025/2026, EMNLP 2025, ICML 2025)",
+    "Technical blogs (Sebastian Raschka, Cameron Wolfe, Stephen Diehl, Subhadip Mitra)",
+    "Industry documentation (Unsloth, HuggingFace, veRL)"
+  ],
+  "validated_gaps": [
+    {
+      "id": "GAP-001",
+      "title": "No unified PRM+ORM+GenRM training platform",
+      "demand_signals": [
+        {
+          "source": "Research landscape",
+          "signal": "GenRM (ICLR 2025) shows generative verifiers outperform discriminative ones by large margins (5%->45.3% on algorithmic tasks). Yet no framework integrates GenRM training alongside PRM/ORM.",
+          "strength": "high"
+        },
+        {
+          "source": "GitHub/RLHFlow",
+          "signal": "RLHFlow repo provides separate Math-RM code for PRM and ORM but not GenRM. Users must implement GenRM from scratch.",
+          "strength": "medium"
+        },
+        {
+          "source": "ThinkPRM paper (2025)",
+          "signal": "ThinkPRM outperforms discriminative verifiers using only 1% of PRM800K labels, showing GenRM-style approaches are superior but lack tooling.",
+          "strength": "high"
+        }
+      ],
+      "demand_score": 7,
+      "validation_notes": "Strong research signal but demand is mainly from ML researchers, not mainstream developers. The GenRM approach is clearly superior but not yet widely adopted due to lack of tooling."
+    },
+    {
+      "id": "GAP-002",
+      "title": "No SLM-optimized reward model training toolkit",
+      "demand_signals": [
+        {
+          "source": "Unsloth docs/blog",
+          "signal": "Unsloth's GRPO tutorial is one of the most popular pages. Shows training reasoning on Qwen 3B with 5GB VRAM. But no RM training support -- only GRPO with rule-based rewards.",
+          "strength": "high"
+        },
+        {
+          "source": "HuggingFace blog",
+          "signal": "Blog post 'Fine-tuning 20B LLMs with RLHF on a 24GB consumer GPU' using TRL+PEFT shows strong demand for consumer-GPU RLHF. But focuses on ORM only, not PRM.",
+          "strength": "high"
+        },
+        {
+          "source": "Hacker News - TinyZero",
+          "signal": "TinyZero (R1-Zero reproduction on small models) had massive HN engagement. Shows strong demand for SLM reasoning training. But uses only rule-based rewards, not trained verifiers.",
+          "strength": "high"
+        },
+        {
+          "source": "DataCamp/Intuz/BentoML guides",
+          "signal": "Multiple 2026 guides on 'Top SLMs' and 'How to train SLMs' -- none cover reward model training specifically.",
+          "strength": "medium"
+        }
+      ],
+      "demand_score": 9,
+      "validation_notes": "Very strong demand signal. The SLM reasoning training wave (post-DeepSeek R1) created massive interest but everyone uses GRPO with rule-based rewards because training reward models on consumer hardware is too hard. Huge unmet need."
+    },
+    {
+      "id": "GAP-003",
+      "title": "Custom domain verifier training is extremely manual",
+      "demand_signals": [
+        {
+          "source": "Blog: 'RLVR Beyond Math and Code' (2026)",
+          "signal": "Dedicated blog post calling this 'The Verifier Problem Nobody Has Solved'. Identifies sparse rewards, reward hacking, subjectivity, and missing ground truth as blockers for non-math/code RLVR.",
+          "strength": "very_high"
+        },
+        {
+          "source": "Research: K2V (ICLR 2026 submission)",
+          "signal": "Knowledge-to-Verification paper specifically addresses extending RLVR to knowledge-intensive domains, published at ICLR 2026. The paper's existence proves the gap is real.",
+          "strength": "very_high"
+        },
+        {
+          "source": "Research: Fin-PRM (2025)",
+          "signal": "Fin-PRM paper builds a domain-specific PRM for financial reasoning. Had to build custom pipeline from scratch. No reusable tooling.",
+          "strength": "high"
+        },
+        {
+          "source": "LLM-stats blog (2026)",
+          "signal": "'If I were allocating engineering resources for 2026, verifier development would be near the top of the list.' Direct quote from post-training techniques analysis.",
+          "strength": "very_high"
+        },
+        {
+          "source": "Medium: 'Extending RLVR Beyond Math and Code'",
+          "signal": "Multiple blog posts in 2025-2026 addressing this exact gap, proposing workarounds like 'Judge Code' generation.",
+          "strength": "high"
+        }
+      ],
+      "demand_score": 10,
+      "validation_notes": "This is THE problem in the space. Multiple dedicated articles, papers, and blog posts calling it out. Research labs are building one-off solutions (Fin-PRM, K2V) but no general-purpose tool exists. Highest demand signal of all gaps."
+    },
+    {
+      "id": "GAP-004",
+      "title": "No automated step-labeling pipeline for PRM data",
+      "demand_signals": [
+        {
+          "source": "Research: ActPRM (2025)",
+          "signal": "Active learning paper shows PRM training with 20% of annotation cost. Paper's motivation section explicitly describes the annotation cost bottleneck.",
+          "strength": "high"
+        },
+        {
+          "source": "Research: EDU-PRM (2025)",
+          "signal": "Entropy-Driven PRM paper provides step-level supervision 'without expensive human or LLM annotations'. Proves the cost problem is real.",
+          "strength": "high"
+        },
+        {
+          "source": "Research: 'Free Process Rewards without Process Labels' (2024)",
+          "signal": "Paper title literally describes the gap -- getting process rewards without process labels. Shows implicit PRM from ORM training.",
+          "strength": "high"
+        },
+        {
+          "source": "PRM800K legacy",
+          "signal": "OpenAI's PRM800K required human experts for 75K questions. Still the gold standard dataset years later because nobody can easily generate equivalent quality data.",
+          "strength": "medium"
+        }
+      ],
+      "demand_score": 8,
+      "validation_notes": "Strong academic demand. Multiple papers specifically trying to solve the annotation cost problem. But approaches remain fragmented research prototypes, not productized pipelines."
+    },
+    {
+      "id": "GAP-005",
+      "title": "No end-to-end verifier-guided reasoning training loop for SLMs",
+      "demand_signals": [
+        {
+          "source": "Unsloth/DeepLearning.AI course",
+          "signal": "DeepLearning.AI launched a 'Reinforcement Fine-Tuning LLMs with GRPO' course. Shows massive demand for end-to-end training but only covers GRPO with rule-based rewards, not full verifier loop.",
+          "strength": "high"
+        },
+        {
+          "source": "Red Hat Developer blog",
+          "signal": "'Lessons on reproducing R1-like reasoning in small LLMs' -- describes the difficulty of the full training pipeline. Multiple manual steps required.",
+          "strength": "high"
+        },
+        {
+          "source": "TowardsDataScience",
+          "signal": "'How to Fine-Tune Small Language Models to Think with Reinforcement Learning' -- tutorial showing the complexity of the multi-tool pipeline.",
+          "strength": "medium"
+        }
+      ],
+      "demand_score": 8,
+      "validation_notes": "Strong demand from practitioners wanting to replicate DeepSeek R1-style training. Current solutions require stitching 3-5 tools together."
+    },
+    {
+      "id": "GAP-006",
+      "title": "No visual/interactive tool for PRM data inspection and debugging",
+      "demand_signals": [
+        {
+          "source": "Stephen Diehl blog",
+          "signal": "Process Reward Models blog post discusses training and inference but notes difficulty of debugging step-level reward assignments.",
+          "strength": "medium"
+        },
+        {
+          "source": "Argilla docs",
+          "signal": "Argilla has preference annotation UI but no step-level reward visualization. Gap is visible in their feature set.",
+          "strength": "low"
+        }
+      ],
+      "demand_score": 5,
+      "validation_notes": "Moderate demand. Debugging PRM data quality is a real problem but the user base is small (ML researchers training PRMs). Nice-to-have, not critical."
+    },
+    {
+      "id": "GAP-007",
+      "title": "No reward model benchmarking suite for SLM-specific evaluation",
+      "demand_signals": [
+        {
+          "source": "RewardBench/RewardBench 2",
+          "signal": "Existing benchmarks focus on general RM quality, not SLM-specific reasoning patterns. No test suites for verifiers on SLM-generated traces.",
+          "strength": "medium"
+        },
+        {
+          "source": "ProcessBench",
+          "signal": "AURORA introduced UniversalBench for broader PRM evaluation, but still not SLM-focused.",
+          "strength": "medium"
+        }
+      ],
+      "demand_score": 5,
+      "validation_notes": "Moderate demand. Benchmarks matter for research credibility but won't drive product adoption on their own."
+    },
+    {
+      "id": "GAP-008",
+      "title": "No tree search + verifier inference toolkit for SLMs",
+      "demand_signals": [
+        {
+          "source": "HN: ReasoningGym discussion",
+          "signal": "ReasoningGym provides environments for RL with verifiable rewards. Shows demand for reasoning infrastructure.",
+          "strength": "medium"
+        },
+        {
+          "source": "LLaMA-Berry paper",
+          "signal": "LLaMA-Berry achieved 96.1% on GSM8K with MCTS + verifier on small models. Demonstrates the value but is research-only code.",
+          "strength": "high"
+        },
+        {
+          "source": "OpenR project",
+          "signal": "OpenR provides PRM-guided search but limited in scope and maturity. Shows demand for production-ready version.",
+          "strength": "medium"
+        },
+        {
+          "source": "Sebastian Raschka newsletter",
+          "signal": "'Inference-time scaling lets us take a relatively small model and boost its performance to rival some of the biggest names'. Direct endorsement of the approach.",
+          "strength": "high"
+        }
+      ],
+      "demand_score": 7,
+      "validation_notes": "Good demand. Inference-time compute scaling is a proven technique for SLMs but no production toolkit exists. The value proposition is clear: small model + verifier + search = big model performance."
+    },
+    {
+      "id": "GAP-009",
+      "title": "No multi-domain PRM transfer learning toolkit",
+      "demand_signals": [
+        {
+          "source": "VersaPRM (ICML 2025)",
+          "signal": "VersaPRM paper shows math PRMs have poor performance in other domains (only 1.3% gain in Law). Proves domain adaptation is needed.",
+          "strength": "high"
+        },
+        {
+          "source": "AURORA Universal-PRM-7B",
+          "signal": "AURORA released Universal-PRM-7B but no toolkit for fine-tuning it to new domains.",
+          "strength": "medium"
+        }
+      ],
+      "demand_score": 6,
+      "validation_notes": "Moderate-high demand. The problem is validated by research (VersaPRM) but the user base for domain adaptation is currently small."
+    },
+    {
+      "id": "GAP-010",
+      "title": "No synthetic reasoning trace generator for reward model training",
+      "demand_signals": [
+        {
+          "source": "VersaPRM methodology",
+          "signal": "VersaPRM uses weak/strong completer consistency for auto-labeling. Shows the technique works but requires custom implementation.",
+          "strength": "high"
+        },
+        {
+          "source": "EDU-PRM",
+          "signal": "Uses entropy-driven sampling to generate diverse reasoning steps. Another custom implementation of the same need.",
+          "strength": "high"
+        },
+        {
+          "source": "Math-Shepherd",
+          "signal": "Math-Shepherd's automatic annotation framework is widely cited. Shows demand for automated data generation.",
+          "strength": "high"
+        }
+      ],
+      "demand_score": 7,
+      "validation_notes": "Strong research demand. Multiple papers independently solve this problem for their specific use case, proving the general tool is missing."
+    },
+    {
+      "id": "GAP-011",
+      "title": "No reward model distillation pipeline (large RM to small RM)",
+      "demand_signals": [
+        {
+          "source": "Research: 'Smaller Models, Smarter Rewards'",
+          "signal": "Paper explicitly addresses using smaller models as reward models. Proves the direction is viable.",
+          "strength": "medium"
+        },
+        {
+          "source": "Skywork PRM-1.5B",
+          "signal": "Skywork released a 1.5B PRM alongside the 7B version. Shows demand for small verifiers.",
+          "strength": "medium"
+        }
+      ],
+      "demand_score": 5,
+      "validation_notes": "Moderate demand. Small verifiers are useful but knowledge distillation is a general ML technique -- not clear a RM-specific tool adds enough value."
+    },
+    {
+      "id": "GAP-012",
+      "title": "No managed/cloud platform for reward model training",
+      "demand_signals": [
+        {
+          "source": "Cogito/Aya Data",
+          "signal": "Data labeling services (Cogito, Aya Data) offer RLHF dataset preparation as a service. Shows demand for managed solutions.",
+          "strength": "medium"
+        },
+        {
+          "source": "Labelbox guides",
+          "signal": "Labelbox has RLHF implementation guides but no managed RM training. Gap in their offering.",
+          "strength": "medium"
+        }
+      ],
+      "demand_score": 5,
+      "validation_notes": "Moderate demand. Enterprise/SaaS opportunity but most reward model training users are ML engineers comfortable with code. Timing may be early."
+    },
+    {
+      "id": "GAP-013",
+      "title": "No code reasoning verifier beyond test execution",
+      "demand_signals": [
+        {
+          "source": "HERMES paper",
+          "signal": "HERMES integrates formal verification into reasoning but for math. Code formal verification for LLM training is unexplored territory.",
+          "strength": "medium"
+        },
+        {
+          "source": "RLVR landscape",
+          "signal": "All code RLVR relies on test execution. No step-level code reasoning verification exists.",
+          "strength": "medium"
+        }
+      ],
+      "demand_score": 4,
+      "validation_notes": "Low-moderate demand. Test execution works well enough for code. Step-level code verification is technically very hard and may not be worth the complexity."
+    },
+    {
+      "id": "GAP-014",
+      "title": "No reward model version control and experiment tracking",
+      "demand_signals": [
+        {
+          "source": "General MLOps gap",
+          "signal": "No RM-specific experiment tracking tools exist. But W&B/MLflow can be adapted.",
+          "strength": "low"
+        }
+      ],
+      "demand_score": 3,
+      "validation_notes": "Low demand. General MLOps tools suffice. Not enough differentiation to warrant a standalone tool."
+    },
+    {
+      "id": "GAP-015",
+      "title": "No plug-and-play verifier marketplace/registry",
+      "demand_signals": [
+        {
+          "source": "HuggingFace Hub",
+          "signal": "Models exist on HuggingFace but no verifier-specific search, compatibility info, or deployment guides.",
+          "strength": "medium"
+        },
+        {
+          "source": "awesome-reward-models repo",
+          "signal": "GitHub repo curating reward models shows demand for discovery but is just a list, not a registry.",
+          "strength": "medium"
+        }
+      ],
+      "demand_score": 5,
+      "validation_notes": "Moderate demand. HuggingFace is the de facto registry. A verifier-specific layer on top could add value but faces platform risk."
+    }
+  ]
+}

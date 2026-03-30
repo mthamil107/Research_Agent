@@ -1,0 +1,238 @@
+{
+  "domain": "Knowledge Graph Integration for SLM Reasoning",
+  "scan_date": "2026-03-29",
+  "total_tools_found": 18,
+  "categories": {
+    "graph_rag_frameworks": [
+      {
+        "name": "Microsoft GraphRAG",
+        "url": "https://github.com/microsoft/graphrag",
+        "type": "open_source",
+        "description": "Pioneering community-detection-based GraphRAG. Builds knowledge graphs from private datasets using LLMs, with global and local search modes. Hierarchical clustering via Leiden technique.",
+        "model_support": "Any LLM (OpenAI, Anthropic, etc.)",
+        "slm_support": "Limited - designed for large LLMs",
+        "key_features": ["community detection", "global search", "local search", "hierarchical clustering", "entity extraction"],
+        "maturity": "Production-ready",
+        "license": "MIT"
+      },
+      {
+        "name": "LightRAG",
+        "url": "https://github.com/HKUDS/LightRAG",
+        "type": "open_source",
+        "description": "Simple and fast GraphRAG with dual-level retrieval (low-level entity-specific + high-level thematic). Integrates knowledge graphs with vector representations. Supports incremental updates.",
+        "model_support": "Multiple LLM backends",
+        "slm_support": "Better than GraphRAG but still LLM-focused",
+        "key_features": ["dual-level retrieval", "incremental updates", "graph-enhanced indexing", "multimodal support via RAG-Anything"],
+        "maturity": "Research/Early production",
+        "license": "MIT"
+      },
+      {
+        "name": "nano-GraphRAG",
+        "url": "https://github.com/gusye1234/nano-graphrag",
+        "type": "open_source",
+        "description": "Lightweight (~1100 lines) alternative to Microsoft GraphRAG. Highly customizable, supports local Huggingface models. Three query modes: naive, local, global.",
+        "model_support": "Any LLM including local HuggingFace models",
+        "slm_support": "Good - explicitly supports local/small models",
+        "key_features": ["lightweight", "customizable", "local model support", "three query modes"],
+        "maturity": "Community/Experimental",
+        "license": "MIT"
+      },
+      {
+        "name": "MiniRAG",
+        "url": "https://github.com/HKUDS/MiniRAG",
+        "type": "open_source",
+        "description": "Purpose-built for Small Language Models. Heterogeneous graph indexing combining text chunks and named entities. Topology-enhanced retrieval without advanced language capabilities. 25% storage of LLM methods.",
+        "model_support": "Designed for SLMs",
+        "slm_support": "Excellent - core design goal",
+        "key_features": ["heterogeneous graph indexing", "topology-enhanced retrieval", "edge/IoT deployment", "10+ graph DB support", "Docker/API deployment"],
+        "maturity": "Research/Early production",
+        "license": "MIT"
+      }
+    ],
+    "knowledge_graph_memory_platforms": [
+      {
+        "name": "Cognee",
+        "url": "https://github.com/topoteretes/cognee",
+        "type": "open_source",
+        "description": "AI memory engine combining vector search with graph databases. Six-stage pipeline: classify, permissions, chunk, extract entities/relationships, summarize, embed. 14 retrieval modes. Memify post-processing for graph refinement.",
+        "model_support": "Multiple LLMs",
+        "slm_support": "Moderate - embedded defaults (SQLite+LanceDB+Kuzu) are lightweight",
+        "key_features": ["14 retrieval modes", "per-user memory graphs", "Memify refinement", "embedded defaults", "scalable backends"],
+        "maturity": "Production-ready",
+        "license": "Apache 2.0"
+      },
+      {
+        "name": "Graphiti (by Zep)",
+        "url": "https://github.com/getzep/graphiti",
+        "type": "open_source",
+        "description": "Real-time temporal knowledge graphs for AI agents. Tracks how facts change over time with validity windows. Hybrid search (semantic + keyword + graph traversal). P95 latency ~300ms.",
+        "model_support": "OpenAI, Azure OpenAI, Gemini, Anthropic",
+        "slm_support": "Limited - requires capable LLMs for entity extraction",
+        "key_features": ["temporal awareness", "real-time updates", "hybrid search", "MCP server", "low latency"],
+        "maturity": "Production-ready",
+        "license": "Apache 2.0"
+      }
+    ],
+    "llm_kg_integration_libraries": [
+      {
+        "name": "LlamaIndex Knowledge Graph Module",
+        "url": "https://github.com/run-llama/llama_index",
+        "type": "open_source",
+        "description": "KnowledgeGraphIndex for automated KG construction, KnowledgeGraphRAGQueryEngine for existing KGs, KnowledgeGraphQueryEngine for NL2Cypher. Part of broader LlamaIndex ecosystem.",
+        "model_support": "Any LLM via LlamaIndex",
+        "slm_support": "Moderate - works with local models but quality degrades",
+        "key_features": ["auto KG construction", "NL2Cypher", "multiple query engines", "broad data source support"],
+        "maturity": "Production-ready",
+        "license": "MIT"
+      },
+      {
+        "name": "Neo4j GraphRAG Python Package",
+        "url": "https://github.com/neo4j/neo4j-graphrag-python",
+        "type": "open_source",
+        "description": "Official Neo4j GraphRAG with KG creation pipeline, entity extraction, embedding generation. Supports text2Cypher, vector search, full-text search, and graph traversal retrieval patterns.",
+        "model_support": "OpenAI, VertexAI, Anthropic, Cohere, Azure, Ollama, LangChain models",
+        "slm_support": "Moderate - supports Ollama local models",
+        "key_features": ["KG creation pipeline", "text2Cypher", "schema visualization", "chat history", "PDF support"],
+        "maturity": "Production-ready",
+        "license": "Apache 2.0"
+      }
+    ],
+    "gnn_kg_reasoning": [
+      {
+        "name": "GNN-RAG",
+        "url": "https://arxiv.org/abs/2405.20139",
+        "type": "research",
+        "description": "GNN reasons over dense KG subgraph to retrieve answer candidates, then extracts shortest paths as reasoning paths for LLM. Matches GPT-4 with 7B model on KGQA benchmarks.",
+        "model_support": "Any LLM (tested with 7B+)",
+        "slm_support": "Good - demonstrated with 7B model matching GPT-4",
+        "key_features": ["GNN subgraph reasoning", "shortest path extraction", "multi-hop QA", "competitive with GPT-4 using small models"],
+        "maturity": "Research",
+        "license": "Research"
+      },
+      {
+        "name": "Paths-over-Graph (PoG)",
+        "url": "https://dl.acm.org/doi/10.1145/3696410.3714892",
+        "type": "research",
+        "description": "Enhances LLM reasoning with knowledge reasoning paths from KGs. Three-phase dynamic multi-hop path exploration with three-step pruning (graph structure, LLM prompting, PLMs).",
+        "model_support": "Any LLM",
+        "slm_support": "Moderate",
+        "key_features": ["multi-hop path exploration", "three-step pruning", "interpretable reasoning"],
+        "maturity": "Research",
+        "license": "Research"
+      }
+    ],
+    "knowledge_graph_embedding": [
+      {
+        "name": "PyKEEN",
+        "url": "https://github.com/pykeen/pykeen",
+        "type": "open_source",
+        "description": "Python library for training and evaluating KG embedding models. 40+ models, 34 interactions, 15 loss functions, 37 built-in datasets. Auto memory optimization and HPO via Optuna.",
+        "model_support": "Standalone (embedding models, not LLMs)",
+        "slm_support": "N/A - embedding-focused, but embeddings can augment SLMs",
+        "key_features": ["40+ models", "auto memory optimization", "HPO", "comprehensive evaluation"],
+        "maturity": "Production-ready",
+        "license": "MIT"
+      }
+    ],
+    "kg_construction_tools": [
+      {
+        "name": "Neo4j LLM Knowledge Graph Builder",
+        "url": "https://neo4j.com/blog/developer/llm-knowledge-graph-builder-release/",
+        "type": "open_source",
+        "description": "Visual tool for building knowledge graphs from documents using LLMs. Community summaries, local/global retrievers. Fourth most popular interaction on AuraDB Free.",
+        "model_support": "Multiple LLMs",
+        "slm_support": "Limited",
+        "key_features": ["visual builder", "community summaries", "document ingestion"],
+        "maturity": "Production-ready",
+        "license": "Apache 2.0"
+      },
+      {
+        "name": "llmgraph",
+        "url": "https://github.com/dylanhogg/llmgraph",
+        "type": "open_source",
+        "description": "Create knowledge graphs from Wikipedia pages using LLMs. Exports in GraphML, GEXF, and HTML formats.",
+        "model_support": "ChatGPT and other LLMs",
+        "slm_support": "Limited",
+        "key_features": ["Wikipedia-based", "multiple export formats", "simple API"],
+        "maturity": "Community",
+        "license": "MIT"
+      }
+    ],
+    "research_frameworks": [
+      {
+        "name": "KG Structure as Prompt",
+        "url": "https://arxiv.org/abs/2407.18752",
+        "type": "research",
+        "description": "Integrates structural KG information (common neighbors, metapaths) into prompt-based learning for SLMs. Specifically targets improving SLM capabilities for knowledge-based causal discovery.",
+        "model_support": "Small Language Models",
+        "slm_support": "Excellent - core focus",
+        "key_features": ["structural prompt engineering", "metapath integration", "causal discovery", "SLM-optimized"],
+        "maturity": "Research",
+        "license": "Research"
+      },
+      {
+        "name": "SMART SLM",
+        "url": "https://arxiv.org/abs/2512.21280",
+        "type": "research",
+        "description": "Structured Memory and Reasoning Transformer - a small language model with structured memory for accurate document assistance. Combines structured knowledge with compact model architecture.",
+        "model_support": "Custom SLM",
+        "slm_support": "Excellent - is an SLM",
+        "key_features": ["structured memory", "document assistance", "compact architecture"],
+        "maturity": "Research",
+        "license": "Research"
+      },
+      {
+        "name": "KG-MASD (Knowledge Graph Multi-Agent System Distillation)",
+        "url": "https://arxiv.org/html/2510.06240v1",
+        "type": "research",
+        "description": "Distillation framework using KGs as verifiable structured prior for edge deployment. Formulates distillation as MDP with KG-enriched state representation.",
+        "model_support": "Teacher-student paradigm",
+        "slm_support": "Excellent - targets edge/resource-constrained devices",
+        "key_features": ["knowledge distillation", "edge deployment", "verifiable reasoning", "MDP formulation"],
+        "maturity": "Research",
+        "license": "Research"
+      },
+      {
+        "name": "CogGRAG",
+        "url": "https://research",
+        "type": "research",
+        "description": "Human cognition-inspired graph-based RAG for KGQA. Unifies problem decomposition, knowledge retrieval, and reasoning under single graph-structured cognitive framework.",
+        "model_support": "LLMs",
+        "slm_support": "Moderate",
+        "key_features": ["cognition-inspired", "problem decomposition", "unified framework"],
+        "maturity": "Research",
+        "license": "Research"
+      }
+    ],
+    "graph_databases_with_slm_focus": [
+      {
+        "name": "Memgraph + SLM Combo",
+        "url": "https://www.computerweekly.com/blog/CW-Developer-Network/SLM-series-Memgraph-The-SLM-knowledge-graph-combo",
+        "type": "commercial",
+        "description": "Memgraph positioned as ideal KG backend for domain-trained SLMs. Acts as 'constant tutor and interpreter' for SLMs, providing structured reasoning support.",
+        "model_support": "SLMs",
+        "slm_support": "Excellent - marketed specifically for SLM pairing",
+        "key_features": ["in-memory graph DB", "real-time analytics", "SLM optimization", "streaming support"],
+        "maturity": "Production-ready",
+        "license": "Commercial + Community Edition"
+      }
+    ]
+  },
+  "search_queries_used": [
+    "knowledge graph integration small language model reasoning tools 2025 2026",
+    "GraphRAG knowledge graph augmented LLM reasoning frameworks",
+    "structured knowledge graph reasoning small models SLM tools libraries",
+    "knowledge graph embedding LLM integration open source projects 2025",
+    "graph neural network language model reasoning framework tools",
+    "LlamaIndex knowledge graph index reasoning query engine 2025",
+    "Neo4j GraphRAG Python library features 2025 2026",
+    "cognee AI memory knowledge graph framework features",
+    "LightRAG knowledge graph retrieval augmented generation tool",
+    "knowledge graph distillation small language models on-device edge reasoning",
+    "Graphiti getzep real-time knowledge graph AI agents features",
+    "nano-GraphRAG lightweight graph RAG implementation small models",
+    "KGQA knowledge graph question answering tools benchmark 2025",
+    "MiniRAG small language model graph RAG features 2025",
+    "PyKEEN knowledge graph embedding library features capabilities"
+  ]
+}

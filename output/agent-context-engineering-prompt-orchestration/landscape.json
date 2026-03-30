@@ -1,0 +1,318 @@
+{
+  "domain": "Agent Context Engineering & Prompt Orchestration",
+  "scan_date": "2026-03-29",
+  "total_tools_found": 38,
+  "categories": {
+    "agent_orchestration_frameworks": {
+      "description": "Full-stack frameworks for building and orchestrating AI agents with context management",
+      "tools": [
+        {
+          "name": "LangChain",
+          "url": "https://langchain.com",
+          "description": "Industry-leading framework for chaining LLM components, prompt templates, memory, and tool use",
+          "focus": "General-purpose LLM application framework with prompt chaining and agent orchestration",
+          "pricing": "Open-source (MIT)",
+          "maturity": "Mature"
+        },
+        {
+          "name": "LangGraph",
+          "url": "https://langchain-ai.github.io/langgraph/",
+          "description": "Graph-based agent orchestration with stateful context management, multi-agent coordination, and context engineering strategies (write, select, compress, isolate)",
+          "focus": "Stateful agent workflows with advanced context management",
+          "pricing": "Open-source",
+          "maturity": "Mature"
+        },
+        {
+          "name": "CrewAI",
+          "url": "https://crewai.com",
+          "description": "Role-based multi-agent orchestration framework emphasizing agent collaboration and task delegation",
+          "focus": "Multi-agent collaboration with modular context construction",
+          "pricing": "Open-source + Enterprise",
+          "maturity": "Mature"
+        },
+        {
+          "name": "LlamaIndex",
+          "url": "https://llamaindex.ai",
+          "description": "Data integration framework for context-augmented LLM applications with 160+ data connectors",
+          "focus": "RAG, data retrieval, and context augmentation for agents",
+          "pricing": "Open-source + Cloud",
+          "maturity": "Mature"
+        },
+        {
+          "name": "Haystack (deepset)",
+          "url": "https://haystack.deepset.ai",
+          "description": "Modular pipeline framework with declarative syntax for retrieval-augmented systems",
+          "focus": "Complex multi-stage pipelines combining prompts, retrieval, and tools",
+          "pricing": "Open-source",
+          "maturity": "Mature"
+        },
+        {
+          "name": "AutoGen (Microsoft)",
+          "url": "https://github.com/microsoft/autogen",
+          "description": "Multi-agent conversation framework with modular context construction",
+          "focus": "Multi-agent conversations and collaborative problem solving",
+          "pricing": "Open-source",
+          "maturity": "Mature"
+        },
+        {
+          "name": "PydanticAI",
+          "url": "https://ai.pydantic.dev",
+          "description": "Type-safe agent framework built by the Pydantic team, zero-magic abstractions",
+          "focus": "Code-first, type-safe agent development",
+          "pricing": "Open-source",
+          "maturity": "Growing"
+        },
+        {
+          "name": "Flowise",
+          "url": "https://flowiseai.com",
+          "description": "Low-code visual builder on top of LangChain/LlamaIndex with chatflow and agentflow builders",
+          "focus": "No-code/low-code agent orchestration",
+          "pricing": "Open-source",
+          "maturity": "Growing"
+        },
+        {
+          "name": "n8n",
+          "url": "https://n8n.io",
+          "description": "Workflow automation platform with AI agent orchestration capabilities",
+          "focus": "Visual workflow automation with AI agent nodes",
+          "pricing": "Open-source + Cloud",
+          "maturity": "Mature"
+        }
+      ]
+    },
+    "prompt_management_and_versioning": {
+      "description": "Platforms for managing, versioning, testing, and deploying prompts",
+      "tools": [
+        {
+          "name": "PromptLayer",
+          "url": "https://promptlayer.com",
+          "description": "Prompt tracking, version history, and visual workspace for non-technical teams to edit and deploy prompts",
+          "focus": "Prompt versioning and deployment for non-technical teams",
+          "pricing": "Free tier (10 prompts) + $49/mo",
+          "maturity": "Mature"
+        },
+        {
+          "name": "PromptHub",
+          "url": "https://prompthub.us",
+          "description": "Git-style version control for prompts with branching, commit, merge, CI/CD guardrails, and prompt chaining",
+          "focus": "Developer-focused prompt version control and CI/CD",
+          "pricing": "SaaS",
+          "maturity": "Growing"
+        },
+        {
+          "name": "Vellum AI",
+          "url": "https://vellum.ai",
+          "description": "Production-grade platform with visual workflow builder, built-in RAG, prompt engineering playground with A/B testing",
+          "focus": "End-to-end LLM application building with prompt management",
+          "pricing": "Free tier + $25/mo",
+          "maturity": "Mature"
+        },
+        {
+          "name": "Humanloop",
+          "url": "https://humanloop.com",
+          "description": "Collaborative prompt management with version control, performance evaluation, Git/CI-CD integration",
+          "focus": "Collaborative prompt management from playground to production",
+          "pricing": "SaaS",
+          "maturity": "Mature"
+        },
+        {
+          "name": "Maxim AI",
+          "url": "https://getmaxim.ai",
+          "description": "End-to-end AI simulation, evaluation, and observability platform for agent lifecycle management",
+          "focus": "Prompt orchestration, evaluation, and observability",
+          "pricing": "SaaS",
+          "maturity": "Growing"
+        }
+      ]
+    },
+    "prompt_programming_and_optimization": {
+      "description": "Frameworks that treat prompts as programmatic objects for automated optimization",
+      "tools": [
+        {
+          "name": "DSPy (Stanford)",
+          "url": "https://dspy.ai",
+          "description": "Declarative Self-improving Python framework that treats prompts as programmatic objects with automated optimization (MIPROv2, GEPA)",
+          "focus": "Programmatic prompt optimization, replacing manual prompt engineering",
+          "pricing": "Open-source",
+          "maturity": "Mature"
+        },
+        {
+          "name": "Mirascope",
+          "url": "https://mirascope.com",
+          "description": "Minimalist Python toolkit using decorators and Pydantic models for LLM apps, paired with Lilypad for prompt management",
+          "focus": "Code-first prompt development with multi-provider support",
+          "pricing": "Open-source",
+          "maturity": "Growing"
+        },
+        {
+          "name": "Guidance (Microsoft)",
+          "url": "https://github.com/guidance-ai/guidance",
+          "description": "Constrained prompt outputs using regex and context-free grammars for structured generation",
+          "focus": "Structured output generation with constrained decoding",
+          "pricing": "Open-source",
+          "maturity": "Mature"
+        }
+      ]
+    },
+    "agent_memory_and_context_persistence": {
+      "description": "Dedicated memory layers for AI agents providing persistent context across sessions",
+      "tools": [
+        {
+          "name": "Mem0",
+          "url": "https://mem0.ai",
+          "description": "Dedicated memory layer with vector + graph memory, hierarchical storage (user/session/agent levels), SOC 2 compliant managed service",
+          "focus": "Cross-session memory with semantic search and graph relationships",
+          "pricing": "Open-source + Managed cloud",
+          "maturity": "Mature"
+        },
+        {
+          "name": "Zep",
+          "url": "https://getzep.com",
+          "description": "Temporal knowledge graph for agent memory, tracking how facts change over time, integrating business data with conversation history",
+          "focus": "Temporal reasoning and fact tracking for enterprise agents",
+          "pricing": "Open-source + Cloud",
+          "maturity": "Mature"
+        },
+        {
+          "name": "Letta (MemGPT)",
+          "url": "https://letta.com",
+          "description": "Treats LLM as an OS managing its own memory with main context (RAM), recall store, and archival store; model decides when to page info in/out",
+          "focus": "Self-managing agent memory with OS-inspired architecture",
+          "pricing": "Open-source + Cloud",
+          "maturity": "Growing"
+        },
+        {
+          "name": "Graphlit",
+          "url": "https://graphlit.com",
+          "description": "Context layer for AI agents with multimodal semantic memory infrastructure",
+          "focus": "Multimodal semantic memory and content processing",
+          "pricing": "SaaS",
+          "maturity": "Growing"
+        },
+        {
+          "name": "Memvid",
+          "url": "https://github.com/memvid",
+          "description": "Database-free agent memory using .mv2 files with 'Smart Frames' in append-only sequences inspired by video encoding",
+          "focus": "Portable, offline-first agent memory without infrastructure",
+          "pricing": "Open-source",
+          "maturity": "Early"
+        },
+        {
+          "name": "xMemory",
+          "url": "https://venturebeat.com/orchestration/how-xmemory-cuts-token-costs-and-context-bloat-in-ai-agents",
+          "description": "Optimized memory construction with hierarchical retrieval and dynamic restructuring to cut token costs and context bloat",
+          "focus": "Token cost reduction and context bloat prevention",
+          "pricing": "Unknown",
+          "maturity": "Early"
+        },
+        {
+          "name": "Hindsight",
+          "url": "https://hindsight.ai",
+          "description": "Multi-strategy retrieval (semantic, BM25, graph traversal, temporal) with cross-encoder reranking, designed for agents to learn from experience",
+          "focus": "Experience-based learning and multi-strategy retrieval",
+          "pricing": "Unknown",
+          "maturity": "Early"
+        }
+      ]
+    },
+    "context_window_optimization": {
+      "description": "Tools specifically focused on optimizing context window usage through compression, prioritization, and caching",
+      "tools": [
+        {
+          "name": "Context Engineering Toolkit",
+          "url": "https://github.com/jstilb/context-engineering-toolkit",
+          "description": "Context window optimization library with compression, prioritization, and benchmarking tools",
+          "focus": "Token-level context optimization and benchmarking",
+          "pricing": "Open-source",
+          "maturity": "Early"
+        },
+        {
+          "name": "Agenta",
+          "url": "https://agenta.ai",
+          "description": "Open-source LLM observability and context management platform with self-hosting option",
+          "focus": "Context length management and LLM observability",
+          "pricing": "Open-source",
+          "maturity": "Growing"
+        }
+      ]
+    },
+    "evaluation_and_observability": {
+      "description": "Platforms for evaluating prompt/agent performance and monitoring in production",
+      "tools": [
+        {
+          "name": "Braintrust",
+          "url": "https://braintrust.dev",
+          "description": "No-code workspace for prompt iteration with integrated evaluations, AI-assisted optimization (Loop), and side-by-side comparison",
+          "focus": "Prompt evaluation and AI-assisted optimization",
+          "pricing": "SaaS",
+          "maturity": "Mature"
+        },
+        {
+          "name": "LangSmith",
+          "url": "https://smith.langchain.com",
+          "description": "LangChain's observability and evaluation platform for tracing, debugging, and testing LLM applications",
+          "focus": "Agent tracing, debugging, and evaluation",
+          "pricing": "SaaS + Free tier",
+          "maturity": "Mature"
+        },
+        {
+          "name": "Langfuse",
+          "url": "https://langfuse.com",
+          "description": "Open-source LLM observability platform with tracing, prompt management, and evaluation",
+          "focus": "Open-source observability and prompt analytics",
+          "pricing": "Open-source + Cloud",
+          "maturity": "Growing"
+        }
+      ]
+    },
+    "context_protocol_and_standards": {
+      "description": "Standards and protocols for connecting agents to external tools and data sources",
+      "tools": [
+        {
+          "name": "Model Context Protocol (MCP)",
+          "url": "https://modelcontextprotocol.io",
+          "description": "Open standard by Anthropic (now under Linux Foundation) for connecting AI agents to external tools/data. 10K+ MCP servers, 75+ official connectors, 97M+ monthly SDK downloads",
+          "focus": "Universal standard for agent-tool integration and context delivery",
+          "pricing": "Open standard",
+          "maturity": "Mature"
+        }
+      ]
+    },
+    "cloud_platform_agent_services": {
+      "description": "Cloud provider managed services for agent orchestration",
+      "tools": [
+        {
+          "name": "Amazon Bedrock Agents",
+          "url": "https://aws.amazon.com/bedrock/agents/",
+          "description": "Managed agent deployment and orchestration within AWS ecosystem",
+          "focus": "Enterprise agent deployment with AWS integration",
+          "pricing": "Pay-per-use",
+          "maturity": "Mature"
+        },
+        {
+          "name": "Google Vertex AI Agent Builder",
+          "url": "https://cloud.google.com/vertex-ai",
+          "description": "Google's platform for building context-aware multi-agent frameworks",
+          "focus": "Enterprise agent building with Google Cloud integration",
+          "pricing": "Pay-per-use",
+          "maturity": "Mature"
+        },
+        {
+          "name": "Azure AI Agent Service",
+          "url": "https://azure.microsoft.com/en-us/products/ai-services/ai-agent-service",
+          "description": "Microsoft's managed agent service with Semantic Kernel integration",
+          "focus": "Enterprise agent orchestration with Azure ecosystem",
+          "pricing": "Pay-per-use",
+          "maturity": "Mature"
+        }
+      ]
+    }
+  },
+  "market_signals": {
+    "adoption": "50%+ companies expected to adopt AI orchestration platforms by 2026",
+    "mcp_growth": "97M+ monthly SDK downloads, 10K+ MCP servers, industry standard",
+    "memory_trend": "Agent memory expected to surpass RAG in usage for adaptive AI workflows in 2026",
+    "shift": "Prompt Engineering evolving into Intent Orchestration and Context Engineering",
+    "gartner": "40% enterprise apps to include task-specific AI agents by end of 2026"
+  }
+}

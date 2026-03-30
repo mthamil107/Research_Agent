@@ -1,0 +1,182 @@
+{
+  "domain": "Agent Context Engineering & Prompt Orchestration",
+  "generated": "2026-03-29",
+  "validation_sources": [
+    "Hacker News discussions (context engineering, Karpathy, Manus, Anthropic posts)",
+    "Reddit communities (r/AI_Agents, r/LangChain, r/LLMDevs)",
+    "GitHub issues (OpenClaw, Claude Code, Docker Agent, Zed, BMAD)",
+    "GitHub open-source projects (context-compression topic, token-optimization topic)",
+    "DEV Community articles and discussions",
+    "Industry reports (Gartner, MIT NANDA, VentureBeat)",
+    "Technical blogs (JetBrains Research, Spotify Engineering, LangChain, Anthropic)"
+  ],
+  "validated_gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Unified Context Budget Manager with Real-Time Token Allocation",
+      "demand_signals": {
+        "reddit": "Multiple posts in r/AI_Agents about context overflow killing long-running agents. Users report 'prompt is too long' errors with no recovery path.",
+        "github": "OpenClaw issue #31781 (338k star repo) requests enhanced context management. Claude Code issue #21739 reports token count exceeding 200k limit. Docker Agent issue #1750 reports raw error messages on overflow with no auto-recovery. BMAD issue #1343 shows agents consuming 67-86% of context on activation alone.",
+        "hackernews": "Multiple HN threads discuss context as finite attention budget. Experienced devs note effective limits ~10K tokens, far below advertised maximums.",
+        "industry": "Gartner 2025: context engineering is the new core discipline. Factory.ai published 'The Context Window Problem: Scaling Agents Beyond Token Limits'.",
+        "open_source": "context-engineering-toolkit on GitHub. Headroom (context optimization layer). Claw Compactor. All early-stage, proving demand.",
+        "demand_score": 9
+      }
+    },
+    {
+      "id": "GAP-002",
+      "title": "Automated Prompt Optimization for Agent Systems",
+      "demand_signals": {
+        "reddit": "r/MachineLearning discussions on DSPy adoption challenges for agent systems. Teams report manual prompt tuning taking weeks.",
+        "github": "DSPy has 23k+ stars showing massive interest in prompt programming. But GitHub issues show friction integrating with agent frameworks.",
+        "hackernews": "HN discussion on DSPy vs LangChain highlights the gap: DSPy optimizes prompts but doesn't understand agent context; LangChain understands agents but doesn't optimize prompts.",
+        "industry": "Braintrust's Loop AI assistant and DSPy's GEPA optimizer show market direction. Neither is agent-context-aware.",
+        "demand_score": 7
+      }
+    },
+    {
+      "id": "GAP-003",
+      "title": "Context Compression Middleware for Production Agent Pipelines",
+      "demand_signals": {
+        "reddit": "Frequent r/LangChain posts about tool output bloating context windows. Users building custom summarization pipelines.",
+        "github": "Claw Compactor claims 97% compression. Headroom achieves 40-90% token reduction. context-compression GitHub topic has growing project list. All are standalone tools, not middleware for agent frameworks.",
+        "hackernews": "LangChain blog on 'autonomous context compression' got significant discussion. Spotify Engineering shared their context engineering approach for coding agents.",
+        "industry": "LangChain published dedicated blog post on context compression strategies. Multiple startups emerging in this space.",
+        "open_source": "Growing ecosystem: Claw Compactor (6-layer compression), Headroom (ML-routed compression), OpenCode DCP (dynamic context pruning). None integrate cleanly as middleware.",
+        "demand_score": 8
+      }
+    },
+    {
+      "id": "GAP-004",
+      "title": "Cross-Framework Agent Memory Interoperability Layer",
+      "demand_signals": {
+        "reddit": "r/AI_Agents threads comparing Mem0 vs Zep vs Letta -- every comparison ends with 'but none of them work well with my orchestration framework'. Users report writing 500+ lines of glue code.",
+        "github": "Multiple comparison articles (Vectorize, DEV Community, Medium) comparing 5-8 memory systems. The comparison itself signals fragmentation.",
+        "hackernews": "HN Show: Bossa project (persistent filesystem memory via MCP) shows demand for simpler memory that just works across tools.",
+        "industry": "VentureBeat: 'The memory layer space feels similar to vector databases in 2022 -- fragmented with consolidation approaching.' No interop standard exists.",
+        "demand_score": 7
+      }
+    },
+    {
+      "id": "GAP-005",
+      "title": "Context Quality Scoring and Observability Dashboard",
+      "demand_signals": {
+        "reddit": "Discussions about agents giving wrong answers not because of bad prompts but bad context -- stale data, contradictory sources, irrelevant retrieval.",
+        "github": "No dedicated tool exists. Langfuse and LangSmith track cost/latency but users request context quality metrics in issues.",
+        "hackernews": "Drew Breunig's 'how contexts fail' and 'context rot' concepts widely discussed. HN commenters note that debugging context issues is the hardest part of agent development.",
+        "industry": "Moody's blog: 'Context failures -- missing, stale, conflicting, irrelevant -- cause most enterprise AI breakdowns.' Research shows 'lost in the middle' degradation. DataHub calls context management 'the missing piece'.",
+        "demand_score": 8
+      }
+    },
+    {
+      "id": "GAP-006",
+      "title": "Enterprise Context Engineering Platform",
+      "demand_signals": {
+        "reddit": "Enterprise-focused discussions about managing dozens of agents with inconsistent context strategies. 'Each team builds their own approach.'",
+        "github": "Limited open-source activity (enterprise solutions tend to be commercial). Rebase.ai (Context Engineering Enterprise platform) is one of few attempts.",
+        "hackernews": "HN discussion: 'For AI agents, what's the bigger problem: context sharing or prompting?' highlights enterprise context sharing challenges.",
+        "industry": "Gartner predicts 40% enterprise apps will include AI agents by end of 2026. MIT NANDA: 95% of enterprise AI pilots fail, context/memory cited as key reason. Elastic, Moody's, DataHub all publishing on enterprise context challenges.",
+        "demand_score": 7
+      }
+    },
+    {
+      "id": "GAP-007",
+      "title": "Visual Context Window Debugger for Agent Development",
+      "demand_signals": {
+        "reddit": "Developers in r/LangChain report 'flying blind' when debugging context issues. No way to see what's actually in the context window at each step.",
+        "github": "Zed discussions request token usage display per tool call. BMAD issue reveals agents consuming 86% of context unknowingly. Claude Code users report token miscalculation issues.",
+        "hackernews": "JetBrains Research published 'Cutting Through the Noise: Smarter Context Management' highlighting need for visibility.",
+        "industry": "Multiple blog posts describe debugging context as the #1 pain point. No commercial or open-source visual debugger exists for context windows.",
+        "demand_score": 8
+      }
+    },
+    {
+      "id": "GAP-008",
+      "title": "Intelligent Context Prefetch and Predictive Loading",
+      "demand_signals": {
+        "reddit": "Latency complaints in multi-step agent workflows. Users note 3-5 second delays per RAG retrieval step adding up.",
+        "github": "Limited direct demand signals. Concept is emerging but not yet widely requested.",
+        "hackernews": "Discussions on context caching (prompt prefix caching) show interest in reducing latency. Anthropic's prompt caching feature was well-received.",
+        "industry": "Anthropic, Google, OpenAI all ship prompt caching for static prefixes. Predictive loading for dynamic context is the logical next step but not yet available.",
+        "demand_score": 5
+      }
+    },
+    {
+      "id": "GAP-009",
+      "title": "Prompt Template Marketplace with Context-Aware Composition",
+      "demand_signals": {
+        "reddit": "r/PromptEngineering threads about sharing and reusing prompt components. Users copy-paste across projects.",
+        "github": "Agent-Skills-for-Context-Engineering repo (collection of agent skills) shows demand for reusable context engineering components. PromptHub has Git-style versioning but for full prompts only.",
+        "hackernews": "Indie Hackers post on reverse-engineering Claude Code's system prompts shows demand for understanding and reusing prompt patterns.",
+        "industry": "Augment Code published '11 prompting techniques for agents'. Moxo published '20+ prompts for AI agents'. These are blog posts, not tools -- showing unmet demand for structured reuse.",
+        "demand_score": 6
+      }
+    },
+    {
+      "id": "GAP-010",
+      "title": "Multi-Modal Context Orchestration",
+      "demand_signals": {
+        "reddit": "Growing discussions about agents processing images, code, and text simultaneously. Context allocation across modalities is ad hoc.",
+        "github": "Graphlit focuses on multimodal memory but not context orchestration. Limited tooling for multi-modal context management.",
+        "hackernews": "Multi-modal agent discussions increasing but tooling lags behind model capabilities.",
+        "industry": "All major LLM providers now support multi-modal inputs. Agent frameworks haven't updated context management for mixed modalities.",
+        "demand_score": 6
+      }
+    },
+    {
+      "id": "GAP-011",
+      "title": "Context-Aware Cost Optimization Engine",
+      "demand_signals": {
+        "reddit": "Frequent r/AI_Agents posts about unexpectedly high LLM bills from agent context. Users want cost controls without sacrificing quality.",
+        "github": "Claw Compactor marketing: 'Cut AI agent token costs by up to 97%'. Shows cost is a major pain point.",
+        "hackernews": "Discussion on LLM costs scaling with context. Users report 10x cost differences based on context management.",
+        "industry": "Token costs cited as top barrier to production agent deployment. No tool dynamically optimizes cost-quality tradeoffs for context.",
+        "demand_score": 7
+      }
+    },
+    {
+      "id": "GAP-012",
+      "title": "Temporal Context Decay and Freshness Management",
+      "demand_signals": {
+        "reddit": "Users report agents using outdated information. 'My agent is recommending products we discontinued 6 months ago.'",
+        "github": "Zep is the only tool with temporal memory (tracking fact changes over time). GitHub discussions on memory staleness.",
+        "hackernews": "Drew Breunig's 'context rot' concept resonated strongly. Context decay is recognized but poorly tooled.",
+        "industry": "Moody's: agents mixing stale reports with current data. Only Zep addresses this systematically.",
+        "demand_score": 6
+      }
+    },
+    {
+      "id": "GAP-013",
+      "title": "Agent Context Replay and Testing Framework",
+      "demand_signals": {
+        "reddit": "Developers can't reproduce context-related bugs. 'The agent worked yesterday with the same prompt but different context.'",
+        "github": "No tool provides context snapshot and replay. Evaluation tools test prompts, not context configurations.",
+        "hackernews": "Discussion on reproducibility in agent systems. Context variability makes testing hard.",
+        "industry": "Braintrust and Humanloop offer prompt A/B testing but not context strategy testing. The gap between prompt testing and context testing is recognized.",
+        "demand_score": 6
+      }
+    },
+    {
+      "id": "GAP-014",
+      "title": "Lightweight Context Engineering SDK for Small Teams",
+      "demand_signals": {
+        "reddit": "r/LangChain: 'LangChain is too heavy for my use case. I just want context management without the rest.' Multiple alternatives discussed.",
+        "github": "Mirascope (lightweight) and PydanticAI (type-safe) growing rapidly but lack context management. Context-engineering-toolkit is early-stage. Bossa (filesystem memory via MCP) shows demand for simple solutions.",
+        "hackernews": "Recurring theme: developers want lighter alternatives to LangChain. Multi-agent complexity rejected by solo devs and small teams.",
+        "industry": "25+ LangChain alternatives listed in comparison articles. 'Simplicity' is the top reason developers switch.",
+        "demand_score": 7
+      }
+    },
+    {
+      "id": "GAP-015",
+      "title": "MCP-Native Context Router for Multi-Tool Agent Workflows",
+      "demand_signals": {
+        "reddit": "Discussions about MCP server proliferation (10K+) and agents needing to choose which servers to query.",
+        "github": "MCP ecosystem growing rapidly. Anthropic's Tool Search and Programmatic Tool Calling are early steps but not context-budget-aware routing.",
+        "hackernews": "HN discussion: 'Why the Model Context Protocol Won' highlights ecosystem growth but also growing complexity.",
+        "industry": "MCP has 97M+ monthly SDK downloads. Tool proliferation creates routing challenges. No context-budget-aware MCP router exists.",
+        "demand_score": 6
+      }
+    }
+  ]
+}

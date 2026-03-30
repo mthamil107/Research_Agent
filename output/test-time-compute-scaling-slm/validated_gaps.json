@@ -1,0 +1,243 @@
+{
+  "domain": "Test-Time Compute Scaling and Inference-Time Reasoning for SLMs",
+  "generated_date": "2026-03-29",
+  "validation_sources": [
+    "Hacker News (multiple threads on test-time compute, s1 budget forcing, recursive reasoning with tiny networks)",
+    "GitHub repos (HuggingFace search-and-learn 1.1k stars, Awesome-Inference-Time-Scaling, LLM-MCTS-Inference, PaCoRe)",
+    "Reddit/LocalLLaMA community discussions on small model reasoning",
+    "Academic papers (rStar-Math, SLM-MUX, Dynasor, PaCoRe, Chain of Draft)",
+    "Industry blogs (NVIDIA Dynamo, Sebastian Raschka, Lilian Weng)",
+    "HuggingFace community (test-time compute scaling recipes, Llama 3B outperforming 70B)"
+  ],
+  "validated_gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Unified SLM Reasoning SDK: Search + PRM + Serving in One Package",
+      "demand_signals": [
+        "HuggingFace search-and-learn (1.1k stars) only covers search algorithms, NOT PRM training or serving",
+        "OpenR covers search+PRM but NOT production serving — GitHub shows active issues requesting serving integration",
+        "Multiple awesome-lists (5+ repos with 500+ stars each) trying to organize fragmented landscape indicates users are confused",
+        "PaCoRe (StepFun) achieves GPT-5-beating results with 8B model but is research-only, showing demand for productionizing",
+        "Sebastian Raschka's newsletter 'State of LLM Reasoning Model Inference' widely shared, indicating practitioner interest in unified view"
+      ],
+      "demand_strength": "strong",
+      "evidence_count": 8
+    },
+    {
+      "id": "GAP-002",
+      "title": "On-Device / Edge Reasoning Search for SLMs",
+      "demand_signals": [
+        "HN thread 'Show HN: Tool that automates ML model deployment on mobile/edge devices' — active discussion",
+        "ACM survey 'Edge Large Language Models: Design, Execution, Applications' — comprehensive need documented",
+        "Liquid AI LFM2.5-1.2B for on-device, but NO reasoning search — gap explicitly visible",
+        "Phi-4-mini runs at 12+ tokens/sec on iPhone 14 but with greedy decoding only — no search",
+        "DeepSeek-R1 1.5B distillation for edge exists but no MCTS/beam search framework for it",
+        "HN 'Less is more: Recursive reasoning with tiny networks' — 100+ comments showing interest"
+      ],
+      "demand_strength": "strong",
+      "evidence_count": 9
+    },
+    {
+      "id": "GAP-003",
+      "title": "Adaptive Compute Budget Controller for SLM Reasoning",
+      "demand_signals": [
+        "Dynasor paper achieves 50% compute savings + 3.3x throughput — proves value but not productionized",
+        "s1 budget forcing paper is ICLR 2025 Oral — high academic impact, shows community values this",
+        "arxiv survey 'Reasoning on a Budget: Adaptive and Controllable Test-Time Compute' (Jul 2025) — entire survey on this gap",
+        "OpenAI o1/o3 offers thinking token budget as key feature — validates market demand",
+        "Anthropic Claude 3.7 'thinking budget' parameter — major vendor validates need",
+        "Multiple blog posts discussing cost of reasoning models in production — practitioners feel the pain"
+      ],
+      "demand_strength": "strong",
+      "evidence_count": 10
+    },
+    {
+      "id": "GAP-004",
+      "title": "SLM-Specific Process Reward Model Training Toolkit",
+      "demand_signals": [
+        "Paper 'Lessons of Developing Process Reward Models' documents challenges — training is hard",
+        "PRM training requires expensive step-level annotations — major bottleneck documented",
+        "RLHF-Reward-Modeling repo provides recipes but not SLM-optimized",
+        "axolotl PRM support exists but not tuned for small models under memory constraints",
+        "Active research on efficient PRM data (Active Learning for PRM, InversePRM) — shows need for easier training"
+      ],
+      "demand_strength": "moderate",
+      "evidence_count": 6
+    },
+    {
+      "id": "GAP-005",
+      "title": "Reasoning Distillation Pipeline: Large Reasoner -> Small Reasoner",
+      "demand_signals": [
+        "Red Hat blog 'Lessons reproducing R1-like reasoning in small LLMs' — practitioners actively trying this",
+        "STILL-2 framework (imitate-explore-self-improve) shows pipeline exists in research but not productionized",
+        "s1 achieves strong results with only 1000 training examples — shows pipeline could be simple",
+        "Phi-4 trained via distillation from o3-mini — validates the approach at Microsoft scale",
+        "HuggingFace lewtun: 'We outperform Llama 70B with Llama 3B' — strong community excitement",
+        "Chain of Thought Distillation paper from Calmops — growing interest in smaller reasoning models"
+      ],
+      "demand_strength": "strong",
+      "evidence_count": 8
+    },
+    {
+      "id": "GAP-006",
+      "title": "Reasoning Quality Observability & Monitoring",
+      "demand_signals": [
+        "Arize AI blog on 'Sleep-time Compute' discusses observability needs for reasoning",
+        "No existing MLOps tool (Weights & Biases, MLflow, Arize) has reasoning-specific monitoring",
+        "OpenAI's 'Evaluating chain-of-thought monitorability' paper — they acknowledge the problem",
+        "Production teams lack visibility into WHY reasoning models fail on specific queries"
+      ],
+      "demand_strength": "moderate",
+      "evidence_count": 5
+    },
+    {
+      "id": "GAP-007",
+      "title": "Multi-SLM Reasoning Ensemble with Routing",
+      "demand_signals": [
+        "SLM-MUX paper (2025) — 13.4% improvement on MATH proves value of SLM ensembling",
+        "Cost-latency constrained routing research (Harvard) — active research on routing decisions",
+        "Multiple cloud providers offer model routing but NOT reasoning-strategy routing",
+        "Aladdin system (71% GPU cost savings with routing) — validates cost savings potential"
+      ],
+      "demand_strength": "moderate",
+      "evidence_count": 5
+    },
+    {
+      "id": "GAP-008",
+      "title": "Domain-Specific Reasoning Enhancement for SLMs (Beyond Math)",
+      "demand_signals": [
+        "Nearly ALL benchmarks (MATH, AIME, GSM8K, GPQA) focus on math/science — acknowledged limitation",
+        "AgentPRM paper proposes PRMs for LLM agents — shows demand beyond math",
+        "ReKG-MCTS for knowledge graph reasoning — domain adaptation happening organically",
+        "Legal, medical, financial AI companies raising large rounds but using generic models",
+        "No domain-specific PRM or search heuristic for non-math reasoning exists"
+      ],
+      "demand_strength": "moderate",
+      "evidence_count": 6
+    },
+    {
+      "id": "GAP-009",
+      "title": "Open-Source Reasoning Benchmark Suite for SLMs",
+      "demand_signals": [
+        "testtimescaling.github.io survey proposes 'how well' dimension but no standardized benchmarks",
+        "Papers compare on different subsets making comparison impossible",
+        "Awesome-Efficient-Reasoning-LLMs repo (survey) documents fragmented evaluation landscape"
+      ],
+      "demand_strength": "weak",
+      "evidence_count": 3
+    },
+    {
+      "id": "GAP-010",
+      "title": "Plug-and-Play Reasoning Enhancement Layer for Existing SLMs",
+      "demand_signals": [
+        "HuggingFace search-and-learn is closest but requires specific model compatibility",
+        "kyegomez/tree-of-thoughts (2k+ stars) — 'Plug in and Play' in title shows demand for simplicity",
+        "LLM-MCTS-Inference repo tested with Llama3.2-1B — shows community trying this ad-hoc",
+        "Application developers not ML experts need simple wrappers — underserved segment",
+        "Blog posts explaining 'how to add reasoning to your model' are among most shared ML content"
+      ],
+      "demand_strength": "strong",
+      "evidence_count": 7
+    },
+    {
+      "id": "GAP-011",
+      "title": "Cost-Optimal Reasoning Strategy Selector",
+      "demand_signals": [
+        "Multiple blog posts computing $/query for reasoning vs non-reasoning models",
+        "Research shows SLM+MCTS can beat LLM+greedy at lower cost — but no tool helps choose",
+        "Seldon, RunPod blogs discuss inference cost optimization as top concern",
+        "Jensen Huang: reasoning models need 100x more compute — cost is THE concern"
+      ],
+      "demand_strength": "moderate",
+      "evidence_count": 5
+    },
+    {
+      "id": "GAP-012",
+      "title": "Streaming Reasoning Chains with Progressive Refinement",
+      "demand_signals": [
+        "OpenAI hides thinking tokens — users frustrated about lack of transparency",
+        "DeepSeek-R1 shows full CoT but no progressive refinement — all or nothing",
+        "Chain of Draft paper (Feb 2025) — 'Thinking Faster by Writing Less' shows demand for efficiency",
+        "UX research on streaming AI responses — users prefer progressive disclosure"
+      ],
+      "demand_strength": "moderate",
+      "evidence_count": 4
+    },
+    {
+      "id": "GAP-013",
+      "title": "Hybrid Edge-Cloud Reasoning Orchestration",
+      "demand_signals": [
+        "ACM survey on 'Collaborative Inference and Learning between Edge SLMs and Cloud LLMs' (Jul 2025)",
+        "CLONE framework for edge latency-aware inference — research validates approach",
+        "Edge-cloud collaboration described as 'SLMs as first-response agents, offloading complex reasoning to cloud'",
+        "Intermittent connectivity use case (healthcare, field ops) well documented",
+        "No production system implements this yet"
+      ],
+      "demand_strength": "strong",
+      "evidence_count": 6
+    },
+    {
+      "id": "GAP-014",
+      "title": "Reasoning-Aware Quantization and Pruning",
+      "demand_signals": [
+        "Phi-4-mini achieves 12+ tok/s on mobile with 4-bit quantization — but reasoning quality impact unknown",
+        "Edge deployment requires quantization — standard methods known to degrade reasoning disproportionately",
+        "Research paper 'Demystifying SLMs for Edge Deployment' discusses optimization but not reasoning-specific"
+      ],
+      "demand_strength": "weak",
+      "evidence_count": 3
+    },
+    {
+      "id": "GAP-015",
+      "title": "Interactive Reasoning Debugger for SLMs",
+      "demand_signals": [
+        "LLM Reasoners has ReasonerAgent-Web visualization but basic",
+        "SC-MCTS* paper notes interpretability as key challenge",
+        "Prompt engineering guides discuss ToT debugging as manual process"
+      ],
+      "demand_strength": "weak",
+      "evidence_count": 3
+    },
+    {
+      "id": "GAP-016",
+      "title": "Self-Improving SLM Reasoning Loop (Online Learning)",
+      "demand_signals": [
+        "ThetaEvolve paper — test-time learning with continual self-improvement",
+        "STILL-2 self-improvement loop — research validates approach",
+        "Awesome-LLM-Self-Improvement repo (curated list) — active research area",
+        "No production system does this yet"
+      ],
+      "demand_strength": "moderate",
+      "evidence_count": 4
+    },
+    {
+      "id": "GAP-017",
+      "title": "Multi-Modal Reasoning at Test-Time for SLMs",
+      "demand_signals": [
+        "Phi-4-reasoning-vision exists but without search enhancement",
+        "Awesome-Efficient-LRM-Reasoning survey covers multimodal — acknowledged gap",
+        "NVIDIA Dynamo 1.0 adds video generation but not multi-modal reasoning"
+      ],
+      "demand_strength": "weak",
+      "evidence_count": 3
+    },
+    {
+      "id": "GAP-018",
+      "title": "Reasoning Chain Compression / Efficient CoT for SLMs",
+      "demand_signals": [
+        "Chain of Draft paper — 'Thinking Faster by Writing Less' — high interest",
+        "'Fast Thinking for LLMs' paper — reducing unnecessary reasoning tokens",
+        "SpecReason achieves 1.5-2.5x speedup while improving accuracy — validates approach",
+        "'When More is Less: Understanding CoT Length' paper — over-reasoning documented as problem",
+        "Energy concerns: 'Energy Use of AI Inference' paper documents test-time compute energy costs"
+      ],
+      "demand_strength": "moderate",
+      "evidence_count": 5
+    }
+  ],
+  "demand_summary": {
+    "strong_demand_gaps": ["GAP-001", "GAP-002", "GAP-003", "GAP-005", "GAP-010", "GAP-013"],
+    "moderate_demand_gaps": ["GAP-004", "GAP-006", "GAP-007", "GAP-008", "GAP-011", "GAP-012", "GAP-016", "GAP-018"],
+    "weak_demand_gaps": ["GAP-009", "GAP-014", "GAP-015", "GAP-017"]
+  }
+}

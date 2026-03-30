@@ -1,0 +1,247 @@
+{
+  "domain": "On-Device/Edge Reasoning SLM Deployment",
+  "generated": "2026-03-29",
+  "validation_sources": [
+    "Reddit discussions on on-device LLM challenges",
+    "Hacker News threads on edge AI deployment",
+    "GitHub issues on llama.cpp, ExecuTorch, LiteRT, MediaPipe",
+    "Academic papers on edge LLM inference",
+    "Industry blogs and surveys on edge AI deployment",
+    "Developer forums (HuggingFace, Dev.to, Medium)"
+  ],
+  "validated_gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Universal NPU Abstraction Layer",
+      "demand_signals": [
+        {"source": "GitHub (LiteRT)", "signal": "Open issue asking for steps to convert models to .litertlm format for Qualcomm NPU — developers struggling with format-specific NPU targeting", "url": "https://github.com/google-ai-edge/litert-torch/issues/881"},
+        {"source": "ACM Computing Surveys", "signal": "Hardware heterogeneity identified as one of the top deployment challenges — different NPUs require different optimization paths", "url": "https://dl.acm.org/doi/full/10.1145/3719664"},
+        {"source": "Edge AI Vision Alliance", "signal": "People over-index on TOPS, but decode-time inference is memory-bandwidth bound — NPU utilization varies wildly across vendors"},
+        {"source": "Samsung blog", "signal": "Samsung's toolchain is entirely separate from Qualcomm and Apple, forcing triple development effort"}
+      ],
+      "demand_strength": "high",
+      "evidence_quality": "strong"
+    },
+    {
+      "id": "GAP-002",
+      "title": "On-Device RAG Pipeline Framework",
+      "demand_signals": [
+        {"source": "Dev.to article (2026)", "signal": "RAG on Mobile: Local Vector DBs and Smart Search 2026 — entire article addressing this unmet need", "url": "https://dev.to/devin-rosario/rag-on-mobile-local-vector-dbs-and-smart-search-2026-1ad7"},
+        {"source": "HuggingFace forums", "signal": "Thread asking 'What is the best architecture for integrating local LLM inference and RAG on mobile devices?' — no clear answer", "url": "https://discuss.huggingface.co/t/what-is-the-best-architecture-for-integrating-local-llm-inference-and-rag-on-mobile-devices/174270"},
+        {"source": "GitHub (deepsense-ai/edge-slm)", "signal": "Open-source project specifically for RAG pipeline on Android — proves demand exists but solution is immature", "url": "https://github.com/deepsense-ai/edge-slm"},
+        {"source": "ObjectBox", "signal": "Vector database vendor specifically targeting on-device RAG use case — market forming", "url": "https://objectbox.io/retrieval-augmented-generation-rag-with-vector-databases-expanding-ai-capabilities/"},
+        {"source": "DeepSense.ai blog", "signal": "Article on implementing SLMs with RAG on embedded devices for cost reduction, privacy, and offline use"}
+      ],
+      "demand_strength": "very high",
+      "evidence_quality": "strong"
+    },
+    {
+      "id": "GAP-003",
+      "title": "Automated Hardware-Aware Model Selection & Optimization",
+      "demand_signals": [
+        {"source": "Edge AI Vision Alliance (2026)", "signal": "1000+ Android device SKUs with wildly different memory, NPU, and thermal characteristics — manual optimization is unsustainable"},
+        {"source": "GitHub (llama.cpp)", "signal": "llama-bench bugs with incorrect backend defaults show how manual device profiling fails at scale", "url": "https://github.com/ggml-org/llama.cpp/issues/16070"},
+        {"source": "arxiv", "signal": "Paper on 'Edge-First Language Model Inference: Models, Metrics, and Tradeoffs' — highlights lack of systematic approach to model-device matching", "url": "https://arxiv.org/html/2505.16508v1"},
+        {"source": "arxiv (2026)", "signal": "Paper on 'LLM Inference at the Edge: Mobile, NPU, and GPU Performance Efficiency Trade-offs Under Sustained Load' shows massive perf variance across devices", "url": "https://arxiv.org/abs/2603.23640"}
+      ],
+      "demand_strength": "high",
+      "evidence_quality": "strong"
+    },
+    {
+      "id": "GAP-004",
+      "title": "On-Device Reasoning Chain Debugger/Visualizer",
+      "demand_signals": [
+        {"source": "Industry surveys", "signal": "Safety-critical deployments (automotive via TensorRT-Edge-LLM, medical devices) lack any reasoning introspection tools"},
+        {"source": "General LLM observability market", "signal": "Cloud LLM observability is booming (Langfuse, LangSmith, Datadog) but ZERO tools target on-device inference specifically"},
+        {"source": "Edge AI Vision Alliance", "signal": "Automotive and robotics identified as primary edge LLM adopters — debugging is critical for certification"}
+      ],
+      "demand_strength": "medium",
+      "evidence_quality": "moderate (inferred from adjacent cloud market)"
+    },
+    {
+      "id": "GAP-005",
+      "title": "Cross-Platform Mobile LLM SDK (React Native / Flutter / KMP)",
+      "demand_signals": [
+        {"source": "InfoQ (Cactus launch)", "signal": "Cactus v1 launch coverage highlights React Native/Flutter/KMP support as KEY differentiator — proves market demand", "url": "https://www.infoq.com/news/2025/12/cactus-on-device-inference/"},
+        {"source": "Medium (Flutter + Cactus)", "signal": "Tutorial 'How to run private, on-device AI in your Flutter App using Cactus' — developer hunger for cross-platform mobile LLM SDK"},
+        {"source": "HuggingFace blog", "signal": "'LLM Inference on Edge: A Fun and Easy Guide to run LLMs via React Native on your Phone!' — community-driven effort showing demand", "url": "https://huggingface.co/blog/llm-inference-on-edge"},
+        {"source": "Market data", "signal": "React Native + Flutter represent >60% of mobile app development — massive underserved segment for on-device LLM"}
+      ],
+      "demand_strength": "very high",
+      "evidence_quality": "strong"
+    },
+    {
+      "id": "GAP-006",
+      "title": "On-Device Model Fine-Tuning / Personalization",
+      "demand_signals": [
+        {"source": "Tether.io (Dec 2025)", "signal": "QVAC Fabric LLM launched as 'first production-ready framework for LLM training on smartphone-class hardware' — proves market gap is being addressed", "url": "https://tether.io/news/tether-data-introduces-qvac-fabric-llm-the-edge-first-llm-inference-runtime-and-generalized-llm-lora-fine-tuning-framework-for-modern-ai-models-on-heterogeneous-gpus-smartphones-laptops-and-server/"},
+        {"source": "arxiv (MobileFineTuner)", "signal": "Academic framework for end-to-end LLM fine-tuning on mobile phones — research-stage, not production", "url": "https://arxiv.org/html/2512.08211v1"},
+        {"source": "arxiv (PAE MobiLLM)", "signal": "Privacy-Aware and Efficient LLM Fine-Tuning on Mobile — multiple research groups tackling this", "url": "https://arxiv.org/html/2507.01216"},
+        {"source": "ACM (EdgeLoRA)", "signal": "EdgeLoRA for efficient multi-tenant LoRA serving on edge — academic solution for shared model personalization"},
+        {"source": "Edge AI Vision Alliance", "signal": "On-device personalization via local fine-tuning identified as key 2026 trend — 'could deliver user-specific behavior without shipping private data off-device'"}
+      ],
+      "demand_strength": "very high",
+      "evidence_quality": "very strong (multiple research papers + commercial product)"
+    },
+    {
+      "id": "GAP-007",
+      "title": "OTA Model Lifecycle Management Platform",
+      "demand_signals": [
+        {"source": "ESL blog", "signal": "CI/CD pipelines, staged rollouts, telemetry hooks, and auto-healing for edge fleet — described as needed but not available as turnkey platform"},
+        {"source": "Cactus", "signal": "OTA model updates highlighted as a key selling point — validates market demand"},
+        {"source": "Medium (Edge LLM 2025)", "signal": "Asynchronous OTA updates identified as critical for edge LLM deployment at scale"}
+      ],
+      "demand_strength": "high",
+      "evidence_quality": "moderate"
+    },
+    {
+      "id": "GAP-008",
+      "title": "Hybrid Edge-Cloud Inference Orchestrator",
+      "demand_signals": [
+        {"source": "arxiv (2025, survey)", "signal": "Comprehensive survey on 'Collaborative Inference and Learning between Edge SLMs and Cloud LLMs' — entire research subfield forming", "url": "https://arxiv.org/html/2507.16731v1"},
+        {"source": "ACM workshop paper", "signal": "'Hybrid SLM and LLM for Edge-Cloud Collaborative Inference' — academic validation of the concept", "url": "https://dl.acm.org/doi/10.1145/3662006.3662067"},
+        {"source": "AWS blog", "signal": "AWS blog on on-device SLMs with agentic orchestration for telecom — describes routing queries between edge and cloud", "url": "https://aws.amazon.com/blogs/industries/on-device-slms-with-agentic-orchestration-for-hyper-personalized-customer-experiences-in-telecom/"},
+        {"source": "Requesty blog", "signal": "'The Future of LLM Routing: On-device, Edge AI, and Federated Models' — industry recognition of gap", "url": "https://www.requesty.ai/blog/the-future-of-llm-routing-on-device-edge-ai-and-federated-models-1751656903"},
+        {"source": "arxiv", "signal": "Token-level edge-cloud collaboration achieving significant cost efficiency — research maturing"}
+      ],
+      "demand_strength": "very high",
+      "evidence_quality": "very strong (survey papers + industry adoption)"
+    },
+    {
+      "id": "GAP-009",
+      "title": "Edge-Optimized Reasoning Model Distillation Toolkit",
+      "demand_signals": [
+        {"source": "Edge AI Vision Alliance", "signal": "Reasoning distillation from frontier models to SLMs identified as key 2026 trend"},
+        {"source": "Economy Prism", "signal": "'Edge AI: Why Small Language Models Win for Privacy, Speed, and Cost' — but no toolkit to create domain-specific reasoning SLMs"},
+        {"source": "Preprints.org", "signal": "Academic paper on 'Small Language Models: Architecture, Evolution, and the Future' — covers distillation but no turnkey tools"}
+      ],
+      "demand_strength": "medium-high",
+      "evidence_quality": "moderate"
+    },
+    {
+      "id": "GAP-010",
+      "title": "On-Device Multi-Agent Orchestration",
+      "demand_signals": [
+        {"source": "AWS blog", "signal": "On-device SLMs with agentic orchestration — AWS describing the pattern for telecom", "url": "https://aws.amazon.com/blogs/industries/on-device-slms-with-agentic-orchestration-for-hyper-personalized-customer-experiences-in-telecom/"},
+        {"source": "Microsoft Community Hub", "signal": "Engineering a Local-First Agentic Podcast Studio with Multi-Agent Orchestration — proves demand for local multi-agent", "url": "https://techcommunity.microsoft.com/blog/azuredevcommunityblog/engineering-a-local-first-agentic-podcast-studio-a-deep-dive-into-multi-agent-or/4482839"},
+        {"source": "arxiv (2025)", "signal": "'Toward Edge General Intelligence with Multiple-Large Language Model (Multi-LLM): Architecture, Trust, and Orchestration' — academic foundation forming", "url": "https://arxiv.org/html/2507.00672v1"},
+        {"source": "LangGraph/CrewAI", "signal": "Popular agent frameworks are all cloud-centric — on-device gap is clear"}
+      ],
+      "demand_strength": "high",
+      "evidence_quality": "strong"
+    },
+    {
+      "id": "GAP-011",
+      "title": "Standardized Edge LLM Benchmarking Suite",
+      "demand_signals": [
+        {"source": "arxiv", "signal": "Paper proposing 'novel benchmarking framework and metric' for LLM inference on edge — proves lack of standard", "url": "https://arxiv.org/html/2508.11269v1"},
+        {"source": "Edge-LLM Challenge", "signal": "Edge-Device Large Language Model Competition — academic community creating ad-hoc benchmarks", "url": "https://edge-llms-challenge.github.io/edge-llm-challenge.github.io/"},
+        {"source": "GitHub (llama.cpp)", "signal": "Discussion 'Benchmarking: What types of performance does LLMs care about?' — community confused about what to measure", "url": "https://github.com/ggml-org/llama.cpp/discussions/2038"},
+        {"source": "LLM-tracker.info", "signal": "LLM Inference Benchmarking Cheat Sheet exists but covers hardware, not edge-specific scenarios"}
+      ],
+      "demand_strength": "medium-high",
+      "evidence_quality": "strong"
+    },
+    {
+      "id": "GAP-012",
+      "title": "Wearable/IoT LLM Deployment (Ultra-Constrained)",
+      "demand_signals": [
+        {"source": "Google", "signal": "Gemini Nano deployed on Pixel Watch via LiteRT-LM — Google validating the wearable LLM use case"},
+        {"source": "Cactus", "signal": "Claims wearable support as differentiator — market sees demand"},
+        {"source": "ExecuTorch", "signal": "50KB footprint targets MCUs — but no turnkey wearable SDK"}
+      ],
+      "demand_strength": "medium",
+      "evidence_quality": "moderate"
+    },
+    {
+      "id": "GAP-013",
+      "title": "Privacy-Certified On-Device Inference Framework",
+      "demand_signals": [
+        {"source": "Multiple sources", "signal": "Healthcare and finance repeatedly cited as key on-device LLM use cases, but no framework has HIPAA/SOC2 certification"},
+        {"source": "PAE MobiLLM paper", "signal": "Privacy-Aware fine-tuning research shows academic concern about formal privacy guarantees"},
+        {"source": "Apple", "signal": "Apple's Private Cloud Compute is the closest to formal privacy guarantees but only for Apple ecosystem"}
+      ],
+      "demand_strength": "medium-high",
+      "evidence_quality": "moderate"
+    },
+    {
+      "id": "GAP-014",
+      "title": "On-Device Structured Output / JSON Mode Guarantees",
+      "demand_signals": [
+        {"source": "LMSYS blog", "signal": "Fast JSON Decoding for Local LLMs with Compressed FSM — proving demand for constrained decoding locally", "url": "https://lmsys.org/blog/2024-02-05-compressed-fsm/"},
+        {"source": "Outlines/XGrammar", "signal": "Libraries exist for constrained decoding but NOT integrated into mobile runtimes (ExecuTorch, LiteRT, etc.)"},
+        {"source": "vLLM/SGLang", "signal": "Server-side structured output mature, but zero mobile/edge implementations"},
+        {"source": "super-json-mode", "signal": "GitHub project for low-latency JSON from LLMs — references MLX but no mobile support", "url": "https://github.com/varunshenoy/super-json-mode"}
+      ],
+      "demand_strength": "high",
+      "evidence_quality": "strong"
+    },
+    {
+      "id": "GAP-015",
+      "title": "Edge LLM Monitoring & Observability Platform",
+      "demand_signals": [
+        {"source": "LLM observability market", "signal": "9+ cloud LLM observability tools exist (Langfuse, LangSmith, Datadog, etc.) — NONE target on-device inference"},
+        {"source": "ESL blog", "signal": "Telemetry hooks and logging agents described as needed for edge AI fleet management"},
+        {"source": "Market size", "signal": "LLM observability is a rapidly growing category — edge is the obvious next frontier"}
+      ],
+      "demand_strength": "medium-high",
+      "evidence_quality": "moderate (inferred from cloud market growth)"
+    },
+    {
+      "id": "GAP-016",
+      "title": "Offline-First Conversational AI SDK",
+      "demand_signals": [
+        {"source": "Multiple edge AI articles", "signal": "Offline operation repeatedly cited as a key benefit of on-device LLMs, but no SDK optimizes for this end-to-end"},
+        {"source": "Military/field use cases", "signal": "Defense and field service consistently mentioned as target segments for offline AI"},
+        {"source": "DeepSense.ai", "signal": "Blog on SLMs with RAG on embedded devices specifically for offline use — proves demand"}
+      ],
+      "demand_strength": "medium",
+      "evidence_quality": "moderate"
+    },
+    {
+      "id": "GAP-017",
+      "title": "Cross-Device Model Sharing & Federated Edge Inference",
+      "demand_signals": [
+        {"source": "arxiv (DSSD)", "signal": "Distributed Split Speculative Decoding for collaborative edge-device inference — research forming", "url": "https://arxiv.org/abs/2507.12000"},
+        {"source": "PartInfer", "signal": "Paper on enabling LLM inference via partitioning across edge devices", "url": "https://openreview.net/forum?id=3sbM94O8Ts"},
+        {"source": "Federated learning surveys", "signal": "Federated LoRA for lightweight fine-tuning across devices without centralizing data"}
+      ],
+      "demand_strength": "medium",
+      "evidence_quality": "moderate (primarily academic)"
+    },
+    {
+      "id": "GAP-018",
+      "title": "Developer-Friendly Model Conversion & Optimization Hub",
+      "demand_signals": [
+        {"source": "GitHub (LiteRT)", "signal": "Issue asking 'Steps to Convert A LLM model to litertlm format for Qualcomm NPU' — conversion is painful", "url": "https://github.com/google-ai-edge/litert-torch/issues/881"},
+        {"source": "GitHub (MediaPipe)", "signal": "Issues with model conversion producing broken files (falcon, phi-2, stablelm) — conversion errors common", "url": "https://github.com/google-ai-edge/mediapipe-samples/issues/492"},
+        {"source": "HuggingFace blog", "signal": "Tutorial on edge LLM deployment via React Native highlights conversion complexity as a major barrier"},
+        {"source": "Multiple formats", "signal": "GGUF, ONNX, Core ML, .pte, TensorRT, QNN, Exynos compiled — 7+ formats with no unified converter"}
+      ],
+      "demand_strength": "very high",
+      "evidence_quality": "very strong (direct developer pain evidence)"
+    },
+    {
+      "id": "GAP-019",
+      "title": "Automotive/Robotics Edge LLM Integration SDK",
+      "demand_signals": [
+        {"source": "NVIDIA blog", "signal": "TensorRT-Edge-LLM launched specifically for automotive/robotics — validates the segment", "url": "https://developer.nvidia.com/blog/accelerating-llm-and-vlm-inference-for-automotive-and-robotics-with-nvidia-tensorrt-edge-llm"},
+        {"source": "Bosch", "signal": "Bosch AI Cockpit uses TensorRT-Edge-LLM — real production demand"},
+        {"source": "Hailo", "signal": "Hailo-10H targeting edge LLM for automotive — multiple hardware vendors entering", "url": "https://hailo.ai/blog/bringing-generative-ai-to-the-edge-llm-on-hailo-10h/"}
+      ],
+      "demand_strength": "medium-high",
+      "evidence_quality": "strong"
+    },
+    {
+      "id": "GAP-020",
+      "title": "Free/Open Model Marketplace with Edge-Optimized Artifacts",
+      "demand_signals": [
+        {"source": "HuggingFace", "signal": "Massive model hub but few edge-optimized artifacts with per-device benchmarks"},
+        {"source": "Ollama", "signal": "Model library is popular but only GGUF — no ExecuTorch, LiteRT, QNN artifacts"},
+        {"source": "Google AI Edge Gallery", "signal": "Google launched AI Edge Gallery on Play Store — validates demand for curated edge models", "url": "https://developers.googleblog.com/google-ai-edge-gallery-now-with-audio-and-on-google-play/"}
+      ],
+      "demand_strength": "medium-high",
+      "evidence_quality": "moderate"
+    }
+  ]
+}

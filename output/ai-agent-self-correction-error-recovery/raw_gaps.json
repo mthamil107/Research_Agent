@@ -1,0 +1,128 @@
+{
+  "domain": "AI Agent Self-Correction & Error Recovery Systems",
+  "scan_date": "2026-03-29",
+  "gap_categories": ["feature_gap", "segment_gap", "workflow_gap", "integration_gap", "pricing_gap"],
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Unified Agent Resilience Middleware",
+      "category": "feature_gap",
+      "description": "No single tool combines retry logic, circuit breakers, fallback providers, output validation, and crash recovery into one composable middleware layer. Developers must stitch together Tenacity + Guardrails AI + LangGraph checkpoints + custom circuit breaker code. A unified middleware that wraps any agent framework would save weeks of integration work.",
+      "evidence": "Feature matrix shows 0/15 tools natively support circuit breakers. Only 2/15 support crash recovery. No tool covers all 5 resilience patterns in one package.",
+      "existing_partial_solutions": ["Portkey (retries + fallbacks for LLM API calls only)", "Restate (durable execution but no LLM-specific validation)", "LangGraph (checkpoints but no circuit breakers or output validation)"]
+    },
+    {
+      "id": "GAP-002",
+      "title": "Agent Circuit Breaker Library",
+      "category": "feature_gap",
+      "description": "Circuit breaker pattern is completely absent from all 15+ tools surveyed. When an external API or tool fails repeatedly, agents keep retrying until timeout rather than gracefully disabling the failing component and switching to alternatives. This causes cascading slowdowns and wasted API spend.",
+      "evidence": "0/15 tools in feature matrix support circuit_breaker_pattern. Blog posts describe the pattern conceptually but no library implements it for agent tool calls specifically.",
+      "existing_partial_solutions": ["pybreaker (generic Python circuit breaker, not agent-aware)", "Portkey (circuit breaker for LLM API routing only)"]
+    },
+    {
+      "id": "GAP-003",
+      "title": "Multi-Agent Error Propagation Prevention",
+      "category": "feature_gap",
+      "description": "When one agent in a multi-agent system hallucinates or errors, the bad output propagates to downstream agents causing 17x error amplification. No tool provides inter-agent error boundaries, output quarantine, or cascading failure detection. Coordination breakdowns account for 37% of multi-agent failures.",
+      "evidence": "Research shows 17.2x error amplification in poorly coordinated networks. Only 3/15 tools have full multi_agent_error_coordination. No tool offers inter-agent output quarantine.",
+      "existing_partial_solutions": ["CrewAI (managerial re-evaluation but no error boundaries)", "LangGraph (multi-agent graphs but no inter-agent validation)"]
+    },
+    {
+      "id": "GAP-004",
+      "title": "Intelligent Error Classification & Routing",
+      "category": "feature_gap",
+      "description": "Agents treat all errors the same: retry, then fail. No tool classifies errors into categories (transient vs. permanent, model vs. tool vs. infrastructure, recoverable vs. fatal) and routes each to the appropriate recovery strategy. A classification layer could cut unnecessary retries by 60%+ and route permanent errors to human review instantly.",
+      "evidence": "All retry tools use generic exception-based retry. No tool analyzes error semantics to determine optimal recovery path.",
+      "existing_partial_solutions": ["Tenacity (retry on specific exception types, but no semantic analysis)", "Pydantic AI (ModelRetry for tool errors, but one-size-fits-all)"]
+    },
+    {
+      "id": "GAP-005",
+      "title": "Agent Workflow Checkpoint & Resume for Non-LangGraph Frameworks",
+      "category": "segment_gap",
+      "description": "Checkpoint/resume is only available in LangGraph and Restate. Teams using CrewAI, AutoGen, Pydantic AI, or custom agents have no way to save progress and resume after failures. If a 20-step workflow fails at step 15, they must restart from scratch.",
+      "evidence": "Only 2/15 tools support checkpoint_state_persistence and crash_recovery_resume. Developer complaint: 'Progress isn't resumable - if a multi-step workflow breaks at Step 5 of 8, you can't just fix Step 5 and continue.'",
+      "existing_partial_solutions": ["LangGraph checkpointer (LangGraph-only)", "Restate durable journal (requires Restate runtime)", "Prefect + Pydantic AI integration (limited)"]
+    },
+    {
+      "id": "GAP-006",
+      "title": "Self-Healing Agent Runtime (Production-Ready VIGIL)",
+      "category": "feature_gap",
+      "description": "VIGIL demonstrated a reflective runtime that watches agent behavior and suggests prompt/code fixes autonomously, but it's a research prototype. No production-ready tool monitors agent behavioral patterns in real-time, diagnoses recurring failure modes, and automatically applies corrective prompt/config changes.",
+      "evidence": "VIGIL (arxiv 2512.07094) is academic only. No commercial or OSS tool implements autonomous behavioral diagnosis and self-healing prompt adjustment.",
+      "existing_partial_solutions": ["VIGIL (research prototype)", "Braintrust Loop (optimizes prompts but not real-time self-healing)", "DSPy (compile-time optimization, not runtime)"]
+    },
+    {
+      "id": "GAP-007",
+      "title": "Agent Code Self-Repair Beyond Simple Retry",
+      "category": "feature_gap",
+      "description": "When an agent generates code that fails, only CrewAI offers basic code self-repair (feed error back to LLM). No tool offers sophisticated code repair: analyzing stack traces, identifying root cause patterns, maintaining a repair knowledge base, or learning from past fixes to avoid repeat failures.",
+      "evidence": "Only 1/15 tools (CrewAI) supports code_self_repair, and it's basic. No tool maintains a repair knowledge base or learns from past code fixes.",
+      "existing_partial_solutions": ["CrewAI (basic error-to-LLM feedback)", "Ralph Wiggum (coding loop but no knowledge base)", "Dagger self-healing CI (CI-specific, not general agent)"]
+    },
+    {
+      "id": "GAP-008",
+      "title": "Cost-Aware Retry & Recovery Budgeting",
+      "category": "pricing_gap",
+      "description": "Retries and self-correction loops burn API credits with no budget controls. No tool lets you set a per-task or per-conversation cost budget for error recovery, automatically switch to cheaper models for retries, or alert when recovery costs exceed thresholds. Power users burn $30-$800/month with minimal visibility.",
+      "evidence": "Developer pain: 'Power users burn $30-$800/month in API calls with minimal visibility.' No tool combines cost tracking with retry budget management.",
+      "existing_partial_solutions": ["LangSmith (cost tracking but no budget controls)", "AgentOps (cost optimization claims but no retry-specific budgeting)", "Helicone (cost tracking proxy, no budget enforcement)"]
+    },
+    {
+      "id": "GAP-009",
+      "title": "Framework-Agnostic Error Recovery SDK",
+      "category": "integration_gap",
+      "description": "Every recovery tool is tied to a specific framework. Guardrails AI works best with its own Guard wrapper. LangGraph checkpoints require LangGraph. Restate requires its runtime. Teams using multiple frameworks or custom agents need a framework-agnostic SDK that plugs into any agent loop with decorators/middleware.",
+      "evidence": "Feature matrix shows each tool is siloed. No tool offers a universal @recoverable decorator or middleware that works across LangGraph, CrewAI, AutoGen, Pydantic AI, and custom agents.",
+      "existing_partial_solutions": ["Tenacity (framework-agnostic but only retries, no validation/checkpoints)", "OpenTelemetry (observability standard but no recovery)", "Instructor (provider-agnostic but validation only)"]
+    },
+    {
+      "id": "GAP-010",
+      "title": "Rollback & Undo for Agent Side Effects",
+      "category": "workflow_gap",
+      "description": "When an agent takes real-world actions (sends emails, modifies databases, calls APIs) and then discovers an error, there's no rollback mechanism. No tool tracks agent side effects and provides compensating transactions or undo capabilities.",
+      "evidence": "Blog posts describe rollback as a critical need but no tool implements it. Fast.io article on 'AI Agent Rollback Strategy' describes the problem with no off-the-shelf solution.",
+      "existing_partial_solutions": ["Restate (durable execution but no compensating transactions)", "Saga pattern (known in microservices but not adapted for agents)"]
+    },
+    {
+      "id": "GAP-011",
+      "title": "Non-Developer Agent Reliability Configuration",
+      "category": "segment_gap",
+      "description": "All error recovery tools require developer-level skills. Business users deploying no-code/low-code agents (Zapier AI, Make, n8n AI nodes) have zero access to retry logic, guardrails, or error recovery configuration. A visual/declarative reliability layer for non-developers is missing.",
+      "evidence": "Pain point: 'Every AI agent platform requires developer-level skills to set up, which is insurmountable for knowledge workers.' No tool offers visual retry/guardrail configuration.",
+      "existing_partial_solutions": ["Galileo Agent Control (visual policies but still developer-oriented)", "No-code platforms have basic retry but no configurable recovery strategies"]
+    },
+    {
+      "id": "GAP-012",
+      "title": "Agent Error Recovery Benchmarking & Testing",
+      "category": "workflow_gap",
+      "description": "No standardized way to test how well an agent recovers from errors. Developers cannot inject faults (tool failures, hallucinations, rate limits) and measure recovery success rate, time-to-recover, or cost-of-recovery. Chaos engineering for AI agents is absent.",
+      "evidence": "ReliabilityBench (arxiv 2601.06112) is academic. No production tool offers fault injection and recovery benchmarking for agents.",
+      "existing_partial_solutions": ["Maxim AI (scenario simulation but not fault injection)", "Braintrust (eval but not chaos testing)", "ReliabilityBench (academic benchmark only)"]
+    },
+    {
+      "id": "GAP-013",
+      "title": "Real-Time Reflection & Self-Critique Layer",
+      "category": "feature_gap",
+      "description": "DSPy assertions work at compile time. Most reflection is ad-hoc prompt engineering. No tool provides a plug-and-play real-time reflection layer that intercepts agent output, runs a critique model, and triggers self-correction before the output reaches the user or next agent.",
+      "evidence": "Only 3/15 tools fully support reflection_self_critique. DSPy works at optimization time, not runtime. No lightweight middleware exists for runtime reflection.",
+      "existing_partial_solutions": ["DSPy Assertions (compile-time)", "Guardrails AI (validation but not critique)", "Custom reflection prompts (manual, not reusable)"]
+    },
+    {
+      "id": "GAP-014",
+      "title": "Long-Running Agent Heartbeat & Watchdog",
+      "category": "workflow_gap",
+      "description": "Agents running long tasks (hours/days) can silently hang, enter infinite loops, or become stuck. No tool provides a heartbeat/watchdog system that detects stuck agents, kills infinite loops, and either retries or escalates. The 'dead man's switch' pattern is described but not productized.",
+      "evidence": "Blog post describes 'Watchdog Timer' and 'Dead Man's Switch' as needed patterns but no tool implements them as a service.",
+      "existing_partial_solutions": ["Custom timeout wrappers", "Restate (timeout capabilities but not agent-behavior-aware)"]
+    },
+    {
+      "id": "GAP-015",
+      "title": "Error Recovery Analytics Dashboard",
+      "category": "workflow_gap",
+      "description": "No tool provides dedicated analytics for error recovery: which errors occur most frequently, which recovery strategies succeed, mean time to recovery, cost per recovery, and trends over time. Observability tools show traces but don't aggregate recovery-specific metrics.",
+      "evidence": "Observability tools (LangSmith, Langfuse, AgentOps) show individual traces but don't aggregate error recovery patterns or provide recovery-specific KPIs.",
+      "existing_partial_solutions": ["LangSmith (traces but no recovery analytics)", "Braintrust (monitoring but not recovery-focused)", "Custom dashboards (manual)"]
+    }
+  ],
+  "total_gaps": 15
+}

@@ -1,0 +1,304 @@
+{
+  "domain": "Function Calling & Tool Use Training for SLMs",
+  "generated": "2026-03-29",
+  "validation_sources": ["Reddit r/LocalLLaMA", "OpenAI Developer Community", "Hacker News", "GitHub trending/issues", "Medium/blog posts", "arXiv papers", "Google/Microsoft developer blogs"],
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "End-to-End SLM Function Calling Toolkit (Data Gen -> Train -> Eval -> Deploy)",
+      "demand_signals": [
+        {
+          "source": "Medium - 'What I Learned the Hard Way'",
+          "signal": "Blog post by Sohaib Ahmed details painful process of stitching together data prep, training, and debugging for SLM function calling. Breakthrough came only after adding extensive custom logging.",
+          "strength": "HIGH"
+        },
+        {
+          "source": "OpenAI Developer Community",
+          "signal": "10+ forum threads about validation errors, bad results, data prep confusion for function calling fine-tuning. Users struggling with data format, tool_choice issues, hallucinated fields.",
+          "strength": "HIGH"
+        },
+        {
+          "source": "Microsoft Tech Community",
+          "signal": "Comprehensive guide needed — Microsoft published detailed blog for Phi-3 function calling fine-tuning, showing complexity of the process.",
+          "strength": "MEDIUM"
+        },
+        {
+          "source": "Axolotl GitHub Discussion #1353",
+          "signal": "Users asking 'How to use Function Calling datasets' — format confusion across tools.",
+          "strength": "HIGH"
+        }
+      ],
+      "demand_verdict": "STRONG — fragmented tooling causes real pain across skill levels",
+      "competition_update": "FunctionGemma (Google, Dec 2025) partially addresses this with ecosystem support (Unsloth, TRL, GGUF) but still requires manual stitching. TinyAgent provides training but no data gen or eval."
+    },
+    {
+      "id": "GAP-002",
+      "title": "Sub-1B Function Calling Models with Multi-Turn + Parallel Calling",
+      "demand_signals": [
+        {
+          "source": "Google FunctionGemma launch (Dec 2025)",
+          "signal": "Google specifically responded to developer demand for on-device function calling by releasing 270M model. 58% baseline accuracy, needs fine-tuning to reach 85%.",
+          "strength": "HIGH"
+        },
+        {
+          "source": "TinyAgent (Berkeley/EMNLP 2024)",
+          "signal": "1.1B model exceeds GPT-4-Turbo on Mac function calling. 40k dataset curated. Demonstrates massive demand for tiny function calling models.",
+          "strength": "HIGH"
+        },
+        {
+          "source": "InfoQ article (Jan 2026)",
+          "signal": "Google Releases Gemma 3 270M Variant Optimized for Function Calling on Mobile and Edge Devices — mainstream tech press coverage indicates high interest.",
+          "strength": "HIGH"
+        }
+      ],
+      "demand_verdict": "STRONG — Google and Berkeley validating the space. FunctionGemma 270M exists but lacks multi-turn and parallel calling",
+      "competition_update": "FunctionGemma 270M is new competition but only does single-turn. xLAM-1b is single-turn. Gap narrows but multi-turn + parallel at sub-1B is still open."
+    },
+    {
+      "id": "GAP-003",
+      "title": "Custom Enterprise API Dataset Generator (No-Code)",
+      "demand_signals": [
+        {
+          "source": "OpenAI Developer Community",
+          "signal": "Thread 'Preparing data to fine-tune function-calling model' — users struggling with data format and preparation for custom APIs.",
+          "strength": "HIGH"
+        },
+        {
+          "source": "Microsoft Phi-3 Guide",
+          "signal": "Guide recommends 80-100 manually curated examples — tedious for enterprises with hundreds of APIs.",
+          "strength": "MEDIUM"
+        },
+        {
+          "source": "Glaive dataset analysis",
+          "signal": "Skewed distribution (some functions 8,781 examples, custom functions 0) — proves generic datasets fail for custom APIs.",
+          "strength": "HIGH"
+        }
+      ],
+      "demand_verdict": "STRONG — enterprises need custom API data but have no automated way to generate it",
+      "competition_update": "APIGen exists but requires coding. Glaive platform is proprietary. No OSS no-code solution."
+    },
+    {
+      "id": "GAP-004",
+      "title": "RL/GRPO-Based Training for Function Calling SLMs",
+      "demand_signals": [
+        {
+          "source": "GitHub - ART (OpenPipe), Open-AgentRL, verl-tool",
+          "signal": "Multiple RL frameworks for agent training emerging in 2025-2026. ART integrates GRPO + LangGraph. verl-tool supports multi-step tool calling RL.",
+          "strength": "HIGH"
+        },
+        {
+          "source": "Unsloth RL Guide",
+          "signal": "Unsloth added dedicated RL training documentation for agents, showing demand from their user base.",
+          "strength": "MEDIUM"
+        },
+        {
+          "source": "NVIDIA Blog",
+          "signal": "Blog on training AI agent for CLI tasks with synthetic data and RL — enterprise demand for RL-trained tool-use agents.",
+          "strength": "MEDIUM"
+        }
+      ],
+      "demand_verdict": "MODERATE-STRONG — emerging fast. ART/Open-AgentRL partially filling this gap but not SLM-specific.",
+      "competition_update": "ART (OpenPipe) and Open-AgentRL are new entrants. But neither focuses specifically on sub-3B function calling. Gap shifts from 'no RL for FC' to 'no RL optimized for tiny FC models'."
+    },
+    {
+      "id": "GAP-005",
+      "title": "Domain-Specific Function Calling Benchmarks (Healthcare, Finance, Legal, Auto)",
+      "demand_signals": [
+        {
+          "source": "arXiv - In-Vehicle Function-Calling paper",
+          "signal": "Dedicated paper for automotive function calling optimization — proves vertical demand exists.",
+          "strength": "MEDIUM"
+        },
+        {
+          "source": "BFCL V4 Agentic (July 2025)",
+          "signal": "BFCL added web search and memory categories but still no domain-specific tracks. Shows benchmark is evolving but gaps remain.",
+          "strength": "MEDIUM"
+        }
+      ],
+      "demand_verdict": "MODERATE — vertical demand exists but fragmented. Automotive paper is isolated research.",
+      "competition_update": "No domain-specific benchmarks exist. BFCL V4 expanding but still generic."
+    },
+    {
+      "id": "GAP-006",
+      "title": "Function Calling with Reasoning/CoT for SLMs",
+      "demand_signals": [
+        {
+          "source": "ToolMind paper (Nov 2025)",
+          "signal": "360k 'reasoning-enhanced' tool-use dataset — explicitly addresses reasoning gap. 14.22% gains on tau-bench.",
+          "strength": "HIGH"
+        },
+        {
+          "source": "TinyAgent approach",
+          "signal": "Uses LLMCompiler framework for planning before function calls — shows reasoning is needed even for tiny models.",
+          "strength": "MEDIUM"
+        },
+        {
+          "source": "OpenAI community - complex function calling",
+          "signal": "Users report accuracy drops with complex multi-step function calling — reasoning would help.",
+          "strength": "MEDIUM"
+        }
+      ],
+      "demand_verdict": "STRONG — ToolMind validates demand. But reasoning + function calling specifically for sub-3B is untouched.",
+      "competition_update": "ToolMind adds reasoning but targets 14B+ models. No reasoning-enhanced training for sub-3B."
+    },
+    {
+      "id": "GAP-007",
+      "title": "Cross-Platform On-Device Function Calling (iOS + Android + Web + Desktop)",
+      "demand_signals": [
+        {
+          "source": "FunctionGemma Mobile Actions demo",
+          "signal": "Google demo focuses on Android only. Developers requesting iOS and web support in comments.",
+          "strength": "MEDIUM"
+        },
+        {
+          "source": "TinyAgent Mac demo",
+          "signal": "TinyAgent demonstrates Mac function calling, proving cross-platform demand. But no unified model.",
+          "strength": "MEDIUM"
+        }
+      ],
+      "demand_verdict": "MODERATE — demand fragmented across platforms. Each has isolated solutions.",
+      "competition_update": "FunctionGemma (Android), TinyAgent (Mac), Octopus (Android). No unified cross-platform."
+    },
+    {
+      "id": "GAP-008",
+      "title": "Streaming/Incremental Function Call Generation for SLMs",
+      "demand_signals": [
+        {
+          "source": "OpenAI streaming tool calls",
+          "signal": "OpenAI supports streaming function calls in production API — validates UX demand.",
+          "strength": "LOW"
+        }
+      ],
+      "demand_verdict": "LOW — niche UX need. No strong community demand signals found.",
+      "competition_update": "OpenAI handles this at inference level. No training methodology needed."
+    },
+    {
+      "id": "GAP-009",
+      "title": "Distillation-Free Training Pipeline (No GPT-4 Dependency)",
+      "demand_signals": [
+        {
+          "source": "NexusRaven commercial permissive approach",
+          "signal": "NexusRaven explicitly marketed as GPT-4-free. Code-mining from The Stack as alternative.",
+          "strength": "MEDIUM"
+        },
+        {
+          "source": "Open-source community sentiment",
+          "signal": "Ongoing debate about GPT-4 distillation legality and sustainability. Companies wanting to avoid OpenAI dependency.",
+          "strength": "MEDIUM"
+        }
+      ],
+      "demand_verdict": "MODERATE — legal/IP concerns exist but most practitioners prioritize quality over purity.",
+      "competition_update": "NexusRaven shows it's possible. FunctionGemma uses Google's own pipeline. Gap persists for reusable OSS pipeline."
+    },
+    {
+      "id": "GAP-010",
+      "title": "Visual/GUI Function Calling Training for SLMs",
+      "demand_signals": [
+        {
+          "source": "Fara-7B Microsoft Research",
+          "signal": "Dedicated research on efficient agentic model for computer use at 7B. Shows demand.",
+          "strength": "MEDIUM"
+        },
+        {
+          "source": "TinyLLM paper (Nov 2025)",
+          "signal": "Evaluation and optimization of SLMs for agentic tasks on edge devices — broader agentic trend.",
+          "strength": "LOW"
+        }
+      ],
+      "demand_verdict": "MODERATE — visual/GUI function calling is early-stage research. Sub-3B is very niche.",
+      "competition_update": "Fara-7B (7B) exists. No sub-3B visual function calling."
+    },
+    {
+      "id": "GAP-011",
+      "title": "Continual Learning / Online Adaptation for Function Calling",
+      "demand_signals": [
+        {
+          "source": "API evolution challenge",
+          "signal": "APIs change frequently. OpenAI community posts about models outputting fields never seen in training after API updates.",
+          "strength": "MEDIUM"
+        }
+      ],
+      "demand_verdict": "MODERATE — real problem but no strong demand signals in community.",
+      "competition_update": "No solutions exist. Gorilla RAT is closest but is retrieval-based, not learning-based."
+    },
+    {
+      "id": "GAP-012",
+      "title": "Function Calling Safety & Guardrails Training",
+      "demand_signals": [
+        {
+          "source": "When2Call paper (April 2025)",
+          "signal": "Paper on when (not) to call tools — adjacent to safety. Shows awareness of the problem.",
+          "strength": "MEDIUM"
+        },
+        {
+          "source": "Enterprise adoption concerns",
+          "signal": "Enterprises deploying function calling agents need safety guarantees. No dedicated training approach.",
+          "strength": "MEDIUM"
+        }
+      ],
+      "demand_verdict": "MODERATE — safety is broadly demanded but not yet a specific product category.",
+      "competition_update": "When2Call is research-only. No production safety training for function calling."
+    },
+    {
+      "id": "GAP-013",
+      "title": "Unified HuggingFace-Compatible Function Calling Data Format",
+      "demand_signals": [
+        {
+          "source": "Axolotl GitHub Discussion #1353",
+          "signal": "Direct user question: 'How to use Function Calling datasets' — format incompatibility is a real pain point.",
+          "strength": "HIGH"
+        },
+        {
+          "source": "LlamaFactory ShareGPT conversions",
+          "signal": "hiyouga/glaive-function-calling-v2-sharegpt — manual format conversion needed. Shows the problem.",
+          "strength": "MEDIUM"
+        },
+        {
+          "source": "Multiple blog posts",
+          "signal": "Every tutorial uses different format. No standard across xLAM, Glaive, ToolBench, ToolACE.",
+          "strength": "HIGH"
+        }
+      ],
+      "demand_verdict": "STRONG — format fragmentation is a universal pain point for practitioners.",
+      "competition_update": "No standard exists. Each framework has its own converter."
+    },
+    {
+      "id": "GAP-014",
+      "title": "Cost-Effective Function Calling Fine-Tuning for Startups (CPU/Free Tier)",
+      "demand_signals": [
+        {
+          "source": "FunctionGemma 270M",
+          "signal": "Can run on 550MB RAM (CPU). Fine-tune with Unsloth. Shows demand for minimal-resource training.",
+          "strength": "HIGH"
+        },
+        {
+          "source": "Medium tutorials",
+          "signal": "Multiple tutorials on fine-tuning SLMs on Google Colab free tier. Audience is students and solo devs.",
+          "strength": "MEDIUM"
+        }
+      ],
+      "demand_verdict": "MODERATE-STRONG — FunctionGemma partially addresses this. Still no optimized pipeline for CPU-only.",
+      "competition_update": "FunctionGemma + Unsloth combo is closest. But still needs GPU for efficient training."
+    },
+    {
+      "id": "GAP-015",
+      "title": "Multi-Agent Tool Coordination Training for SLMs",
+      "demand_signals": [
+        {
+          "source": "ART (OpenPipe) + LangGraph integration",
+          "signal": "ART trains multi-step agents. Shows multi-agent RL is emerging but not SLM-specific.",
+          "strength": "LOW"
+        }
+      ],
+      "demand_verdict": "LOW — too early-stage. Single-agent tool use still not solved for SLMs.",
+      "competition_update": "ART, Open-AgentRL emerging but targeting larger models."
+    }
+  ],
+  "demand_summary": {
+    "strong_demand": ["GAP-001", "GAP-002", "GAP-003", "GAP-006", "GAP-013"],
+    "moderate_strong_demand": ["GAP-004", "GAP-014"],
+    "moderate_demand": ["GAP-005", "GAP-007", "GAP-009", "GAP-010", "GAP-011", "GAP-012"],
+    "low_demand": ["GAP-008", "GAP-015"],
+    "key_insight": "The strongest demand is for: (1) unified end-to-end tooling, (2) sub-1B multi-capability models, (3) custom enterprise dataset generation, (4) reasoning+function calling for SLMs, and (5) standardized data formats. FunctionGemma (Google, Dec 2025) and RL frameworks (ART, Open-AgentRL) are rapidly filling some gaps."
+  }
+}

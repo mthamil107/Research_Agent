@@ -1,0 +1,127 @@
+{
+  "domain": "Reasoning Distillation Platforms for Small Models",
+  "scan_date": "2026-03-29",
+  "total_gaps_found": 15,
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "End-to-End Reasoning Distillation Pipeline (No-Code/Low-Code)",
+      "type": "workflow_gap",
+      "description": "No single tool handles the complete pipeline: select teacher model -> generate reasoning traces -> filter/curate traces -> train student model -> evaluate reasoning quality -> deploy. Users must stitch together 3-5 different tools (e.g., vLLM for generation, custom scripts for filtering, TRL for training, lm-eval for evaluation). A unified platform with a visual pipeline builder would dramatically lower the barrier.",
+      "current_workaround": "Manual scripting connecting vLLM/Ollama (generation) + custom Python (filtering) + TRL/Unsloth (training) + lm-eval-harness (eval)",
+      "affected_users": ["ML engineers at startups", "applied AI teams", "researchers without infra expertise"]
+    },
+    {
+      "id": "GAP-002",
+      "title": "Automated Reasoning Trace Quality Scoring & Filtering",
+      "type": "feature_gap",
+      "description": "When generating 100K+ reasoning traces from a teacher model, 20-40% contain logical errors, hallucinations, or redundant steps. Only EasyDistill has CoT operators, but they are basic. No tool provides automated multi-dimensional quality scoring (logical coherence, step completeness, factual correctness, reasoning efficiency) with configurable thresholds for filtering. Research shows only 4.7% of CoT steps are key reasoning steps that impact conclusions.",
+      "current_workaround": "Manual spot-checking, Math-Verify for math only, or expensive LLM-as-judge scoring",
+      "affected_users": ["Anyone generating synthetic reasoning data", "distillation practitioners"]
+    },
+    {
+      "id": "GAP-003",
+      "title": "Domain-Specific Reasoning Distillation Templates (Beyond Math/Code)",
+      "type": "segment_gap",
+      "description": "Almost all distillation tools and datasets focus on math and coding reasoning. Medical, legal, financial, and scientific reasoning distillation has no dedicated tooling. Medical reasoning requires domain-specific reward models, clinical decision-making nuances, and compliance-aware evaluation. Legal reasoning needs citation verification and jurisdiction-specific logic chains.",
+      "current_workaround": "DIY pipelines with domain experts manually curating training data",
+      "affected_users": ["Healthcare AI teams", "legal tech companies", "financial AI teams", "scientific computing teams"]
+    },
+    {
+      "id": "GAP-004",
+      "title": "Reasoning Distillation Evaluation Suite",
+      "type": "feature_gap",
+      "description": "No standardized evaluation framework specifically for measuring distillation quality of reasoning. Existing benchmarks (GSM8K, MATH, MMLU) measure final answer accuracy but not: reasoning faithfulness to teacher, step-by-step quality, reasoning efficiency (tokens per correct answer), failure mode analysis, or calibration. CoTQS (1-5 scale on coherence/completeness/correctness) exists only in research papers.",
+      "current_workaround": "lm-eval-harness for answer accuracy + manual inspection of reasoning traces",
+      "affected_users": ["Researchers comparing distillation methods", "teams validating distilled model quality"]
+    },
+    {
+      "id": "GAP-005",
+      "title": "Multi-Teacher Reasoning Distillation with Automatic Teacher Selection",
+      "type": "feature_gap",
+      "description": "Most tools support single-teacher distillation only. Research shows different teachers excel at different reasoning types (DeepSeek-R1 for math, Claude for analysis, GPT-4o for code). No tool automatically routes problems to the best teacher, aggregates diverse reasoning styles, or handles teacher disagreement resolution.",
+      "current_workaround": "Manual selection of a single teacher model per run",
+      "affected_users": ["Teams wanting best-of-breed reasoning across domains"]
+    },
+    {
+      "id": "GAP-006",
+      "title": "Reasoning Distillation for Sub-1B Models and On-Device Deployment",
+      "type": "segment_gap",
+      "description": "Most distillation targets 7B+ models. Very few tools or methods specifically address distilling reasoning into sub-1B parameter models for on-device/edge deployment (phones, IoT, embedded). Llamba exists but is architecture-specific (Mamba). No general framework for progressive reasoning compression to sub-1B with quality monitoring at each compression step.",
+      "current_workaround": "Distill to 7B then quantize aggressively, losing significant reasoning quality",
+      "affected_users": ["Mobile AI developers", "edge computing teams", "IoT companies"]
+    },
+    {
+      "id": "GAP-007",
+      "title": "Reasoning Trace Data Marketplace / Hub",
+      "type": "ecosystem_gap",
+      "description": "No centralized marketplace or hub specifically for curated reasoning traces. HuggingFace has datasets but no quality certification, no reasoning-specific metadata (reasoning type, difficulty, domain, teacher model, verification status). Teams regenerate the same distillation data repeatedly at significant cost.",
+      "current_workaround": "HuggingFace datasets (uncurated), regenerating from scratch, sharing within teams",
+      "affected_users": ["Small teams without compute budget for teacher inference", "researchers"]
+    },
+    {
+      "id": "GAP-008",
+      "title": "Continuous Distillation / Teacher Model Update Pipeline",
+      "type": "workflow_gap",
+      "description": "When teacher models update (GPT-5, Claude 4, DeepSeek-R2), there is no automated pipeline to: detect teacher improvement, generate incremental reasoning traces, merge with existing training data, retrain student, validate no regression. Teams must restart from scratch.",
+      "current_workaround": "Manual periodic retraining from scratch when new teacher models release",
+      "affected_users": ["Production teams maintaining distilled models", "enterprises"]
+    },
+    {
+      "id": "GAP-009",
+      "title": "Reasoning Distillation Observability & Production Monitoring",
+      "type": "feature_gap",
+      "description": "No tool monitors distilled model reasoning quality in production. When reasoning quality degrades on new input distributions, there is no automated detection. Existing LLM observability tools (Langfuse, Arize) track latency/cost but not reasoning faithfulness, step quality, or reasoning regression. No alerting when distilled model reasoning diverges from teacher on production inputs.",
+      "current_workaround": "Manual sampling of production outputs, periodic re-evaluation on benchmarks",
+      "affected_users": ["MLOps teams", "production AI teams"]
+    },
+    {
+      "id": "GAP-010",
+      "title": "Cost-Optimal Distillation Budget Calculator",
+      "type": "feature_gap",
+      "description": "No tool helps teams determine: how many reasoning traces are needed for target quality, which teacher model gives best quality/cost ratio, optimal training compute budget, or when diminishing returns kick in. Sky-T1 showed 5K samples can outperform 100K with the right approach, but no tool guides this optimization.",
+      "current_workaround": "Trial and error with arbitrary dataset sizes, often over-generating training data",
+      "affected_users": ["Budget-conscious teams", "startups", "researchers"]
+    },
+    {
+      "id": "GAP-011",
+      "title": "Reasoning Style Transfer & Control",
+      "type": "feature_gap",
+      "description": "No tool allows controlling the reasoning style of the distilled model: concise vs. verbose reasoning, structured vs. freeform, with or without self-correction loops. Users cannot specify 'distill the reasoning ability but make it 3x more concise' or 'add verification steps.' DLCoT research showed this is possible but no productized tool exists.",
+      "current_workaround": "Post-hoc prompting or additional SFT to adjust reasoning verbosity",
+      "affected_users": ["Product teams wanting specific reasoning behavior", "latency-sensitive applications"]
+    },
+    {
+      "id": "GAP-012",
+      "title": "Distillation-Aware Quantization for Reasoning Models",
+      "type": "integration_gap",
+      "description": "Quantization and distillation are treated as separate steps. No tool jointly optimizes distillation training with target quantization format (INT4, INT8, FP8), leading to quality loss when quantizing after distillation. NVIDIA Model Optimizer does pruning+distillation but not reasoning-aware quantization.",
+      "current_workaround": "Sequential: distill first, then quantize separately with potential quality degradation",
+      "affected_users": ["Teams deploying to resource-constrained environments", "edge ML engineers"]
+    },
+    {
+      "id": "GAP-013",
+      "title": "Open Source Alternative to OpenAI Distillation API (Stored Completions + Evals + Training)",
+      "type": "pricing_gap",
+      "description": "OpenAI's integrated stored completions + evals + fine-tuning workflow is the easiest distillation experience but locks users into OpenAI models and is expensive at scale. No open-source equivalent offers the same integrated experience with open models. EasyDistill is closest but lacks the polish and stored completions concept.",
+      "current_workaround": "OpenAI API (vendor lock-in + cost) or DIY with multiple open-source tools",
+      "affected_users": ["Teams wanting OpenAI-ease with open-source freedom", "cost-sensitive enterprises"]
+    },
+    {
+      "id": "GAP-014",
+      "title": "Reasoning Distillation for Agentic/Tool-Use Capabilities",
+      "type": "feature_gap",
+      "description": "Most distillation focuses on pure reasoning (math, logic). Distilling agentic capabilities (tool use, multi-step planning, API calling, error recovery) into small models is nascent. EasyDistill's AgentKD is early-stage. No platform handles distilling function-calling reasoning, tool selection logic, and multi-step agent workflows into SLMs.",
+      "current_workaround": "Train tool-use and reasoning separately, hope they compose well",
+      "affected_users": ["Teams building small autonomous agents", "edge AI agent developers"]
+    },
+    {
+      "id": "GAP-015",
+      "title": "Cross-Architecture Reasoning Distillation (Transformer -> Non-Transformer)",
+      "type": "feature_gap",
+      "description": "Llamba showed distilling Transformer reasoning into Mamba-2 (recurrent) architecture is possible with 12x throughput gains. But no general tool supports distilling reasoning across architectures (Transformer to Mamba, RWKV, SSM, or hybrid architectures). This is critical for edge/mobile where non-Transformer models are more efficient.",
+      "current_workaround": "Custom research implementations, architecture-specific forks",
+      "affected_users": ["Researchers exploring efficient architectures", "on-device ML teams"]
+    }
+  ]
+}

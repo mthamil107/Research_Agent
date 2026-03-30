@@ -1,0 +1,159 @@
+{
+  "seed_area": "Tools to bring reasoning capability to Small Language Models",
+  "discovery_date": "2026-03-29",
+  "domains": [
+    {
+      "name": "Reasoning Distillation Platforms for Small Models",
+      "why_scan": "Distillation from large reasoning models (DeepSeek-R1, GPT-4, Claude) into sub-10B models is the #1 method for creating capable SLMs. Tools span dataset generation, teacher-student pipelines, and chain-of-thought transfer. Sky-T1 showed you can distill a competitive reasoning model for under $450. OpenAI, NVIDIA TensorRT Model Optimizer, and HuggingFace all offer distillation tooling, but the space is fragmented with no clear winner for end-to-end reasoning distillation.",
+      "signals": [
+        "DeepSeek-R1-Distill-Qwen3-8B trained on 800K synthetic reasoning samples from R1-671B",
+        "Sky-T1 from UC Berkeley NovaSky lab: fully open-source CoT distillation for under $450",
+        "Anthropic published proof of distillation at scale by MiniMax, DeepSeek, Moonshot (Feb 2026)",
+        "HN threads on 'fine-tuned small LLMs can beat large ones with programmatic data curation'",
+        "OpenAI offering supervised fine-tuning and distillation in API for pushing quality into smaller models"
+      ],
+      "estimated_tools": "15-25",
+      "heat": "hot"
+    },
+    {
+      "name": "Reinforcement Learning for SLM Reasoning (GRPO/RLVR Tools)",
+      "why_scan": "GRPO and RLVR (Reinforcement Learning with Verifiable Rewards) are the breakthrough training methods that gave DeepSeek-R1 its reasoning abilities. These techniques work on small models too but require specialized tooling for reward design, verification pipelines, and training orchestration. The space is moving fast with Unsloth, TRL, and Open-R1 all offering RL training, but tooling for verifiable rewards on custom domains is underdeveloped.",
+      "signals": [
+        "DeepSeek proved reasoning can be incentivized purely through RL without SFT",
+        "GRPO removes need for value model and reward model, making training far more memory-efficient",
+        "Unsloth released RL training guide specifically for reasoning models",
+        "Scaf-GRPO, ERPO, and other GRPO variants published in late 2025",
+        "Osmosis (YC) helping companies use RL to fine-tune open source models that outperform foundation models",
+        "Open-R1 (HuggingFace) and DeepScaleR as open-source RLVR implementations"
+      ],
+      "estimated_tools": "10-20",
+      "heat": "hot"
+    },
+    {
+      "name": "Synthetic Reasoning Data Generation Tools",
+      "why_scan": "High-quality synthetic reasoning data is the fuel for both distillation and fine-tuning of SLMs. Tools needed span CoT trace generation, multi-step rationale synthesis, data quality filtering, difficulty calibration, and domain-specific reasoning dataset creation. The space includes general synthetic data tools (Gretel, MOSTLY AI) but reasoning-specific data generation is much less mature.",
+      "signals": [
+        "SWiRL framework for iterative multi-step reasoning and tool use data generation",
+        "Simula seedless framework for balanced synthetic dataset generation",
+        "IBM synthetic data generation framework with chain-of-thought reasoning",
+        "CoT Collection: 1.84M rationales across 1,060 tasks for enabling smaller model CoT",
+        "GitHub awesome-list for LLM synthetic data with 2025 updates",
+        "DeepSeek-R1 distillation relied on 800K high-quality synthetic reasoning samples"
+      ],
+      "estimated_tools": "12-20",
+      "heat": "hot"
+    },
+    {
+      "name": "Test-Time Compute Scaling and Inference-Time Reasoning for SLMs",
+      "why_scan": "Test-time compute scaling lets small models punch above their weight by spending more inference budget on hard problems. Techniques include beam search over reasoning chains, self-consistency, tree search (MCTS), and A* search. This is a rapidly growing area where Llama 3.2 1B with search strategies can outperform the 8B model, but tooling is nascent.",
+      "signals": [
+        "TTA* (Test-time A* Search) framework: training-free, no external supervision, practical for resource-constrained settings",
+        "ICLR 2025/2026 papers on optimal test-time compute allocation",
+        "Speculative Speculative Decoding published as ICLR 2026 conference paper",
+        "Industry prediction: more focus on inference-time scaling in 2026 than training",
+        "R2R routing between small and large models with 56M-parameter FFN router",
+        "30B+ tokens generated in large-scale TTS study across 8 open-source LLMs"
+      ],
+      "estimated_tools": "10-18",
+      "heat": "hot"
+    },
+    {
+      "name": "SLM Evaluation and Benchmarking for Reasoning",
+      "why_scan": "As SLMs gain reasoning abilities, evaluation tools need to go beyond standard benchmarks (MMLU, GSM8K) to measure reasoning quality, faithfulness of chain-of-thought, multi-step correctness, and reasoning robustness. Current evaluation is fragmented across DeepEval, RewardBench, LM Eval Harness, and domain-specific tools, with no unified reasoning evaluation platform.",
+      "signals": [
+        "THINKSLM paper: 'Towards Reasoning in Small Language Models' (EMNLP 2025)",
+        "RewardBench 2 from Allen AI for evaluating reward models",
+        "CompassVerifier: unified verifier for LLM evaluation and outcome reward",
+        "VerifierBench with ~1M human-expert-labeled predictions",
+        "Evaluation tools (DeepEval, W&B Weave, MLflow, Langfuse) adding reasoning metrics",
+        "Active research on whether CoT traces are faithful to actual model reasoning"
+      ],
+      "estimated_tools": "15-25",
+      "heat": "warm"
+    },
+    {
+      "name": "On-Device and Edge Deployment of Reasoning SLMs",
+      "why_scan": "The convergence of reasoning-capable SLMs and edge deployment creates a new tool category. Challenges include preserving reasoning quality through quantization, optimizing CoT generation latency on NPUs/edge TPUs, and managing the compute cost of extended reasoning on constrained hardware. ExecuTorch, llama.cpp, and MLX exist but reasoning-specific deployment optimization is a gap.",
+      "signals": [
+        "ExecuTorch reached 1.0 GA (Oct 2025) with 50KB base footprint and 12+ hardware backends",
+        "Dell predicting 3x growth in task-specific edge AI models by 2027",
+        "Sub-billion parameter models (Gemma 270M, SmolLM2 135M) now handle practical tasks",
+        "AWQ retains 95% quality, GPTQ-GGUF toolkit bridges compression and deployment",
+        "PicoSpec: pipelined collaborative speculative decoding for edge-cloud inference",
+        "Quantized reasoning models lose only ~4% on code generation benchmarks"
+      ],
+      "estimated_tools": "15-25",
+      "heat": "warm"
+    },
+    {
+      "name": "Function Calling and Tool Use Training for Small Models",
+      "why_scan": "Agentic AI requires reliable function calling and structured output, but SLMs are 'terrible at structured tasks agents need most' out of the box. Fine-tuning a 1B model improved tool calling from 10% to 79% accuracy in 15 minutes. This niche is critical for making SLMs useful in agent workflows, with specific challenges around format adherence, multi-tool selection, and structured output reliability.",
+      "signals": [
+        "Microsoft published comprehensive guide on fine-tuning SLMs for function calling",
+        "HuggingFace SFTTrainer added full support for tool calling fine-tuning",
+        "Structured output causes 20%+ task interference degradation in small models",
+        "Natural Language Tools paper: natural language approach to tool calling reducing format overhead",
+        "ReAct loop optimization: models fine-tuned for structured tool calls instead of generic text",
+        "Multiple YC companies building domain-specific SLM agents with tool use"
+      ],
+      "estimated_tools": "10-18",
+      "heat": "warm"
+    },
+    {
+      "name": "Retrieval-Augmented Reasoning (RAR) for Small Models",
+      "why_scan": "Traditional RAG retrieves then generates, but retrieval-augmented reasoning embeds decision-making into the retrieval process. Small models particularly benefit because external knowledge compensates for limited parametric memory. Tools like KG-RAR and Instructed Retriever show 70%+ improvement over traditional RAG. The intersection of reasoning and retrieval for resource-constrained models is underserved.",
+      "signals": [
+        "EMNLP 2025 Awesome-RAG-Reasoning resource collection",
+        "Instructed Retriever: 70%+ improvement over traditional RAG on complex benchmarks",
+        "Vectorless Reasoning-Based RAG from Microsoft (2025)",
+        "A-RAG: scaling agentic RAG via hierarchical retrieval interfaces",
+        "KG-RAR: process-oriented knowledge graph construction with hierarchical retrieval",
+        "RefKG: retrieval and reflection on knowledge graphs for query decomposition"
+      ],
+      "estimated_tools": "12-20",
+      "heat": "warm"
+    },
+    {
+      "name": "Knowledge Graph Integration for SLM Reasoning Augmentation",
+      "why_scan": "Knowledge graphs provide structured external reasoning scaffolding that compensates for SLMs' limited parametric knowledge. Graph-augmented reasoning enables frozen small-scale LLMs to retrieve and process relevant knowledge without additional training. Tools span KG construction, graph-aware retrieval, entity linking, and reasoning chain grounding, but integration with small models specifically is a gap.",
+      "signals": [
+        "Graph-Augmented Reasoning: step-by-step KG retrieval for frozen small-scale LLMs",
+        "KG-enhanced LLMs incorporating knowledge graphs during pre-training and inference",
+        "LangChain integration with graph databases for knowledge-augmented generation",
+        "NVIDIA technical blog on LLM-driven knowledge graph techniques and evaluation",
+        "Research on injecting knowledge graphs into LLMs (arXiv 2505)",
+        "Model-agnostic KG embedding methods compatible with any LLM size"
+      ],
+      "estimated_tools": "10-18",
+      "heat": "emerging"
+    },
+    {
+      "name": "Reward Model and Verifier Training Platforms",
+      "why_scan": "Reward models and verifiers are the backbone of RL-based reasoning training. Process reward models (PRMs) score individual reasoning steps, outcome reward models (ORMs) score final answers, and verifiers check correctness. Building these for custom domains (beyond math/code) is extremely difficult. Tools include RewardBench, CompassVerifier, and custom verifier pipelines, but the space needs better platforms.",
+      "signals": [
+        "CompassVerifier: unified lightweight verifier for multi-domain reasoning evaluation",
+        "RewardBench 2 from Allen AI for standardized reward model evaluation",
+        "DeepSeekMath-V2 training verifiers for self-correcting mathematical proofs",
+        "Prediction: verifier-first training will become the default approach",
+        "VerifierBench with 1M human-expert labeled predictions for verifier training",
+        "Custom reward functions replacing full reward models in GRPO training"
+      ],
+      "estimated_tools": "8-15",
+      "heat": "emerging"
+    },
+    {
+      "name": "Model Routing and Cascading Orchestration (Small-to-Large Reasoning)",
+      "why_scan": "Instead of making one model reason about everything, routing systems send easy queries to fast SLMs and hard queries to larger reasoning models. R2R uses a 56M-parameter router to switch between R1-1.5B and R1-32B. This orchestration layer is critical for cost-effective reasoning at scale but tooling is very early-stage, mostly research prototypes rather than production platforms.",
+      "signals": [
+        "R2R: lightweight 56M FFN router for token-level routing between small and large reasoning models",
+        "Speculative decoding frameworks (vLLM Speculators library, SparseSpec) for draft-verify patterns",
+        "AIBrix hybrid orchestration integrating adapter scheduling with KV cache locality",
+        "LLM inference scheduling survey covering routing and cascading strategies",
+        "Reward-guided speculative decoding for efficient LLM reasoning (Jan 2025)",
+        "Industry trend toward hybrid edge-cloud inference with reasoning routing"
+      ],
+      "estimated_tools": "8-15",
+      "heat": "emerging"
+    }
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "domain": "AI Agent Memory & Context Persistence Systems",
+  "scan_date": "2026-03-29",
+  "total_gaps_validated": 15,
+  "gaps": [
+    {
+      "id": "GAP-01",
+      "title": "Multi-Agent Memory Governance & Consistency Layer",
+      "demand_signals": {
+        "academic_papers": [
+          "arxiv 2603.10062 - 'Multi-Agent Memory from a Computer Architecture Perspective' identifies consistency as the 'largest conceptual gap'",
+          "arxiv 2603.17787 - 'Governed Memory: A Production Architecture for Multi-Agent Workflows'",
+          "arxiv 2505.18279 - 'Collaborative Memory: Multi-User Memory Sharing with Dynamic Access Control'"
+        ],
+        "industry_articles": [
+          "MongoDB/O'Reilly: 'Why Multi-Agent Systems Need Memory Engineering' - agents duplicate work, operate on inconsistent states, burn through token budgets",
+          "Redis blog: 'AI agent memory: types, architecture & implementation' - shared state management is key challenge"
+        ],
+        "community_signals": [
+          "Multiple DEV.to articles documenting multi-agent state conflicts",
+          "LangGraph and CrewAI communities frequently discussing shared state issues"
+        ],
+        "market_indicators": [
+          "Multi-agent orchestration is one of fastest-growing AI infrastructure categories",
+          "CrewAI, AutoGen, LangGraph all growing rapidly but memory sharing remains unsolved"
+        ]
+      },
+      "demand_score": 9,
+      "demand_rationale": "Strong academic research, industry articles from MongoDB/O'Reilly, and growing multi-agent adoption all point to an urgent unmet need."
+    },
+    {
+      "id": "GAP-02",
+      "title": "GDPR-Compliant Memory with Right-to-Erasure & Audit Trail",
+      "demand_signals": {
+        "regulatory": [
+          "GDPR fines exceed 6.2 billion euros total, 60%+ imposed since Jan 2023",
+          "EU AI Act requires 10-year audit trails for high-risk AI",
+          "IAPP article: 'Engineering GDPR compliance in the age of agentic AI'"
+        ],
+        "industry_articles": [
+          "Multiple compliance guides for AI agents and GDPR",
+          "MindStudio: 'AI Agent Compliance: GDPR SOC 2 and Beyond'",
+          "heyData: 'How to Make AI Agents GDPR-Compliant'"
+        ],
+        "community_signals": [
+          "Extensive HN discussions on GDPR right-to-erasure challenges with immutable databases",
+          "Developer confusion about how to delete data from vector embeddings"
+        ],
+        "market_indicators": [
+          "EU is the world's largest regulated AI market",
+          "Every enterprise selling to EU customers needs this"
+        ]
+      },
+      "demand_score": 8,
+      "demand_rationale": "Regulatory pressure is massive and growing. Every EU-facing AI company needs this, but technical solutions for selective memory erasure from graph/vector stores are barely explored."
+    },
+    {
+      "id": "GAP-03",
+      "title": "Memory Observability & Debugging Platform",
+      "demand_signals": {
+        "industry_articles": [
+          "Braintrust: 'What is agent observability? Tracing tool calls, memory, and multi-step reasoning'",
+          "LangChain: 'Agent Observability Powers Agent Evaluation'",
+          "79% of organizations adopted agents but most cannot trace failures"
+        ],
+        "community_signals": [
+          "DEV.to articles on agent memory debugging scenarios",
+          "Common failure pattern: agent updated memory with incorrect assumption in turn 6, compounded by turn 11",
+          "Stale reads and wrong-entity retrieval identified as common memory failure patterns"
+        ],
+        "market_indicators": [
+          "20+ observability platforms exist for LLM calls but none focus on memory",
+          "Maxim AI, LangSmith, Langfuse all growing but memory-specific views missing",
+          "OpenTelemetry standardizing agent observability conventions"
+        ],
+        "github_signals": [
+          "Multiple open-source tracing tools lack memory-specific instrumentation"
+        ]
+      },
+      "demand_score": 8,
+      "demand_rationale": "Agent observability is hot but memory-specific debugging is a clear blind spot. Multiple industry sources confirm teams struggle to understand memory behavior."
+    },
+    {
+      "id": "GAP-04",
+      "title": "Edge/Local-First Agent Memory (Offline + Sync)",
+      "demand_signals": {
+        "industry_articles": [
+          "AWS re:Invent featured 'AI agents at the edge: Build for offline, scale in cloud'",
+          "Google AI Edge Gallery and SDK for on-device function calling",
+          "Trend Micro: 'Agentic Edge AI: Autonomous Intelligence on the Edge'"
+        ],
+        "community_signals": [
+          "TowardsAI: 'How to Run AI Agents Fully Locally' article shows strong interest",
+          "Hindsight's Ollama integration for local memory gained significant traction"
+        ],
+        "market_indicators": [
+          "Edge AI market projected to grow significantly",
+          "Privacy regulations driving data residency requirements",
+          "Industrial/defense use cases require air-gapped operation"
+        ]
+      },
+      "demand_score": 7,
+      "demand_rationale": "Edge AI is growing fast but memory infrastructure for edge agents is severely underserved. Cloud providers are investing in edge agent platforms but memory layer is DIY."
+    },
+    {
+      "id": "GAP-05",
+      "title": "Cross-Framework Memory Portability Standard",
+      "demand_signals": {
+        "industry_articles": [
+          "Agent File (.af) format proposed by Letta team but not widely adopted",
+          "Memoria: 'The World's First Git for AI Agent Memory' - DEV.to article",
+          "Beads: 'Git-Backed Memory for AI Agents' - YUV.AI blog"
+        ],
+        "community_signals": [
+          "Memori (MemoriLabs) on GitHub: 'SQL Native Memory Layer' designed to be framework-agnostic",
+          "MemOS on GitHub: 'AI memory OS for LLM and Agent systems'",
+          "Multiple projects attempting to solve portability independently"
+        ],
+        "market_indicators": [
+          "Agent framework landscape is fragmented (LangChain, CrewAI, AutoGen, Letta, etc.)",
+          "Enterprise teams frequently evaluate and switch frameworks",
+          "Memory lock-in is a growing concern as agent investments deepen"
+        ]
+      },
+      "demand_score": 7,
+      "demand_rationale": "Multiple independent projects trying to solve this confirms real demand. Framework fragmentation makes this increasingly urgent but no standard has emerged."
+    },
+    {
+      "id": "GAP-06",
+      "title": "Multi-Modal Memory (Images, Audio, Video, Code)",
+      "demand_signals": {
+        "industry_articles": [
+          "Only Cognee has partial multi-modal support among all surveyed tools",
+          "Computer vision agents, browser agents, and coding agents are proliferating"
+        ],
+        "community_signals": [
+          "Memvid mentioned in Medium comparisons as video-specific memory approach",
+          "Coding agents (Cursor, Copilot) need to remember visual contexts"
+        ],
+        "market_indicators": [
+          "Multi-modal AI usage growing rapidly (GPT-4V, Claude vision, Gemini)",
+          "Browser automation agents (e.g., Anthropic's computer use) are visual-first",
+          "Medical imaging, security cameras, manufacturing QA all need visual memory"
+        ]
+      },
+      "demand_score": 7,
+      "demand_rationale": "As agents become multi-modal, memory must follow. Current text-only memory creates a bottleneck for visual and audio-capable agents."
+    },
+    {
+      "id": "GAP-07",
+      "title": "Memory-as-a-Service for Non-Technical Teams",
+      "demand_signals": {
+        "industry_articles": [
+          "RAND 2025: 80-90% of AI projects never leave pilot phase",
+          "KPMG: 65% of C-suite cite complexity as top barrier",
+          "Udacity: 'Your AI Agent has no memory (and that's a problem)'"
+        ],
+        "community_signals": [
+          "AI Context Flow browser extension gaining traction as consumer-friendly memory",
+          "Multiple 'how to fix agent memory' articles targeting non-developers"
+        ],
+        "market_indicators": [
+          "No-code AI market growing rapidly",
+          "Zapier, Make.com users building AI workflows without coding ability",
+          "Gap between AI builder tools and memory infrastructure"
+        ]
+      },
+      "demand_score": 6,
+      "demand_rationale": "Clear pain point but smaller addressable market. Non-technical users want AI with memory but the solution may come from platforms (like ChatGPT memories) rather than standalone tools."
+    },
+    {
+      "id": "GAP-08",
+      "title": "Proactive Memory Intelligence (Predict & Pre-fetch)",
+      "demand_signals": {
+        "industry_articles": [
+          "memU's proactive behavior prediction shows the concept resonates",
+          "Sub-300ms latency requirements from real-time conversational AI"
+        ],
+        "community_signals": [
+          "Limited direct community discussion but latency is frequently cited as concern",
+          "Context window optimization is hot topic across AI engineering"
+        ],
+        "market_indicators": [
+          "Real-time AI applications (trading, customer support, gaming) need lowest latency",
+          "Token cost optimization drives demand for smarter context selection"
+        ]
+      },
+      "demand_score": 5,
+      "demand_rationale": "Interesting technical concept but limited direct demand signals. More of a feature enhancement than a standalone product opportunity."
+    },
+    {
+      "id": "GAP-09",
+      "title": "Memory for Autonomous Long-Running Agents (Days/Weeks)",
+      "demand_signals": {
+        "industry_articles": [
+          "DEV.to: 'I've Been Using AI Agents for 6 Months. The Memory Problem Is Killing My Productivity'",
+          "Multiple articles on agents losing context during extended sessions",
+          "Sanity blog: 'How we solved the agent memory problem'"
+        ],
+        "community_signals": [
+          "Developer frustration with context degradation over long sessions is widespread",
+          "30-40% productivity loss when agents can't access prior context",
+          "Context rot / context pollution documented phenomenon"
+        ],
+        "market_indicators": [
+          "Autonomous agents for research, monitoring, and CI/CD are growing",
+          "OpenAI, Anthropic, Google all investing in longer-running agent capabilities",
+          "Devin, SWE-Agent, and similar coding agents run for hours"
+        ]
+      },
+      "demand_score": 8,
+      "demand_rationale": "Very strong demand signal. The frustration with memory degradation over time is one of the most-discussed pain points in the agent community."
+    },
+    {
+      "id": "GAP-10",
+      "title": "Healthcare-Specific Agent Memory (PHI-safe, Clinical Workflow)",
+      "demand_signals": {
+        "academic_papers": [
+          "PMC: 'A foundational architecture for AI agents in healthcare'",
+          "arxiv: MCP-FHIR framework for clinical decision support"
+        ],
+        "industry_articles": [
+          "TATEEDA: 'Multi-Agent AI in Healthcare: Patterns & EHR/Payer Integrations'",
+          "AWS: Amazon Connect Health launched for healthcare AI",
+          "Stanford HAI: 'How to Build a Safe, Secure Medical AI Platform'"
+        ],
+        "market_indicators": [
+          "Healthcare AI market worth billions and growing",
+          "FHIR adoption is universal in US healthcare",
+          "Every health-tech company building AI agents needs compliant memory"
+        ]
+      },
+      "demand_score": 7,
+      "demand_rationale": "Healthcare AI is massive market with strict compliance needs. FHIR-integrated memory is clearly needed but no purpose-built solution exists."
+    },
+    {
+      "id": "GAP-11",
+      "title": "Memory Security & Anti-Poisoning Framework",
+      "demand_signals": {
+        "academic_papers": [
+          "NeurIPS 2025: MINJA attack achieves 95%+ injection success rates",
+          "OWASP ASI06 recognizes memory poisoning as top agentic risk for 2026"
+        ],
+        "industry_articles": [
+          "Microsoft Security Blog: 'Manipulating AI memory for profit: The rise of AI Recommendation Poisoning'",
+          "JumpCloud: 'Understanding AI Agent Memory Poisoning Attacks'",
+          "Lasso Security: memory poisoning among top three Agentic AI concerns"
+        ],
+        "community_signals": [
+          "Multiple Medium articles documenting attack vectors",
+          "Christian Schneider's blog: detailed technical exploitation examples",
+          "Growing awareness but few defensive tools"
+        ],
+        "market_indicators": [
+          "Enterprise AI security is billion-dollar market",
+          "As agents get more autonomy and handle financial transactions, memory integrity becomes critical",
+          "Lasso's MCP Gateway security plugin shows early market movement"
+        ]
+      },
+      "demand_score": 9,
+      "demand_rationale": "Critical and timely. NeurIPS paper, Microsoft Security Blog, OWASP recognition all validate this is a real and urgent threat. Almost no defensive tooling exists."
+    },
+    {
+      "id": "GAP-12",
+      "title": "Domain-Specific Memory Templates (Legal, Finance, Sales)",
+      "demand_signals": {
+        "industry_articles": [
+          "Vertical AI agents are a major investment category in 2025-2026",
+          "Domain-specific extraction requires expensive custom development"
+        ],
+        "community_signals": [
+          "Limited direct discussion about memory templates specifically",
+          "General frustration with generic memory extraction missing domain nuances"
+        ],
+        "market_indicators": [
+          "Vertical SaaS is proven business model",
+          "Legal tech, fintech, sales tech all building AI agents",
+          "Cognee's ECL pipelines hint at customizable extraction but no templates"
+        ]
+      },
+      "demand_score": 5,
+      "demand_rationale": "Logical gap but limited direct demand signals. May be better served as features within vertical AI platforms rather than standalone memory templates."
+    },
+    {
+      "id": "GAP-13",
+      "title": "Memory Version Control & Branching",
+      "demand_signals": {
+        "industry_articles": [
+          "Memoria (DEV.to): 'The World's First Git for AI Agent Memory' - shows concept resonates",
+          "Beads: 'Git-Backed Memory for AI Agents' - another independent attempt",
+          "MemOS: 'AI memory OS' with skill memory concepts"
+        ],
+        "community_signals": [
+          "At least 3 independent projects attempting version control for memory",
+          "Developer intuition from git translates to wanting git-for-memory"
+        ],
+        "market_indicators": [
+          "A/B testing agent behavior requires memory state management",
+          "Enterprise audit requirements drive need for memory history",
+          "Memory rollback needed for debugging and safety"
+        ]
+      },
+      "demand_score": 7,
+      "demand_rationale": "Multiple independent projects confirm genuine developer demand. Git-like semantics for memory is intuitive and fills real debugging/testing needs."
+    },
+    {
+      "id": "GAP-14",
+      "title": "Universal MCP Memory Protocol Server",
+      "demand_signals": {
+        "industry_articles": [
+          "Hindsight's MCP server release in March 2026 triggered GitHub trending spike",
+          "Cognee's MCP integration for Google ADK",
+          "MCP adoption accelerating across Claude, Cursor, Windsurf"
+        ],
+        "community_signals": [
+          "Hindsight's MCP server was the catalyst for its GitHub trending status",
+          "ChromaDB MCP server exists but is basic vector-only",
+          "Developer demand for plug-and-play memory for MCP agents is strong"
+        ],
+        "market_indicators": [
+          "MCP is becoming the de facto standard for agent-tool interaction",
+          "Every MCP-compatible agent needs memory but has to build it custom",
+          "First-mover advantage in MCP memory ecosystem"
+        ]
+      },
+      "demand_score": 8,
+      "demand_rationale": "Hindsight's MCP server launch directly caused its trending spike, proving strong latent demand. MCP ecosystem is growing fast and memory is a universal need."
+    },
+    {
+      "id": "GAP-15",
+      "title": "Affordable SMB/Startup Memory Tier ($5-15/month)",
+      "demand_signals": {
+        "industry_articles": [
+          "Mem0's startup program (3 months free Pro) acknowledges the pricing gap",
+          "Multiple comparison articles mention pricing as key decision factor"
+        ],
+        "community_signals": [
+          "Indie developers frequently discuss cost of AI infrastructure",
+          "Open-source alternatives require significant setup overhead"
+        ],
+        "market_indicators": [
+          "Millions of developers building AI apps, most are cost-sensitive",
+          "Vercel, Supabase proved that developer-friendly pricing wins adoption"
+        ]
+      },
+      "demand_score": 6,
+      "demand_rationale": "Real need for affordable managed memory but may be addressed by existing players adding cheaper tiers. Not a standalone business opportunity."
+    }
+  ]
+}

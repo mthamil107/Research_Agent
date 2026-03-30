@@ -1,0 +1,327 @@
+{
+  "domain": "SLM Reasoning Evaluation & Benchmarking Tools",
+  "generated_date": "2026-03-29",
+  "validation_sources": ["Reddit r/LocalLLaMA", "Hacker News", "GitHub Issues", "arXiv", "LessWrong", "Developer blogs", "Research papers"],
+  "validated_gaps": [
+    {
+      "id": "GAP-001",
+      "title": "SLM-Specific Reasoning Evaluation Platform with Edge Deployment Metrics",
+      "demand_signals": [
+        {
+          "source": "HN Discussion",
+          "url": "https://news.ycombinator.com/item?id=42784365",
+          "signal": "Ask HN thread 'Is anyone doing anything cool with tiny language models?' shows strong interest in edge/tiny model deployment with reasoning capabilities."
+        },
+        {
+          "source": "ACL 2025 Paper",
+          "url": "https://aclanthology.org/2025.acl-long.718.pdf",
+          "signal": "Demystifying Small Language Models for Edge Deployment paper documents the gap between reasoning quality and deployment constraints."
+        },
+        {
+          "source": "Research Survey",
+          "url": "https://acnsci.org/journal/index.php/jec/article/view/1000",
+          "signal": "Edge intelligence survey identifies lack of modality-aware reasoning benchmarks and edge-oriented evaluation as key gaps."
+        },
+        {
+          "source": "arXiv 2026",
+          "url": "https://arxiv.org/html/2603.21389",
+          "signal": "Task-Specific Efficiency Analysis shows 0.5-3B models achieve superior Performance-Efficiency Ratios but no benchmark captures this."
+        }
+      ],
+      "demand_strength": "HIGH",
+      "demand_score": 8
+    },
+    {
+      "id": "GAP-002",
+      "title": "Contamination-Resistant Dynamic Reasoning Benchmark for SLMs",
+      "demand_signals": [
+        {
+          "source": "ICLR 2026",
+          "url": "https://github.com/ctrl-gaurav/BeyondBench",
+          "signal": "BeyondBench accepted at ICLR 2026 shows academic recognition of contamination problem, but not SLM-calibrated."
+        },
+        {
+          "source": "arXiv Survey",
+          "url": "https://arxiv.org/html/2502.14318v1",
+          "signal": "'Line Goes Up?' paper documents inherent limitations of static benchmarks for LLM evaluation."
+        },
+        {
+          "source": "HN Discussion",
+          "url": "https://news.ycombinator.com/item?id=40945683",
+          "signal": "'Reasoning skills of LLMs are often overestimated' HN thread with community concern about benchmark contamination."
+        }
+      ],
+      "demand_strength": "HIGH",
+      "demand_score": 8
+    },
+    {
+      "id": "GAP-003",
+      "title": "Process Reward Model Evaluation Toolkit for Small Models",
+      "demand_signals": [
+        {
+          "source": "arXiv Survey",
+          "url": "https://arxiv.org/pdf/2510.08049",
+          "signal": "Survey of Process Reward Models documents growing research interest but no SLM-specific toolkit."
+        },
+        {
+          "source": "HuggingFace Papers",
+          "url": "https://huggingface.co/papers?q=Process+Reward+Models+(PRMs)",
+          "signal": "Multiple papers on PRMs trending on HuggingFace, Mistral-7B shown as viable PRM."
+        },
+        {
+          "source": "Blog",
+          "url": "https://www.stephendiehl.com/posts/process_reward/",
+          "signal": "Developer-facing explainer on PRMs indicates practitioner interest in making PRMs accessible."
+        }
+      ],
+      "demand_strength": "MEDIUM-HIGH",
+      "demand_score": 7
+    },
+    {
+      "id": "GAP-004",
+      "title": "Multilingual Reasoning Evaluation for SLMs",
+      "demand_signals": [
+        {
+          "source": "arXiv 2025",
+          "url": "https://arxiv.org/html/2510.27269",
+          "signal": "Paper 'Why Do Multilingual Reasoning Gaps Emerge' documents 35% performance gap in 7B models between languages."
+        },
+        {
+          "source": "Scale AI Blog",
+          "url": "https://scale.com/blog/multinrc",
+          "signal": "Scale AI launched MultiNRC benchmark, indicating commercial interest in multilingual reasoning evaluation."
+        },
+        {
+          "source": "arXiv",
+          "url": "https://arxiv.org/abs/2503.10497",
+          "signal": "MMLU-ProX multilingual benchmark shows growing demand for non-English evaluation."
+        }
+      ],
+      "demand_strength": "MEDIUM-HIGH",
+      "demand_score": 7
+    },
+    {
+      "id": "GAP-005",
+      "title": "Continuous Reasoning Regression Monitoring for Production SLMs",
+      "demand_signals": [
+        {
+          "source": "LangChain Blog",
+          "url": "https://www.langchain.com/articles/llm-evals",
+          "signal": "LangChain article 'LLM Evals: Production Monitoring to Regression Tests' documents the workflow gap between offline eval and production monitoring."
+        },
+        {
+          "source": "Confident AI",
+          "url": "https://www.confident-ai.com/knowledge-base/top-5-llm-monitoring-tools-for-ai",
+          "signal": "Top 5 LLM Monitoring Tools article shows growing market but no SLM reasoning specialization."
+        },
+        {
+          "source": "LangWatch",
+          "url": "https://langwatch.ai/blog/the-4-best-llm-evaluation-platforms-in-2025-why-langwatch-eedefines-the-category-with-agent-testing-(with-simulations)",
+          "signal": "Evaluation platform review shows monitoring market growing but reasoning regression detection absent."
+        }
+      ],
+      "demand_strength": "MEDIUM",
+      "demand_score": 6
+    },
+    {
+      "id": "GAP-006",
+      "title": "Domain-Specific Reasoning Benchmark Generator for SLMs",
+      "demand_signals": [
+        {
+          "source": "Nature npj Digital Medicine",
+          "url": "https://www.nature.com/articles/s41746-025-01653-8",
+          "signal": "Meerkat medical SLMs paper shows 22% improvement with domain reasoning data, indicating domain-specific eval demand."
+        },
+        {
+          "source": "ACL 2025",
+          "url": "https://aclanthology.org/2025.findings-acl.1164.pdf",
+          "signal": "FLAME financial evaluation benchmark published, showing demand for vertical-specific eval."
+        },
+        {
+          "source": "HN Discussion",
+          "url": "https://news.ycombinator.com/item?id=46217578",
+          "signal": "HN thread on 'LLMs struggle in real mental health care' highlights domain evaluation gaps."
+        }
+      ],
+      "demand_strength": "MEDIUM-HIGH",
+      "demand_score": 7
+    },
+    {
+      "id": "GAP-007",
+      "title": "Quantization-Aware Reasoning Evaluation Suite",
+      "demand_signals": [
+        {
+          "source": "Red Hat Developer",
+          "url": "https://developers.redhat.com/articles/2024/10/17/we-ran-over-half-million-evaluations-quantized-llms",
+          "signal": "Red Hat ran 500K+ evaluations on quantized LLMs, found significant reasoning-specific degradation at lower bit widths."
+        },
+        {
+          "source": "r/LocalLLaMA Community",
+          "url": "https://www.aitooldiscovery.com/guides/llama-reddit",
+          "signal": "LocalLLaMA community extensively discusses quantization impact on reasoning, with no standardized tool to measure it."
+        },
+        {
+          "source": "LessWrong",
+          "url": "https://www.lesswrong.com/posts/qmPXQbyYA66DuJbht/comparing-quantized-performance-in-llama-models",
+          "signal": "LessWrong post comparing quantized performance shows practitioner demand for systematic quantization reasoning eval."
+        },
+        {
+          "source": "Medium / Research",
+          "url": "https://federico-ricciuti.medium.com/llm-quantization-evaluation-leave-not-bits-behind-0777e23b9f91",
+          "signal": "Detailed analysis showing GSM8K reasoning degrades earlier than other tasks under quantization."
+        }
+      ],
+      "demand_strength": "HIGH",
+      "demand_score": 9
+    },
+    {
+      "id": "GAP-008",
+      "title": "Reasoning Chain Visualization and Debugging Tool for SLMs",
+      "demand_signals": [
+        {
+          "source": "HN Discussion",
+          "url": "https://news.ycombinator.com/item?id=47098839",
+          "signal": "Large Language Model Reasoning Failures HN thread with 100+ comments shows developer frustration with opaque reasoning failures."
+        },
+        {
+          "source": "BeyondBench Eval",
+          "url": "https://openreview.net/forum?id=mIKqVWGjwI",
+          "signal": "BeyondBench evaluated 101 models but provides no visualization of failure patterns across model sizes."
+        }
+      ],
+      "demand_strength": "MEDIUM",
+      "demand_score": 6
+    },
+    {
+      "id": "GAP-009",
+      "title": "SLM Reasoning Comparison Leaderboard with Efficiency Normalization",
+      "demand_signals": [
+        {
+          "source": "BentoML Blog",
+          "url": "https://www.bentoml.com/blog/the-best-open-source-small-language-models",
+          "signal": "Best Open-Source SLMs 2026 article attempts manual efficiency comparison but no automated leaderboard exists."
+        },
+        {
+          "source": "HN Discussion",
+          "url": "https://news.ycombinator.com/item?id=47000145",
+          "signal": "SLMs vs LLMs HN discussion shows developers want efficiency-normalized comparisons."
+        },
+        {
+          "source": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/leaderboards/models",
+          "signal": "Artificial Analysis leaderboard tracks speed/cost but not reasoning-per-efficiency for SLMs specifically."
+        }
+      ],
+      "demand_strength": "MEDIUM-HIGH",
+      "demand_score": 7
+    },
+    {
+      "id": "GAP-010",
+      "title": "Adversarial Reasoning Robustness Toolkit for SLMs",
+      "demand_signals": [
+        {
+          "source": "ThinkSLM Research",
+          "url": "https://aclanthology.org/2025.emnlp-main.1659/",
+          "signal": "ThinkSLM found 11-17% accuracy drops under adversarial perturbation, indicating need for robustness toolkit."
+        },
+        {
+          "source": "PromptBench",
+          "url": "https://github.com/microsoft/promptbench",
+          "signal": "PromptBench's 33% performance drop on word-level attacks shows vulnerability, but no SLM-specific adversarial reasoning toolkit."
+        }
+      ],
+      "demand_strength": "MEDIUM",
+      "demand_score": 6
+    },
+    {
+      "id": "GAP-011",
+      "title": "CI/CD-Native SLM Reasoning Evaluation Pipeline",
+      "demand_signals": [
+        {
+          "source": "EleutherAI lm-eval-harness",
+          "url": "https://github.com/EleutherAI/lm-evaluation-harness",
+          "signal": "lm-eval-harness adding reasoning model support (think_end_token) shows framework-level demand but no CI/CD pipeline."
+        },
+        {
+          "source": "tinyBenchmarks",
+          "url": "https://github.com/felipemaiapolo/tinyBenchmarks",
+          "signal": "tinyBenchmarks' 140x cost reduction enables CI/CD-scale evaluation but no pre-built pipeline exists."
+        }
+      ],
+      "demand_strength": "MEDIUM",
+      "demand_score": 6
+    },
+    {
+      "id": "GAP-012",
+      "title": "Cross-Framework Reasoning Evaluation Standardization",
+      "demand_signals": [
+        {
+          "source": "Unitxt Integration",
+          "url": "https://crfm.stanford.edu/2024/09/05/unitxt.html",
+          "signal": "Stanford HELM integrating Unitxt shows recognition of standardization need but only covers data format, not scoring."
+        },
+        {
+          "source": "Evidently AI Guide",
+          "url": "https://www.evidentlyai.com/llm-guide/llm-benchmarks",
+          "signal": "'30 LLM Benchmarks' article documents the fragmentation problem — different tools use incompatible metrics."
+        }
+      ],
+      "demand_strength": "MEDIUM",
+      "demand_score": 5
+    },
+    {
+      "id": "GAP-013",
+      "title": "Sustainability-Aware Reasoning Evaluation",
+      "demand_signals": [
+        {
+          "source": "SLM-Bench",
+          "url": "https://aclanthology.org/2025.findings-emnlp.1165/",
+          "signal": "SLM-Bench tracks sustainability for SLMs but not reasoning quality, showing the gap between these two dimensions."
+        }
+      ],
+      "demand_strength": "LOW-MEDIUM",
+      "demand_score": 4
+    },
+    {
+      "id": "GAP-014",
+      "title": "Reasoning Evaluation for SLM Ensembles and Multi-Agent Systems",
+      "demand_signals": [
+        {
+          "source": "SLM-MUX",
+          "url": "https://arxiv.org/abs/2510.05077",
+          "signal": "SLM-MUX paper shows multi-agent SLM reasoning but uses ad-hoc evaluation."
+        },
+        {
+          "source": "LightReasoner",
+          "url": "https://github.com/HKUDS/LightReasoner",
+          "signal": "LightReasoner shows SLMs can teach LLMs, indicating multi-model evaluation needs."
+        }
+      ],
+      "demand_strength": "MEDIUM",
+      "demand_score": 5
+    },
+    {
+      "id": "GAP-015",
+      "title": "Low-Cost / Self-Hosted Reasoning Evaluation (No LLM Judge Required)",
+      "demand_signals": [
+        {
+          "source": "arXiv 2025",
+          "url": "https://arxiv.org/html/2509.13332v1",
+          "signal": "'Thinking Small Models are Efficient LLM Judges' paper shows small models can replace expensive LLM judges."
+        },
+        {
+          "source": "CompassVerifier",
+          "url": "https://github.com/open-compass/CompassVerifier",
+          "signal": "CompassVerifier 3B model achieving >90% accuracy demonstrates viability of small self-hosted verifiers."
+        },
+        {
+          "source": "ThinkPRM",
+          "url": "https://arxiv.org/abs/2504.16828",
+          "signal": "ThinkPRM using 1% of labels outperforms LLM-as-Judge, showing potential for low-cost verification."
+        }
+      ],
+      "demand_strength": "HIGH",
+      "demand_score": 8
+    }
+  ]
+}

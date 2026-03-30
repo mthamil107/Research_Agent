@@ -1,0 +1,350 @@
+{
+  "domain": "Knowledge Graph Integration for SLM Reasoning",
+  "generated_date": "2026-03-29",
+  "demand_sources_searched": [
+    "Reddit (r/LocalLLaMA, r/MachineLearning)",
+    "Hacker News (Ask HN, Show HN threads)",
+    "GitHub Issues (microsoft/graphrag, HKUDS/MiniRAG, run-llama/llama_index)",
+    "Academic papers (arxiv, EMNLP, ACL)",
+    "Technical blogs (Neo4j, Memgraph, Medium)",
+    "Product pages (RDFox, Zep, Cognee)"
+  ],
+  "validated_gaps": [
+    {
+      "id": "GAP-001",
+      "title": "KG-to-SLM Knowledge Distillation Toolkit",
+      "demand_signals": [
+        {
+          "source": "arxiv (KG-MASD, 2025)",
+          "type": "academic_research",
+          "signal": "Multiple papers propose KG-guided distillation for edge devices but no library exists. KG-MASD formulates it as MDP with KG-enriched state representation.",
+          "strength": "medium"
+        },
+        {
+          "source": "arxiv (Knowledge Distillation for Temporal KG Reasoning, 2026)",
+          "type": "academic_research",
+          "signal": "New paper specifically targeting 'efficient deployment on resource-constrained devices by leveraging reasoning capabilities of LLMs to transfer temporal reasoning knowledge to lightweight student models'.",
+          "strength": "medium"
+        },
+        {
+          "source": "EMNLP 2025 - THINKSLM paper",
+          "type": "academic_research",
+          "signal": "Research showing chain-of-thought doesn't effectively elicit reasoning in SLMs, suggesting structural knowledge injection (like KG distillation) is needed as alternative.",
+          "strength": "high"
+        }
+      ],
+      "demand_verdict": "MODERATE - Strong academic interest but limited practitioner demand signals yet. The problem is real but awareness is still emerging.",
+      "demand_score": 6
+    },
+    {
+      "id": "GAP-002",
+      "title": "GNN-Enhanced SLM Reasoning Framework",
+      "demand_signals": [
+        {
+          "source": "ACL 2025 - GNN-RAG paper",
+          "type": "academic_research",
+          "signal": "GNN-RAG matches GPT-4 with 7B model on KGQA benchmarks, proving the approach works. 8.9-15.5% improvement on multi-hop questions.",
+          "strength": "high"
+        },
+        {
+          "source": "OpenReview",
+          "type": "academic_research",
+          "signal": "'Simple is Effective' paper shows graphs + smaller LLMs deliver competitive results with explainable reasoning on KG-based RAG.",
+          "strength": "medium"
+        },
+        {
+          "source": "GitHub (Awesome-Graph-LLM, 1000+ stars)",
+          "type": "community_interest",
+          "signal": "Active curation of graph-LLM resources indicates strong developer interest in the intersection.",
+          "strength": "medium"
+        }
+      ],
+      "demand_verdict": "MODERATE-HIGH - Proven research results but gap between research code and production framework. Developers want this but no one has built the bridge.",
+      "demand_score": 7
+    },
+    {
+      "id": "GAP-003",
+      "title": "Quantized KG-Augmented SLM Inference Engine",
+      "demand_signals": [
+        {
+          "source": "GitHub - microsoft/graphrag Issue #339",
+          "type": "github_issue",
+          "signal": "Users spent $45 testing GraphRAG with cloud models, explicitly requesting local model support. Connection errors with small models (qwen3:0.6b). Workarounds needed for Ollama integration.",
+          "strength": "high"
+        },
+        {
+          "source": "GitHub - graphrag-local-ollama (community fork)",
+          "type": "github_project",
+          "signal": "Community built entire fork just to support local models with Ollama, indicating strong unmet demand.",
+          "strength": "high"
+        },
+        {
+          "source": "Reddit r/LocalLLaMA",
+          "type": "reddit",
+          "signal": "Active discussions about RAG stacks with local models. Testing showed qwen3:8b as minimum viable size for tool-calling RAG, with 3-4B models having 'significant reliability issues'.",
+          "strength": "high"
+        },
+        {
+          "source": "Blog - Local GraphRAG Progress Report",
+          "type": "blog",
+          "signal": "User reports indexing with local models took 36 HOURS for 19 Markdown files vs under 10 minutes with cloud models. Massive performance gap needs optimization.",
+          "strength": "high"
+        }
+      ],
+      "demand_verdict": "HIGH - Clear, widespread demand. Users are already hacking together solutions. The cost-performance gap between cloud LLMs and local SLMs for KG tasks is a major pain point.",
+      "demand_score": 9
+    },
+    {
+      "id": "GAP-004",
+      "title": "Temporal Knowledge Graph Support for SLMs",
+      "demand_signals": [
+        {
+          "source": "Hacker News - Graphiti Show HN thread",
+          "type": "hn_discussion",
+          "signal": "Active interest in temporal KG for agents, but Graphiti requires large LLMs. No discussion of SLM-compatible temporal KG solutions.",
+          "strength": "medium"
+        },
+        {
+          "source": "arxiv - Knowledge Distillation for Temporal KG Reasoning",
+          "type": "academic_research",
+          "signal": "Research specifically targeting efficient temporal KG reasoning for resource-constrained devices.",
+          "strength": "medium"
+        }
+      ],
+      "demand_verdict": "MODERATE - Niche but growing. Temporal reasoning is a differentiator for agents, but SLM+temporal is still ahead of practitioner awareness.",
+      "demand_score": 5
+    },
+    {
+      "id": "GAP-005",
+      "title": "Domain-Specific KG+SLM Vertical Solutions",
+      "demand_signals": [
+        {
+          "source": "Galaxy 2026 Report - Enterprise KG Platforms",
+          "type": "market_report",
+          "signal": "2026 market analysis shows 'increased demand for AI-ready semantic layers' and 'clearer differentiation between metadata catalogs, graph databases, and full semantic infrastructure'.",
+          "strength": "high"
+        },
+        {
+          "source": "zero100.com - KGs as Safe Agentic AI Unlock",
+          "type": "industry_analysis",
+          "signal": "Knowledge graphs positioned as 'underutilized and safe agentic AI unlock' for enterprises needing compliance and explainability.",
+          "strength": "medium"
+        },
+        {
+          "source": "arxiv - BioKGBench, BuildingQA",
+          "type": "academic_research",
+          "signal": "New domain-specific KG benchmarks emerging (biomedical, buildings/facilities), indicating vertical demand.",
+          "strength": "medium"
+        }
+      ],
+      "demand_verdict": "HIGH - Enterprise demand is strong but solutions require deep domain expertise. Healthcare + financial verticals have clear compliance drivers for on-premise SLMs + KGs.",
+      "demand_score": 8
+    },
+    {
+      "id": "GAP-006",
+      "title": "Mobile/Embedded KG-Reasoning SDK",
+      "demand_signals": [
+        {
+          "source": "Oxford Semantic Technologies - RDFox on Edge",
+          "type": "product",
+          "signal": "RDFox is the 'only enterprise-grade knowledge graph and reasoner that can be installed on edge and mobile devices'. Being the ONLY option signals massive gap.",
+          "strength": "high"
+        },
+        {
+          "source": "arxiv - EdgeRAG, EACO-RAG, DGRAG (2024-2025)",
+          "type": "academic_research",
+          "signal": "Multiple papers addressing edge RAG deployment challenges. EACO-RAG proposes distributed edge nodes. DGRAG addresses cross-device knowledge linking. Active research area.",
+          "strength": "high"
+        },
+        {
+          "source": "ACM Computing Surveys - Edge LLM Review",
+          "type": "academic_survey",
+          "signal": "Comprehensive survey on edge LLM deployment identifies 'difficult to efficiently deploy on resource-constrained edge devices' as core challenge.",
+          "strength": "high"
+        }
+      ],
+      "demand_verdict": "HIGH - Only one commercial product (RDFox) serves this space, and it doesn't integrate with modern SLMs. Academic research is intense, indicating a market about to emerge.",
+      "demand_score": 8
+    },
+    {
+      "id": "GAP-007",
+      "title": "Educational/Tutoring KG-SLM Platform",
+      "demand_signals": [
+        {
+          "source": "arxiv - Physics Reasoning in SLMs from Educational Perspective",
+          "type": "academic_research",
+          "signal": "Research analyzing SLM reasoning from educational perspective, indicating interest in educational applications.",
+          "strength": "low"
+        }
+      ],
+      "demand_verdict": "LOW - Limited demand signals. Education sector moves slowly and has budget constraints. Niche within a niche.",
+      "demand_score": 3
+    },
+    {
+      "id": "GAP-008",
+      "title": "End-to-End KG Construction + SLM Fine-Tuning Pipeline",
+      "demand_signals": [
+        {
+          "source": "LlamaIndex GitHub Discussion #8393",
+          "type": "github_discussion",
+          "signal": "Users asking about Knowledge Graph vs RAG, indicating confusion about integration approaches and need for unified tooling.",
+          "strength": "medium"
+        },
+        {
+          "source": "Neo4j Blog - LLM KG Builder",
+          "type": "product_launch",
+          "signal": "Neo4j's KG Builder became 4th most popular AuraDB Free interaction, showing strong demand for automated KG construction. But no fine-tuning integration.",
+          "strength": "high"
+        },
+        {
+          "source": "siliconflow.com - Best OSS LLMs for KG Construction 2026",
+          "type": "industry_guide",
+          "signal": "Active guides comparing models for KG construction, indicating practitioners are manually choosing and configuring multi-tool pipelines.",
+          "strength": "medium"
+        }
+      ],
+      "demand_verdict": "MODERATE-HIGH - Practitioners are clearly building these pipelines manually. The complexity of stitching 4-5 tools is a real barrier.",
+      "demand_score": 7
+    },
+    {
+      "id": "GAP-009",
+      "title": "KG-Guided Prompt Optimization for SLMs",
+      "demand_signals": [
+        {
+          "source": "arxiv - KG Structure as Prompt (2024)",
+          "type": "academic_research",
+          "signal": "Research proves that structural KG info (metapaths, common neighbors) in prompts improves SLM capabilities for causal discovery.",
+          "strength": "medium"
+        },
+        {
+          "source": "Reddit r/LocalLLaMA",
+          "type": "reddit",
+          "signal": "Discussions about token budget constraints with small models. Users manually crafting prompts to fit graph context into limited windows.",
+          "strength": "medium"
+        }
+      ],
+      "demand_verdict": "MODERATE - Research-proven technique without production tooling. Prompt engineering community would adopt this.",
+      "demand_score": 6
+    },
+    {
+      "id": "GAP-010",
+      "title": "Automated KG Quality Evaluation for SLM Consumption",
+      "demand_signals": [
+        {
+          "source": "KGQA Benchmark Analysis",
+          "type": "academic_research",
+          "signal": "Audits found popular KGQA datasets like WebQSP have only ~52% factual correctness, highlighting KG quality as critical issue.",
+          "strength": "medium"
+        }
+      ],
+      "demand_verdict": "LOW-MODERATE - Important but very tooling-specific. Likely a feature within a larger product rather than standalone.",
+      "demand_score": 4
+    },
+    {
+      "id": "GAP-011",
+      "title": "Unified Graph DB Adapter for SLM Frameworks",
+      "demand_signals": [
+        {
+          "source": "MiniRAG GitHub (10+ DB support)",
+          "type": "github_project",
+          "signal": "MiniRAG added 10+ graph DB adapters in early 2025, indicating strong demand for multi-DB support.",
+          "strength": "medium"
+        }
+      ],
+      "demand_verdict": "LOW-MODERATE - MiniRAG is already addressing this. Incremental improvement opportunity, not a major gap.",
+      "demand_score": 4
+    },
+    {
+      "id": "GAP-012",
+      "title": "KG-SLM Integration for Agentic Workflows",
+      "demand_signals": [
+        {
+          "source": "Hacker News - Ask HN: KGs for agent memory",
+          "type": "hn_discussion",
+          "signal": "Active discussion about KGs for agent memory/context management. 'Managing structured knowledge, tracking state, and coordinating multi-step tasks becomes complex with standard RAG.'",
+          "strength": "high"
+        },
+        {
+          "source": "Hacker News - 'Know-how graph' discussion",
+          "type": "hn_discussion",
+          "signal": "Thread arguing 'knowledge graphs aren't enough, we need know-how graphs' for agents - indicating demand for more sophisticated graph-agent integration.",
+          "strength": "high"
+        },
+        {
+          "source": "GitHub - Awesome-GraphMemory (new repo, 2025)",
+          "type": "github_project",
+          "signal": "Dedicated awesome list for graph-based agent memory, indicating growing ecosystem and demand.",
+          "strength": "medium"
+        },
+        {
+          "source": "Multiple agent memory papers (Mem0, MAGMA, etc.)",
+          "type": "academic_research",
+          "signal": "Explosion of research on agent memory architectures using graphs. Mem0, MAGMA, Graphiti all targeting this space but none optimize for SLMs.",
+          "strength": "high"
+        }
+      ],
+      "demand_verdict": "VERY HIGH - Agentic AI is the hottest area in AI. KG-backed agent memory is already proven valuable. The SLM-optimized version is the missing piece for cost-efficient agents.",
+      "demand_score": 9
+    },
+    {
+      "id": "GAP-013",
+      "title": "Open-Source SLM+KG Managed Service",
+      "demand_signals": [
+        {
+          "source": "GitHub - microsoft/graphrag Issue #339",
+          "type": "github_issue",
+          "signal": "User spent $45 just testing GraphRAG, explicitly motivated to switch to local models to save money.",
+          "strength": "high"
+        },
+        {
+          "source": "General SLM adoption trend",
+          "type": "market_trend",
+          "signal": "SLM adoption is fundamentally cost-driven. KG hosting is now the bottleneck cost, not inference.",
+          "strength": "high"
+        }
+      ],
+      "demand_verdict": "MODERATE - Real need but managed services require significant infrastructure investment to build.",
+      "demand_score": 6
+    },
+    {
+      "id": "GAP-014",
+      "title": "Serverless KG-Augmented SLM Inference",
+      "demand_signals": [
+        {
+          "source": "General serverless AI trend",
+          "type": "market_trend",
+          "signal": "Serverless inference is growing (Modal, Replicate, etc.) but none offer integrated KG+SLM serverless.",
+          "strength": "medium"
+        }
+      ],
+      "demand_verdict": "LOW-MODERATE - Nice to have but not a burning pain point currently.",
+      "demand_score": 4
+    },
+    {
+      "id": "GAP-015",
+      "title": "Embedded KG File Format for Offline SLM Reasoning",
+      "demand_signals": [
+        {
+          "source": "StrongMocha - Air-Gapped AI Tradeoffs",
+          "type": "industry_analysis",
+          "signal": "'Only about 30% of companies successfully manage large-scale offline AI systems, mainly because maintaining data consistency across multiple sites is complex.' A standard KG format would help.",
+          "strength": "medium"
+        },
+        {
+          "source": "RDFox edge deployment",
+          "type": "product",
+          "signal": "RDFox highlights 'all data stored directly on user's device, eliminating privacy and security concerns' and 'eliminates need for costly data storage and communication expenses'. Market validation for offline KG.",
+          "strength": "high"
+        },
+        {
+          "source": "GGUF ecosystem success",
+          "type": "analogous_market",
+          "signal": "GGUF format revolutionized local model distribution. No equivalent for KGs suggests opportunity for similar standardization.",
+          "strength": "medium"
+        }
+      ],
+      "demand_verdict": "MODERATE-HIGH - Strong use case in defense, healthcare, field operations. The GGUF analogy is compelling. But requires ecosystem buy-in.",
+      "demand_score": 7
+    }
+  ]
+}

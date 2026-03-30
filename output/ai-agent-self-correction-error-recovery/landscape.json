@@ -1,0 +1,245 @@
+{
+  "domain": "AI Agent Self-Correction & Error Recovery Systems",
+  "scan_date": "2026-03-29",
+  "search_queries": [
+    "AI agent self-correction error recovery frameworks tools 2025 2026",
+    "LLM agent auto-retry self-healing error handling tools",
+    "AI agent observability debugging self-correction platforms",
+    "autonomous agent reliability fault tolerance frameworks",
+    "LLM output validation guardrails self-correcting code",
+    "Guardrails AI NeMo Guardrails comparison LLM validation tools 2026",
+    "LangGraph checkpoint recovery state persistence agent failure",
+    "Restate durable execution AI agents fault tolerance",
+    "AgentOps Langfuse LangSmith agent monitoring comparison 2026",
+    "self-correcting AI agent reflection loop retry open source library",
+    "VIGIL self-healing LLM agents runtime reflective arxiv",
+    "Instructor library structured output validation retry LLM pydantic",
+    "Galileo AI guardrails agent evaluation runtime intervention",
+    "DSPy self-correcting LLM optimization assertions",
+    "Pydantic AI agent framework error handling retry structured output",
+    "CrewAI error handling fault tolerance agent retry mechanism",
+    "Braintrust AI evaluation testing LLM agent production monitoring"
+  ],
+  "tools": [
+    {
+      "name": "LangGraph",
+      "vendor": "LangChain",
+      "url": "https://github.com/langchain-ai/langgraph",
+      "category": "Agent Framework with Recovery",
+      "description": "Graph-based agent framework with built-in checkpoint persistence, state recovery, fault-tolerant superstep execution, and time-travel debugging. State saved at every step via configurable checkpointer backends (SQLite, Couchbase, in-memory).",
+      "license": "MIT",
+      "pricing": "Open source (LangSmith for managed)",
+      "key_features": ["checkpoint persistence", "superstep recovery", "time-travel debugging", "human-in-the-loop", "state graph architecture"]
+    },
+    {
+      "name": "LangSmith",
+      "vendor": "LangChain",
+      "url": "https://www.langchain.com/langsmith",
+      "category": "Observability & Debugging",
+      "description": "Unified agent engineering platform providing observability, evaluations, prompt engineering. Full execution tree tracing with Polly AI debugging assistant. Virtually no measurable performance overhead.",
+      "license": "Proprietary",
+      "pricing": "Freemium / Enterprise",
+      "key_features": ["execution tree tracing", "AI debugging assistant (Polly)", "prompt management", "run replay", "side-by-side comparison"]
+    },
+    {
+      "name": "Guardrails AI",
+      "vendor": "Guardrails AI Inc.",
+      "url": "https://github.com/guardrails-ai/guardrails",
+      "category": "Output Validation & Self-Correction",
+      "description": "Open-source Python framework enforcing quality constraints on LLM outputs via composable validator architecture. Guard object orchestrates validation workflows with 50+ pre-built validators from Guardrails Hub. Auto re-ask on validation failure.",
+      "license": "Apache 2.0",
+      "pricing": "Open source / Enterprise",
+      "key_features": ["output validation", "auto re-ask", "composable validators", "Guardrails Hub", "structured output enforcement"]
+    },
+    {
+      "name": "NeMo Guardrails",
+      "vendor": "NVIDIA",
+      "url": "https://github.com/NVIDIA-NeMo/Guardrails",
+      "category": "Conversational Safety & Guardrails",
+      "description": "Open-source toolkit for programmable guardrails on LLM-based systems using Colang DSL. State-machine approach to input/output validation. GPU-accelerated with sub-100ms response times.",
+      "license": "Apache 2.0",
+      "pricing": "Open source",
+      "key_features": ["Colang DSL", "state-machine guardrails", "hallucination detection", "jailbreak detection", "GPU-accelerated"]
+    },
+    {
+      "name": "DSPy",
+      "vendor": "Stanford NLP",
+      "url": "https://github.com/stanfordnlp/dspy",
+      "category": "LLM Programming & Self-Refinement",
+      "description": "Framework for programming (not prompting) language models. DSPy Assertions enable computational constraints with Assert (hard) and Suggest (soft) constructs. Automatic self-refinement via backtracking and retry modules.",
+      "license": "MIT",
+      "pricing": "Open source",
+      "key_features": ["LM Assertions", "self-refinement backtracking", "prompt optimization", "teacher-student bootstrapping", "composable modules"]
+    },
+    {
+      "name": "Instructor",
+      "vendor": "567 Labs / Jason Liu",
+      "url": "https://github.com/567-labs/instructor",
+      "category": "Structured Output & Validation Retry",
+      "description": "Python library for structured, validated data extraction from LLMs using Pydantic models. Built-in retry logic when validation fails. 3M+ monthly downloads, 11k+ GitHub stars. Supports 15+ LLM providers.",
+      "license": "MIT",
+      "pricing": "Open source",
+      "key_features": ["Pydantic validation", "automatic retry on failure", "multi-provider support", "streaming", "structured extraction"]
+    },
+    {
+      "name": "Pydantic AI",
+      "vendor": "Pydantic",
+      "url": "https://ai.pydantic.dev/",
+      "category": "Agent Framework with Retry",
+      "description": "Python agent framework with built-in validation retry. ModelRetry exception signals tool function retry. HTTP retry via tenacity integration. Structured outputs with automatic validation.",
+      "license": "MIT",
+      "pricing": "Open source",
+      "key_features": ["ModelRetry exception", "validation error feedback", "tenacity integration", "structured output", "tool retry"]
+    },
+    {
+      "name": "Galileo (Agent Control)",
+      "vendor": "Galileo AI",
+      "url": "https://galileo.ai",
+      "category": "Guardrails & Runtime Intervention",
+      "description": "Enterprise guardrails platform unifying observability, evaluation, and runtime intervention. Sub-0.3ms inline response inspection. Luna-2 SLM powers detection at 98% lower cost. Open-source Agent Control project.",
+      "license": "Proprietary / Open source (Agent Control)",
+      "pricing": "Enterprise / Free (Agent Control OSS)",
+      "key_features": ["runtime intervention", "Luna-2 SLM scoring", "eval-to-guardrail lifecycle", "deny/steer controls", "hallucination detection"]
+    },
+    {
+      "name": "Restate",
+      "vendor": "Restate Dev",
+      "url": "https://github.com/restatedev/restate",
+      "category": "Durable Execution & Fault Tolerance",
+      "description": "Platform for durable execution of AI agent workflows. Durable journal records every LLM call and tool invocation. Automatic recovery from crashes, resuming exactly where left off. Stateful sessions via Virtual Objects.",
+      "license": "Open source",
+      "pricing": "Open source / Cloud",
+      "key_features": ["durable journal", "crash recovery", "stateful sessions", "human-in-the-loop promises", "scale-to-zero"]
+    },
+    {
+      "name": "Langfuse",
+      "vendor": "Langfuse",
+      "url": "https://langfuse.com",
+      "category": "Observability & Evaluation",
+      "description": "Open-source (MIT) self-hostable LLM observability platform. Agent graph visualization, tool call inspection, collaborative debugging. Framework-agnostic. 50K events/month free tier.",
+      "license": "MIT",
+      "pricing": "Open source / Cloud",
+      "key_features": ["self-hostable", "agent graph visualization", "prompt management", "collaborative debugging", "framework-agnostic"]
+    },
+    {
+      "name": "AgentOps",
+      "vendor": "AgentOps.ai",
+      "url": "https://www.agentops.ai",
+      "category": "Agent Observability",
+      "description": "Developer-focused observability platform specifically for autonomous AI agents. Time-travel debugging, session replay. Tracks 400+ LLMs. Claims 25x reduction in fine-tuning costs.",
+      "license": "Proprietary",
+      "pricing": "Freemium",
+      "key_features": ["time-travel debugging", "session replay", "400+ LLM support", "cost optimization", "agent behavior analysis"]
+    },
+    {
+      "name": "Phoenix (Arize)",
+      "vendor": "Arize AI",
+      "url": "https://github.com/Arize-ai/phoenix",
+      "category": "Observability & Evaluation",
+      "description": "Open-source AI observability platform with enterprise AX product line. Agent debugging, evaluation, trace analysis. OpenTelemetry-based.",
+      "license": "Open source (Phoenix) / Proprietary (AX)",
+      "pricing": "Open source / Enterprise",
+      "key_features": ["OpenTelemetry", "trace analysis", "agent debugging", "evaluation", "open-source core"]
+    },
+    {
+      "name": "Braintrust",
+      "vendor": "Braintrust Data",
+      "url": "https://www.braintrust.dev",
+      "category": "Evaluation & Monitoring",
+      "description": "AI observability platform with end-to-end agent evaluation pipeline. Continuous production monitoring with threshold alerts. Loop AI agent for automated optimization. CI/CD GitHub Action integration.",
+      "license": "Proprietary",
+      "pricing": "Freemium / Enterprise",
+      "key_features": ["agent evaluation", "CI/CD gating", "production monitoring", "Loop AI optimizer", "threshold alerts"]
+    },
+    {
+      "name": "CrewAI",
+      "vendor": "CrewAI Inc.",
+      "url": "https://www.crewai.com",
+      "category": "Multi-Agent Framework with Retry",
+      "description": "Multi-agent orchestration framework with built-in task retry (max_retry_limit, default 2). Manager structure pauses and re-evaluates on errors. Code execution error handling with agent self-correction.",
+      "license": "Open source",
+      "pricing": "Open source / Enterprise",
+      "key_features": ["task retry", "managerial re-evaluation", "code error correction", "multi-agent orchestration", "fallback procedures"]
+    },
+    {
+      "name": "Maxim AI",
+      "vendor": "Maxim",
+      "url": "https://www.getmaxim.ai",
+      "category": "Testing & Quality Assurance",
+      "description": "Unified AI lifecycle platform for pre-production testing through production monitoring. Simulate hundreds of agent scenarios before deployment. Claims 5x faster shipping.",
+      "license": "Proprietary",
+      "pricing": "Enterprise",
+      "key_features": ["scenario simulation", "pre-production testing", "production monitoring", "proactive QA", "agent debugging"]
+    },
+    {
+      "name": "Helicone",
+      "vendor": "Helicone",
+      "url": "https://www.helicone.ai",
+      "category": "Observability Proxy",
+      "description": "Low-latency proxy adding observability and caching with minimal code changes. Lightweight approach to LLM monitoring.",
+      "license": "Open source",
+      "pricing": "Freemium",
+      "key_features": ["proxy-based", "caching", "low latency", "minimal integration", "cost tracking"]
+    },
+    {
+      "name": "VIGIL",
+      "vendor": "Academic (Christopher Cruz)",
+      "url": "https://arxiv.org/abs/2512.07094",
+      "category": "Research: Self-Healing Runtime",
+      "description": "Reflective runtime that supervises a sibling agent and performs autonomous maintenance. Ingests behavioral logs, maintains EmoBank, derives RBT diagnosis, generates guarded prompt updates and code proposals. Stage-gated pipeline. Research prototype.",
+      "license": "Research",
+      "pricing": "N/A (academic)",
+      "key_features": ["behavioral log analysis", "RBT diagnosis", "guarded prompt updates", "code hotspot proposals", "stage-gated pipeline"]
+    },
+    {
+      "name": "Tenacity",
+      "vendor": "Open Source (Julien Danjou)",
+      "url": "https://github.com/jd/tenacity",
+      "category": "Retry Library (General Purpose)",
+      "description": "General-purpose Python retry library. Decorator-based API with customizable conditions, exponential backoff, jitter. Used by Pydantic AI and Instructor under the hood.",
+      "license": "Apache 2.0",
+      "pricing": "Open source",
+      "key_features": ["decorator-based", "exponential backoff", "custom conditions", "exception filtering", "composable strategies"]
+    },
+    {
+      "name": "Stamina",
+      "vendor": "Open Source (Hynek Schlawack)",
+      "url": "https://github.com/hynek/stamina",
+      "category": "Retry Library (Opinionated)",
+      "description": "Opinionated wrapper around Tenacity with sensible defaults. Exponential backoff with jitter, limits on retries and total time. Production-grade retry.",
+      "license": "MIT",
+      "pricing": "Open source",
+      "key_features": ["opinionated defaults", "exponential backoff + jitter", "time limits", "exception introspection", "minimal API"]
+    },
+    {
+      "name": "SAGE-32B",
+      "vendor": "Research/Open Source",
+      "url": "N/A",
+      "category": "Specialized Agent Model",
+      "description": "Model designed specifically for agent planning, reflection, and recovery. Used in experimental agent frameworks for self-correction capabilities.",
+      "license": "Open source",
+      "pricing": "Open source",
+      "key_features": ["agent planning", "reflection", "recovery", "specialized training"]
+    },
+    {
+      "name": "Ralph Wiggum",
+      "vendor": "Open Source Community",
+      "url": "https://ralph-wiggum.ai",
+      "category": "Agentic Coding Loop",
+      "description": "Viral agentic coding loop tool. Open source, spec-driven. Focused on self-correcting code generation with iterative refinement.",
+      "license": "Open source",
+      "pricing": "Open source",
+      "key_features": ["coding loop", "spec-driven", "iterative refinement", "community-led"]
+    }
+  ],
+  "total_tools_found": 21,
+  "categories": {
+    "Agent Frameworks with Recovery": ["LangGraph", "Pydantic AI", "CrewAI"],
+    "Output Validation & Self-Correction": ["Guardrails AI", "Instructor", "DSPy"],
+    "Conversational Safety & Guardrails": ["NeMo Guardrails", "Galileo (Agent Control)"],
+    "Durable Execution & Fault Tolerance": ["Restate"],
+    "Observability & Debugging": ["LangSmith", "Langfuse", "AgentOps", "Phoenix (Arize)", "Helicone", "Maxim AI", "Braintrust"],
+    "Retry Libraries": ["Tenacity", "Stamina"],
+    "Research & Specialized": ["VIGIL", "SAGE-32B", "Ralph Wiggum"]
+  }
+}

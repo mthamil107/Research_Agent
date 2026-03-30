@@ -1,0 +1,177 @@
+{
+  "domain": "AI Agent Identity, Authentication & Access Control",
+  "generated_date": "2026-03-29",
+  "gap_types": ["feature_gap", "segment_gap", "workflow_gap", "integration_gap", "pricing_gap"],
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Unified Agent Identity Lifecycle Platform (Create-to-Revoke)",
+      "type": "feature_gap",
+      "description": "No single platform handles the full agent identity lifecycle: registration, credential issuance, delegation scoping, runtime enforcement, access reviews, and revocation. Organizations use 3-5 tools stitched together. 40% of organizations cannot discover or register their agents. 12% don't even know how their agents authenticate.",
+      "affected_features": ["agent_identity_lifecycle", "agent_registration_discovery", "access_reviews_governance"],
+      "current_tools_partial": ["Okta", "Strata Maverics", "Entro Security"],
+      "unmet_need": "Single pane of glass for the entire agent identity journey from birth to death"
+    },
+    {
+      "id": "GAP-002",
+      "title": "Runtime Least-Privilege Enforcement for AI Agents",
+      "type": "feature_gap",
+      "description": "Traditional RBAC fails for agents that decide actions at runtime. Static roles are either too broad (security risk) or too narrow (breaks automation). 53% of admin teams say AI is deployed faster than safeguards. No tool dynamically scopes permissions per-task with ephemeral tokens that auto-expire after each agent action.",
+      "affected_features": ["fine_grained_authz", "just_in_time_access", "zero_trust_enforcement"],
+      "current_tools_partial": ["Oso", "Aembit", "WorkOS FGA"],
+      "unmet_need": "Per-task, per-action dynamic permission scoping with automatic expiry, enforced at runtime"
+    },
+    {
+      "id": "GAP-003",
+      "title": "Agent-to-Agent Delegation Chain Security",
+      "type": "workflow_gap",
+      "description": "Multi-agent systems where Agent A delegates to Agent B delegates to Agent C have no standard for maintaining trust chains. Privilege escalation through delegation chain accumulation is a known attack vector. Emerging token formats (Macaroons, Biscuits, Wafers) exist in research but no production-ready platform implements them for AI agents.",
+      "affected_features": ["delegated_access", "zero_trust_enforcement", "audit_trails"],
+      "current_tools_partial": ["Okta (blog-level)", "Stytch (early)"],
+      "unmet_need": "Production-ready delegation chain management with attenuation-only tokens and per-hop verification"
+    },
+    {
+      "id": "GAP-004",
+      "title": "MCP Server Security & Authentication Gateway",
+      "type": "feature_gap",
+      "description": "MCP protocol has fundamental security gaps: session IDs in URLs, no required message signing, OAuth often skipped. Many MCP servers accept unauthenticated calls. CVE-2025-6514 compromised 437K+ dev environments. No dedicated MCP security gateway product exists that handles auth, rate limiting, tool approval, and audit in one place.",
+      "affected_features": ["oauth_mcp_auth", "zero_trust_enforcement", "audit_trails"],
+      "current_tools_partial": ["Cloudflare Agents (partial)", "MCP Gateway Registry (early OSS)"],
+      "unmet_need": "Enterprise MCP security gateway with OAuth enforcement, tool-level RBAC, request signing, and audit logging"
+    },
+    {
+      "id": "GAP-005",
+      "title": "Shadow AI Agent Discovery & Inventory",
+      "type": "segment_gap",
+      "description": "Business units deploy agents without IT/security involvement. Developers create test agents that reach production. No tool comprehensively discovers ALL agents across an enterprise: cloud, on-prem, SaaS-embedded, RPA bots, custom code agents. The NHI discovery tools focus on secrets/service accounts, not AI agents specifically.",
+      "affected_features": ["agent_registration_discovery", "nhi_discovery_inventory", "behavior_monitoring"],
+      "current_tools_partial": ["Zenity", "Cisco Identity Intelligence", "Microsoft Agent 365"],
+      "unmet_need": "Comprehensive shadow AI agent discovery across all deployment surfaces with automatic classification and risk scoring"
+    },
+    {
+      "id": "GAP-006",
+      "title": "Agent Compliance & Audit Layer (SOC2/HIPAA/GDPR)",
+      "type": "segment_gap",
+      "description": "AI agents make decisions under GDPR, HIPAA, and SOC2 but most teams have no agent-specific audit trail. Existing compliance tools were built for human actions. No tool maps agent actions to specific compliance framework controls, generates audit-ready reports, or provides real-time compliance violation alerts for agent behavior.",
+      "affected_features": ["audit_trails", "access_reviews_governance", "behavior_monitoring"],
+      "current_tools_partial": ["AgentComplianceLayer.com (very early)", "Zenity (partial)"],
+      "unmet_need": "Automated compliance mapping of agent actions to SOC2/HIPAA/GDPR controls with audit-ready reporting"
+    },
+    {
+      "id": "GAP-007",
+      "title": "Cross-Platform Agent Identity Federation",
+      "type": "integration_gap",
+      "description": "Agents operate across multiple platforms (AWS, Azure, GCP, SaaS apps, on-prem) but each has its own identity system. No unified identity federation specifically designed for agents that works across cloud providers, SaaS platforms, and on-prem infrastructure with a single identity.",
+      "affected_features": ["agent_identity_lifecycle", "multi_cloud_support", "spiffe_workload_id"],
+      "current_tools_partial": ["SPIFFE/SPIRE (infrastructure-level)", "Teleport", "HashiCorp Vault"],
+      "unmet_need": "Agent-specific identity federation that gives one identity across all platforms, with cross-platform policy sync"
+    },
+    {
+      "id": "GAP-008",
+      "title": "Developer-Friendly Agent Auth SDK/Framework",
+      "type": "segment_gap",
+      "description": "Developers building agents lack a simple, opinionated SDK for auth. Current options require stitching together OAuth libraries, secrets managers, and permission systems. There is no 'Auth0 for agents' equivalent that is developer-first with 5-minute integration, handles MCP auth, third-party OAuth, delegation, and comes with sensible defaults.",
+      "affected_features": ["oauth_mcp_auth", "third_party_oauth", "delegated_access"],
+      "current_tools_partial": ["Auth0 (adapting)", "Composio (integration-focused)", "Stytch (early)"],
+      "unmet_need": "Drop-in agent auth SDK: pip install agent-auth, 5 lines of code, handles OAuth, MCP, delegation, secrets"
+    },
+    {
+      "id": "GAP-009",
+      "title": "Agent Behavior Anomaly Detection & Response",
+      "type": "feature_gap",
+      "description": "Agents can behave unpredictably at runtime. While some tools monitor agent actions, none provide real-time behavioral anomaly detection specifically tuned for AI agent patterns (e.g., sudden scope expansion, unusual API call patterns, data exfiltration signals) with automated response (suspend, scope-down, alert).",
+      "affected_features": ["behavior_monitoring", "zero_trust_enforcement", "audit_trails"],
+      "current_tools_partial": ["Entro Security (secrets anomaly)", "Zenity (partial)"],
+      "unmet_need": "AI-powered agent behavior analytics with baseline learning, anomaly detection, and automated containment"
+    },
+    {
+      "id": "GAP-010",
+      "title": "Agent Secret Zero-Trust Bootstrap Problem",
+      "type": "workflow_gap",
+      "description": "How does an agent get its FIRST credential securely? The bootstrap/secret-zero problem for AI agents is unsolved. Agents need initial identity before they can authenticate to get more credentials. Current approaches rely on environment variables, hardcoded tokens, or human intervention — all insecure or unscalable.",
+      "affected_features": ["secretless_access", "agent_identity_lifecycle", "zero_trust_enforcement"],
+      "current_tools_partial": ["SPIFFE/SPIRE (for workloads, not agents)", "Aembit (partial)"],
+      "unmet_need": "Secure agent bootstrap mechanism: attestation-based identity issuance without pre-shared secrets"
+    },
+    {
+      "id": "GAP-011",
+      "title": "Open-Source Agent Identity Standard/Protocol",
+      "type": "feature_gap",
+      "description": "45% of organizations cite lack of identity standards for agents as a top concern. MCP defines tool interaction but not identity. A2A (Google) defines agent communication but identity/auth is still evolving. No comprehensive open standard for agent identity, delegation, and access control exists. AIP (Agent Identity Protocol) is proposed in academic papers but not implemented.",
+      "affected_features": ["agent_identity_lifecycle", "oauth_mcp_auth", "delegated_access"],
+      "current_tools_partial": ["SPIFFE (workload-level)", "MCP spec (partial)", "A2A (early)"],
+      "unmet_need": "Open standard for AI agent identity covering registration, delegation, cross-platform federation, and audit"
+    },
+    {
+      "id": "GAP-012",
+      "title": "SMB/Startup Agent Security (Affordable Tier)",
+      "type": "pricing_gap",
+      "description": "Enterprise tools like Okta, CyberArk, and Entro Security are priced for large organizations. Startups and SMBs deploying agents have no affordable option for agent identity management. Open-source options (SPIFFE/SPIRE, Cerbos) require significant expertise to configure for agent use cases.",
+      "affected_features": ["agent_identity_lifecycle", "secrets_management", "fine_grained_authz"],
+      "current_tools_partial": ["Infisical (secrets only)", "Permit.io (authz only)", "1Password"],
+      "unmet_need": "All-in-one agent security platform for startups: free tier, $50-200/month paid, handles identity+auth+secrets+audit"
+    },
+    {
+      "id": "GAP-013",
+      "title": "Agent-Aware API Gateway",
+      "type": "integration_gap",
+      "description": "Existing API gateways (Kong, Apigee, AWS API Gateway) treat all consumers the same. None differentiate between human users, traditional services, and AI agents. Agent-specific needs include: per-agent rate limiting, tool-level access control, delegation chain validation, cost attribution, and behavioral throttling.",
+      "affected_features": ["fine_grained_authz", "behavior_monitoring", "audit_trails"],
+      "current_tools_partial": ["Gravitee (early)", "Zuplo (API keys only)"],
+      "unmet_need": "API gateway with first-class agent identity support: agent-specific rate limits, delegation validation, cost tracking"
+    },
+    {
+      "id": "GAP-014",
+      "title": "Human-in-the-Loop Approval Workflows for Agent Actions",
+      "type": "workflow_gap",
+      "description": "When agents need to perform sensitive actions (financial transactions, data deletion, access escalation), there is no standardized mechanism for triggering human approval. Current implementations are ad-hoc: Slack notifications, custom UIs. No tool provides a universal approval workflow that integrates with agent frameworks.",
+      "affected_features": ["delegated_access", "behavior_monitoring", "just_in_time_access"],
+      "current_tools_partial": ["ConductorOne (access requests)", "Apono (JIT access)"],
+      "unmet_need": "Universal human-in-the-loop approval engine for agent actions: pluggable into any agent framework, multi-channel"
+    },
+    {
+      "id": "GAP-015",
+      "title": "Agent Identity for Edge/IoT/Embedded Deployments",
+      "type": "segment_gap",
+      "description": "All existing agent identity tools assume cloud-connected environments. Agents running on edge devices, IoT, or embedded systems have unique constraints: limited compute, intermittent connectivity, hardware attestation needs. No tool addresses agent identity for these environments.",
+      "affected_features": ["agent_identity_lifecycle", "secretless_access", "spiffe_workload_id"],
+      "current_tools_partial": ["SPIFFE/SPIRE (limited edge support)"],
+      "unmet_need": "Lightweight agent identity for edge/IoT: hardware-attested, offline-capable, sub-MB footprint"
+    },
+    {
+      "id": "GAP-016",
+      "title": "Multi-Tenant Agent Isolation & Boundaries",
+      "type": "feature_gap",
+      "description": "SaaS platforms hosting agents for multiple tenants need strict isolation between tenant agents. No tool specifically addresses multi-tenant agent isolation: ensuring agents from Tenant A cannot access Tenant B's data, tools, or other agents. This is critical for agent-as-a-service platforms.",
+      "affected_features": ["fine_grained_authz", "zero_trust_enforcement", "agent_identity_lifecycle"],
+      "current_tools_partial": ["Oso (app-level)", "WorkOS (B2B SaaS focus)"],
+      "unmet_need": "Multi-tenant agent isolation layer: tenant-scoped identities, cross-tenant access prevention, blast radius containment"
+    },
+    {
+      "id": "GAP-017",
+      "title": "Agent Credential Forensics & Incident Response",
+      "type": "workflow_gap",
+      "description": "When an agent credential is compromised, security teams lack tools for agent-specific incident response: what did this agent access, what other agents share credentials, what is the blast radius, how to rotate without breaking dependent agents. Traditional IR tools don't understand agent identity graphs.",
+      "affected_features": ["audit_trails", "nhi_discovery_inventory", "behavior_monitoring"],
+      "current_tools_partial": ["Entro Security (partial)", "GitGuardian (detection only)"],
+      "unmet_need": "Agent-specific incident response toolkit: credential compromise blast radius analysis, automated rotation, dependency mapping"
+    },
+    {
+      "id": "GAP-018",
+      "title": "Cost Attribution & Budget Enforcement per Agent Identity",
+      "type": "feature_gap",
+      "description": "Agents consume API calls, compute, and third-party services but cost is rarely tied to agent identity. No tool tracks spending per agent identity with the ability to set budgets, alerts, and automatic suspension when budgets are exceeded. This is critical for controlling runaway agent costs.",
+      "affected_features": ["agent_identity_lifecycle", "behavior_monitoring", "audit_trails"],
+      "current_tools_partial": [],
+      "unmet_need": "Per-agent cost attribution, budgeting, and automatic enforcement tied to agent identity"
+    }
+  ],
+  "total_gaps_identified": 18,
+  "gap_type_distribution": {
+    "feature_gap": 7,
+    "segment_gap": 4,
+    "workflow_gap": 4,
+    "integration_gap": 2,
+    "pricing_gap": 1
+  }
+}

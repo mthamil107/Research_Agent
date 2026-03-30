@@ -1,0 +1,306 @@
+{
+  "domain": "AI Agent Browser Automation & Computer Use",
+  "scan_date": "2026-03-29",
+  "market_size": {
+    "ai_browser_market_2024": "$4.5B",
+    "ai_browser_market_2034_projected": "$76.8B",
+    "cagr": "32.8%",
+    "ai_agent_market_2025": "$7.8B",
+    "ai_agent_market_2030_projected": "$52.6B",
+    "rpa_market_2026": "$28B",
+    "ai_web_scraping_market_2025": "$886M",
+    "ai_web_scraping_market_2035_projected": "$4.37B"
+  },
+  "categories": {
+    "open_source_browser_agent_frameworks": [
+      {
+        "name": "Browser Use",
+        "url": "https://github.com/browser-use/browser-use",
+        "github_stars": "78K+",
+        "description": "Leading open-source framework for AI browser agents. Gives LLM full autonomous browser control with re-reasoning at every step.",
+        "approach": "Full autonomous agent loop with LLM reasoning",
+        "benchmark": "89.1% success rate on WebVoyager",
+        "license": "Open Source",
+        "pricing": "Free / Cloud plans available"
+      },
+      {
+        "name": "Stagehand",
+        "url": "https://github.com/browserbase/stagehand",
+        "description": "AI browser automation SDK by Browserbase. Adds surgical AI primitives (act, extract, observe) on top of Playwright for hybrid workflows.",
+        "approach": "Hybrid: code + natural language primitives",
+        "maintainer": "Browserbase",
+        "license": "Open Source",
+        "pricing": "Free (cloud via Browserbase)"
+      },
+      {
+        "name": "Skyvern",
+        "url": "https://github.com/Skyvern-AI/skyvern",
+        "github_stars": "20K+",
+        "description": "Uses Vision-LLMs to understand web pages via screenshots, not DOM parsing. Best performing agent on WRITE tasks (forms, logins, downloads).",
+        "approach": "Vision-LLM + Computer Vision, planner-actor-validator loop",
+        "backed_by": "Y Combinator",
+        "license": "Open Source",
+        "pricing": "Free / Cloud plans"
+      },
+      {
+        "name": "Crawl4AI",
+        "url": "https://github.com/unclecode/crawl4ai",
+        "github_stars": "58K+",
+        "description": "LLM-friendly web crawler outputting clean markdown. 4x faster than competitors.",
+        "approach": "Web crawling optimized for LLM consumption",
+        "license": "Apache 2.0",
+        "pricing": "Free"
+      },
+      {
+        "name": "LaVague",
+        "url": "https://github.com/lavague-ai/LaVague",
+        "description": "Large Action Model framework for developing AI Web Agents. Natural language web automation.",
+        "approach": "Large Action Model framework",
+        "license": "Open Source",
+        "pricing": "Free"
+      },
+      {
+        "name": "Notte",
+        "url": "https://github.com/nottelabs/notte",
+        "description": "Web agent framework with perception layer that transforms web pages into structured navigable maps. Hybrid scripting + AI approach cuts costs 50%+.",
+        "approach": "Perception layer + hybrid scripting/AI",
+        "license": "Open Source",
+        "pricing": "Free / Cloud platform"
+      },
+      {
+        "name": "Nanobrowser",
+        "url": "https://nanobrowser.ai/",
+        "description": "Open source AI web agent running as browser extension.",
+        "approach": "Browser extension based agent",
+        "license": "Open Source",
+        "pricing": "Free"
+      },
+      {
+        "name": "Agent Browser (Vercel Labs)",
+        "url": "https://github.com/vercel-labs/agent-browser",
+        "github_stars": "14K+",
+        "description": "Open-source CLI tool for browser automation by AI agents.",
+        "approach": "CLI-based browser automation",
+        "license": "Open Source",
+        "pricing": "Free"
+      },
+      {
+        "name": "AgentQL",
+        "url": "https://www.agentql.com/",
+        "description": "Query language and toolkit making the web AI-ready. Semantic targeting of web elements via natural language queries.",
+        "approach": "Semantic query language for web elements",
+        "license": "Open Source integrations",
+        "pricing": "Free tier + paid"
+      }
+    ],
+    "platform_provider_computer_use_agents": [
+      {
+        "name": "OpenAI Operator (CUA)",
+        "url": "https://operator.chatgpt.com",
+        "description": "Cloud-based virtual browser assistant that navigates websites and fills forms. Computer Using Agent (CUA).",
+        "benchmark": "87% on WebVoyager",
+        "approach": "Cloud virtual browser, vision-based",
+        "pricing": "ChatGPT Pro subscription ($200/mo)"
+      },
+      {
+        "name": "Anthropic Claude Computer Use",
+        "url": "https://docs.anthropic.com/en/docs/computer-use",
+        "description": "Claude can control computers via screenshots and mouse/keyboard actions. Runs in sandbox environments (Docker/VMs).",
+        "benchmark": "72.5% on computer-use benchmarks (Claude Opus 4.6, Feb 2026)",
+        "approach": "Screenshot-based, sandboxed execution",
+        "pricing": "API pricing (Claude models)"
+      },
+      {
+        "name": "Google Project Mariner",
+        "url": "https://deepmind.google/technologies/project-mariner/",
+        "description": "Google's browser agent handling 10 concurrent tasks on cloud-based VMs. Chrome-optimized.",
+        "benchmark": "83.5% on WebVoyager",
+        "approach": "Cloud VMs, Chrome-native, Gemini-based",
+        "pricing": "Not yet widely available"
+      },
+      {
+        "name": "OpenClaw",
+        "url": "https://openclaw.ai/",
+        "github_stars": "250K+ (fastest-growing OS project ever)",
+        "description": "Open-source autonomous AI agent running locally. Controls computer via messaging platforms (WhatsApp, Discord, Signal). 100+ AgentSkills.",
+        "approach": "Local agent, messaging-platform interface, LLM-powered",
+        "pricing": "Free (open source)",
+        "notes": "Creator hired by OpenAI. Security concerns re: prompt injection."
+      }
+    ],
+    "consumer_ai_browsers": [
+      {
+        "name": "ChatGPT Atlas",
+        "description": "AI browser built into ChatGPT with Agent Mode for multi-step workflows (form filling, product comparison, booking).",
+        "pricing": "ChatGPT subscription"
+      },
+      {
+        "name": "Perplexity Comet",
+        "description": "Research-focused AI browser with citation-backed answers, context across tabs, automatic synthesis.",
+        "pricing": "Free tier + Pro"
+      },
+      {
+        "name": "Fellou",
+        "description": "Agentic browser for deep research, workflow automation, AI-driven report generation. Privacy-focused with local data storage.",
+        "pricing": "Subscription"
+      },
+      {
+        "name": "Dia Browser",
+        "description": "AI-native browser with built-in assistant capabilities.",
+        "pricing": "Free/Paid tiers"
+      }
+    ],
+    "cloud_browser_infrastructure": [
+      {
+        "name": "Browserbase",
+        "url": "https://www.browserbase.com/",
+        "description": "Cloud browser infrastructure for AI agents. Serverless Playwright/Puppeteer/Selenium at scale with stealth mode, session persistence.",
+        "success_rate_benchmark": "50%",
+        "pricing": "Usage-based"
+      },
+      {
+        "name": "Steel",
+        "url": "https://steel.dev/",
+        "description": "Open-source browser API. Self-host via Docker or use managed cloud. Batteries-included browser sandbox.",
+        "success_rate_benchmark": "70%",
+        "pricing": "Free (self-hosted) / Managed cloud"
+      },
+      {
+        "name": "Anchor Browser",
+        "url": "https://anchorbrowser.io/",
+        "description": "Cloud-hosted agentic browser automation infrastructure. Full browser isolation, VPN, CAPTCHA solving, anti-bot bypass.",
+        "success_rate_benchmark": "70%",
+        "pricing": "Usage-based"
+      },
+      {
+        "name": "Airtop",
+        "url": "https://www.airtop.ai/",
+        "description": "Cloud browsers controlled via natural language. No-code AI browser automation.",
+        "success_rate_benchmark": "40%",
+        "pricing": "Usage-based"
+      },
+      {
+        "name": "BrowserAI",
+        "description": "Serverless browser with fastest startup (~1 sec). Optimized for quick on-demand AI tasks.",
+        "success_rate_benchmark": "85%",
+        "pricing": "Usage-based"
+      },
+      {
+        "name": "Bright Data Scraping Browser",
+        "url": "https://brightdata.com/",
+        "description": "Enterprise scraping browser with proxy networks. 95% success rate.",
+        "success_rate_benchmark": "95%",
+        "pricing": "Enterprise"
+      }
+    ],
+    "no_code_rpa_workflow_tools": [
+      {
+        "name": "Axiom AI",
+        "url": "https://axiom.ai/",
+        "description": "No-code browser automation and web scraping via visual builder.",
+        "pricing": "Free tier + paid"
+      },
+      {
+        "name": "Browserflow",
+        "description": "Visual browser automation for business workflows.",
+        "pricing": "Paid"
+      },
+      {
+        "name": "Bardeen AI",
+        "description": "Browser extension with AI playbooks and background agents for GTM automation.",
+        "pricing": "Free tier + paid"
+      },
+      {
+        "name": "Browse AI",
+        "url": "https://www.browse.ai/",
+        "description": "No-code data extraction by recording browser actions.",
+        "pricing": "Free tier + paid"
+      }
+    ],
+    "enterprise_rpa_with_ai_agents": [
+      {
+        "name": "UiPath (Agentic Automation)",
+        "url": "https://www.uipath.com/",
+        "description": "Market leader (~30% share). Now integrating AI agents with traditional RPA. Supports Gemini, OpenAI, NVIDIA NIM, Azure AI.",
+        "pricing": "Enterprise"
+      },
+      {
+        "name": "Automation Anywhere",
+        "description": "Cloud-native RPA with GenAI agents and document automation.",
+        "pricing": "Enterprise"
+      },
+      {
+        "name": "Microsoft Power Automate",
+        "description": "RPA + AI agents integrated with Microsoft ecosystem.",
+        "pricing": "Per-user/flow licensing"
+      }
+    ],
+    "developer_scraping_tools": [
+      {
+        "name": "Firecrawl",
+        "url": "https://www.firecrawl.dev/",
+        "github_stars": "82K+",
+        "description": "Developer-first: turns websites into clean LLM-ready data (Markdown/JSON) via single API call.",
+        "pricing": "Free tier + paid"
+      },
+      {
+        "name": "Apify",
+        "url": "https://apify.com/",
+        "description": "Actor-based web scraping platform with marketplace for prebuilt scrapers.",
+        "pricing": "Free tier + paid"
+      },
+      {
+        "name": "Kadoa",
+        "url": "https://www.kadoa.com/",
+        "description": "Enterprise autonomous scraping at scale. No script maintenance.",
+        "pricing": "Enterprise"
+      },
+      {
+        "name": "Oxylabs AI Studio",
+        "description": "Low-code AI-powered data extraction via natural language.",
+        "pricing": "Enterprise"
+      }
+    ],
+    "traditional_browser_automation_upgraded": [
+      {
+        "name": "Playwright (+ Playwright MCP)",
+        "url": "https://github.com/microsoft/playwright-mcp",
+        "description": "Microsoft's browser automation framework. MCP server enables LLM interaction via accessibility snapshots without screenshots.",
+        "pricing": "Free (open source)"
+      },
+      {
+        "name": "Selenium",
+        "description": "Classic browser automation framework, now with AI integrations.",
+        "pricing": "Free (open source)"
+      },
+      {
+        "name": "Puppeteer",
+        "description": "Chrome/Chromium automation by Google. Used under the hood by many AI tools.",
+        "pricing": "Free (open source)"
+      }
+    ],
+    "multimodal_ai_agent_platforms": [
+      {
+        "name": "MultiOn",
+        "url": "https://www.multion.ai/",
+        "description": "Motor Cortex layer for AI. Autonomous web actions via natural language. Millions of concurrent agents. Best-in-class structured data scraping.",
+        "pricing": "API-based"
+      },
+      {
+        "name": "Agent Zero",
+        "url": "https://www.agent-zero.ai/",
+        "description": "Open source agentic framework and computer assistant.",
+        "pricing": "Free"
+      }
+    ]
+  },
+  "total_tools_identified": 42,
+  "key_benchmarks": {
+    "WebVoyager": {
+      "OpenAI_CUA": "87%",
+      "Google_Mariner": "83.5%",
+      "Browser_Use": "89.1%",
+      "Anthropic_Computer_Use": "56%"
+    }
+  }
+}

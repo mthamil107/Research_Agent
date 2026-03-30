@@ -1,0 +1,188 @@
+{
+  "domain": "On-Device/Edge Reasoning SLM Deployment",
+  "generated": "2026-03-29",
+  "gap_categories": ["feature_gap", "segment_gap", "workflow_gap", "integration_gap", "pricing_gap"],
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "Universal NPU Abstraction Layer",
+      "category": "feature_gap",
+      "description": "No framework provides a single API that abstracts across ALL mobile NPUs (Qualcomm Hexagon, Apple Neural Engine, MediaTek APU, Samsung Exynos NPU, Google Tensor TPU). Developers must use vendor-specific SDKs or rely on ExecuTorch's limited backend coverage. A HAL (hardware abstraction layer) for NPU-accelerated LLM inference would let developers write once and deploy to any NPU.",
+      "current_state": "ExecuTorch supports 12+ backends but requires per-backend configuration. QNN, Core ML, and Samsung AI Studio are siloed. No single tool targets all NPUs with zero-config.",
+      "affected_tools": ["ExecuTorch", "QNN", "Core ML", "Samsung AI Studio"],
+      "target_users": "Mobile app developers deploying LLMs across Android + iOS"
+    },
+    {
+      "id": "GAP-002",
+      "title": "On-Device RAG Pipeline Framework",
+      "category": "feature_gap",
+      "description": "Almost no on-device inference tool includes built-in retrieval-augmented generation. Cactus has 'auto RAG' but it's proprietary and limited. There's no open-source, on-device RAG pipeline that handles local vector storage, document chunking, embedding, and retrieval—all running on-device without cloud dependency.",
+      "current_state": "Cactus is the only tool with built-in RAG. Others require separate vector DB (which don't exist for mobile) plus custom integration.",
+      "affected_tools": ["All except Cactus"],
+      "target_users": "Enterprise mobile app developers needing private document Q&A"
+    },
+    {
+      "id": "GAP-003",
+      "title": "Automated Hardware-Aware Model Selection & Optimization",
+      "category": "workflow_gap",
+      "description": "Developers must manually choose which model, quantization level, and runtime to use for each target device. No tool automatically profiles the device hardware (RAM, NPU type, thermal budget) and selects/optimizes the best model configuration. This is a critical workflow gap for apps targeting diverse Android devices.",
+      "current_state": "Manual benchmarking required. LiteRT-LM does some auto-selection for Gemini Nano, but nothing exists for open models.",
+      "affected_tools": ["All"],
+      "target_users": "Android developers targeting 1000+ device SKUs"
+    },
+    {
+      "id": "GAP-004",
+      "title": "On-Device Reasoning Chain Debugger/Visualizer",
+      "category": "feature_gap",
+      "description": "No tool provides visibility into how an on-device SLM reasons through chain-of-thought. Cloud providers have tracing tools, but nothing exists for debugging reasoning quality, token attribution, or inference paths on-device. Critical for safety-sensitive edge deployments (automotive, medical).",
+      "current_state": "Zero tooling. Developers log raw outputs and guess what went wrong.",
+      "affected_tools": ["All"],
+      "target_users": "Safety-critical edge AI developers (automotive, medical, industrial)"
+    },
+    {
+      "id": "GAP-005",
+      "title": "Cross-Platform Mobile LLM SDK (React Native / Flutter / KMP)",
+      "category": "integration_gap",
+      "description": "Only Cactus offers native bindings for React Native, Flutter, and Kotlin Multiplatform. No open-source alternative exists. The majority of mobile apps are built with cross-platform frameworks, yet most LLM runtimes only offer C/C++ or platform-native APIs.",
+      "current_state": "Cactus (commercial, proprietary format). llama.cpp has community React Native wrappers but they're fragile. ExecuTorch has no cross-platform mobile bindings.",
+      "affected_tools": ["llama.cpp", "ExecuTorch", "ONNX Runtime", "MLC LLM"],
+      "target_users": "Cross-platform mobile developers (80%+ of mobile dev workforce)"
+    },
+    {
+      "id": "GAP-006",
+      "title": "On-Device Model Fine-Tuning / Personalization",
+      "category": "feature_gap",
+      "description": "No production tool supports fine-tuning or LoRA adaptation directly on-device. Models are static after deployment. Users can't personalize models with their own data without sending it to the cloud, which defeats the privacy benefits of on-device inference.",
+      "current_state": "MLX supports fine-tuning on Mac but not mobile. LiteRT-LM supports LoRA switching but not training. No mobile fine-tuning exists.",
+      "affected_tools": ["All"],
+      "target_users": "Privacy-focused enterprises, personalized AI assistant developers"
+    },
+    {
+      "id": "GAP-007",
+      "title": "OTA Model Lifecycle Management Platform",
+      "category": "workflow_gap",
+      "description": "Managing model versions, A/B testing models, rolling back bad model deploys, and monitoring model performance across device fleets—no open-source platform exists for this. Only Cactus has OTA updates, and Google manages it internally for Gemini Nano.",
+      "current_state": "Cactus (proprietary OTA). Google internal for Gemini. No open MLOps-for-edge platform.",
+      "affected_tools": ["All open-source tools"],
+      "target_users": "Mobile teams deploying LLMs to millions of devices"
+    },
+    {
+      "id": "GAP-008",
+      "title": "Hybrid Edge-Cloud Inference Orchestrator",
+      "category": "workflow_gap",
+      "description": "When an on-device SLM can't handle a query (too complex, out of domain), it should seamlessly escalate to a cloud LLM. Only Cactus and Apple (Private Cloud Compute) do this. No open-source tool provides intelligent routing between on-device and cloud inference based on query complexity, latency budget, or cost.",
+      "current_state": "Cactus has basic cloud fallback. Apple has Private Cloud Compute. No open solution with smart routing.",
+      "affected_tools": ["llama.cpp", "ExecuTorch", "MLC LLM", "ONNX Runtime"],
+      "target_users": "Enterprise developers needing reliability guarantees"
+    },
+    {
+      "id": "GAP-009",
+      "title": "Edge-Optimized Reasoning Model Distillation Toolkit",
+      "category": "workflow_gap",
+      "description": "Distilling reasoning capabilities from frontier models (GPT-4, Claude, Gemini) into edge-deployable SLMs is a known technique but there's no turnkey toolkit. Developers must manually design distillation pipelines, select teacher-student pairs, and validate reasoning quality.",
+      "current_state": "Research papers exist. DeepSeek, Qwen do it internally. No open toolkit for custom reasoning distillation targeting specific edge use cases.",
+      "affected_tools": ["All"],
+      "target_users": "ML engineers building domain-specific reasoning SLMs"
+    },
+    {
+      "id": "GAP-010",
+      "title": "On-Device Multi-Agent Orchestration",
+      "category": "feature_gap",
+      "description": "Agentic AI is trending but no on-device framework supports running multiple specialized SLMs (one for reasoning, one for coding, one for retrieval) and orchestrating them locally. All agent frameworks (LangChain, CrewAI) are cloud-centric.",
+      "current_state": "No on-device agent orchestration exists. Ollama can swap models but not run them concurrently with orchestration.",
+      "affected_tools": ["All"],
+      "target_users": "Developers building complex on-device AI assistants"
+    },
+    {
+      "id": "GAP-011",
+      "title": "Standardized Edge LLM Benchmarking Suite",
+      "category": "workflow_gap",
+      "description": "No standardized benchmark suite exists for comparing on-device LLM inference across devices, runtimes, and models. Developers can't easily answer: 'Which runtime gives me the best tok/s on a Pixel 9 for Phi-4 mini with INT4?' MLPerf covers traditional ML but not LLM-specific metrics.",
+      "current_state": "Fragmented benchmarks. Individual papers compare 2-3 tools. No comprehensive, reproducible suite.",
+      "affected_tools": ["All"],
+      "target_users": "All edge LLM developers and decision-makers"
+    },
+    {
+      "id": "GAP-012",
+      "title": "Wearable/IoT LLM Deployment (Ultra-Constrained)",
+      "category": "segment_gap",
+      "description": "Smartwatches, earbuds, AR glasses, and IoT devices have 256MB-1GB RAM and minimal compute. Only ExecuTorch targets MCUs, and Google deployed Gemini Nano on Pixel Watch, but no general-purpose framework makes it easy to deploy SLMs on ultra-constrained wearables.",
+      "current_state": "ExecuTorch can target MCUs but with significant engineering. Cactus claims wearable support. No turnkey wearable LLM SDK.",
+      "affected_tools": ["ExecuTorch", "Cactus"],
+      "target_users": "Wearable device makers, AR/VR developers"
+    },
+    {
+      "id": "GAP-013",
+      "title": "Privacy-Certified On-Device Inference Framework",
+      "category": "segment_gap",
+      "description": "Healthcare, finance, and government need on-device inference with formal privacy guarantees (HIPAA, SOC2, GDPR certifications). No framework offers certified privacy controls, audit logs, data isolation, or compliance documentation for on-device LLM inference.",
+      "current_state": "Apple touts privacy but no formal certification. All others rely on 'data stays on device' claim without formal guarantees.",
+      "affected_tools": ["All"],
+      "target_users": "Healthcare, fintech, and government AI developers"
+    },
+    {
+      "id": "GAP-014",
+      "title": "On-Device Structured Output / JSON Mode Guarantees",
+      "category": "feature_gap",
+      "description": "Cloud LLM APIs (OpenAI, Anthropic) offer guaranteed JSON output and structured responses. On-device runtimes have minimal or no structured output enforcement. This is critical for edge apps that need reliable parsing of LLM outputs.",
+      "current_state": "WebLLM and llama.cpp server have basic JSON mode. No constrained decoding on mobile runtimes. No grammar-based output enforcement on NPU-accelerated paths.",
+      "affected_tools": ["ExecuTorch", "LiteRT-LM", "Core ML", "QNN", "Cactus"],
+      "target_users": "Enterprise app developers needing reliable LLM output parsing"
+    },
+    {
+      "id": "GAP-015",
+      "title": "Edge LLM Monitoring & Observability Platform",
+      "category": "workflow_gap",
+      "description": "No tool provides production monitoring for on-device LLM inference: latency percentiles, token throughput, error rates, model quality degradation, thermal throttling detection, battery impact tracking across a fleet of devices.",
+      "current_state": "Zero tooling. Developers build custom logging. No edge-LLM-specific observability platform.",
+      "affected_tools": ["All"],
+      "target_users": "Mobile ops teams managing LLM-powered apps at scale"
+    },
+    {
+      "id": "GAP-016",
+      "title": "Offline-First Conversational AI SDK",
+      "category": "segment_gap",
+      "description": "Field workers, military, disaster response, rural areas—many users need conversational AI that works 100% offline with persistent context, local knowledge base, and multi-turn conversation. No SDK is optimized for this use case end-to-end.",
+      "current_state": "Possible to cobble together with llama.cpp + manual persistence, but no integrated offline-first SDK.",
+      "affected_tools": ["All"],
+      "target_users": "Military, field service, disaster response, rural connectivity"
+    },
+    {
+      "id": "GAP-017",
+      "title": "Cross-Device Model Sharing & Federated Edge Inference",
+      "category": "feature_gap",
+      "description": "No tool supports splitting model inference across multiple edge devices (e.g., phone + laptop + smart speaker collaborating on a single query) or federated learning across edge devices.",
+      "current_state": "Research papers on split inference exist (Petals, etc.) but nothing production-ready for consumer edge devices.",
+      "affected_tools": ["All"],
+      "target_users": "Smart home developers, enterprise campus deployments"
+    },
+    {
+      "id": "GAP-018",
+      "title": "Developer-Friendly Model Conversion & Optimization Hub",
+      "category": "workflow_gap",
+      "description": "Converting a HuggingFace model to run on-device requires navigating GGUF, ONNX, Core ML, ExecuTorch .pte, TensorRT, QNN formats—each with different tools and gotchas. No unified conversion/optimization hub exists that takes any HuggingFace model and produces optimized artifacts for all target runtimes.",
+      "current_state": "Each runtime has its own converter. HuggingFace Optimum helps but doesn't cover all targets. Manual, error-prone process.",
+      "affected_tools": ["All"],
+      "target_users": "ML engineers deploying models across diverse edge targets"
+    },
+    {
+      "id": "GAP-019",
+      "title": "Automotive/Robotics Edge LLM Integration SDK",
+      "category": "segment_gap",
+      "description": "TensorRT-Edge-LLM targets automotive but is NVIDIA-only. No framework-agnostic SDK exists for integrating LLMs into automotive (AUTOSAR, ROS2) or robotics (ROS2) middleware with real-time safety guarantees, sensor fusion, and deterministic latency.",
+      "current_state": "TensorRT-Edge-LLM + Bosch for NVIDIA Jetson. Nothing for Qualcomm/ARM-based automotive platforms.",
+      "affected_tools": ["TensorRT-Edge-LLM"],
+      "target_users": "Automotive OEMs, robotics companies"
+    },
+    {
+      "id": "GAP-020",
+      "title": "Free/Open Model Marketplace with Edge-Optimized Artifacts",
+      "category": "pricing_gap",
+      "description": "HuggingFace has models but few are pre-optimized for specific edge runtimes. No marketplace offers pre-quantized, pre-compiled, benchmarked model artifacts for each runtime+device combination, with performance guarantees and one-click deployment.",
+      "current_state": "HuggingFace has GGUF models. Ollama has a model library. But no edge-specific marketplace with per-device benchmarks and optimized artifacts for ExecuTorch, LiteRT, QNN, etc.",
+      "affected_tools": ["All"],
+      "target_users": "All edge LLM developers"
+    }
+  ],
+  "total_gaps": 20
+}
